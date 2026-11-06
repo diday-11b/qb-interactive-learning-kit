@@ -110,3 +110,79 @@ body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-hill{background:#9ec
 body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-hill-two{background:#7cbf9d!important}
 body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-intro-road{background:#dfbf8e!important}
 @media(max-width:650px){body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child{flex-wrap:wrap;gap:12px;min-height:0}body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child strong{min-width:0}body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child small{flex-basis:100%}#rabbit-game .rr-distance-ruler{font-size:10px}#rabbit-game .rr-roadway{height:125px}#rabbit-game .rr-track{padding-inline:10px}#rabbit-game .rr-track-status{padding:20px 16px}#rabbit-game .rr-track-status h2{font-size:24px}}
+
+/* Gameplay typography and layout stay distinct from the shared setup sheet. */
+#rabbit-game:not([data-phase="intro"]) {
+  --rr-ink: #153149;
+  --rr-accent: #087657;
+  color: var(--rr-ink);
+}
+#rabbit-game:not([data-phase="intro"]) :is(.rr-toolbar,.rr-hud,.rr-track,.rr-panel,.rr-lead,.rr-source) :is(p,span,strong,button,small,dt,dd,a),
+#rabbit-game:not([data-phase="intro"]) :is(.rr-lead,.rr-source) {
+  font-family: system-ui, sans-serif !important;
+}
+#rabbit-game #rr-screen>h1 { margin-bottom: 16px; }
+#rabbit-game .rr-hud {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 16px;
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 12px 18px;
+  border: 1px solid #b8d1d7;
+  font-variant-numeric: tabular-nums;
+}
+#rabbit-game .rr-hud strong { color: var(--rr-accent); font-size: 16px; font-weight: 750; }
+.rr-progress { width: 100%; height: 9px; accent-color: #087657; }
+.rr-turn-count { font-size: 12px; color: #496376; }
+#rabbit-game :is(.rr-question,.rr-track,.rr-track-status) { max-width: 900px; margin-inline: auto; }
+#rabbit-game .rr-track {
+  background: linear-gradient(#e0f5ff,#f0f8ed);
+  border: 1px solid #a8c8d2;
+  box-shadow: 0 8px 24px #15314912;
+  animation: rr-arrive 200ms ease-out both;
+}
+#rabbit-game .rr-track-sky { font-weight: 700; }
+#rabbit-game .rr-lane { border: 1px solid #a8c8d2; }
+#rabbit-game .rr-lane-label { font-variant-numeric: tabular-nums; }
+#rabbit-game .rr-lane-label strong { font-weight: 750; }
+#rabbit-game .rr-lane-label span { color: #19516b; font-weight: 750; }
+#rabbit-game .rr-roadway {
+  background: linear-gradient(180deg,#e7f4e8 0 19%,transparent 19% 82%,#e7f4e8 82%),
+    linear-gradient(180deg,#d1dedc,#b7ccca);
+}
+#rabbit-game .rr-roadway .rr-vehicle svg { filter: drop-shadow(0 4px 1px #15314930); }
+#rabbit-game .rr-track-status { padding: 16px 20px; margin-block: 14px; }
+#rabbit-game .rr-track-status h2 { font-size: clamp(22px,3vw,28px); margin-bottom: 6px; }
+#rabbit-game .rr-track-status p { margin: 0 0 12px; }
+#rabbit-game .rr-question {
+  padding: clamp(16px,4vw,36px);
+  margin-block: 16px;
+  min-height: auto;
+  border: 1px solid #b8d1d7;
+  box-shadow: 0 8px 24px #15314912;
+  animation: rr-arrive 200ms ease-out both;
+}
+#rabbit-game #rr-problem { margin: 0 0 10px; padding: 6px 0; font-variant-numeric: tabular-nums; }
+#rabbit-game .rr-repeat { min-height: 44px; margin-bottom: 16px; color: #155976; }
+#rabbit-game .rr-answers button { min-height: 76px; font-weight: 750; transition: box-shadow 150ms, transform 150ms; }
+#rabbit-game .rr-answers button:hover:not(:disabled) { transform: translateY(-2px); }
+#rabbit-game .rr-answers button:active:not(:disabled) { transform: translateY(0); }
+#rabbit-game .rr-primary { background: #087657; color: #fff; font-weight: 750; }
+#rabbit-game .rr-primary:hover:not(:disabled) { background: #065c45; }
+#rabbit-game .rr-feedback { margin-top: 14px; min-height: 0; }
+#rabbit-game .rr-feedback strong { font-size: 18px; font-weight: 750; }
+.rr-feedback-timer { display:block; height: 4px; margin-top: 12px; border-radius: 5px; background: #087657; transform-origin: left; animation: rr-feedback-countdown 2s linear both; }
+#rabbit-game .rr-results dd { font-weight: 750; font-variant-numeric: tabular-nums; }
+@keyframes rr-arrive { from {opacity: 0; transform: translateY(6px);} to {opacity: 1; transform: translateY(0);} }
+@keyframes rr-feedback-countdown { from {transform: scaleX(1);} to {transform: scaleX(0);} }
+@media(max-width:600px) {
+  #rabbit-game:not([data-phase="intro"]) .rr-toolbar>div { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  #rabbit-game .rr-toolbar button { padding: 8px 6px; font-size: 13px; }
+  #rabbit-game .rr-answers button { min-height: 64px; }
+  #rabbit-game .rr-hud { padding: 10px 12px; font-size: 13px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  #rabbit-game .rr-feedback-timer { display: none; }
+  #rabbit-game .rr-answers button:hover:not(:disabled) { transform: none; }
+}
