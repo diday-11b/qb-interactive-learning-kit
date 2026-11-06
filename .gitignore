@@ -1,0 +1,19 @@
+# Local credentials and environment files
+assets/supabase-config.js
+.env
+.env.*
+!.env.example
+# Generated files and local tooling
+node_modules/
+dist/
+.vercel/
+*.log
+*.pid
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.codex/
+.agents/
+supabase/.temp/
+supabase/.branches/

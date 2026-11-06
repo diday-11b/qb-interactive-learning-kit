@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dff3ff">
+  <title>Classroom Tools | QB Interactive Learning Kits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/qb-font.css?v=20261030-one-font">
+  <link rel="stylesheet" href="/assets/qb-classroom-tools.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="/assets/supabase-config.js"></script>
+  <script defer src="/assets/qb-supabase.js?v=google-2"></script>
+  <script defer src="/assets/qb-classroom-tools.js?v=20261026-1"></script>
+</head>
+<body>
+  <header class="ct-header">
+    <a class="ct-brand" href="/index.html" aria-label="QB Interactive Learning Kits home">
+      <span class="ct-brand-mark" aria-hidden="true">QB</span>
+      <span>QB Interactive<br>Learning Kits</span>
+    </a>
+    <nav class="ct-nav" aria-label="Teacher navigation">
+      <a href="/04._qb_teacher_dashboard/code.html">Dashboard</a>
+      <a href="/17._qb_classroom_student_roster_manager/code.html">Classes</a>
+      <a href="/06._qb_create_edit_question_set/code.html">Activities</a>
+      <a class="is-current" href="/20._qb_teacher_classroom_utility_suite/code.html" aria-current="page">Classroom tools</a>
+      <a href="/18._qb_user_profile_system_preferences/code.html">Settings</a>
+    </nav>
+    <button class="ct-button ct-button-light" id="sign-out" type="button" hidden>Sign out</button>
+  </header>
+
+  <main class="ct-main">
+    <section class="ct-intro" aria-labelledby="page-title">
+      <p class="ct-eyebrow">Teacher toolkit</p>
+      <h1 id="page-title">Make room for a little classroom magic!</h1>
+      <p>Pick a class, then use a quick tool to keep everyone learning and joining in.</p>
+    </section>
+
+    <div class="ct-status" id="tools-status" role="status" aria-live="polite">Connecting to your teacher account…</div>
+
+    <section class="ct-class-controls" aria-label="Choose a classroom">
+      <label for="class-select">Your class
+        <select id="class-select" disabled><option value="">Loading your classes…</option></select>
+      </label>
+      <label for="scope-select">Students to include
+        <select id="scope-select" disabled><option value="class">Whole class</option></select>
+      </label>
+      <p id="class-summary" class="ct-class-summary">Your authorized classes will appear here.</p>
+    </section>
+
+    <section class="ct-grid" aria-label="Classroom activities">
+      <article class="ct-card ct-wheel-card" aria-labelledby="wheel-title">
+        <div class="ct-card-heading"><span class="ct-icon" aria-hidden="true">🎡</span><div><h2 id="wheel-title">Pick a learner</h2><p>A fair random turn for the selected students.</p></div></div>
+        <div class="ct-wheel-wrap"><canvas id="student-wheel" width="480" height="480" aria-label="Random student picker"></canvas><span class="ct-wheel-pointer" aria-hidden="true">▼</span></div>
+        <div class="ct-actions"><button class="ct-button ct-button-primary" id="spin-button" type="button" disabled>Spin the wheel</button><button class="ct-button ct-button-light" id="reset-wheel" type="button" disabled>Reset turns</button></div>
+        <p class="ct-result" id="wheel-result" role="status" aria-live="polite">Choose a class to get started.</p>
+      </article>
+
+      <article class="ct-card" aria-labelledby="groups-title">
+        <div class="ct-card-heading"><span class="ct-icon ct-icon-mint" aria-hidden="true">🧩</span><div><h2 id="groups-title">Make balanced groups</h2><p>Every student is placed once, with group sizes kept as even as possible.</p></div></div>
+        <label class="ct-inline-label" for="group-count">Number of groups
+          <select id="group-count" disabled><option value="2">2 groups</option><option value="3">3 groups</option><option value="4">4 groups</option><option value="5">5 groups</option></select>
+        </label>
+        <div id="group-results" class="ct-group-results" aria-live="polite"><p class="ct-empty">Choose a class and make groups.</p></div>
+        <div class="ct-actions"><button class="ct-button ct-button-primary" id="generate-groups" type="button" disabled>Make groups</button><button class="ct-button ct-button-light" id="regroup" type="button" disabled>Shuffle again</button><button class="ct-button ct-button-light" id="reset-groups" type="button" disabled>Clear</button></div>
+      </article>
+
+      <article class="ct-card" aria-labelledby="dice-title">
+        <div class="ct-card-heading"><span class="ct-icon ct-icon-yellow" aria-hidden="true">🎲</span><div><h2 id="dice-title">Roll the dice</h2><p>Use a little chance to choose a turn or a challenge.</p></div></div>
+        <label class="ct-inline-label" for="dice-count">Dice
+          <select id="dice-count"><option value="1">One die</option><option value="2">Two dice</option><option value="3">Three dice</option></select>
+        </label>
+        <div class="ct-dice-result" id="dice-result" role="status" aria-live="polite"><span aria-hidden="true">🎲</span><span>Ready when you are!</span></div>
+        <p class="ct-dice-total" id="dice-total"></p>
+        <div class="ct-actions"><button class="ct-button ct-button-primary" id="roll-dice" type="button">Roll</button><button class="ct-button ct-button-light" id="reset-dice" type="button">Reset</button></div>
+      </article>
+
+      <article class="ct-card" aria-labelledby="activity-title">
+        <div class="ct-card-heading"><span class="ct-icon ct-icon-coral" aria-hidden="true">✨</span><div><h2 id="activity-title">Choose an activity</h2><p>Pick from published activities available to your account.</p></div></div>
+        <label class="ct-inline-label" for="activity-select">Available activity
+          <select id="activity-select" disabled><option value="">Loading published activities…</option></select>
+        </label>
+        <div class="ct-activity-result" id="activity-result" role="status" aria-live="polite">Select an activity or choose one at random.</div>
+        <div class="ct-actions"><button class="ct-button ct-button-primary" id="pick-activity" type="button" disabled>Choose randomly</button></div>
+      </article>
+
+      <article class="ct-card ct-stars-card" aria-labelledby="stars-title">
+        <div class="ct-card-heading"><span class="ct-icon ct-icon-yellow" aria-hidden="true">⭐</span><div><h2 id="stars-title">Class star chart</h2><p>A temporary classroom tally for this visit. It does not award saved rewards.</p></div></div>
+        <div id="star-chart" class="ct-star-chart"><p class="ct-empty">Choose a class to see its learners.</p></div>
+        <button class="ct-button ct-button-light" id="reset-stars" type="button" disabled>Clear today's tally</button>
+      </article>
+    </section>
+  </main>
+
+  <script defer src="/assets/qb-accessibility.js"></script>
+</body>
+</html>

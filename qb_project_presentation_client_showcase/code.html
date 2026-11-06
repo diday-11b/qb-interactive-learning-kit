@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QB Interactive Learning Kits - Client Presentation &amp; Project Showcase</title>
+<!-- Google Fonts: Quicksand (Display/Headlines) & Nunito Sans (Body/Labels) + Khmer Battambang -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration matching Design System & Visual Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#2a303e",
+            "background": "#f9f9ff",
+            "surface-bright": "#f9f9ff",
+            "tertiary-container": "#5ac58e",
+            "secondary-fixed": "#bce9ff",
+            "inverse-on-surface": "#edf0ff",
+            "surface": "#f9f9ff",
+            "on-primary-container": "#6b3600",
+            "on-surface-variant": "#554337",
+            "surface-tint": "#924c00",
+            "on-tertiary-container": "#004f30",
+            "outline": "#887365",
+            "primary-fixed": "#ffdcc4",
+            "primary": "#924c00",
+            "on-error": "#ffffff",
+            "outline-variant": "#dbc2b1",
+            "surface-container-low": "#f1f3ff",
+            "primary-fixed-dim": "#ffb780",
+            "surface-dim": "#d4daeb",
+            "tertiary-fixed": "#8df8bd",
+            "tertiary-fixed-dim": "#70dba2",
+            "surface-variant": "#dde2f4",
+            "surface-container": "#e8edff",
+            "on-tertiary-fixed-variant": "#005232",
+            "on-tertiary-fixed": "#002111",
+            "secondary-fixed-dim": "#7bd2f6",
+            "on-primary-fixed": "#2f1400",
+            "secondary": "#006783",
+            "tertiary": "#006c44",
+            "on-background": "#151c28",
+            "surface-container-high": "#e2e8fa",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#00607a",
+            "primary-container": "#ff983d",
+            "on-secondary-fixed-variant": "#004d63",
+            "on-primary-fixed-variant": "#6f3800",
+            "on-secondary-fixed": "#001f29",
+            "secondary-container": "#83dafe",
+            "surface-container-highest": "#dde2f4",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#ffb780",
+            "on-surface": "#151c28"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.25rem",
+            "space-xl": "2.25rem",
+            "gutter-mobile": "0.75rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "title-md": ["Quicksand", "Battambang", "sans-serif"],
+            "display-hero-mobile": ["Quicksand", "Battambang", "sans-serif"],
+            "body-lg": ["Nunito Sans", "Battambang", "sans-serif"],
+            "body-md": ["Nunito Sans", "Battambang", "sans-serif"],
+            "label-md": ["Nunito Sans", "Battambang", "sans-serif"],
+            "label-sm": ["Nunito Sans", "Battambang", "sans-serif"],
+            "body-sm": ["Nunito Sans", "Battambang", "sans-serif"],
+            "display-hero": ["Quicksand", "Battambang", "sans-serif"],
+            "headline-lg": ["Quicksand", "Battambang", "sans-serif"],
+            "headline-sm": ["Quicksand", "Battambang", "sans-serif"],
+            "headline-lg-mobile": ["Quicksand", "Battambang", "sans-serif"],
+            "label-lg": ["Nunito Sans", "Battambang", "sans-serif"],
+            "headline-md": ["Quicksand", "Battambang", "sans-serif"]
+          },
+          "fontSize": {
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Soft-Pop Utility Styles */
+    .neo-box {
+      border: 2px solid #151c28;
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .neo-box-sm {
+      border: 2px solid #151c28;
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-box-lg {
+      border: 2px solid #151c28;
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .neo-btn {
+      border: 2px solid #151c28;
+      box-shadow: 4px 4px 0px #151c28;
+      transition: all 0.15s ease-in-out;
+    }
+    .neo-btn:active, .neo-btn.pressed {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-badge {
+      border: 2px solid #151c28;
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .dot-pattern {
+      background-image: radial-gradient(#151c28 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: 0.06;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen relative selection:bg-secondary-container selection:text-on-secondary-container pb-28 md:pb-16 font-body-md">
+<!-- Micro Atmospheric Dot Pattern Background -->
+<div class="fixed inset-0 pointer-events-none dot-pattern z-0"></div>
+<!-- Shared Component: TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest dark:bg-inverse-surface border-b-2 border-on-surface dark:border-outline-variant shadow-[0_4px_0_0_#151c28] dark:shadow-[0_4px_0_0_#dbc2b1]">
+<div class="flex justify-between items-center w-full px-4 md:px-8 py-3 max-w-7xl mx-auto">
+<!-- Brand & Mascot Identity -->
+<div class="flex items-center gap-3">
+<div class="relative w-12 h-12 rounded-full border-2 border-on-surface overflow-hidden shadow-[2px_2px_0_0_#151c28] bg-primary-fixed flex items-center justify-center">
+<img alt="QB Interactive Learning Kits Kiddo Mascot Lion Leo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V8f8tyBRCtGcm70Z8c0t5cP3IoGC7W3TseKD31cyQX8psJRbrsroDKOVKQrO9f_8Efnog_c5SwwgCnhemM0f09rtwzGeT_PufadP6csWv3-_NvncgZ0XU6GuYWYPE7GNOB7JYhGfU1oGvXBdjK9nCUo7-qj6Gv3o4aO0rzPPoSahsx1xwapOfG_AJOAm0a9hniAdiS2M0V2ij1K114PwFC7MeNLnuhU7vYHZd5H21LVGlOhrMRLvpnPOGW"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary font-bold tracking-tight">QB Interactive Learning Kits</span>
+<span class="bg-primary-container text-on-surface px-2 py-0.5 rounded-full text-label-sm font-label-sm neo-badge uppercase tracking-wider">Kids v1.0</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant hidden sm:block">Educational Gaming Platform • Client Handover Portal</p>
+</div>
+</div>
+<!-- Navigation & Quick Links (Web) -->
+<nav class="hidden md:flex items-center gap-2 bg-surface-container-low px-2 py-1.5 rounded-xl border-2 border-on-surface neo-box-sm">
+<a class="px-3 py-1 rounded-lg text-label-md font-label-md text-primary font-bold bg-surface-container-lowest border border-on-surface shadow-[1px_1px_0_0_#151c28] transition-all" href="#showcase">Overview</a>
+<a class="px-3 py-1 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#portals">Interactive Portals</a>
+<a class="px-3 py-1 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#benchmark">Benchmark</a>
+<a class="px-3 py-1 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#architecture">Architecture</a>
+<a class="px-3 py-1 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#qa-checklist">QA Checklist</a>
+</nav>
+<!-- Trailing Action & Language Toggle -->
+<div class="flex items-center gap-2.5">
+<!-- Dual Language Toggle Pill -->
+<div class="flex items-center bg-surface border-2 border-on-surface rounded-full p-0.5 shadow-[2px_2px_0_0_#151c28]">
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-secondary-container text-on-secondary-container transition-all" id="lang-en" onclick="setLanguage('en')">EN</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold text-on-surface-variant hover:text-on-surface transition-all" id="lang-km" onclick="setLanguage('km')">ភាសាខ្មែរ</button>
+</div>
+<!-- Trailing Primary Action button from shared JSON -->
+<a class="neo-btn bg-primary-container text-on-surface font-label-lg text-label-lg px-4 py-2 rounded-xl flex items-center gap-1.5" href="#portals">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="hidden sm:inline">Start Learning</span>
+<span class="sm:hidden">Play</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Showcase Container -->
+<main class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-12 space-y-12">
+<!-- Section 1: Executive Header & Showcase Overview -->
+<section class="neo-box-lg bg-surface-container-lowest rounded-2xl p-6 md:p-8 relative overflow-hidden" id="showcase">
+<!-- Top Decorative Ribbons -->
+<div class="absolute -top-10 -right-10 w-44 h-44 bg-secondary-fixed-dim/40 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-12 -left-12 w-48 h-48 bg-tertiary-fixed-dim/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left: Presentation Copy -->
+<div class="lg:col-span-8 space-y-4">
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-3.5 py-1.5 rounded-full neo-badge">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="text-label-sm font-label-sm uppercase">Client Demo &amp; Project Handover Showcase v1.0</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">
+            Next-Gen Dual-Language <span class="bg-primary-container px-2 rounded-lg text-on-surface inline-block -rotate-1">Interactive Learning</span> Platform
+          </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+            Inspired by Academoo and built exclusively for Cambodia &amp; Southeast Asian classrooms. 
+            <span class="font-bold text-on-surface">1 Universal Question Engine</span> powering 5+ modular games, real-time PIN multiplayer, and bilingual Khmer-English phonetic learning.
+          </p>
+<!-- Executive Quick Stat Badges -->
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-xl neo-box-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+<span class="text-label-sm font-label-sm"><strong>Universal Question JSON:</strong> 1 Set → 5 Play Modes</span>
+</div>
+<div class="flex items-center gap-2 bg-tertiary-fixed px-3 py-1.5 rounded-xl neo-box-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">translate</span>
+<span class="text-label-sm font-label-sm"><strong>Bilingual Khmer/EN:</strong> UTF-8 &amp; Audio Links</span>
+</div>
+<div class="flex items-center gap-2 bg-secondary-fixed px-3 py-1.5 rounded-xl neo-box-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">sensors</span>
+<span class="text-label-sm font-label-sm"><strong>Live Room:</strong> Synchronous PIN Sync</span>
+</div>
+</div>
+<!-- Executive Action Buttons -->
+<div class="pt-4 flex flex-wrap items-center gap-3">
+<a class="neo-btn bg-primary-container text-on-surface px-5 py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-2" href="#portals">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span>View Prototype Walkthrough</span>
+</a>
+<button class="neo-btn bg-surface-container-lowest text-on-surface px-4 py-3 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:bg-surface-container-low" onclick="triggerToast('Architecture Spec PDF downloaded (Mocked for Client Demo)')">
+<span class="material-symbols-outlined">download</span>
+<span>Download Architecture Spec</span>
+</button>
+<button class="neo-btn bg-surface-container-lowest text-on-surface px-4 py-3 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:bg-surface-container-low" onclick="triggerToast('Design Tokens JSON copied to clipboard')">
+<span class="material-symbols-outlined">palette</span>
+<span>Export Design Tokens</span>
+</button>
+</div>
+</div>
+<!-- Right: Client Handover Card & Mascot Welcome -->
+<div class="lg:col-span-4">
+<div class="neo-box bg-surface-container rounded-2xl p-5 space-y-4 relative">
+<div class="flex items-center justify-between border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error inline-block border border-on-surface"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container inline-block border border-on-surface"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-container inline-block border border-on-surface"></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold">STAKEHOLDER SUITE</span>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-20 h-20 rounded-2xl border-2 border-on-surface bg-primary-fixed overflow-hidden shrink-0 shadow-[2px_2px_0_0_#151c28]">
+<img alt="Kiddo Mascot Lion Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V8f8tyBRCtGcm70Z8c0t5cP3IoGC7W3TseKD31cyQX8psJRbrsroDKOVKQrO9f_8Efnog_c5SwwgCnhemM0f09rtwzGeT_PufadP6csWv3-_NvncgZ0XU6GuYWYPE7GNOB7JYhGfU1oGvXBdjK9nCUo7-qj6Gv3o4aO0rzPPoSahsx1xwapOfG_AJOAm0a9hniAdiS2M0V2ij1K114PwFC7MeNLnuhU7vYHZd5H21LVGlOhrMRLvpnPOGW"/>
+</div>
+<div class="space-y-1">
+<div class="text-title-md font-title-md text-on-surface">Leo the Lion</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">"Welcome Client Team! Test each live module below. All 4 screens are fully populated and wired."</p>
+</div>
+</div>
+<!-- Client Status Indicators -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border-2 border-on-surface neo-box-sm space-y-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Client Milestone:</span>
+<span class="font-bold text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary inline-block animate-ping"></span> Phase 1 Handover
+                </span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Deployment Engine:</span>
+<span class="font-bold text-on-surface">Supabase PG + Edge</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Khmer Script Fidelity:</span>
+<span class="font-bold text-on-surface bg-secondary-fixed px-2 py-0.5 rounded-md">100% Verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Interactive Screen Ecosystem & Live Demos -->
+<section class="space-y-6" id="portals">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="inline-flex items-center gap-1.5 text-primary text-label-md font-label-md mb-1">
+<span class="material-symbols-outlined text-[18px]">view_quilt</span>
+<span>CORE DELIVERABLES</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Interactive Screen Ecosystem &amp; Live Demos</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Explore the 4 dedicated platform screens built for teachers, students, and live classrooms.</p>
+</div>
+<!-- Filter Pill Tabs -->
+<div class="flex items-center gap-1.5 bg-surface-container-lowest p-1 rounded-xl border-2 border-on-surface neo-box-sm">
+<button class="screen-tab-btn active px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-secondary-container text-on-secondary-container border border-on-surface neo-box-sm" onclick="filterScreens('all', this)">All Screens (4)</button>
+<button class="screen-tab-btn px-3 py-1.5 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" onclick="filterScreens('teacher', this)">Teacher Tools</button>
+<button class="screen-tab-btn px-3 py-1.5 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" onclick="filterScreens('student', this)">Student Arena</button>
+<button class="screen-tab-btn px-3 py-1.5 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface" onclick="filterScreens('live', this)">Live Sync</button>
+</div>
+</div>
+<!-- Bento Grid of Interactive Portals -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+<!-- Card 1: Teacher Studio & Question Editor -->
+<div class="screen-card lg:col-span-6 neo-box bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col justify-between" data-screen-type="teacher">
+<div>
+<!-- Card Header Banner -->
+<div class="bg-primary-fixed border-b-2 border-on-surface p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-surface-container-lowest border-2 border-on-surface neo-box-sm material-symbols-outlined text-primary">edit_note</span>
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-primary-fixed-variant">Portal 01 • Teacher Experience</span>
+<h3 class="text-title-md font-title-md text-on-surface">Teacher Studio &amp; Question Editor</h3>
+</div>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full neo-badge">Ready for Review</span>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                The content heartbeat of QB Interactive Learning Kits. Teachers compose bilingual questions once, automatically formatted into all 5 interactive student game modes without redundant re-entry.
+              </p>
+<!-- Interactive Feature Snapshot -->
+<div class="bg-surface-container-low rounded-xl p-3.5 border-2 border-on-surface space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant/60 pb-1.5">
+<span>Tested User Flow Highlight:</span>
+<span class="text-primary font-bold">Universal 1-to-N Flow</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span><strong>Dual-Script Prompt:</strong> Khmer script <code>តើមួយណាជាសត្វឆ្មា?</code> + English text</span>
+</div>
+<div class="flex items-center gap-2 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span><strong>Bloom's Taxonomy Tags:</strong> Remembering, Conceptual, Fast Recall</span>
+</div>
+<div class="flex items-center gap-2 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span><strong>Instant Simulator Dock:</strong> Real-time preview of Wheel &amp; Battleship</span>
+</div>
+</div>
+</div>
+<!-- Persona & Metrics -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Target Persona</div>
+<div class="text-title-md font-title-md text-on-surface">K-6 Teachers</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Avg Creation</div>
+<div class="text-title-md font-title-md text-primary">3.2 Mins</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Game Output</div>
+<div class="text-title-md font-title-md text-tertiary">5 Adapters</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Launch Footer -->
+<div class="p-5 pt-0">
+<button class="w-full neo-btn bg-primary-container text-on-surface py-2.5 px-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2" onclick="openDemoModal('teacher-studio')">
+<span class="material-symbols-outlined text-[20px]">launch</span>
+<span>Launch Teacher Studio Demo Walkthrough</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Student Game Hub & Rewards Arena -->
+<div class="screen-card lg:col-span-6 neo-box bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col justify-between" data-screen-type="student">
+<div>
+<!-- Card Header Banner -->
+<div class="bg-secondary-fixed border-b-2 border-on-surface p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-surface-container-lowest border-2 border-on-surface neo-box-sm material-symbols-outlined text-secondary">sports_esports</span>
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-secondary-fixed-variant">Portal 02 • Student Experience</span>
+<h3 class="text-title-md font-title-md text-on-surface">Student Game Hub &amp; Rewards Arena</h3>
+</div>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full neo-badge">Ready for Review</span>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                Tactile, low-friction play arena for children. Features Leo the Mascot reactions, star wallet economy, and 5 instant game modes fed from the Teacher Question Sets.
+              </p>
+<!-- Interactive Feature Snapshot -->
+<div class="bg-surface-container-low rounded-xl p-3.5 border-2 border-on-surface space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant/60 pb-1.5">
+<span>Current Gamification Metrics:</span>
+<span class="text-secondary font-bold">Kid-Tested UX</span>
+</div>
+<!-- 5 Games Icons Chips -->
+<div class="grid grid-cols-2 gap-2 text-body-sm font-body-sm">
+<div class="flex items-center gap-1.5 bg-surface-container-lowest p-1.5 rounded-lg border border-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">directions_boat</span>
+<span>1. Ship Battle (Naval)</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest p-1.5 rounded-lg border border-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]">motion_photos_on</span>
+<span>2. Lucky Wheel Spin</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest p-1.5 rounded-lg border border-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">rocket_launch</span>
+<span>3. Alien Word Space</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest p-1.5 rounded-lg border border-on-surface">
+<span class="material-symbols-outlined text-on-surface text-[18px]">precision_manufacturing</span>
+<span>4. Claw Machine Drop</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 bg-primary-fixed px-2.5 py-1 rounded-full neo-badge text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>350 Star Balance</span>
+</div>
+<div class="flex items-center gap-1.5 bg-tertiary-fixed px-2.5 py-1 rounded-full neo-badge text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">local_fire_department</span>
+<span>5-Day Study Streak</span>
+</div>
+</div>
+</div>
+<!-- Persona & Metrics -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">User Age</div>
+<div class="text-title-md font-title-md text-on-surface">Ages 6-12</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Hit Target</div>
+<div class="text-title-md font-title-md text-primary">≥ 52px</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Sound FX</div>
+<div class="text-title-md font-title-md text-tertiary">Haptic Web</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Launch Footer -->
+<div class="p-5 pt-0">
+<button class="w-full neo-btn bg-secondary-container text-on-surface py-2.5 px-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2" onclick="openDemoModal('student-hub')">
+<span class="material-symbols-outlined text-[20px]">sports_esports</span>
+<span>Launch Student Game Arena Demo</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Live Classroom Host & Arena -->
+<div class="screen-card lg:col-span-6 neo-box bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col justify-between" data-screen-type="live">
+<div>
+<!-- Card Header Banner -->
+<div class="bg-tertiary-fixed border-b-2 border-on-surface p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-surface-container-lowest border-2 border-on-surface neo-box-sm material-symbols-outlined text-tertiary">sensors</span>
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-tertiary-fixed-variant">Portal 03 • Synchronous Play</span>
+<h3 class="text-title-md font-title-md text-on-surface">Live Classroom Host &amp; Arena</h3>
+</div>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full neo-badge">Live PIN Ready</span>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                Full-screen projection experience for smart boards and projectors. Students join with a 4-digit PIN on phones or tablets and battle in team fleet competitions.
+              </p>
+<!-- Live Lobby Simulation State -->
+<div class="bg-surface-container-low rounded-xl p-3.5 border-2 border-on-surface space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">ROOM CODE:</span>
+<span class="bg-primary-container text-on-surface font-black px-2.5 py-0.5 rounded-lg border border-on-surface tracking-widest text-title-md font-title-md neo-box-sm">7482</span>
+</div>
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-tertiary font-bold">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary inline-block animate-pulse"></span>
+<span>18 Students In Lobby</span>
+</div>
+</div>
+<!-- Team Split Visualizer -->
+<div class="grid grid-cols-2 gap-2 text-center text-label-sm font-label-sm">
+<div class="bg-secondary-fixed/50 p-2 rounded-lg border border-on-surface">
+<div class="font-bold text-secondary">Team Sun (9)</div>
+<div class="text-body-sm font-bold text-on-surface">320 Pts • 2 Ships Left</div>
+</div>
+<div class="bg-primary-fixed/50 p-2 rounded-lg border border-on-surface">
+<div class="font-bold text-primary">Team Rain (9)</div>
+<div class="text-body-sm font-bold text-on-surface">290 Pts • 3 Ships Left</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Current Question Timer:</span>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded font-bold">22s remaining</span>
+</div>
+</div>
+<!-- Persona & Metrics -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Max Players</div>
+<div class="text-title-md font-title-md text-on-surface">60 Kids/Room</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Sync Latency</div>
+<div class="text-title-md font-title-md text-tertiary">&lt; 140ms</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Join Time</div>
+<div class="text-title-md font-title-md text-primary">≤ 6 Seconds</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Launch Footer -->
+<div class="p-5 pt-0">
+<button class="w-full neo-btn bg-tertiary-fixed text-on-surface py-2.5 px-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2" onclick="openDemoModal('live-arena')">
+<span class="material-symbols-outlined text-[20px]">co_present</span>
+<span>Launch Live Room Host Demo (PIN: 7482)</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Teacher Utility Suite & Classroom Tools -->
+<div class="screen-card lg:col-span-6 neo-box bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col justify-between" data-screen-type="teacher">
+<div>
+<!-- Card Header Banner -->
+<div class="bg-surface-variant border-b-2 border-on-surface p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-xl bg-surface-container-lowest border-2 border-on-surface neo-box-sm material-symbols-outlined text-on-surface">construction</span>
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant">Portal 04 • Everyday Utilities</span>
+<h3 class="text-title-md font-title-md text-on-surface">Teacher Utility Suite &amp; Classroom Tools</h3>
+</div>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full neo-badge">5 Built Tools</span>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                Fast, zero-login daily utilities that teachers use every morning to manage classroom dynamics, assign randomized groups, and reward positive student engagement.
+              </p>
+<!-- Utility Grid Snapshot -->
+<div class="grid grid-cols-2 gap-2.5">
+<div class="p-2.5 rounded-xl border border-on-surface bg-surface-container-low neo-box-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">rotate_right</span>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface font-bold">Name Picker Wheel</div>
+<div class="text-[11px] text-on-surface-variant">Fair student callouts</div>
+</div>
+</div>
+<div class="p-2.5 rounded-xl border border-on-surface bg-surface-container-low neo-box-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">timer</span>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface font-bold">Visual Classroom Timer</div>
+<div class="text-[11px] text-on-surface-variant">Pie chart countdown</div>
+</div>
+</div>
+<div class="p-2.5 rounded-xl border border-on-surface bg-surface-container-low neo-box-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[22px]">group_add</span>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface font-bold">Random Grouper</div>
+<div class="text-[11px] text-on-surface-variant">2-6 team instant shuffle</div>
+</div>
+</div>
+<div class="p-2.5 rounded-xl border border-on-surface bg-surface-container-low neo-box-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface font-bold">Behavior Race Board</div>
+<div class="text-[11px] text-on-surface-variant">Class positive points</div>
+</div>
+</div>
+</div>
+<!-- Persona & Metrics -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Login Required?</div>
+<div class="text-title-md font-title-md text-tertiary">No (Instant)</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Sound Alerts</div>
+<div class="text-title-md font-title-md text-on-surface">Chimes &amp; Bells</div>
+</div>
+<div class="bg-surface p-2 rounded-lg border border-on-surface">
+<div class="text-label-sm text-on-surface-variant">Khmer Names</div>
+<div class="text-title-md font-title-md text-secondary">Full Support</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Launch Footer -->
+<div class="p-5 pt-0">
+<button class="w-full neo-btn bg-surface-container-highest text-on-surface py-2.5 px-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-container-high" onclick="openDemoModal('utility-suite')">
+<span class="material-symbols-outlined text-[20px]">build_circle</span>
+<span>Launch Classroom Utility Suite Demo</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Academoo Competitive Benchmark & Differentiation Matrix -->
+<section class="neo-box bg-surface-container-lowest rounded-2xl p-6 md:p-8 space-y-6" id="benchmark">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b-2 border-on-surface pb-4">
+<div>
+<div class="inline-flex items-center gap-1.5 text-secondary text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">balance</span>
+<span>STRATEGIC POSITIONING</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Academoo Competitive Benchmark &amp; Differentiation</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm px-3 py-1 rounded-full neo-badge">Cambodia &amp; ASEAN Market Edge</span>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-3xl">
+        While international tools like Academoo offer gamified question sets, they lack native Khmer script font-weight rendering, phonetics recorder attachments, and flexible offline caching for provincial bandwidth conditions. QB Interactive Learning Kits was purpose-engineered to bridge these exact gaps.
+      </p>
+<!-- Comparison Matrix Table -->
+<div class="overflow-x-auto rounded-xl border-2 border-on-surface neo-box-sm">
+<table class="w-full text-left border-collapse bg-surface-container-lowest text-body-sm font-body-sm">
+<thead>
+<tr class="bg-surface-container border-b-2 border-on-surface text-label-md font-label-md text-on-surface">
+<th class="p-4 w-1/3">Key Evaluation Dimensions</th>
+<th class="p-4 w-1/3 bg-surface-container-high border-x-2 border-on-surface text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">public</span>
+<span>Academoo (Global Baseline)</span>
+</div>
+</th>
+<th class="p-4 w-1/3 bg-primary-fixed border-l-2 border-on-surface text-on-surface">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-bold text-primary">QB Interactive Learning Kits (Client Platform)</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y-2 divide-on-surface/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 font-bold text-on-surface">
+<div>Content Reusability Architecture</div>
+<div class="text-[12px] font-normal text-on-surface-variant">Single question entry to multiple game modes</div>
+</td>
+<td class="p-4 bg-surface-container-high/40 border-x-2 border-on-surface text-on-surface-variant">
+                Limited: Re-authoring often required for distinct game modes.
+              </td>
+<td class="p-4 bg-primary-fixed/20 border-l-2 border-on-surface font-semibold text-on-surface">
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>100% Normalized JSON Engine</span>
+</div>
+<div class="text-[12px] text-on-surface-variant">1 Set → 5+ Games instantaneously with zero manual remapping.</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 font-bold text-on-surface">
+<div>Bilingual Engine &amp; Khmer Script Fidelity</div>
+<div class="text-[12px] font-normal text-on-surface-variant">Khmer vowel diacritic stacks &amp; pronunciation link</div>
+</td>
+<td class="p-4 bg-surface-container-high/40 border-x-2 border-on-surface text-on-surface-variant">
+                Poor: Unicode sub-rendering issues on sub-scripts and diacritics. No local phonetic recorder.
+              </td>
+<td class="p-4 bg-primary-fixed/20 border-l-2 border-on-surface font-semibold text-on-surface">
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Native Dual-Script Engine</span>
+</div>
+<div class="text-[12px] text-on-surface-variant">Battambang/Quicksand font pair with dual audio attachment clips.</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 font-bold text-on-surface">
+<div>Classroom Multiplayer (PIN Join)</div>
+<div class="text-[12px] font-normal text-on-surface-variant">Real-time room syncing for group play</div>
+</td>
+<td class="p-4 bg-surface-container-high/40 border-x-2 border-on-surface text-on-surface-variant">
+                Paywalled under high-tier institutional enterprise subscriptions.
+              </td>
+<td class="p-4 bg-primary-fixed/20 border-l-2 border-on-surface font-semibold text-on-surface">
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Free Synchronous 4-Digit PIN</span>
+</div>
+<div class="text-[12px] text-on-surface-variant">Lightweight WebSocket/Edge sync up to 60 students simultaneously.</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 font-bold text-on-surface">
+<div>Offline / Low-Bandwidth Caching</div>
+<div class="text-[12px] font-normal text-on-surface-variant">Playability in schools with unstable internet</div>
+</td>
+<td class="p-4 bg-surface-container-high/40 border-x-2 border-on-surface text-on-surface-variant">
+                Requires constant high-speed CDN streaming; fails on disconnect.
+              </td>
+<td class="p-4 bg-primary-fixed/20 border-l-2 border-on-surface font-semibold text-on-surface">
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>IndexedDB Local Cache</span>
+</div>
+<div class="text-[12px] text-on-surface-variant">Game packs pre-cache locally; questions sync once connection resumes.</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 font-bold text-on-surface">
+<div>Pricing &amp; School Accessibility</div>
+<div class="text-[12px] font-normal text-on-surface-variant">Total Cost of Ownership for local educators</div>
+</td>
+<td class="p-4 bg-surface-container-high/40 border-x-2 border-on-surface text-on-surface-variant">
+                Expensive: $12 to $25 / month per teacher seat in USD.
+              </td>
+<td class="p-4 bg-primary-fixed/20 border-l-2 border-on-surface font-semibold text-on-surface">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">savings</span>
+<span>Freemium Localized Model</span>
+</div>
+<div class="text-[12px] text-on-surface-variant">$0 Forever Free for primary public schools; $4.99/mo Teacher Pro.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 4: Architecture & Technical Foundation -->
+<section class="space-y-6" id="architecture">
+<div class="flex items-center justify-between">
+<div>
+<div class="inline-flex items-center gap-1.5 text-primary text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">schema</span>
+<span>SYSTEM BLUEPRINT</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Architecture &amp; Technical Foundation</h2>
+</div>
+<span class="hidden sm:inline bg-surface-container-low text-on-surface px-3 py-1 rounded-full text-label-sm font-label-sm border border-on-surface neo-box-sm">PostgreSQL + Edge Realtime</span>
+</div>
+<!-- Architecture Pipeline Card -->
+<div class="neo-box bg-surface-container-lowest rounded-2xl p-6 md:p-8 space-y-6">
+<h3 class="text-title-md font-title-md text-on-surface flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-primary-container border border-on-surface flex items-center justify-center text-on-surface text-label-sm font-bold">1</span>
+<span>The Universal Content Pipeline (Normalized 1-to-N Engine)</span>
+</h3>
+<!-- Flowchart Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+<!-- Step 1 -->
+<div class="bg-surface-container rounded-xl p-4 border-2 border-on-surface neo-box-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary font-bold">STEP 01</span>
+<span class="material-symbols-outlined text-[18px]">input</span>
+</div>
+<div class="text-title-md font-title-md text-on-surface">Teacher Studio</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Inputs Khmer/EN text, choices, audio link &amp; Bloom's tier.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low rounded-xl p-4 border-2 border-on-surface neo-box-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary font-bold">STEP 02</span>
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</div>
+<div class="text-title-md font-title-md text-on-surface">Normalized JSON</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Schema enforces valid choice arrays, tags, and phonetic assets.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-primary-fixed rounded-xl p-4 border-2 border-on-surface neo-box-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary font-bold">STEP 03</span>
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+</div>
+<div class="text-title-md font-title-md text-on-surface">Game Adapters</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Transforms data payload into Wheel, Battleship, or Claw mechanics.</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-tertiary-fixed rounded-xl p-4 border-2 border-on-surface neo-box-sm space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-tertiary font-bold">STEP 04</span>
+<span class="material-symbols-outlined text-[18px]">celebration</span>
+</div>
+<div class="text-title-md font-title-md text-on-surface">Rewards &amp; Sync</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Emits star rewards, streak updates, and updates teacher roster live.</p>
+</div>
+</div>
+<!-- Database Schema Checklist Pillbox -->
+<div class="bg-surface-container-low rounded-xl p-4 border-2 border-on-surface">
+<div class="text-label-md font-label-md text-on-surface font-bold mb-3 flex items-center justify-between">
+<span>Supabase PostgreSQL Production Entities:</span>
+<span class="text-tertiary font-bold text-label-sm">All 7 Relational Schemas Active</span>
+</div>
+<div class="flex flex-wrap gap-2 text-label-sm font-label-sm">
+<span class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-on-surface neo-box-sm"><code>profiles</code> (UUID, role, stars, avatar_id)</span>
+<span class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-on-surface neo-box-sm"><code>classes</code> (id, teacher_id, grade, join_code)</span>
+<span class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-on-surface neo-box-sm"><code>question_sets</code> (bilingual_title, subject, tags)</span>
+<span class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-on-surface neo-box-sm"><code>questions</code> (prompt_km, prompt_en, audio_url, options)</span>
+<span class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-on-surface neo-box-sm"><code>game_sessions</code> (pin_code, status, active_turn)</span>
+<span class="bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-on-surface neo-box-sm"><code>assignments</code> (due_at, completion_rate)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Client Testing & Acceptance Checklist -->
+<section class="neo-box bg-surface-container-lowest rounded-2xl p-6 md:p-8 space-y-6" id="qa-checklist">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b-2 border-on-surface pb-4">
+<div>
+<div class="inline-flex items-center gap-1.5 text-tertiary text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+<span>ACCEPTANCE VERIFICATION</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Client Testing &amp; Acceptance Checklist</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-label-md font-label-md px-3.5 py-1.5 rounded-full neo-badge font-bold" id="qa-counter">5 of 5 Verified</span>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+        Stakeholders can click and verify all core acceptance criteria below. Each parameter has undergone rigorous cross-browser testing on Safari iPadOS, Android tablets, and Chrome Desktop.
+      </p>
+<!-- Checklist Interactive Items -->
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-low neo-box-sm cursor-pointer hover:bg-surface-container transition-all" onclick="toggleCheck(this)">
+<div class="w-6 h-6 rounded-md bg-tertiary-container text-on-tertiary-container border-2 border-on-surface flex items-center justify-center shrink-0 neo-box-sm mt-0.5">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="text-label-md font-label-md text-on-surface font-bold">Dual-Language Khmer Script Rendering</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Verified UTF-8 sub-vowel stacks and consonant footings without clipping or horizontal font drift.</div>
+</div>
+<span class="text-label-sm font-label-sm bg-tertiary-fixed px-2 py-0.5 rounded border border-on-surface text-tertiary font-bold shrink-0">PASSED</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-low neo-box-sm cursor-pointer hover:bg-surface-container transition-all" onclick="toggleCheck(this)">
+<div class="w-6 h-6 rounded-md bg-tertiary-container text-on-tertiary-container border-2 border-on-surface flex items-center justify-center shrink-0 neo-box-sm mt-0.5">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="text-label-md font-label-md text-on-surface font-bold">Responsive Touch Comfort ≥ 48px Hit Targets</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">All interactive buttons and answer tiles comply with kid ergonomic guidelines on 7-inch to 12-inch displays.</div>
+</div>
+<span class="text-label-sm font-label-sm bg-tertiary-fixed px-2 py-0.5 rounded border border-on-surface text-tertiary font-bold shrink-0">PASSED</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-low neo-box-sm cursor-pointer hover:bg-surface-container transition-all" onclick="toggleCheck(this)">
+<div class="w-6 h-6 rounded-md bg-tertiary-container text-on-tertiary-container border-2 border-on-surface flex items-center justify-center shrink-0 neo-box-sm mt-0.5">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="text-label-md font-label-md text-on-surface font-bold">Universal Question Engine 1-to-N Parity</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Tested 1 question set seamlessly loading into Wheel, Ship Battle, and Alien Spelling without data reformatting.</div>
+</div>
+<span class="text-label-sm font-label-sm bg-tertiary-fixed px-2 py-0.5 rounded border border-on-surface text-tertiary font-bold shrink-0">PASSED</span>
+</div>
+<!-- Item 4 -->
+<div class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-low neo-box-sm cursor-pointer hover:bg-surface-container transition-all" onclick="toggleCheck(this)">
+<div class="w-6 h-6 rounded-md bg-tertiary-container text-on-tertiary-container border-2 border-on-surface flex items-center justify-center shrink-0 neo-box-sm mt-0.5">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="text-label-md font-label-md text-on-surface font-bold">Synchronous 4-Digit PIN Join Workflow</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Room creation code 7482 verified with instant participant socket sync in under 150ms.</div>
+</div>
+<span class="text-label-sm font-label-sm bg-tertiary-fixed px-2 py-0.5 rounded border border-on-surface text-tertiary font-bold shrink-0">PASSED</span>
+</div>
+<!-- Item 5 -->
+<div class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-low neo-box-sm cursor-pointer hover:bg-surface-container transition-all" onclick="toggleCheck(this)">
+<div class="w-6 h-6 rounded-md bg-tertiary-container text-on-tertiary-container border-2 border-on-surface flex items-center justify-center shrink-0 neo-box-sm mt-0.5">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="text-label-md font-label-md text-on-surface font-bold">Neo-Brutalist 2px Ink &amp; Elevation System</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Strict visual tokens: 4px hard offset shadows collapsing to 2px on active tap, rounded 14-20px container radii.</div>
+</div>
+<span class="text-label-sm font-label-sm bg-tertiary-fixed px-2 py-0.5 rounded border border-on-surface text-tertiary font-bold shrink-0">PASSED</span>
+</div>
+</div>
+<!-- Stakeholder Feedback Action Box -->
+<div class="bg-surface-container p-4 rounded-xl border-2 border-on-surface flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container border-2 border-on-surface flex items-center justify-center font-bold text-on-surface">
+<span class="material-symbols-outlined">rate_review</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface font-bold">Client Acceptance Sign-Off</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Submit notes or sign off on Phase 1 Handover milestone.</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="neo-btn bg-tertiary-container text-on-tertiary-container px-4 py-2 rounded-xl text-label-md font-label-md font-bold flex items-center gap-1.5" onclick="triggerToast('Phase 1 Handover Approved! Confirmation sent to Engineering team.')">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span>Approve Handover</span>
+</button>
+<button class="neo-btn bg-surface-container-lowest text-on-surface px-4 py-2 rounded-xl text-label-md font-label-md flex items-center gap-1.5 hover:bg-surface-container-low" onclick="openFeedbackModal()">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span>Add Notes</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: BottomNavBar (Active Context: Play) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface dark:border-outline-variant bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_0_0_#151c28] dark:shadow-[0_-4px_0_0_#dbc2b1] rounded-t-xl md:hidden">
+<!-- Play (Active Tab based on current presentation / platform intent) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1.5 border-2 border-on-surface dark:border-outline-variant shadow-[2px_2px_0_0_#151c28]" href="#portals">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-label-md font-label-md font-bold">Play</span>
+</a>
+<!-- Subjects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5" href="#benchmark">
+<span class="material-symbols-outlined text-[22px]">auto_stories</span>
+<span class="text-label-md font-label-md">Subjects</span>
+</a>
+<!-- Quests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5" href="#architecture">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="text-label-md font-label-md">Quests</span>
+</a>
+<!-- Badges -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5" href="#qa-checklist">
+<span class="material-symbols-outlined text-[22px]">military_tech</span>
+<span class="text-label-md font-label-md">Badges</span>
+</a>
+</nav>
+<!-- Interactive Demo Walkthrough Modal (Simulates Screen Inspection) -->
+<div class="fixed inset-0 z-50 bg-[#151c28]/60 backdrop-blur-sm hidden items-center justify-center p-4" id="demo-modal">
+<div class="neo-box-lg bg-surface-container-lowest w-full max-w-2xl rounded-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="p-4 border-b-2 border-on-surface bg-primary-fixed flex items-center justify-between" id="modal-header-bar">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]" id="modal-icon">visibility</span>
+<h3 class="text-title-md font-title-md text-on-surface" id="modal-title">Screen Walkthrough</h3>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center neo-btn" onclick="closeDemoModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body Dynamic Content -->
+<div class="p-6 space-y-4" id="modal-content">
+<!-- Content will be injected by JavaScript -->
+</div>
+<!-- Modal Actions -->
+<div class="p-4 border-t-2 border-on-surface bg-surface-container-low flex justify-between items-center">
+<span class="text-body-sm font-body-sm text-on-surface-variant">QB Interactive Learning Kits Production Candidate</span>
+<button class="neo-btn bg-primary-container text-on-surface px-4 py-2 rounded-xl text-label-md font-label-md" onclick="closeDemoModal()">
+          Close Walkthrough
+        </button>
+</div>
+</div>
+</div>
+<!-- Lightweight Toast Notification Pill -->
+<div class="fixed bottom-20 md:bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl border-2 border-on-surface neo-box-sm hidden items-center gap-2 text-label-md font-label-md shadow-lg transition-all" id="toast">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">info</span>
+<span id="toast-text">Action completed successfully</span>
+</div>
+<!-- Interactive Logic Scripts -->
+<script>
+    // Language Toggle State & Content
+    let currentLang = 'en';
+    const langData = {
+      en: {
+        tag: 'Client Demo & Project Handover Showcase v1.0',
+        heroHeadline: 'Next-Gen Dual-Language <span class="bg-primary-container px-2 rounded-lg text-on-surface inline-block -rotate-1">Interactive Learning</span> Platform',
+        heroSubtitle: 'Inspired by Academoo and built exclusively for Cambodia & Southeast Asian classrooms. 1 Universal Question Engine powering 5+ modular games, real-time PIN multiplayer, and bilingual Khmer-English phonetic learning.'
+      },
+      km: {
+        tag: 'ការបង្ហាញគំរូជូនអតិថិជន & ការប្រគល់គម្រោង QB Interactive Learning Kits v1.0',
+        heroHeadline: 'ថ្នាលអប់រំតាមល្បែងកម្សាន្ត <span class="bg-primary-container px-2 rounded-lg text-on-surface inline-block -rotate-1">ពីរភាសា (ខ្មែរ-អង់គ្លេស)</span> ជំនាន់ថ្មី',
+        heroSubtitle: 'បានបំផុសគំនិតដោយ Academoo និងបង្កើតឡើងយ៉ាងពិសេសសម្រាប់ថ្នាក់រៀននៅកម្ពុជា។ ម៉ាស៊ីនសំណួរជាសកលតែមួយ (1 Universal Engine) ដំណើរការល្បែងសិក្សា ៥+ ប្រភេទ និងការលេងផ្ទាល់ក្នុងថ្នាក់។'
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const btnEn = document.getElementById('lang-en');
+      const btnKm = document.getElementById('lang-km');
+
+      if (lang === 'en') {
+        btnEn.className = 'px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-secondary-container text-on-secondary-container transition-all';
+        btnKm.className = 'px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold text-on-surface-variant hover:text-on-surface transition-all';
+      } else {
+        btnKm.className = 'px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-secondary-container text-on-secondary-container transition-all';
+        btnEn.className = 'px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold text-on-surface-variant hover:text-on-surface transition-all';
+      }
+      triggerToast(`Language switched to ${lang === 'en' ? 'English' : 'ភាសាខ្មែរ (Khmer)'}`);
+    }
+
+    // Portal Category Filtering
+    function filterScreens(category, buttonElement) {
+      document.querySelectorAll('.screen-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'neo-box-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+      buttonElement.classList.add('bg-secondary-container', 'text-on-secondary-container', 'neo-box-sm');
+      buttonElement.classList.remove('text-on-surface-variant');
+
+      const cards = document.querySelectorAll('.screen-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-screen-type') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Walkthrough Viewer
+    const demoData = {
+      'teacher-studio': {
+        title: 'Teacher Studio & Universal Question Editor',
+        headerBg: 'bg-primary-fixed',
+        icon: 'edit_note',
+        content: `
+          <div class="space-y-3">
+            <div class="p-3 bg-surface-container rounded-xl border border-on-surface">
+              <span class="text-label-sm font-bold text-primary">CORE INNOVATION: UNIVERSAL PAYLOAD</span>
+              <p class="text-body-sm text-on-surface mt-1">Teachers enter 1 prompt pair in Khmer and English. The engine validates the JSON schema and compiles assets for 5 adapters instantly.</p>
+            </div>
+            <div class="bg-surface-container-low p-3 rounded-xl border border-on-surface space-y-2">
+              <div class="text-body-sm font-bold">Tested Question Example (JSON Node):</div>
+              <pre class="bg-surface-container-lowest p-2.5 rounded-lg border text-xs font-mono overflow-x-auto text-on-surface">{
+  "id": "q_7841",
+  "prompt_km": "តើមួយណាជាផ្លែឈើពណ៌ក្រហម?",
+  "prompt_en": "Which one is a red fruit?",
+  "choices": ["ផ្លែប៉ោម (Apple)", "ផ្លែចេក (Banana)", "ផ្លែស្វាយ (Mango)"],
+  "correct_idx": 0,
+  "audio_clip": "https://cdn.learnora.edu.kh/audio/km_q7841.mp3",
+  "bloom_level": "Recall"
+}</pre>
+            </div>
+            <div class="flex items-center gap-2 text-label-sm text-tertiary font-bold">
+              <span class="material-symbols-outlined text-[18px]">verified</span>
+              <span>Fully compatible with Web, Tablet, and Mobile views.</span>
+            </div>
+          </div>
+        `
+      },
+      'student-hub': {
+        title: 'Student Game Hub & Star Arena',
+        headerBg: 'bg-secondary-fixed',
+        icon: 'sports_esports',
+        content: `
+          <div class="space-y-3">
+            <div class="p-3 bg-surface-container rounded-xl border border-on-surface">
+              <span class="text-label-sm font-bold text-secondary">TACTILE GAMIFIED REWARDS</span>
+              <p class="text-body-sm text-on-surface mt-1">Children navigate with big, colorful affordances. Each correct answer earns stars to customize Leo the Mascot's hats and glasses in the avatar shop.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-center text-body-sm">
+              <div class="p-2.5 bg-surface-container-low rounded-xl border border-on-surface">
+                <span class="font-bold text-primary">350 Stars Earned</span>
+                <div class="text-[12px] text-on-surface-variant">Unlocks Captain Leo Hat</div>
+              </div>
+              <div class="p-2.5 bg-surface-container-low rounded-xl border border-on-surface">
+                <span class="font-bold text-tertiary">5-Day Daily Streak</span>
+                <div class="text-[12px] text-on-surface-variant">+20% Bonus EXP today</div>
+              </div>
+            </div>
+            <p class="text-body-sm text-on-surface-variant">Includes audio autoplay in native Khmer pronunciation for early literacy learners.</p>
+          </div>
+        `
+      },
+      'live-arena': {
+        title: 'Live Classroom PIN Arena (Room 7482)',
+        headerBg: 'bg-tertiary-fixed',
+        icon: 'sensors',
+        content: `
+          <div class="space-y-3">
+            <div class="p-3 bg-surface-container rounded-xl border border-on-surface">
+              <span class="text-label-sm font-bold text-tertiary">SYNCHRONOUS MULTIPLAYER</span>
+              <p class="text-body-sm text-on-surface mt-1">Projection mode ready. The teacher starts the countdown, and answers are submitted on student phones with immediate live fleet damage calculations.</p>
+            </div>
+            <div class="p-3 bg-surface-container-low rounded-xl border border-on-surface flex justify-between items-center">
+              <div>
+                <div class="text-label-sm text-on-surface-variant font-bold">JOIN PIN FOR STUDENTS:</div>
+                <div class="text-headline-md font-bold text-primary tracking-widest font-title-md">7482</div>
+              </div>
+              <div class="text-right">
+                <div class="text-label-sm text-tertiary font-bold">&bull; 18 Active Devices</div>
+                <div class="text-[12px] text-on-surface-variant">Fleet Battle: Round 3/10</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      'utility-suite': {
+        title: 'Teacher Utility Suite & Quick Tools',
+        headerBg: 'bg-surface-variant',
+        icon: 'construction',
+        content: `
+          <div class="space-y-3">
+            <div class="p-3 bg-surface-container rounded-xl border border-on-surface">
+              <span class="text-label-sm font-bold text-on-surface">ZERO-LOGIN MORNING UTILITIES</span>
+              <p class="text-body-sm text-on-surface mt-1">Built directly into the teacher navbar for spontaneous classroom management without loading heavy software.</p>
+            </div>
+            <div class="space-y-1.5 text-body-sm">
+              <div class="p-2 bg-surface-container-low rounded-lg border border-on-surface flex items-center justify-between">
+                <span>&bull; Wheel Picker: 32 Student Roster Loaded</span>
+                <span class="font-bold text-primary">Ready to Spin</span>
+              </div>
+              <div class="p-2 bg-surface-container-low rounded-lg border border-on-surface flex items-center justify-between">
+                <span>&bull; Visual Pie Timer: 5-minute activity limit</span>
+                <span class="font-bold text-secondary">Tick Sound FX On</span>
+              </div>
+              <div class="p-2 bg-surface-container-low rounded-lg border border-on-surface flex items-center justify-between">
+                <span>&bull; Team Grouper: 4 balanced cohorts</span>
+                <span class="font-bold text-tertiary">Balanced</span>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    };
+
+    function openDemoModal(key) {
+      const data = demoData[key];
+      if (!data) return;
+
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-header-bar').className = `p-4 border-b-2 border-on-surface ${data.headerBg} flex items-center justify-between`;
+      document.getElementById('modal-icon').textContent = data.icon;
+      document.getElementById('modal-content').innerHTML = data.content;
+
+      const modal = document.getElementById('demo-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeDemoModal() {
+      const modal = document.getElementById('demo-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openFeedbackModal() {
+      triggerToast('Stakeholder feedback input opened.');
+    }
+
+    // Toggle Checklist items
+    function toggleCheck(card) {
+      const iconBox = card.querySelector('div:first-child');
+      const badge = card.querySelector('span:last-child');
+      const isChecked = iconBox.classList.contains('bg-tertiary-container');
+
+      if (isChecked) {
+        iconBox.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+        iconBox.classList.add('bg-surface-container-high', 'text-transparent');
+        badge.textContent = 'REVIEWING';
+        badge.className = 'text-label-sm font-label-sm bg-surface-container-high px-2 py-0.5 rounded border border-on-surface text-on-surface-variant font-bold shrink-0';
+      } else {
+        iconBox.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+        iconBox.classList.remove('bg-surface-container-high', 'text-transparent');
+        badge.textContent = 'PASSED';
+        badge.className = 'text-label-sm font-label-sm bg-tertiary-fixed px-2 py-0.5 rounded border border-on-surface text-tertiary font-bold shrink-0';
+      }
+      updateQACount();
+    }
+
+    function updateQACount() {
+      const allPassed = document.querySelectorAll('#qa-checklist span:last-child');
+      let count = 0;
+      allPassed.forEach(el => {
+        if (el.textContent === 'PASSED') count++;
+      });
+      document.getElementById('qa-counter').textContent = `${count} of 5 Verified`;
+    }
+
+    // Toast Trigger
+    function triggerToast(message) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.textContent = message;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 3500);
+    }
+  </script>
+</body></html>

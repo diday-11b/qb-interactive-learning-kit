@@ -1,0 +1,2 @@
+/* Component display rules must not expose elements hidden for account or role state. */
+[hidden] { display: none !important; }

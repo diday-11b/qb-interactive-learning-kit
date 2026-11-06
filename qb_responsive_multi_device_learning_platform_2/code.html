@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QB Interactive Learning Kits - Playful Learning Adventures</title>
+<!-- Fonts -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "on-tertiary-container": "#004f30",
+            "tertiary": "#006c44",
+            "inverse-primary": "#ffb780",
+            "primary-fixed-dim": "#ffb780",
+            "surface-container-high": "#e2e8fa",
+            "primary-fixed": "#ffdcc4",
+            "surface": "#f9f9ff",
+            "on-secondary-fixed": "#001f29",
+            "secondary": "#006783",
+            "surface-container-highest": "#dde2f4",
+            "error-container": "#ffdad6",
+            "background": "#f9f9ff",
+            "primary": "#924c00",
+            "secondary-container": "#83dafe",
+            "tertiary-container": "#5ac58e",
+            "on-tertiary-fixed": "#002111",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "inverse-surface": "#2a303e",
+            "primary-container": "#ff983d",
+            "on-surface": "#151c28",
+            "on-secondary-container": "#00607a",
+            "outline-variant": "#dbc2b1",
+            "surface-variant": "#dde2f4",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#2f1400",
+            "secondary-fixed-dim": "#7bd2f6",
+            "surface-container-low": "#f1f3ff",
+            "tertiary-fixed": "#8df8bd",
+            "on-surface-variant": "#554337",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-primary-fixed-variant": "#6f3800",
+            "on-tertiary-fixed-variant": "#005232",
+            "on-primary-container": "#6b3600",
+            "on-background": "#151c28",
+            "outline": "#887365",
+            "surface-container": "#e8edff",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#004d63",
+            "secondary-fixed": "#bce9ff",
+            "surface-dim": "#d4daeb",
+            "surface-tint": "#924c00",
+            "inverse-on-surface": "#edf0ff",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.25rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "gutter": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Quicksand"],
+            "body-md": ["Nunito Sans"],
+            "title-md": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "headline-sm": ["Quicksand"],
+            "body-sm": ["Nunito Sans"],
+            "label-lg": ["Nunito Sans"],
+            "display-hero": ["Quicksand"],
+            "display-hero-mobile": ["Quicksand"],
+            "headline-md": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "label-md": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist tactile tap dynamics */
+    .tactile-btn {
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-btn:active {
+      transform: translate(2px, 2px) !important;
+      box-shadow: 2px 2px 0px #151c28 !important;
+    }
+    .tactile-card {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #151c28 !important;
+    }
+    /* Soft cloud background pattern */
+    .bg-sky-pattern {
+      background-color: #d9eeff;
+      background-image: radial-gradient(#bcdcf5 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+    /* Bounce animations for celebration */
+    @keyframes happy-pop {
+      0% { transform: scale(0.9); opacity: 0; }
+      70% { transform: scale(1.04); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: happy-pop 0.3s ease-out forwards;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-sky-pattern text-on-surface min-h-screen pb-20 md:pb-0 font-body-md select-none">
+<!-- ================= TOP APP BAR ================= -->
+<header class="bg-surface-container-lowest sticky top-0 z-40 border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28]">
+<div class="flex justify-between items-center w-full px-4 sm:px-6 lg:px-8 py-3 max-w-7xl mx-auto">
+<!-- Brand & Mascot Logo -->
+<div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="switchView('home')">
+<div class="relative w-11 h-11 rounded-full border-2 border-on-surface bg-secondary-container shadow-[2px_2px_0_0_#151c28] overflow-hidden flex items-center justify-center p-0.5">
+<img alt="QB Interactive Learning Kits playful lion mascot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1X2AGeLx0hMU2sH_I2-ADHqiqnraxYOwf11y7hCq0dDJXEgf-ZqT9GoJldmF3paf0p69dBWP-RTA5cTQWhBsmA7-EhGEv3LG2bgAg74vekZUKserQvkCenrG7g5VfGfYq7AedXH3TeiIiyyvn7zfezR_voIlyyhN3i1hCdXTnE3xOvAh3tKV-hhCzcuVjx4kgJayf42Y_ywZBfxdKBbZKh0ABsdxMXYu4Lt2bUovMhQbYEsxSLWZxcGsajG"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">QB Interactive Learning Kits</span>
+<span class="bg-primary-container text-on-surface text-label-sm font-label-sm px-2 py-0.5 rounded-full border border-on-surface shadow-[1px_1px_0_0_#151c28]">Kids</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant hidden sm:inline -mt-1 font-bold">Adventures in Learning</span>
+</div>
+</div>
+<!-- Full Desktop / Tablet Nav Links -->
+<nav class="hidden md:flex items-center gap-1 lg:gap-2">
+<button class="px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-extrabold transition-all bg-primary-container text-on-surface border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]" id="nav-btn-home" onclick="switchView('home')">
+        Start Here
+      </button>
+<button class="px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-extrabold transition-all text-on-surface-variant hover:bg-surface-container-high border-2 border-transparent hover:border-on-surface" id="nav-btn-explore" onclick="switchView('explore')">
+        Explore Questions
+      </button>
+<button class="px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-bold text-on-surface-variant hover:bg-surface-container-high border-2 border-transparent hover:border-on-surface hidden lg:inline-flex items-center gap-1" onclick="switchView('explore'); filterAndOpenExplore('All');">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span> Games
+      </button>
+<button class="px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-bold text-on-surface-variant hover:bg-surface-container-high border-2 border-transparent hover:border-on-surface hidden xl:inline-flex items-center gap-1" onclick="filterAndOpenExplore('Phonics')">
+<span class="material-symbols-outlined text-[18px]">abc</span> Phonics &amp; Reading
+      </button>
+<button class="px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-bold text-on-surface-variant hover:bg-surface-container-high border-2 border-transparent hover:border-on-surface hidden lg:inline-flex items-center gap-1" onclick="switchView('explore'); selectQuestionTab('fav');">
+<span class="material-symbols-outlined text-[18px] text-error" style="font-variation-settings: 'FILL' 1;">favorite</span> Saved Activities
+      </button>
+</nav>
+<!-- Right Action Cluster -->
+<div class="flex items-center gap-2 sm:gap-3">
+<!-- Star Score Streak Pill -->
+<div class="flex items-center gap-1.5 bg-surface-container-lowest border-2 border-on-surface px-2.5 sm:px-3 py-1 rounded-full shadow-[2px_2px_0_0_#151c28] cursor-pointer hover:bg-surface-container-low transition-colors" onclick="showRewardToast('+5 Bonus Stars for Leo! ⭐')">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface font-extrabold" id="user-stars-badge">240</span>
+<span class="text-xs bg-tertiary-fixed text-on-tertiary-container px-2 py-0.5 rounded-full border border-on-surface font-bold hidden sm:inline">Leo</span>
+</div>
+<!-- Primary CTA Button -->
+<button class="tactile-btn bg-primary-container text-on-surface font-label-lg text-label-lg px-3.5 sm:px-5 py-2 rounded-xl border-2 border-on-surface shadow-[3px_3px_0_0_#151c28] sm:shadow-[4px_4px_0_0_#151c28] flex items-center gap-1.5 font-black shrink-0" id="topbar-cta" onclick="switchView('explore')">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+<span class="hidden sm:inline">Start Learning</span>
+<span class="sm:hidden">Play</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= VIEW 1: LANDING PAGE (HOMEPAGE) ================= -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 md:pt-10 transition-opacity duration-200" id="view-home">
+<!-- Hero Section -->
+<section class="relative bg-surface-container-lowest border-2 border-on-surface rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-[6px_6px_0_0_#151c28] overflow-hidden mb-8 sm:mb-12">
+<!-- Decorative background blobs -->
+<div class="absolute -right-12 -top-12 w-48 sm:w-64 h-48 sm:h-64 rounded-full bg-secondary-fixed opacity-70 border-2 border-on-surface pointer-events-none"></div>
+<div class="absolute right-36 -bottom-10 w-28 sm:w-36 h-28 sm:h-36 rounded-full bg-tertiary-fixed opacity-80 border-2 border-on-surface pointer-events-none"></div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+<!-- Left Hero Copy -->
+<div class="md:col-span-7 flex flex-col items-start space-y-4 sm:space-y-5">
+<!-- Sparkle banner pill -->
+<div class="inline-flex items-center gap-2 bg-primary-fixed border-2 border-on-surface rounded-full px-3.5 py-1 shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-label-sm font-label-sm text-on-surface font-black">A little learning adventure every day!</span>
+</div>
+<h1 class="text-headline-lg-mobile sm:text-headline-lg md:text-display-hero-mobile lg:text-display-hero font-headline-lg text-on-surface tracking-tight leading-tight">
+          Learn, Play &amp; Discover!
+        </h1>
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+          Explore fun questions, play interactive educational mini-games, and collect shiny rewards designed for curious elementary minds.
+        </p>
+<!-- Buttons Row -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto">
+<button class="tactile-btn bg-primary-container text-on-surface font-label-lg text-label-lg px-6 py-3.5 rounded-xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] flex items-center justify-center gap-2 font-black" onclick="switchView('explore')">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+            Start Learning
+          </button>
+<a class="tactile-btn bg-secondary-container text-on-surface font-label-lg text-label-lg px-6 py-3.5 rounded-xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] flex items-center justify-center gap-2 font-black" href="/explore-questions.html#question-sets">
+<span class="material-symbols-outlined">explore</span>
+            Explore Activities
+          </a>
+</div>
+<!-- Trust Badges -->
+<div class="flex flex-wrap items-center gap-4 pt-2 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5 font-bold bg-surface-container-low px-3 py-1 rounded-full border border-on-surface/40">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span>100% Kid Safe</span>
+</div>
+<div class="flex items-center gap-1.5 font-bold bg-surface-container-low px-3 py-1 rounded-full border border-on-surface/40">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Teacher Approved</span>
+</div>
+<div class="flex items-center gap-1.5 font-bold bg-surface-container-low px-3 py-1 rounded-full border border-on-surface/40">
+<span class="material-symbols-outlined text-secondary text-[18px]">offline_bolt</span>
+<span>Ad-Free</span>
+</div>
+</div>
+</div>
+<!-- Right Hero Mascot Art Frame -->
+<div class="md:col-span-5 flex justify-center items-center pt-4 md:pt-0">
+<div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
+<!-- Background Pillows -->
+<div class="absolute inset-0 bg-secondary-fixed-dim rounded-3xl border-2 border-on-surface shadow-[6px_6px_0_0_#151c28] rotate-2"></div>
+<div class="absolute inset-2 bg-surface-container-lowest rounded-2xl border-2 border-on-surface overflow-hidden flex items-center justify-center -rotate-1">
+<img alt="QB Interactive Learning Kits cheerful mascot lion" class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1X2AGeLx0hMU2sH_I2-ADHqiqnraxYOwf11y7hCq0dDJXEgf-ZqT9GoJldmF3paf0p69dBWP-RTA5cTQWhBsmA7-EhGEv3LG2bgAg74vekZUKserQvkCenrG7g5VfGfYq7AedXH3TeiIiyyvn7zfezR_voIlyyhN3i1hCdXTnE3xOvAh3tKV-hhCzcuVjx4kgJayf42Y_ywZBfxdKBbZKh0ABsdxMXYu4Lt2bUovMhQbYEsxSLWZxcGsajG"/>
+</div>
+<!-- Speech Bubble Pill -->
+<div class="absolute -bottom-3 -left-3 sm:-left-4 bg-tertiary-fixed border-2 border-on-surface rounded-2xl px-3 sm:px-4 py-2 shadow-[3px_3px_0_0_#151c28] flex items-center gap-2 z-10">
+<span class="text-xl">🦁</span>
+<span class="text-label-sm sm:text-label-md font-label-sm text-on-surface font-black">Ready for a new quest, Leo?</span>
+</div>
+<!-- Floating Sparkle Badge -->
+<div class="absolute -top-3 -right-2 bg-primary-fixed border-2 border-on-surface rounded-full p-2.5 shadow-[3px_3px_0_0_#151c28] animate-bounce z-10">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Learning Categories Grid (2 col mobile, 3 col tablet, 6 col desktop) -->
+<section class="mb-10 sm:mb-12">
+<div class="flex items-center justify-between mb-5">
+<div>
+<h2 class="text-headline-sm sm:text-headline-md font-headline-sm text-on-surface font-bold">Learning Categories</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-semibold">Choose your favorite subject to dive into</p>
+</div>
+<button class="text-label-md font-label-md text-primary font-bold hover:underline flex items-center gap-1 shrink-0" onclick="switchView('explore')">
+<span>See all</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-5">
+<!-- Phonics -->
+<div class="tactile-card cursor-pointer bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-4 sm:p-5 flex flex-col items-center text-center group" onclick="filterAndOpenExplore('Phonics')">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed border-2 border-on-surface flex items-center justify-center mb-3 shadow-[2px_2px_0_0_#151c28] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface text-[30px]">abc</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Phonics</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Letters &amp; Blends</span>
+</div>
+<!-- Vocabulary -->
+<div class="tactile-card cursor-pointer bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-4 sm:p-5 flex flex-col items-center text-center group" onclick="filterAndOpenExplore('Vocabulary')">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container border-2 border-on-surface flex items-center justify-center mb-3 shadow-[2px_2px_0_0_#151c28] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface text-[30px]">auto_stories</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Vocabulary</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Word Builders</span>
+</div>
+<!-- Math -->
+<div class="tactile-card cursor-pointer bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-4 sm:p-5 flex flex-col items-center text-center group" onclick="filterAndOpenExplore('Math')">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed border-2 border-on-surface flex items-center justify-center mb-3 shadow-[2px_2px_0_0_#151c28] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface text-[30px]">calculate</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Math</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Counting &amp; 10s</span>
+</div>
+<!-- Shapes -->
+<div class="tactile-card cursor-pointer bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-4 sm:p-5 flex flex-col items-center text-center group" onclick="filterAndOpenExplore('All')">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed border-2 border-on-surface flex items-center justify-center mb-3 shadow-[2px_2px_0_0_#151c28] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface text-[30px]">category</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Shapes</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Colors &amp; Logic</span>
+</div>
+<!-- Animals -->
+<div class="tactile-card cursor-pointer bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-4 sm:p-5 flex flex-col items-center text-center group" onclick="filterAndOpenExplore('Animals')">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest border-2 border-on-surface flex items-center justify-center mb-3 shadow-[2px_2px_0_0_#151c28] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface text-[30px]">pets</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Animals</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Safari &amp; Sounds</span>
+</div>
+<!-- Stories -->
+<div class="tactile-card cursor-pointer bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-4 sm:p-5 flex flex-col items-center text-center group" onclick="filterAndOpenExplore('Vocabulary')">
+<div class="w-14 h-14 rounded-2xl bg-primary-container border-2 border-on-surface flex items-center justify-center mb-3 shadow-[2px_2px_0_0_#151c28] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface text-[30px]">menu_book</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Stories</h3>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Sight Words</span>
+</div>
+</div>
+</section>
+<!-- Featured Activities Section -->
+<section class="mb-10 sm:mb-12">
+<div class="flex items-center justify-between mb-5">
+<div>
+<h2 class="text-headline-sm sm:text-headline-md font-headline-sm text-on-surface font-bold">Pick Your Next Adventure!</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-semibold">Teacher-picked bite-sized interactive challenges</p>
+</div>
+</div>
+<!-- 1 col mobile, 2 col md, 3 col xl -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6">
+<!-- Featured Card 1 -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] overflow-hidden flex flex-col justify-between">
+<div class="bg-secondary-fixed p-4 border-b-2 border-on-surface flex items-center justify-between">
+<span class="bg-surface-container-lowest text-on-surface text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-on-surface font-bold">Phonics • Age 5-7</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface font-extrabold">
+<span class="material-symbols-outlined text-[16px]">timer</span> 5m
+        </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-extrabold mb-1.5">Compound Words — Two Words in One</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Discover how mini words combine into amazing new words with cheerful puzzles.</p>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-on-surface/10">
+<span class="text-label-sm font-label-sm font-bold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-md border border-on-surface">12 Questions</span>
+<button class="tactile-btn bg-primary-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-xl border-2 border-on-surface shadow-[3px_3px_0_0_#151c28] font-bold" onclick="launchDirectQuiz(0)">
+            Play Now
+          </button>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] overflow-hidden flex flex-col justify-between">
+<div class="bg-tertiary-fixed p-4 border-b-2 border-on-surface flex items-center justify-between">
+<span class="bg-surface-container-lowest text-on-surface text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-on-surface font-bold">Math • Age 4-6</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface font-extrabold">
+<span class="material-symbols-outlined text-[16px]">timer</span> 4m
+        </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-extrabold mb-1.5">Counting with Ten Frames</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Practice visualizing numbers up to ten using vibrant counters and sound cues.</p>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-on-surface/10">
+<span class="text-label-sm font-label-sm font-bold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-md border border-on-surface">10 Questions</span>
+<button class="tactile-btn bg-tertiary-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-xl border-2 border-on-surface shadow-[3px_3px_0_0_#151c28] font-bold" onclick="launchDirectQuiz(1)">
+            Play Now
+          </button>
+</div>
+</div>
+</div>
+<!-- Featured Card 3 -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] overflow-hidden flex flex-col justify-between md:col-span-2 xl:col-span-1">
+<div class="bg-primary-fixed p-4 border-b-2 border-on-surface flex items-center justify-between">
+<span class="bg-surface-container-lowest text-on-surface text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-on-surface font-bold">Vocabulary • Age 6-8</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface font-extrabold">
+<span class="material-symbols-outlined text-[16px]">timer</span> 6m
+        </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-extrabold mb-1.5">First 100 Sight Words</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Master foundational reading vocabulary through lively match-and-listen cards.</p>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-on-surface/10">
+<span class="text-label-sm font-label-sm font-bold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-md border border-on-surface">15 Questions</span>
+<button class="tactile-btn bg-secondary-fixed text-on-surface font-label-md text-label-md px-4 py-2 rounded-xl border-2 border-on-surface shadow-[3px_3px_0_0_#151c28] font-bold" onclick="launchDirectQuiz(2)">
+            Play Now
+          </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works 3-Step Section (Stacked mobile, 3-column tablet & desktop) -->
+<section class="bg-surface-container-lowest rounded-3xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] p-6 sm:p-8 md:p-10 mb-10 sm:mb-12">
+<div class="text-center max-w-xl mx-auto mb-8">
+<h2 class="text-headline-sm sm:text-headline-md font-headline-sm text-on-surface font-bold">How QB Interactive Learning Kits Works</h2>
+<p class="text-body-sm sm:text-body-md font-body-sm text-on-surface-variant font-semibold">Three simple steps to joyful, self-guided mastery</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+<!-- Step 1 -->
+<div class="bg-surface-container-low border-2 border-on-surface rounded-2xl p-5 sm:p-6 shadow-[3px_3px_0_0_#151c28] flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-container border-2 border-on-surface flex items-center justify-center font-bold text-headline-sm text-on-surface mb-3 shadow-[2px_2px_0_0_#151c28]">
+          1
+        </div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold mb-1.5">Pick a Question</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Browse hundreds of curriculum-aligned questions or search by skill and grade.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low border-2 border-on-surface rounded-2xl p-5 sm:p-6 shadow-[3px_3px_0_0_#151c28] flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-headline-sm text-on-surface mb-3 shadow-[2px_2px_0_0_#151c28]">
+          2
+        </div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold mb-1.5">Choose a Game Mode</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Switch between Picture Match, Flashcards, Word Builder, or Multiple Choice.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low border-2 border-on-surface rounded-2xl p-5 sm:p-6 shadow-[3px_3px_0_0_#151c28] flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-headline-sm text-on-surface mb-3 shadow-[2px_2px_0_0_#151c28]">
+          3
+        </div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold mb-1.5">Play &amp; Earn Stars!</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Earn shiny stars, level up your mascot, and celebrate daily progress streaks.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= VIEW 2: EXPLORE QUESTIONS PAGE ================= -->
+<main class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 transition-opacity duration-200" id="view-explore">
+<!-- 3-STEP ACADEMOO-INSPIRED PROGRESS TRACKER -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-3 sm:p-4 shadow-[4px_4px_0_0_#151c28] mb-6">
+<div class="grid grid-cols-3 gap-2 sm:gap-4 items-center">
+<!-- Step 1 (Active) -->
+<div class="flex items-center gap-2 p-2 rounded-xl bg-secondary-container border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center font-bold text-on-surface text-label-md shrink-0">
+          1
+        </div>
+<div class="overflow-hidden">
+<span class="block text-label-md font-label-md text-on-surface font-extrabold truncate">Pick Questions</span>
+<span class="hidden sm:block text-xs text-on-surface-variant font-bold truncate">Active Step</span>
+</div>
+</div>
+<!-- Step 2 (Upcoming) -->
+<div class="flex items-center gap-2 p-2 rounded-xl bg-surface-container-low border border-on-surface/40">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-on-surface/50 flex items-center justify-center font-bold text-on-surface-variant text-label-md shrink-0">
+          2
+        </div>
+<div class="overflow-hidden">
+<span class="block text-label-md font-label-md text-on-surface-variant font-bold truncate">Choose Game</span>
+<span class="hidden sm:block text-xs text-on-surface-variant truncate">6 Game Modes</span>
+</div>
+</div>
+<!-- Step 3 (Reward) -->
+<div class="flex items-center gap-2 p-2 rounded-xl bg-surface-container-low border border-on-surface/40">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-on-surface/50 flex items-center justify-center font-bold text-on-surface-variant text-label-md shrink-0">
+          3
+        </div>
+<div class="overflow-hidden">
+<span class="block text-label-md font-label-md text-on-surface-variant font-bold truncate">Play &amp; Earn!</span>
+<span class="hidden sm:block text-xs text-on-surface-variant truncate">Collect Stars</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Page Header & Title Cluster -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h1 class="text-headline-md font-headline-md text-on-surface font-bold">Explore Questions</h1>
+<span class="inline-flex items-center gap-1 bg-primary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-extrabold shadow-[1px_1px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+          Made for curious minds
+        </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Find something fun to learn today and launch interactive games!</p>
+</div>
+<!-- Quick Action: Back to Home -->
+<button class="tactile-btn self-start sm:self-auto bg-surface-container-lowest text-on-surface border-2 border-on-surface px-3.5 py-1.5 rounded-xl text-label-md font-label-md shadow-[2px_2px_0_0_#151c28] flex items-center gap-1 font-bold" onclick="switchView('home')">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+      Back to Home
+    </button>
+</div>
+<!-- Search & Filter Controls Bar -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-3 sm:p-4 shadow-[4px_4px_0_0_#151c28] mb-6 flex flex-col sm:flex-row items-center gap-3">
+<!-- Search Input -->
+<div class="relative w-full flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[22px]">search</span>
+<input class="w-full pl-11 pr-10 py-2.5 rounded-xl border-2 border-on-surface bg-surface-container-low text-on-surface font-body-md focus:bg-surface-container-lowest focus:outline-none focus:shadow-[2px_2px_0_0_#151c28] transition-all" id="question-search-input" oninput="handleSearch(this.value)" placeholder="Search questions, topics, or skills (e.g. sight words, math)..." type="text"/>
+<button class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" id="search-clear-btn" onclick="clearSearch()">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+<!-- Filters Drawer Trigger -->
+<button class="tactile-btn w-full sm:w-auto bg-surface-container-low text-on-surface border-2 border-on-surface px-4 py-2.5 rounded-xl font-label-md text-label-md shadow-[3px_3px_0_0_#151c28] flex items-center justify-center gap-2 font-bold shrink-0" onclick="toggleFilterDrawer()">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span>Filters</span>
+<span class="hidden bg-primary text-on-primary w-5 h-5 rounded-full text-xs flex items-center justify-center" id="active-filter-badge">1</span>
+</button>
+</div>
+<!-- Expandable Filter Drawer Panel -->
+<div class="hidden bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-4 sm:p-6 shadow-[4px_4px_0_0_#151c28] mb-6" id="filter-drawer">
+<div class="flex items-center justify-between pb-3 border-b-2 border-on-surface/10 mb-4">
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Filter Activities</h4>
+<button class="text-label-sm font-label-sm text-primary hover:underline font-bold" onclick="resetFilters()">Reset Filters</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface font-bold mb-2">Subject / Category</label>
+<select class="w-full bg-surface-container-low border-2 border-on-surface rounded-xl p-2.5 font-body-md text-on-surface" id="filter-subject" onchange="applyFilters()">
+<option value="All">All Subjects</option>
+<option value="Phonics">Phonics</option>
+<option value="Vocabulary">Vocabulary</option>
+<option value="Math">Math &amp; Numbers</option>
+<option value="Animals">Animals &amp; Sounds</option>
+</select>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface font-bold mb-2">Age Group</label>
+<select class="w-full bg-surface-container-low border-2 border-on-surface rounded-xl p-2.5 font-body-md text-on-surface" id="filter-age" onchange="applyFilters()">
+<option value="All">All Ages</option>
+<option value="3-5">Preschool (3-5)</option>
+<option value="5-7">Kindergarten (5-7)</option>
+<option value="6-8">Early Elementary (6-8)</option>
+</select>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface font-bold mb-2">Language</label>
+<select class="w-full bg-surface-container-low border-2 border-on-surface rounded-xl p-2.5 font-body-md text-on-surface" id="filter-lang" onchange="applyFilters()">
+<option value="All">English &amp; Khmer</option>
+<option value="English">English</option>
+<option value="Khmer">Khmer</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Academoo-Inspired Main Navigation Tabs -->
+<div class="flex items-center gap-2 mb-6 border-b-2 border-on-surface/20 pb-3 overflow-x-auto">
+<!-- All Questions Tab -->
+<button class="tactile-btn flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-on-surface bg-secondary-container text-on-surface shadow-[2px_2px_0_0_#151c28] font-label-md text-label-md font-extrabold shrink-0" id="tab-all" onclick="selectQuestionTab('all')">
+<span class="material-symbols-outlined text-[20px]">public</span>
+<span>All Questions</span>
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.2 rounded-full border border-on-surface text-xs font-bold" id="all-count-badge">6</span>
+</button>
+<!-- My Questions Tab -->
+<button class="tactile-btn flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-transparent hover:border-on-surface bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-bold shrink-0" id="tab-mine" onclick="selectQuestionTab('mine')">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span>My Questions</span>
+<span class="bg-surface-container-low text-on-surface-variant px-2 py-0.2 rounded-full border border-on-surface/30 text-xs font-bold">2</span>
+</button>
+<!-- Favorites Tab -->
+<button class="tactile-btn flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-transparent hover:border-on-surface bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-bold shrink-0" id="tab-fav" onclick="selectQuestionTab('fav')">
+<span class="material-symbols-outlined text-error text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span>Favorites</span>
+<span class="bg-error-container text-on-error-container px-2 py-0.2 rounded-full border border-on-surface text-xs font-bold" id="fav-count-badge">1</span>
+</button>
+</div>
+<!-- Teacher Community Banner Card -->
+<div class="bg-tertiary-fixed border-2 border-on-surface rounded-2xl p-4 sm:p-5 shadow-[4px_4px_0_0_#151c28] mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center text-2xl shadow-[2px_2px_0_0_#151c28] shrink-0">
+          🦊
+        </div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-extrabold">Learn Together!</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Discover teacher-created question sets and share learning activities with friends.</p>
+</div>
+</div>
+<button class="tactile-btn bg-surface-container-lowest text-on-surface border-2 border-on-surface px-4 py-2 rounded-xl text-label-md font-label-md shadow-[2px_2px_0_0_#151c28] font-bold shrink-0" onclick="showRewardToast('Teacher question set added to your library! 📚')">
+        + Create Question
+      </button>
+</div>
+<!-- Empty State Container -->
+<div class="hidden text-center py-12 px-4 bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] mb-8" id="no-cards-message">
+<div class="text-5xl mb-2">🔍</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">No questions found</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Try searching with different terms or reset your filters.</p>
+<button class="tactile-btn bg-secondary-container text-on-surface px-5 py-2.5 rounded-xl border-2 border-on-surface font-bold text-label-md shadow-[2px_2px_0_0_#151c28]" onclick="resetFilters()">
+        View All Questions
+      </button>
+</div>
+<!-- Responsive 2-Column Grid on md/lg desktop, 1-col on mobile -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-12" id="cards-container">
+<!-- Dynamically rendered via JS -->
+</div>
+</main>
+<!-- ================= DESKTOP FOOTER ================= -->
+<footer class="bg-surface-container-lowest border-t-2 border-on-surface mt-16 pb-24 md:pb-8 shadow-[0_-4px_0_0_#151c28]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8 pb-8 border-b-2 border-on-surface/10">
+<!-- Brand col -->
+<div class="md:col-span-5 flex flex-col items-start gap-3">
+<div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-secondary-container shadow-[2px_2px_0_0_#151c28] overflow-hidden flex items-center justify-center p-0.5">
+<img alt="QB Interactive Learning Kits logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1X2AGeLx0hMU2sH_I2-ADHqiqnraxYOwf11y7hCq0dDJXEgf-ZqT9GoJldmF3paf0p69dBWP-RTA5cTQWhBsmA7-EhGEv3LG2bgAg74vekZUKserQvkCenrG7g5VfGfYq7AedXH3TeiIiyyvn7zfezR_voIlyyhN3i1hCdXTnE3xOvAh3tKV-hhCzcuVjx4kgJayf42Y_ywZBfxdKBbZKh0ABsdxMXYu4Lt2bUovMhQbYEsxSLWZxcGsajG"/>
+</div>
+<span class="text-headline-sm font-headline-sm text-primary font-bold">QB Interactive Learning Kits</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-sm">
+            Safe, engaging, and joyful game-based learning experiences designed for kindergarten and early elementary explorers.
+          </p>
+<div class="flex items-center gap-2 pt-1">
+<button class="tactile-btn bg-primary-container text-on-surface px-4 py-2 rounded-xl border-2 border-on-surface text-label-sm font-bold shadow-[2px_2px_0_0_#151c28]" onclick="switchView('explore')">
+              Start Exploring
+            </button>
+</div>
+</div>
+<!-- Links col 1 -->
+<div class="md:col-span-2 sm:col-span-4">
+<h5 class="font-title-md text-title-md font-bold text-on-surface mb-3">Explore</h5>
+<ul class="space-y-2 text-body-sm text-on-surface-variant font-bold">
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="filterAndOpenExplore('Phonics')">Phonics &amp; Blends</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="filterAndOpenExplore('Vocabulary')">Word Builders</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="filterAndOpenExplore('Math')">Ten Frame Math</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="filterAndOpenExplore('Animals')">Animal Safari</a></li>
+</ul>
+</div>
+<!-- Links col 2 -->
+<div class="md:col-span-2 sm:col-span-4">
+<h5 class="font-title-md text-title-md font-bold text-on-surface mb-3">Community</h5>
+<ul class="space-y-2 text-body-sm text-on-surface-variant font-bold">
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="showRewardToast('Teacher portal opens soon! 🍎')">Teacher Resources</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="showRewardToast('Printables ready for download! 🖨️')">Printable Quests</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" onclick="showRewardToast('Community library updated! 📚')">Curriculum Guide</a></li>
+</ul>
+</div>
+<!-- Links col 3 -->
+<div class="md:col-span-3 sm:col-span-4">
+<h5 class="font-title-md text-title-md font-bold text-on-surface mb-3">Safety &amp; Privacy</h5>
+<ul class="space-y-2 text-body-sm text-on-surface-variant font-bold">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-[18px]">verified_user</span> COPPA Compliant</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-[18px]">block</span> Zero Third-Party Ads</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-[18px]">lock</span> Kid-Safe Encrypted</li>
+</ul>
+</div>
+</div>
+<!-- Bottom Row -->
+<div class="flex flex-col sm:flex-row items-center justify-between text-body-sm text-on-surface-variant font-bold gap-3">
+<p>© 2025 QB Interactive Learning Kits. All adventures reserved.</p>
+<div class="flex items-center gap-4">
+<span class="hover:underline cursor-pointer" onclick="showRewardToast('Child Privacy Policy')">Privacy Policy</span>
+<span>•</span>
+<span class="hover:underline cursor-pointer" onclick="showRewardToast('Terms of Play')">Terms of Play</span>
+<span>•</span>
+<span class="hover:underline cursor-pointer" onclick="showRewardToast('Parent Support Desk')">Parent Help</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- ================= MODAL 1: PREVIEW QUESTION MODAL ================= -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-on-surface/50 backdrop-blur-[2px]" id="modal-preview">
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-3xl shadow-[8px_8px_0_0_#151c28] max-w-xl w-full overflow-hidden animate-pop mx-auto my-auto max-h-[92vh] flex flex-col">
+<!-- Modal Header -->
+<div class="bg-secondary-fixed p-4 sm:p-5 border-b-2 border-on-surface flex items-center justify-between shrink-0" id="preview-modal-header">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">visibility</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Activity Preview</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center hover:bg-surface-container-high" onclick="closePreviewModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-5 sm:p-6 space-y-4 overflow-y-auto">
+<div>
+<span class="bg-tertiary-fixed text-on-surface text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-on-surface font-extrabold" id="preview-category-badge">Phonics • Age 5-7</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-bold mt-2" id="preview-title">Compound Words — Two Words in One</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1" id="preview-desc">Discover how two separate small words join together to create a brand new meaning.</p>
+</div>
+<!-- Sample Question Box -->
+<div class="bg-surface-container-low border-2 border-on-surface rounded-2xl p-4 shadow-[2px_2px_0_0_#151c28]">
+<span class="text-label-sm font-label-sm text-on-surface font-extrabold uppercase tracking-wider block mb-1">Sample Interactive Card</span>
+<p class="text-body-lg font-body-lg text-on-surface font-bold" id="preview-sample-q">"Sun + Flower = What word?"</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-1 rounded-lg text-body-sm font-bold">1. Sunflower</span>
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-1 rounded-lg text-body-sm font-bold">2. Moonflower</span>
+</div>
+</div>
+<!-- Meta Details -->
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="bg-surface-container-low border border-on-surface rounded-xl p-2.5">
+<span class="block text-xs text-on-surface-variant font-bold">Questions</span>
+<span class="font-headline-sm font-bold text-on-surface" id="preview-q-count">12</span>
+</div>
+<div class="bg-surface-container-low border border-on-surface rounded-xl p-2.5">
+<span class="block text-xs text-on-surface-variant font-bold">Reward</span>
+<span class="font-headline-sm font-bold text-primary">+20 ⭐</span>
+</div>
+<div class="bg-surface-container-low border border-on-surface rounded-xl p-2.5">
+<span class="block text-xs text-on-surface-variant font-bold">Skill Level</span>
+<span class="font-headline-sm font-bold text-tertiary" id="preview-difficulty">Easy</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-3 pt-2">
+<button class="tactile-btn flex-1 bg-surface-container-lowest text-on-surface border-2 border-on-surface rounded-xl py-3 font-label-md font-bold" onclick="closePreviewModal()">
+          Close
+        </button>
+<button class="tactile-btn flex-1 bg-primary-container text-on-surface border-2 border-on-surface rounded-xl py-3 font-label-md font-extrabold shadow-[3px_3px_0_0_#151c28]" id="preview-start-btn" onclick="startPracticeFromPreview()">
+          Start Practice
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= MODAL 2: STEP 2 GAME MODE SELECTION ================= -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-on-surface/50 backdrop-blur-[2px]" id="modal-game-select">
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-3xl shadow-[8px_8px_0_0_#151c28] max-w-xl w-full overflow-hidden animate-pop mx-auto my-auto max-h-[92vh] flex flex-col">
+<!-- Modal Header -->
+<div class="bg-secondary-container p-4 sm:p-5 border-b-2 border-on-surface flex items-center justify-between shrink-0">
+<div>
+<span class="bg-surface-container-lowest text-on-surface text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-on-surface font-extrabold">Step 2 of 3</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-bold mt-1">Choose a Game Mode</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center hover:bg-surface-container-high" onclick="closeGameModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Mode Cards Grid -->
+<div class="p-5 sm:p-6 overflow-y-auto space-y-4">
+<p class="text-body-sm font-body-sm text-on-surface-variant font-bold">Pick how you want to answer questions for this topic:</p>
+<div class="grid grid-cols-2 gap-3 sm:gap-4">
+<!-- Mode 1: Multiple Choice -->
+<div class="tactile-card cursor-pointer bg-primary-fixed border-2 border-on-surface rounded-2xl p-4 shadow-[4px_4px_0_0_#151c28] flex flex-col items-center text-center" onclick="launchPlayableQuiz('Multiple Choice')">
+<span class="text-3xl mb-1">🎯</span>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Multiple Choice</h4>
+<span class="text-xs text-on-surface-variant font-semibold">Fast &amp; fun tapping</span>
+</div>
+<!-- Mode 2: Picture Match -->
+<div class="tactile-card cursor-pointer bg-tertiary-fixed border-2 border-on-surface rounded-2xl p-4 shadow-[4px_4px_0_0_#151c28] flex flex-col items-center text-center" onclick="launchPlayableQuiz('Picture Match')">
+<span class="text-3xl mb-1">🖼️</span>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Picture Match</h4>
+<span class="text-xs text-on-surface-variant font-semibold">Visual clues &amp; art</span>
+</div>
+<!-- Mode 3: Flashcards -->
+<div class="tactile-card cursor-pointer bg-secondary-fixed border-2 border-on-surface rounded-2xl p-4 shadow-[4px_4px_0_0_#151c28] flex flex-col items-center text-center" onclick="launchPlayableQuiz('Flashcards')">
+<span class="text-3xl mb-1">🎴</span>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Flashcards</h4>
+<span class="text-xs text-on-surface-variant font-semibold">Flip to test memory</span>
+</div>
+<!-- Mode 4: Word Builder -->
+<div class="tactile-card cursor-pointer bg-surface-container-highest border-2 border-on-surface rounded-2xl p-4 shadow-[4px_4px_0_0_#151c28] flex flex-col items-center text-center" onclick="launchPlayableQuiz('Word Builder')">
+<span class="text-3xl mb-1">🧩</span>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Word Builder</h4>
+<span class="text-xs text-on-surface-variant font-semibold">Tile assembling</span>
+</div>
+<!-- Mode 5: Memory Match -->
+<div class="tactile-card cursor-pointer bg-surface-container-high border-2 border-on-surface rounded-2xl p-4 shadow-[4px_4px_0_0_#151c28] flex flex-col items-center text-center" onclick="launchPlayableQuiz('Memory Match')">
+<span class="text-3xl mb-1">🃏</span>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Memory Match</h4>
+<span class="text-xs text-on-surface-variant font-semibold">Pair matching</span>
+</div>
+<!-- Mode 6: Listening Challenge -->
+<div class="tactile-card cursor-pointer bg-secondary-container border-2 border-on-surface rounded-2xl p-4 shadow-[4px_4px_0_0_#151c28] flex flex-col items-center text-center" onclick="launchPlayableQuiz('Listening Challenge')">
+<span class="text-3xl mb-1">🎧</span>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Listening</h4>
+<span class="text-xs text-on-surface-variant font-semibold">Audio animal cues</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= MODAL 3: STEP 3 PLAYABLE MINI-QUIZ ================= -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-on-surface/50 backdrop-blur-[2px]" id="modal-quiz">
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-3xl shadow-[8px_8px_0_0_#151c28] max-w-xl w-full overflow-hidden animate-pop mx-auto my-auto max-h-[92vh] flex flex-col">
+<!-- Quiz Progress Header -->
+<div class="bg-tertiary-fixed p-4 border-b-2 border-on-surface flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-on-surface flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md font-extrabold text-on-surface" id="quiz-mode-title">Game Mode: Multiple Choice</h4>
+<span class="text-xs font-bold text-on-surface-variant" id="quiz-question-counter">Question 1 of 3</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center hover:bg-surface-container-high" onclick="closeQuizModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Quiz Interactive Body -->
+<div class="p-5 sm:p-6 space-y-4 overflow-y-auto">
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-low h-3 rounded-full border-2 border-on-surface overflow-hidden">
+<div class="bg-primary-container h-full transition-all duration-300" id="quiz-progress-bar" style="width: 33%;"></div>
+</div>
+<!-- Question Prompt Box -->
+<div class="bg-surface-container-low border-2 border-on-surface rounded-2xl p-5 text-center shadow-[3px_3px_0_0_#151c28]">
+<span class="text-label-sm font-label-sm text-primary font-bold block mb-1" id="quiz-helper-text">Combine two words into one:</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-extrabold" id="quiz-question-text">Sun + Flower = ?</h3>
+</div>
+<!-- Answer Options Buttons -->
+<div class="space-y-3 pt-2" id="quiz-options-container">
+<!-- Injected by JS -->
+</div>
+<!-- Quiz Feedback Box -->
+<div class="hidden p-3 rounded-xl border-2 border-on-surface flex items-center justify-between" id="quiz-feedback">
+<div class="flex items-center gap-2">
+<span class="text-2xl" id="quiz-feedback-icon">🎉</span>
+<span class="font-bold text-label-md" id="quiz-feedback-text">Awesome job! +10 Stars</span>
+</div>
+<button class="tactile-btn bg-primary-container text-on-surface border-2 border-on-surface px-4 py-1.5 rounded-xl font-bold text-label-md shadow-[2px_2px_0_0_#151c28]" id="quiz-next-btn" onclick="nextQuizQuestion()">
+          Next Question →
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Toast Notification System -->
+<div class="fixed top-20 right-4 z-50 hidden bg-surface-container-lowest border-2 border-on-surface rounded-2xl px-4 py-3 shadow-[4px_4px_0_0_#151c28] flex items-center gap-2 animate-pop" id="toast-notification">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-label-md text-on-surface" id="toast-text">Reward Claimed!</span>
+</div>
+<!-- ================= MOBILE DOCKED BOTTOM NAVIGATION (md:hidden) ================= -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface bg-surface-container-lowest shadow-[0_-4px_0_0_#151c28]">
+<!-- Destination 1: Play (Home) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] transition-all" id="bottom-nav-play" onclick="switchView('home')">
+<span class="material-symbols-outlined text-[22px]">smart_toy</span>
+<span class="text-label-md font-label-md font-bold mt-0.5">Play</span>
+</button>
+<!-- Destination 2: Subjects (Explore) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 rounded-xl transition-all hover:bg-surface-container-low" id="bottom-nav-subjects" onclick="switchView('explore')">
+<span class="material-symbols-outlined text-[22px]">auto_stories</span>
+<span class="text-label-md font-label-md font-bold mt-0.5">Subjects</span>
+</button>
+<!-- Destination 3: Quests -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 rounded-xl transition-all hover:bg-surface-container-low" onclick="showRewardToast('Daily Quest: Solve 3 Quizzes for +50 Stars! 🌟')">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="text-label-md font-label-md font-bold mt-0.5">Quests</span>
+</button>
+<!-- Destination 4: Badges -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 rounded-xl transition-all hover:bg-surface-container-low" onclick="showRewardToast('Badge Unlocked: Curious Explorer! 🦊')">
+<span class="material-symbols-outlined text-[22px]">military_tech</span>
+<span class="text-label-md font-label-md font-bold mt-0.5">Badges</span>
+</button>
+</nav>
+<!-- ================= LOGIC & INTERACTIVITY SCRIPT ================= -->
+<script>
+    // State
+    let currentView = 'home';
+    let currentTab = 'all';
+    let searchQuery = '';
+    let selectedSubjectFilter = 'All';
+    let selectedAgeFilter = 'All';
+    let selectedLangFilter = 'All';
+    let userStars = 240;
+    let favoritesList = [0];
+    let selectedActivityIndex = 0;
+
+    // Database of Question Activities
+    const activitiesData = [
+      {
+        id: 0,
+        title: "Compound Words — Two Words in One",
+        desc: "Discover how small words like 'sun' and 'flower' create cheerful new words.",
+        category: "Phonics",
+        age: "5-7",
+        lang: "English",
+        questionsCount: 12,
+        time: "5m",
+        difficulty: "Easy",
+        badgeBg: "bg-secondary-fixed",
+        btnBg: "bg-primary-container",
+        isMyQuestion: true,
+        sampleQ: "Rain + Bow = What word?",
+        options: ["Rainbow", "Raindrop", "Cloudy"],
+        correctOption: 0
+      },
+      {
+        id: 1,
+        title: "Counting with Ten Frames",
+        desc: "Practice visualizing numbers up to 10 with interactive counters and sounds.",
+        category: "Math",
+        age: "4-6",
+        lang: "English",
+        questionsCount: 10,
+        time: "4m",
+        difficulty: "Easy",
+        badgeBg: "bg-tertiary-fixed",
+        btnBg: "bg-tertiary-container",
+        isMyQuestion: false,
+        sampleQ: "How many dots make a full ten frame?",
+        options: ["5 Dots", "10 Dots", "8 Dots"],
+        correctOption: 1
+      },
+      {
+        id: 2,
+        title: "First 100 Sight Words",
+        desc: "Master foundational sight words essential for early reading confidence.",
+        category: "Vocabulary",
+        age: "6-8",
+        lang: "English",
+        questionsCount: 15,
+        time: "6m",
+        difficulty: "Medium",
+        badgeBg: "bg-secondary-container",
+        btnBg: "bg-secondary-fixed",
+        isMyQuestion: true,
+        sampleQ: "Find the sight word: 'Because'",
+        options: ["Because", "Become", "Before"],
+        correctOption: 0
+      },
+      {
+        id: 3,
+        title: "Animal Sounds Safari",
+        desc: "Roar, chirp, and squeak! Identify safari and forest animal sounds.",
+        category: "Animals",
+        age: "3-5",
+        lang: "English",
+        questionsCount: 8,
+        time: "3m",
+        difficulty: "Easy",
+        badgeBg: "bg-primary-fixed",
+        btnBg: "bg-tertiary-fixed",
+        isMyQuestion: false,
+        sampleQ: "Which animal says 'Roaaar'?",
+        options: ["Lion 🦁", "Frog 🐸", "Sheep 🐑"],
+        correctOption: 0
+      },
+      {
+        id: 4,
+        title: "Beginning Blends & Digraphs",
+        desc: "Practice letter combos like 'sh', 'ch', 'th', and 'bl' with playful cartoon cards.",
+        category: "Phonics",
+        age: "5-7",
+        lang: "English",
+        questionsCount: 10,
+        time: "5m",
+        difficulty: "Medium",
+        badgeBg: "bg-surface-container-highest",
+        btnBg: "bg-secondary-container",
+        isMyQuestion: false,
+        sampleQ: "Which word starts with 'CH'?",
+        options: ["Chair 🪑", "Boat ⛵", "Sun ☀️"],
+        correctOption: 0
+      },
+      {
+        id: 5,
+        title: "Colors, Shapes & Patterns",
+        desc: "Complete the rhythm pattern: Circle, Square, Circle, ___?",
+        category: "Math",
+        age: "3-6",
+        lang: "English",
+        questionsCount: 12,
+        time: "5m",
+        difficulty: "Easy",
+        badgeBg: "bg-tertiary-fixed-dim",
+        btnBg: "bg-primary-container",
+        isMyQuestion: false,
+        sampleQ: "What comes next: 🔴 🟦 🔴 ___?",
+        options: ["🟦 Square", "🟢 Triangle", "⭐ Star"],
+        correctOption: 0
+      }
+    ];
+
+    // Quiz sequence state
+    let currentQuizStep = 0;
+    const miniQuizQuestions = [
+      {
+        prompt: "Sun + Flower = What word?",
+        options: ["Sunflower 🌻", "Moonflower 🌙", "Raincloud 🌧️"],
+        correct: 0,
+        note: "Sun + Flower merges into Sunflower!"
+      },
+      {
+        prompt: "Butter + Fly = What creature?",
+        options: ["Dragonfly 🐉", "Butterfly 🦋", "Caterpillar 🐛"],
+        correct: 1,
+        note: "Butter + Fly creates Butterfly!"
+      },
+      {
+        prompt: "Star + Fish = What sea animal?",
+        options: ["Jellyfish 🪼", "Goldfish 🐟", "Starfish ⭐"],
+        correct: 2,
+        note: "Star + Fish equals Starfish!"
+      }
+    ];
+
+    // View Switching
+    function switchView(viewName) {
+      currentView = viewName;
+      const homeView = document.getElementById('view-home');
+      const exploreView = document.getElementById('view-explore');
+      const navBtnHome = document.getElementById('nav-btn-home');
+      const navBtnExplore = document.getElementById('nav-btn-explore');
+      const bNavPlay = document.getElementById('bottom-nav-play');
+      const bNavSubjects = document.getElementById('bottom-nav-subjects');
+
+      if (viewName === 'home') {
+        homeView.classList.remove('hidden');
+        exploreView.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (navBtnHome) {
+          navBtnHome.className = "px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-extrabold transition-all bg-primary-container text-on-surface border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]";
+          navBtnExplore.className = "px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-extrabold transition-all text-on-surface-variant hover:bg-surface-container-high border-2 border-transparent hover:border-on-surface";
+        }
+        if (bNavPlay) {
+          bNavPlay.className = "flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] transition-all";
+          bNavSubjects.className = "flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 rounded-xl transition-all hover:bg-surface-container-low";
+        }
+      } else {
+        homeView.classList.add('hidden');
+        exploreView.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (navBtnHome) {
+          navBtnHome.className = "px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-extrabold transition-all text-on-surface-variant hover:bg-surface-container-high border-2 border-transparent hover:border-on-surface";
+          navBtnExplore.className = "px-3.5 py-1.5 rounded-xl text-label-md font-label-md font-extrabold transition-all bg-primary-container text-on-surface border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]";
+        }
+        if (bNavPlay) {
+          bNavPlay.className = "flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 rounded-xl transition-all hover:bg-surface-container-low";
+          bNavSubjects.className = "flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] transition-all";
+        }
+        renderActivityCards();
+      }
+    }
+
+    function filterAndOpenExplore(category) {
+      switchView('explore');
+      const select = document.getElementById('filter-subject');
+      if (select) {
+        select.value = category;
+        applyFilters();
+      }
+    }
+
+    // Render Explore Cards (consistent 2-column grid on md+)
+    function renderActivityCards() {
+      const container = document.getElementById('cards-container');
+      const noCards = document.getElementById('no-cards-message');
+      if (!container) return;
+
+      const filtered = activitiesData.filter(act => {
+        if (currentTab === 'mine' && !act.isMyQuestion) return false;
+        if (currentTab === 'fav' && !favoritesList.includes(act.id)) return false;
+
+        if (selectedSubjectFilter !== 'All' && act.category !== selectedSubjectFilter) return false;
+        if (selectedAgeFilter !== 'All' && act.age !== selectedAgeFilter) return false;
+
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase();
+          const matchTitle = act.title.toLowerCase().includes(q);
+          const matchDesc = act.desc.toLowerCase().includes(q);
+          const matchCat = act.category.toLowerCase().includes(q);
+          if (!matchTitle && !matchDesc && !matchCat) return false;
+        }
+
+        return true;
+      });
+
+      document.getElementById('all-count-badge').textContent = activitiesData.length;
+      document.getElementById('fav-count-badge').textContent = favoritesList.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        noCards.classList.remove('hidden');
+        return;
+      }
+
+      noCards.classList.add('hidden');
+
+      container.innerHTML = filtered.map(act => {
+        const isFav = favoritesList.includes(act.id);
+        return `
+          <div class="tactile-card bg-surface-container-lowest rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] overflow-hidden flex flex-col justify-between">
+            
+            <!-- Card Top Header -->
+            <div class="${act.badgeBg} p-3.5 sm:p-4 border-b-2 border-on-surface flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="bg-surface-container-lowest text-on-surface text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-on-surface font-extrabold">${act.category}</span>
+                <span class="bg-surface-container-lowest text-on-surface text-label-sm font-label-sm px-2 py-0.5 rounded-full border border-on-surface font-bold">Age ${act.age}</span>
+              </div>
+              
+              <!-- Heart Favorite Button -->
+              <button onclick="toggleFavorite(${act.id}, event)" class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center transition-transform hover:scale-110 active:scale-95 shadow-[1px_1px_0_0_#151c28]">
+                <span class="material-symbols-outlined text-[18px] ${isFav ? 'text-error' : 'text-on-surface-variant'}" ${isFav ? "style=\"font-variation-settings: 'FILL' 1;\"" : ""}>
+                  favorite
+                </span>
+              </button>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-title-md font-title-md text-on-surface font-extrabold mb-1.5 leading-snug">${act.title}</h3>
+                <p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 mb-4">${act.desc}</p>
+              </div>
+
+              <!-- Metadata Badges -->
+              <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span class="text-xs font-bold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-lg border border-on-surface flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">help</span> ${act.questionsCount} Qs
+                </span>
+                <span class="text-xs font-bold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-lg border border-on-surface flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">timer</span> ${act.time}
+                </span>
+                <span class="text-xs font-bold text-tertiary bg-surface-container-low px-2.5 py-1 rounded-lg border border-on-surface">
+                  ${act.difficulty}
+                </span>
+              </div>
+
+              <!-- Responsive Action Buttons -->
+              <div class="flex items-center gap-2 pt-2 border-t border-on-surface/10">
+                <button onclick="openPreviewModal(${act.id})" class="tactile-btn flex-1 bg-surface-container-low text-on-surface font-label-md text-label-md py-2.5 rounded-xl border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] font-bold text-center">
+                  Preview
+                </button>
+                <button onclick="openGameSelection(${act.id})" class="tactile-btn flex-1 ${act.btnBg} text-on-surface font-label-md text-label-md py-2.5 rounded-xl border-2 border-on-surface shadow-[3px_3px_0_0_#151c28] font-extrabold text-center">
+                  Start Practice
+                </button>
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Tab Selecting
+    function selectQuestionTab(tabKey) {
+      currentTab = tabKey;
+      const tabAll = document.getElementById('tab-all');
+      const tabMine = document.getElementById('tab-mine');
+      const tabFav = document.getElementById('tab-fav');
+
+      const activeClasses = "tactile-btn flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-on-surface bg-secondary-container text-on-surface shadow-[2px_2px_0_0_#151c28] font-label-md text-label-md font-extrabold shrink-0";
+      const inactiveClasses = "tactile-btn flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-transparent hover:border-on-surface bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-bold shrink-0";
+
+      tabAll.className = (tabKey === 'all') ? activeClasses : inactiveClasses;
+      tabMine.className = (tabKey === 'mine') ? activeClasses : inactiveClasses;
+      tabFav.className = (tabKey === 'fav') ? activeClasses : inactiveClasses;
+
+      renderActivityCards();
+    }
+
+    // Favorite Toggle
+    function toggleFavorite(id, event) {
+      event.stopPropagation();
+      const index = favoritesList.indexOf(id);
+      if (index > -1) {
+        favoritesList.splice(index, 1);
+        showRewardToast("Removed from favorites");
+      } else {
+        favoritesList.push(id);
+        showRewardToast("Added to favorites! ❤️");
+      }
+      renderActivityCards();
+    }
+
+    // Search Logic
+    function handleSearch(val) {
+      searchQuery = val;
+      const clearBtn = document.getElementById('search-clear-btn');
+      if (val.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderActivityCards();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('question-search-input');
+      input.value = '';
+      searchQuery = '';
+      document.getElementById('search-clear-btn').classList.add('hidden');
+      renderActivityCards();
+    }
+
+    // Filters Drawer Toggle & Apply
+    function toggleFilterDrawer() {
+      const drawer = document.getElementById('filter-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function applyFilters() {
+      selectedSubjectFilter = document.getElementById('filter-subject').value;
+      selectedAgeFilter = document.getElementById('filter-age').value;
+      selectedLangFilter = document.getElementById('filter-lang').value;
+      
+      const badge = document.getElementById('active-filter-badge');
+      let count = 0;
+      if (selectedSubjectFilter !== 'All') count++;
+      if (selectedAgeFilter !== 'All') count++;
+      if (selectedLangFilter !== 'All') count++;
+
+      if (count > 0) {
+        badge.textContent = count;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      renderActivityCards();
+    }
+
+    function resetFilters() {
+      document.getElementById('filter-subject').value = 'All';
+      document.getElementById('filter-age').value = 'All';
+      document.getElementById('filter-lang').value = 'All';
+      clearSearch();
+      applyFilters();
+      selectQuestionTab('all');
+    }
+
+    // Modal 1: Preview Modal
+    function openPreviewModal(activityId) {
+      selectedActivityIndex = activityId;
+      const act = activitiesData[activityId];
+      if (!act) return;
+
+      document.getElementById('preview-category-badge').textContent = `${act.category} • Age ${act.age}`;
+      document.getElementById('preview-title').textContent = act.title;
+      document.getElementById('preview-desc').textContent = act.desc;
+      document.getElementById('preview-q-count').textContent = act.questionsCount;
+      document.getElementById('preview-difficulty').textContent = act.difficulty;
+      document.getElementById('preview-sample-q').textContent = `"${act.sampleQ}"`;
+
+      document.getElementById('modal-preview').classList.remove('hidden');
+    }
+
+    function closePreviewModal() {
+      document.getElementById('modal-preview').classList.add('hidden');
+    }
+
+    function startPracticeFromPreview() {
+      closePreviewModal();
+      openGameSelection(selectedActivityIndex);
+    }
+
+    // Modal 2: Step 2 Game Selection Modal
+    function openGameSelection(activityId) {
+      selectedActivityIndex = activityId;
+      document.getElementById('modal-game-select').classList.remove('hidden');
+    }
+
+    function closeGameModal() {
+      document.getElementById('modal-game-select').classList.add('hidden');
+    }
+
+    // Direct quiz launch shortcut
+    function launchDirectQuiz(activityId) {
+      selectedActivityIndex = activityId;
+      openGameSelection(activityId);
+    }
+
+    // Modal 3: Step 3 Interactive Playable Quiz
+    function launchPlayableQuiz(gameModeName) {
+      closeGameModal();
+      currentQuizStep = 0;
+      document.getElementById('quiz-mode-title').textContent = `Mode: ${gameModeName}`;
+      renderQuizQuestion();
+      document.getElementById('modal-quiz').classList.remove('hidden');
+    }
+
+    function closeQuizModal() {
+      document.getElementById('modal-quiz').classList.add('hidden');
+    }
+
+    function renderQuizQuestion() {
+      const q = miniQuizQuestions[currentQuizStep];
+      const counterEl = document.getElementById('quiz-question-counter');
+      const progressBar = document.getElementById('quiz-progress-bar');
+      const questionEl = document.getElementById('quiz-question-text');
+      const optionsContainer = document.getElementById('quiz-options-container');
+      const feedbackBox = document.getElementById('quiz-feedback');
+
+      feedbackBox.classList.add('hidden');
+      counterEl.textContent = `Question ${currentQuizStep + 1} of ${miniQuizQuestions.length}`;
+      progressBar.style.width = `${((currentQuizStep + 1) / miniQuizQuestions.length) * 100}%`;
+      questionEl.textContent = q.prompt;
+
+      optionsContainer.innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" class="tactile-btn w-full bg-surface-container-lowest text-on-surface border-2 border-on-surface rounded-xl p-3.5 text-left font-title-md font-bold shadow-[3px_3px_0_0_#151c28] flex items-center justify-between hover:bg-surface-container-high transition-colors">
+          <span>${opt}</span>
+          <span class="w-6 h-6 rounded-full border border-on-surface flex items-center justify-center text-xs font-bold">${String.fromCharCode(65 + idx)}</span>
+        </button>
+      `).join('');
+    }
+
+    function handleQuizAnswer(selectedIndex) {
+      const q = miniQuizQuestions[currentQuizStep];
+      const feedbackBox = document.getElementById('quiz-feedback');
+      const feedbackText = document.getElementById('quiz-feedback-text');
+      const feedbackIcon = document.getElementById('quiz-feedback-icon');
+      const nextBtn = document.getElementById('quiz-next-btn');
+
+      if (selectedIndex === q.correct) {
+        feedbackBox.className = "p-3 rounded-xl border-2 border-on-surface flex items-center justify-between bg-tertiary-fixed";
+        feedbackIcon.textContent = "⭐";
+        feedbackText.textContent = `Correct! ${q.note} +10 Stars`;
+        userStars += 10;
+        document.getElementById('user-stars-badge').textContent = userStars;
+      } else {
+        feedbackBox.className = "p-3 rounded-xl border-2 border-on-surface flex items-center justify-between bg-primary-fixed";
+        feedbackIcon.textContent = "💪";
+        feedbackText.textContent = `Almost! ${q.note}`;
+      }
+
+      feedbackBox.classList.remove('hidden');
+      
+      if (currentQuizStep === miniQuizQuestions.length - 1) {
+        nextBtn.textContent = "Complete Quiz! 🏆";
+      } else {
+        nextBtn.innerHTML = "Next Question &rarr;";
+      }
+    }
+
+    function nextQuizQuestion() {
+      if (currentQuizStep < miniQuizQuestions.length - 1) {
+        currentQuizStep++;
+        renderQuizQuestion();
+      } else {
+        closeQuizModal();
+        showRewardToast("Quest Complete! You earned +30 Stars! 🎉");
+      }
+    }
+
+    // Toast Notification helper
+    function showRewardToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const toastText = document.getElementById('toast-text');
+      toastText.textContent = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2500);
+    }
+
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      renderActivityCards();
+    });
+  </script>
+</body></html>

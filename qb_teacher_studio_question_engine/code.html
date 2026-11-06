@@ -1,0 +1,1053 @@
+<!DOCTYPE html><html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QB Interactive Learning Kits - Teacher Studio &amp; Question Builder</title>
+<!-- Fonts -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#d4daeb",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#002111",
+            "on-secondary-container": "#00607a",
+            "tertiary": "#006c44",
+            "surface": "#f9f9ff",
+            "inverse-primary": "#ffb780",
+            "on-background": "#151c28",
+            "on-tertiary-fixed-variant": "#005232",
+            "on-secondary-fixed": "#001f29",
+            "on-primary-container": "#6b3600",
+            "primary-fixed-dim": "#ffb780",
+            "surface-container-low": "#f1f3ff",
+            "on-secondary-fixed-variant": "#004d63",
+            "on-surface": "#151c28",
+            "surface-variant": "#dde2f4",
+            "tertiary-container": "#5ac58e",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#70dba2",
+            "surface-container-high": "#e2e8fa",
+            "on-primary-fixed": "#2f1400",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#7bd2f6",
+            "surface-bright": "#f9f9ff",
+            "secondary-fixed": "#bce9ff",
+            "primary-fixed": "#ffdcc4",
+            "on-surface-variant": "#554337",
+            "surface-container-highest": "#dde2f4",
+            "outline": "#887365",
+            "outline-variant": "#dbc2b1",
+            "tertiary-fixed": "#8df8bd",
+            "secondary": "#006783",
+            "surface-tint": "#924c00",
+            "primary": "#924c00",
+            "background": "#f9f9ff",
+            "secondary-container": "#83dafe",
+            "inverse-surface": "#2a303e",
+            "on-tertiary-container": "#004f30",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "primary-container": "#ff983d",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#e8edff",
+            "inverse-on-surface": "#edf0ff",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#6f3800"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-xl": "2.25rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.25rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "body-md": ["Nunito Sans"],
+            "headline-lg": ["Quicksand"],
+            "headline-lg-mobile": ["Quicksand"],
+            "display-hero": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "headline-md": ["Quicksand"],
+            "label-md": ["Nunito Sans"],
+            "label-lg": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "title-md": ["Quicksand"],
+            "display-hero-mobile": ["Quicksand"],
+            "body-sm": ["Nunito Sans"],
+            "headline-sm": ["Quicksand"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Core Affordances */
+    .ink-border {
+      border: 2px solid #202633;
+    }
+    .ink-shadow-sm {
+      box-shadow: 2px 2px 0px #202633;
+    }
+    .ink-shadow {
+      box-shadow: 4px 4px 0px #202633;
+    }
+    .ink-shadow-lg {
+      box-shadow: 6px 6px 0px #202633;
+    }
+    .ink-shadow-xl {
+      box-shadow: 8px 8px 0px #202633;
+    }
+    .btn-press:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #202633;
+    }
+    .khmer-font {
+      font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif);
+    }
+    /* Subtle dot grid for tactile classroom desk vibe */
+    .bg-dot-pattern {
+      background-image: radial-gradient(#202633 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: #f9f9ff;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md select-none bg-dot-pattern">
+<!-- ========================================================================= -->
+<!-- 1. TOP APP BAR & HEADER (Shared Component Identity + Studio Extensions)  -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
+<!-- Brand & Section Label -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="/04._qb_teacher_dashboard/code.html">
+<div class="w-11 h-11 rounded-xl ink-border bg-primary-container p-0.5 ink-shadow-sm overflow-hidden flex items-center justify-center transition-transform group-hover:scale-105">
+<img alt="QB Interactive Learning Kits Leo Mascot" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X2AGeLx0hMU2sH_I2-ADHqiqnraxYOwf11y7hCq0dDJXEgf-ZqT9GoJldmF3paf0p69dBWP-RTA5cTQWhBsmA7-EhGEv3LG2bgAg74vekZUKserQvkCenrG7g5VfGfYq7AedXH3TeiIiyyvn7zfezR_voIlyyhN3i1hCdXTnE3xOvAh3tKV-hhCzcuVjx4kgJayf42Y_ywZBfxdKBbZKh0ABsdxMXYu4Lt2bUovMhQbYEsxSLWZxcGsajG">
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight block leading-none">QB Interactive Learning Kits</span>
+<span class="inline-block px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[11px] font-label-sm font-black ink-border rounded-full -mt-0.5">TEACHER STUDIO</span>
+</div>
+</a>
+<!-- Breadcrumb / Studio Mode Switcher -->
+<nav class="hidden md:flex items-center gap-1.5 ml-4 pl-4 border-l-2 border-outline-variant">
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors">Dashboard</button>
+<button class="px-3 py-1.5 rounded-xl bg-secondary-container text-on-secondary-container font-headline-sm text-label-md font-bold ink-border ink-shadow-sm">Question Sets</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1" onclick="toggleModal('liveGameModal')">
+<span class="material-symbols-outlined text-base">sensors</span>
+            Live Host
+          </button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1" onclick="toggleTab('classroomToolsView')">
+<span class="material-symbols-outlined text-base">apps</span>
+            Classroom Utilities
+          </button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors hidden lg:inline-flex">Mastery Analytics</button>
+</nav>
+</div>
+<!-- Quick Actions, Dual-Language Switch & User Profile -->
+<div class="flex items-center gap-3">
+<!-- Dual Language Toggle Pill -->
+<div class="hidden sm:flex items-center bg-surface-container-high p-1 rounded-full ink-border ink-shadow-sm">
+<button class="px-2.5 py-0.5 rounded-full text-xs font-label-sm font-black transition-all bg-surface-container-lowest text-on-surface ink-border" id="langEnBtn" onclick="setLanguage('en')">EN</button>
+<button class="px-2.5 py-0.5 rounded-full text-xs font-label-sm font-black text-on-surface-variant hover:text-on-surface transition-all" id="langKmBtn" onclick="setLanguage('km')">ភាសាខ្មែរ (KM)</button>
+</div>
+<!-- Launch Live Game Room PIN CTA -->
+<button class="btn-press bg-primary-container text-on-surface px-4 py-2 rounded-xl ink-border ink-shadow font-headline-sm text-label-md font-extrabold flex items-center gap-2 hover:bg-[#ff8924] transition-all" onclick="toggleModal('liveGameModal')">
+<span class="material-symbols-outlined text-xl">sports_esports</span>
+<span class="hidden sm:inline">Launch Live Room</span>
+<span class="bg-surface-container-lowest text-on-surface text-xs px-2 py-0.5 rounded-md ink-border font-mono font-bold tracking-wider">PIN</span>
+</button>
+<!-- Save Button -->
+<button class="btn-press bg-tertiary-fixed text-on-tertiary-fixed px-3 py-2 rounded-xl ink-border ink-shadow-sm font-label-md font-bold flex items-center gap-1.5 hover:bg-tertiary-fixed-dim transition-all" id="saveBtn" onclick="triggerSaveNotification()">
+<span class="material-symbols-outlined text-lg" id="saveIcon">cloud_upload</span>
+<span class="hidden md:inline" id="saveText">Save Set</span>
+</button>
+<!-- Teacher Profile Card -->
+<div class="flex items-center gap-2 pl-2 border-l-2 border-outline-variant">
+<div class="relative">
+<div class="w-10 h-10 rounded-full ink-border bg-[#FFF0A8] flex items-center justify-center font-headline-sm font-bold text-on-surface ink-shadow-sm">
+<span class="material-symbols-outlined text-xl">school</span>
+</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary-container rounded-full ink-border"></span>
+</div>
+<div class="hidden xl:block text-left">
+<div class="text-xs font-headline-sm font-bold leading-tight">Ms. Socheata</div>
+<div class="text-[11px] text-on-surface-variant font-label-sm">Grade 2 Phonics</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 2. TOP COMMAND BAR / SET METADATA & COMPATIBILITY ENGINE                  -->
+<!-- ========================================================================= -->
+<section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2">
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Set Title & Tags -->
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-[#E7D8FF] text-on-surface font-label-sm font-black ink-border text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+            Phonics &amp; Language
+          </span>
+<span class="px-2.5 py-1 rounded-lg bg-[#FFF0A8] text-on-surface font-label-sm font-black ink-border text-xs">Grade 2</span>
+<span class="px-2.5 py-1 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-label-sm font-black ink-border text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">translate</span>
+            Bilingual (English + Khmer)
+          </span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-label-sm font-black ink-border text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+            Published to Class
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="text-headline-md font-headline-md text-on-surface flex items-center gap-2">
+            Grade 2 Phonics &amp; Compound Words <span class="khmer-font text-secondary font-bold text-xl">(ពាក្យផ្សំ)</span>
+<button class="p-1 rounded-lg hover:bg-surface-container-high ink-border ink-shadow-sm text-on-surface transition-transform active:scale-95" title="Rename Question Set">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+</h1>
+</div>
+</div>
+<!-- Universal Game Adapter Compatibility Badge Strip -->
+<div class="bg-surface-container-low rounded-xl ink-border p-3 flex flex-col gap-1.5 self-start lg:self-auto min-w-[340px]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-label-sm font-black text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-tertiary">check_box</span>
+            UNIVERSAL ENGINE COMPATIBLE
+          </span>
+<span class="text-[11px] font-bold text-tertiary bg-[#dcfce7] px-2 py-0.2 rounded-full ink-border">100% Ready</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 text-xs font-label-sm">
+<span class="px-2 py-1 bg-surface-container-lowest rounded-lg ink-border text-on-surface flex items-center gap-1 shadow-sm whitespace-nowrap">
+            🎯 Wheel Spin
+          </span>
+<span class="px-2 py-1 bg-surface-container-lowest rounded-lg ink-border text-on-surface flex items-center gap-1 shadow-sm whitespace-nowrap">
+            🚢 Ship Battle
+          </span>
+<span class="px-2 py-1 bg-surface-container-lowest rounded-lg ink-border text-on-surface flex items-center gap-1 shadow-sm whitespace-nowrap">
+            🃏 Flashcards
+          </span>
+<span class="px-2 py-1 bg-surface-container-lowest rounded-lg ink-border text-on-surface flex items-center gap-1 shadow-sm whitespace-nowrap">
+            👾 Alien Spelling
+          </span>
+<span class="px-2 py-1 bg-surface-container-lowest rounded-lg ink-border text-on-surface flex items-center gap-1 shadow-sm whitespace-nowrap">
+            🏗️ Crane
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. MAIN WORKSPACE / TWO-COLUMN STUDIO LAYOUT                              -->
+<!-- ========================================================================= -->
+<main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 flex-1">
+<!-- View Container: Question Studio -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start" id="questionStudioView">
+<!-- ======================================================== -->
+<!-- A. LEFT COLUMN: Question Stack & Navigator (4 cols / ~35%) -->
+<!-- ======================================================== -->
+<aside class="lg:col-span-4 flex flex-col gap-4">
+<!-- Question List Header & Filter -->
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-bold">format_list_bulleted</span>
+<h2 class="font-headline-sm text-title-md font-bold text-on-surface">Question Flow (4/8)</h2>
+</div>
+<button class="text-xs font-label-sm text-primary font-bold hover:underline flex items-center gap-0.5">
+<span class="material-symbols-outlined text-sm">shuffle</span> Re-order
+            </button>
+</div>
+<!-- Question Cards Stack -->
+<div class="space-y-2.5" id="questionsList">
+<!-- Question 1: Active Card -->
+<div class="question-item relative p-3 rounded-xl ink-border bg-[#D9EEFF] ink-shadow transition-all cursor-pointer ring-2 ring-primary">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant cursor-grab pt-0.5 text-lg">drag_indicator</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-label-sm font-black bg-surface-container-lowest px-2 py-0.5 rounded-md ink-border">Q1 • Dual-Choice</span>
+<span class="text-[10px] font-bold text-tertiary bg-[#7DE8AE] px-1.5 py-0.2 rounded ink-border">Active</span>
+</div>
+<p class="font-headline-sm text-body-sm font-bold text-on-surface truncate mt-1">Which two words make a compound?</p>
+<p class="khmer-font text-xs text-on-surface-variant truncate">តើពាក្យពីរណាខ្លះបង្កើតពាក្យផ្សំ?</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-label-sm bg-surface-container-lowest px-1.5 py-0.5 rounded ink-border flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">image</span> 1 Image
+                    </span>
+<span class="text-[10px] font-label-sm bg-surface-container-lowest px-1.5 py-0.5 rounded ink-border flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">mic</span> Audio prompt
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="question-item p-3 rounded-xl ink-border bg-surface-container-lowest hover:bg-surface-container-low ink-shadow-sm transition-all cursor-pointer">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-outline-variant cursor-grab pt-0.5 text-lg">drag_indicator</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-label-sm font-bold bg-[#E7D8FF] px-2 py-0.5 rounded-md ink-border">Q2 • Image Matching</span>
+<span class="text-[10px] font-bold text-on-surface-variant">10 pts</span>
+</div>
+<p class="font-headline-sm text-body-sm font-bold text-on-surface truncate mt-1">Match: Butterfly / មេអំបៅ</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-label-sm bg-surface-container-high px-1.5 py-0.5 rounded ink-border flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">dashboard_customize</span> 4 Pairs
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="question-item p-3 rounded-xl ink-border bg-surface-container-lowest hover:bg-surface-container-low ink-shadow-sm transition-all cursor-pointer">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-outline-variant cursor-grab pt-0.5 text-lg">drag_indicator</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-label-sm font-bold bg-[#FFF0A8] px-2 py-0.5 rounded-md ink-border">Q3 • Dual Spelling</span>
+<span class="text-[10px] font-bold text-on-surface-variant">15 pts</span>
+</div>
+<p class="font-headline-sm text-body-sm font-bold text-on-surface truncate mt-1">Sun + Flower = Sunflower</p>
+<p class="khmer-font text-xs text-on-surface-variant truncate">ផ្កា + ឈូករ័ត្ន = ផ្កាឈូករ័ត្ន</p>
+</div>
+</div>
+</div>
+<!-- Question 4 -->
+<div class="question-item p-3 rounded-xl ink-border bg-surface-container-lowest hover:bg-surface-container-low ink-shadow-sm transition-all cursor-pointer">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-outline-variant cursor-grab pt-0.5 text-lg">drag_indicator</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-label-sm font-bold bg-[#FFAAA9] px-2 py-0.5 rounded-md ink-border">Q4 • Audio Listen</span>
+<span class="text-[10px] font-bold text-on-surface-variant">10 pts</span>
+</div>
+<p class="font-headline-sm text-body-sm font-bold text-on-surface truncate mt-1">Listen &amp; Tap the Compound Sound</p>
+<p class="khmer-font text-xs text-on-surface-variant truncate">ស្តាប់ហើយជ្រើសរើសសំឡេងត្រឹមត្រូវ</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Add New Question Chunky Card -->
+<div class="pt-2">
+<button class="w-full border-2 border-dashed border-[#202633] hover:border-solid hover:bg-[#FFF8E7] rounded-xl p-3 text-center transition-all group" onclick="addNewQuestionSim()">
+<div class="flex items-center justify-center gap-1.5 font-headline-sm text-sm font-bold text-on-surface">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">add_circle</span>
+                Add New Question
+              </div>
+<div class="flex items-center justify-center gap-1.5 mt-2">
+<span class="text-[10px] font-label-sm bg-surface-container-lowest px-2 py-0.5 rounded ink-border hover:bg-primary-container">+ Choice</span>
+<span class="text-[10px] font-label-sm bg-surface-container-lowest px-2 py-0.5 rounded ink-border hover:bg-primary-container">+ Audio</span>
+<span class="text-[10px] font-label-sm bg-surface-container-lowest px-2 py-0.5 rounded ink-border hover:bg-primary-container">+ Matching</span>
+<span class="text-[10px] font-label-sm bg-surface-container-lowest px-2 py-0.5 rounded ink-border hover:bg-primary-container">+ Khmer Script</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Stack Analytics Pill Box -->
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-4">
+<h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">insights</span>
+            Learning Blueprint Analytics
+          </h3>
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded-xl bg-surface-container-low ink-border">
+<div class="text-xl font-headline-lg font-bold text-primary">8</div>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Total Questions</div>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low ink-border">
+<div class="text-xl font-headline-lg font-bold text-secondary">~4m</div>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Est. Play Time</div>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low ink-border">
+<div class="text-xs font-headline-sm font-black text-tertiary mt-1">Recall &amp; Apply</div>
+<div class="text-[10px] font-label-sm text-on-surface-variant">Bloom Level</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- ======================================================== -->
+<!-- B. RIGHT COLUMN: Active Question WYSIWYG Editor (~65%)     -->
+<!-- ======================================================== -->
+<section class="lg:col-span-8 flex flex-col gap-4">
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-5 sm:p-6 space-y-6">
+<!-- Editor Header & Question Type Segmented Selector -->
+<div class="space-y-3 pb-4 border-b-2 border-outline-variant">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-primary-container ink-border ink-shadow-sm flex items-center justify-center font-headline-sm font-bold text-sm">1</span>
+<div>
+<h2 class="font-headline-sm text-title-md font-bold text-on-surface">Question 1: Interactive Multiple Choice</h2>
+<span class="text-xs font-label-sm text-on-surface-variant">Early Literacy • Compound Noun Discovery</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 text-xs font-label-sm font-bold bg-surface-container-high rounded-lg ink-border hover:bg-surface-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">content_copy</span> Duplicate
+                </button>
+<button class="px-2.5 py-1 text-xs font-label-sm font-bold text-error bg-error-container rounded-lg ink-border hover:opacity-90 transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">delete</span> Delete
+                </button>
+</div>
+</div>
+<!-- Segmented Type Selector -->
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="px-3 py-1.5 rounded-xl bg-[#D9EEFF] text-on-surface font-headline-sm text-xs font-bold ink-border ink-shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">radio_button_checked</span> Multiple Choice
+              </button>
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface font-headline-sm text-xs font-bold ink-border transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">image</span> Image &amp; Text
+              </button>
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface font-headline-sm text-xs font-bold ink-border transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">volume_up</span> Audio Listen
+              </button>
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface font-headline-sm text-xs font-bold ink-border transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">spellcheck</span> Word Scramble / Khmer Vowel
+              </button>
+</div>
+</div>
+<!-- Dual Language Prompt Inputs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- English Prompt Field -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="text-xs font-label-sm font-black text-on-surface flex items-center gap-1.5" for="promptEn">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+                  English Question Prompt
+                </label>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Kid-friendly phrasing</span>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest rounded-xl ink-border p-3 text-body-md text-on-surface focus:ring-2 focus:ring-secondary-container focus:outline-none" id="promptEn" placeholder="Enter teacher question in English..." rows="3">Which two words combine to make a new compound word?</textarea>
+<div class="absolute right-2 bottom-2 flex items-center gap-1.5 bg-surface-container-lowest p-1 rounded-lg">
+<button class="p-1.5 rounded-md ink-border bg-[#FFF0A8] hover:bg-[#ffe677] text-on-surface transition-colors" id="micBtnEn" onclick="simulateRecording(this)" title="Record Voice Instructions">
+<span class="material-symbols-outlined text-base">mic</span>
+</button>
+<button class="p-1.5 rounded-md ink-border bg-surface-container-high hover:bg-surface-container text-on-surface transition-colors" onclick="simulateAudioPlay()" title="Play Voice Audio">
+<span class="material-symbols-outlined text-base">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Khmer Prompt Field -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="khmer-font text-xs font-black text-on-surface flex items-center gap-1.5" for="promptKm">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+                  សំណួរជាភាសាខ្មែរ (Khmer Prompt)
+                </label>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Bilingual sync active</span>
+</div>
+<div class="relative">
+<textarea class="khmer-font w-full bg-surface-container-lowest rounded-xl ink-border p-3 text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:outline-none" id="promptKm" placeholder="បញ្ចូលសំណួរជាភាសាខ្មែរនៅទីនេះ..." rows="3">តើពាក្យពីរណាខ្លះផ្គុំគ្នាបង្កើតបានជាពាក្យថ្មីមួយ?</textarea>
+<div class="absolute right-2 bottom-2 flex items-center gap-1.5 bg-surface-container-lowest p-1 rounded-lg">
+<button class="p-1.5 rounded-md ink-border bg-primary-fixed hover:bg-primary-fixed-dim text-on-surface transition-colors" id="micBtnKm" onclick="simulateRecording(this)" title="Record Khmer Instructions">
+<span class="material-symbols-outlined text-base">mic</span>
+</button>
+<button class="p-1.5 rounded-md ink-border bg-surface-container-high hover:bg-surface-container text-on-surface transition-colors" onclick="simulateAudioPlay()" title="Listen Khmer Pronunciation">
+<span class="material-symbols-outlined text-base">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Media Upload Zone & Visual Anchor Dropzone -->
+<div class="space-y-2">
+<label class="text-xs font-label-sm font-black text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">add_photo_alternate</span>
+              Visual Learning Prompt (Card Graphic or Classroom Photo)
+            </label>
+<div class="border-2 border-dashed border-[#202633] rounded-2xl p-4 bg-surface-container-low flex flex-col sm:flex-row items-center gap-4">
+<!-- Thumbnail Preview Box -->
+<div class="relative w-28 h-28 rounded-xl ink-border overflow-hidden ink-shadow-sm flex-shrink-0 bg-white">
+<img class="w-full h-full object-cover" data-alt="A vivid and whimsical children's book illustration showing a cheerful cartoon sun with golden rays smiling at the sky, surrounded by fluffy white cumulus clouds on a soft pastel sky blue backdrop. Bold 2px dark ink outlines, friendly storybook art style, clean vector aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr-2dmzHWK8uFI6o4-NlzNmyDpnGo04mwRTxkW9R3qK8a1s6ksNKtkTMepI6Pfy-DdnUk44Lc_yME05QPJyyhHHe6XLYZhGLif7oANe-mxvWEFXwrrcYj2zIF9roKvKUf-0s68LiJE0WIO_rHXyFwHIB1CuJ6rrzjIpCoIIfgw7aZUA6lnojt8KVEGEeN0Tk-5MHk-tRWq6lnrJazcpyWssUayZtel9J1piX1_DyetpE20iJqMGU2ZjA">
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-bold ink-border">JPG</span>
+</div>
+<!-- Upload description & triggers -->
+<div class="flex-1 text-center sm:text-left space-y-2">
+<div class="text-xs font-headline-sm font-bold text-on-surface">Sun_Sunshine_Prompt_Card.png (420 KB)</div>
+<p class="text-xs text-on-surface-variant font-body-sm">
+                  Drag and drop cute story illustration, or record custom teacher voice note for students who need read-aloud support.
+                </p>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1">
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-xs font-label-sm font-bold ink-border ink-shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">upload_file</span> Replace Image
+                  </button>
+<button class="px-3 py-1.5 rounded-xl bg-[#FFF0A8] hover:bg-[#fde047] text-xs font-label-sm font-bold ink-border ink-shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">graphic_eq</span> Attach Pronunciation MP3
+                  </button>
+<button class="px-2.5 py-1.5 rounded-xl bg-surface-container-lowest text-error hover:bg-error-container text-xs font-label-sm font-bold ink-border">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Answer Options (4 Chunky Cards with Neo-Brutalist Radio/Check) -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<label class="text-xs font-label-sm font-black text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-tertiary">task_alt</span>
+                Answer Options (Mark at least 1 correct answer)
+              </label>
+<span class="text-xs font-label-sm text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">stars</span> Option A is Correct
+              </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+<!-- Option A: CORRECT ANSWER -->
+<div class="p-3.5 rounded-xl border-2 border-on-surface bg-[#dcfce7] ink-shadow transition-all relative">
+<div class="flex items-start gap-3">
+<button class="w-7 h-7 rounded-lg ink-border bg-tertiary text-white flex items-center justify-center mt-0.5 ink-shadow-sm" onclick="setCorrectOption(this)">
+<span class="material-symbols-outlined text-lg font-black">check</span>
+</button>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-xs font-label-sm font-black text-tertiary">OPTION A • CORRECT ANSWER</span>
+<span class="px-2 py-0.5 bg-[#FFF0A8] text-on-surface text-[10px] font-bold rounded-full ink-border">⭐ Award 10 pts</span>
+</div>
+<input class="w-full mt-1.5 px-3 py-1.5 text-sm font-bold bg-surface-container-lowest rounded-lg ink-border text-on-surface focus:outline-none" type="text" value="Sun + Shine = Sunshine">
+<div class="mt-1.5 flex items-center gap-2">
+<span class="khmer-font text-xs text-on-surface-variant">ព្រះអាទិត្យ + ពន្លឺ = ពន្លឺព្រះអាទិត្យ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Option B: DISTRACTOR -->
+<div class="p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-lowest hover:bg-surface-container-low ink-shadow-sm transition-all">
+<div class="flex items-start gap-3">
+<button class="w-7 h-7 rounded-lg ink-border bg-surface-container-lowest hover:bg-surface-container flex items-center justify-center mt-0.5 ink-shadow-sm" onclick="setCorrectOption(this)">
+<span class="material-symbols-outlined text-lg text-transparent">check</span>
+</button>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-xs font-label-sm font-bold text-on-surface-variant">OPTION B • DISTRACTOR</span>
+</div>
+<input class="w-full mt-1.5 px-3 py-1.5 text-sm font-semibold bg-surface-container-lowest rounded-lg ink-border text-on-surface focus:outline-none" type="text" value="Rain + Bow = Rainbow">
+<div class="mt-1.5 flex items-center gap-2">
+<span class="khmer-font text-xs text-on-surface-variant">ទឹកភ្លៀង + ធ្នូ = ឥន្ទធនូ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Option C: DISTRACTOR -->
+<div class="p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-lowest hover:bg-surface-container-low ink-shadow-sm transition-all">
+<div class="flex items-start gap-3">
+<button class="w-7 h-7 rounded-lg ink-border bg-surface-container-lowest hover:bg-surface-container flex items-center justify-center mt-0.5 ink-shadow-sm" onclick="setCorrectOption(this)">
+<span class="material-symbols-outlined text-lg text-transparent">check</span>
+</button>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-xs font-label-sm font-bold text-on-surface-variant">OPTION C • DISTRACTOR</span>
+</div>
+<input class="w-full mt-1.5 px-3 py-1.5 text-sm font-semibold bg-surface-container-lowest rounded-lg ink-border text-on-surface focus:outline-none" type="text" value="Book + Read = Bookread (Non-word)">
+<div class="mt-1.5 flex items-center gap-2">
+<span class="khmer-font text-xs text-on-surface-variant">សៀវភៅ + អាន (មិនមែនជាពាក្យផ្សំត្រឹមត្រូវ)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Option D: DISTRACTOR -->
+<div class="p-3.5 rounded-xl border-2 border-on-surface bg-surface-container-lowest hover:bg-surface-container-low ink-shadow-sm transition-all">
+<div class="flex items-start gap-3">
+<button class="w-7 h-7 rounded-lg ink-border bg-surface-container-lowest hover:bg-surface-container flex items-center justify-center mt-0.5 ink-shadow-sm" onclick="setCorrectOption(this)">
+<span class="material-symbols-outlined text-lg text-transparent">check</span>
+</button>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-xs font-label-sm font-bold text-on-surface-variant">OPTION D • DISTRACTOR</span>
+</div>
+<input class="w-full mt-1.5 px-3 py-1.5 text-sm font-semibold bg-surface-container-lowest rounded-lg ink-border text-on-surface focus:outline-none" type="text" value="Dog + Bark = Dogbark (Non-word)">
+<div class="mt-1.5 flex items-center gap-2">
+<span class="khmer-font text-xs text-on-surface-variant">ឆ្កែ + ព្រុស (មិនមែនជាពាក្យផ្សំតែមួយ)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Friendly Teacher Hints & Explanation Accordion -->
+<div class="rounded-xl ink-border bg-[#FFF8E7] p-3.5 space-y-2">
+<div class="flex items-center justify-between cursor-pointer" onclick="toggleElement('hintsContainer')">
+<div class="flex items-center gap-2 font-headline-sm text-sm font-bold text-on-surface">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+                Classroom Hint &amp; Reward Feedback Message
+              </div>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t-2 border-outline-variant" id="hintsContainer">
+<div>
+<span class="text-[11px] font-label-sm font-black text-on-surface">Encouragement Popup (English)</span>
+<input class="w-full mt-1 px-3 py-1.5 text-xs font-semibold bg-surface-container-lowest rounded-lg ink-border" type="text" value="Super job! 'Sun' and 'Shine' combine into 'Sunshine'!">
+</div>
+<div>
+<span class="khmer-font text-[11px] font-black text-on-surface">សារលើកទឹកចិត្តជាភាសាខ្មែរ (Khmer)</span>
+<input class="khmer-font w-full mt-1 px-3 py-1.5 text-xs font-semibold bg-surface-container-lowest rounded-lg ink-border" type="text" value="ពូកែណាស់កូន! 'ពន្លឺ' និង 'ព្រះអាទិត្យ' ក្លាយជា 'ពន្លឺព្រះអាទិត្យ'!">
+</div>
+</div>
+</div>
+<!-- Bottom Test in Universal Game Adapter Toolbar -->
+<div class="pt-4 border-t-2 border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">smart_toy</span>
+<span class="text-xs font-label-sm font-black text-on-surface uppercase">Instant Game Engine Simulator:</span>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="btn-press px-3 py-1.5 bg-[#FFF0A8] rounded-xl ink-border ink-shadow-sm text-xs font-label-sm font-extrabold flex items-center gap-1 hover:bg-[#ffe677]" onclick="previewInGame('Wheel Spin')">
+                🎡 Wheel Spin
+              </button>
+<button class="btn-press px-3 py-1.5 bg-secondary-fixed rounded-xl ink-border ink-shadow-sm text-xs font-label-sm font-extrabold flex items-center gap-1 hover:bg-secondary-fixed-dim" onclick="previewInGame('Ship Battle')">
+                🚢 Ship Battle
+              </button>
+<button class="btn-press px-3 py-1.5 bg-[#E7D8FF] rounded-xl ink-border ink-shadow-sm text-xs font-label-sm font-extrabold flex items-center gap-1 hover:bg-[#dac3ff]" onclick="previewInGame('Flashcards')">
+                🃏 Flashcards
+              </button>
+<button class="btn-press px-3 py-1.5 bg-[#7DE8AE] rounded-xl ink-border ink-shadow-sm text-xs font-label-sm font-extrabold flex items-center gap-1 hover:bg-[#6bd69d]" onclick="previewInGame('Alien Spelling')">
+                👾 Alien Run
+              </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ========================================================================= -->
+<!-- VIEW CONTAINER: CLASSROOM UTILITIES (Tab 2)                               -->
+<!-- ========================================================================= -->
+<div class="hidden space-y-6" id="classroomToolsView">
+<!-- Back to editor toolbar -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-2xl ink-border ink-shadow">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-high ink-border ink-shadow-sm text-xs font-label-sm font-bold flex items-center gap-1" onclick="toggleTab('questionStudioView')">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back to Question Editor
+          </button>
+<span class="text-sm font-headline-sm font-bold">Classroom Utility Sandbox (Live Projector Mode)</span>
+</div>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold rounded-lg ink-border">Connected to Smart Board</span>
+</div>
+<!-- 3 Utility Cards: Name Wheel, Visual Timer, Star Chart -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Tool 1: Interactive Student Picker / Wheel -->
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-sm font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary">rotate_right</span>
+                Student Name Wheel
+              </span>
+<span class="text-xs bg-[#FFF0A8] px-2 py-0.5 rounded ink-border font-bold">24 Kids</span>
+</div>
+<!-- Wheel Graphic Mock -->
+<div class="relative w-40 h-40 mx-auto my-3 rounded-full ink-border bg-[#D9EEFF] ink-shadow flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 border-8 border-[#202633] rounded-full"></div>
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl text-primary animate-spin">cyclone</span>
+<div class="text-xs font-black font-headline-sm" id="pickedStudent">Dara (ដារា)</div>
+</div>
+</div>
+</div>
+<button class="btn-press w-full py-2 bg-primary-container text-on-surface font-headline-sm font-bold rounded-xl ink-border ink-shadow text-sm" onclick="spinStudentWheel()">
+            Spin For Next Student! 🎲
+          </button>
+</div>
+<!-- Tool 2: Visual Classroom Timer -->
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-sm font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary">timer</span>
+                Game Activity Timer
+              </span>
+<span class="text-xs bg-[#7DE8AE] px-2 py-0.5 rounded ink-border font-bold">Ready</span>
+</div>
+<div class="my-4 text-center">
+<div class="text-5xl font-headline-lg font-black tracking-tight text-on-surface" id="timerDisplay">03:00</div>
+<span class="text-xs font-label-sm text-on-surface-variant">Phonics Challenge Round 1</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-1.5 bg-surface-container-high rounded-lg ink-border text-xs font-bold" onclick="adjustTimer(60)">+1m</button>
+<button class="py-1.5 bg-surface-container-high rounded-lg ink-border text-xs font-bold" onclick="adjustTimer(180)">+3m</button>
+<button class="btn-press py-1.5 bg-secondary text-white rounded-lg ink-border ink-shadow-sm text-xs font-bold" id="timerControlBtn" onclick="startTimer()">Start</button>
+</div>
+</div>
+<!-- Tool 3: Instant Star & Token Dispenser -->
+<div class="bg-surface-container-lowest rounded-2xl ink-border ink-shadow p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-sm font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#FF983D]">hotel_class</span>
+                Team Star Reward Board
+              </span>
+<span class="text-xs bg-[#E7D8FF] px-2 py-0.5 rounded ink-border font-bold">Table 1 vs 2</span>
+</div>
+<div class="space-y-3 my-2">
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low ink-border">
+<span class="text-xs font-bold">🦁 Lions Team</span>
+<span class="text-sm font-black bg-[#FFF0A8] px-2 py-0.5 rounded ink-border" id="lionStars">⭐ 14 Stars</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low ink-border">
+<span class="text-xs font-bold">🐬 Dolphins Team</span>
+<span class="text-sm font-black bg-[#D9EEFF] px-2 py-0.5 rounded ink-border" id="dolphinStars">⭐ 12 Stars</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="btn-press flex-1 py-2 bg-[#FFF0A8] text-xs font-bold rounded-xl ink-border ink-shadow-sm" onclick="awardStar('lion')">+ Star Lions</button>
+<button class="btn-press flex-1 py-2 bg-secondary-fixed text-xs font-bold rounded-xl ink-border ink-shadow-sm" onclick="awardStar('dolphin')">+ Star Dolphins</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- 4. LIVE GAME ROOM LAUNCH MODAL (Simulated Neo-Brutalist Pop-up)          -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-[#202633]/60 backdrop-blur-[2px] hidden flex items-center justify-center p-4" id="liveGameModal">
+<div class="bg-surface-container-lowest rounded-3xl ink-border ink-shadow-xl max-w-xl w-full p-6 space-y-6 transform transition-all scale-100">
+<!-- Modal Header -->
+<div class="flex items-center justify-between pb-3 border-b-2 border-on-surface">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-primary-container ink-border ink-shadow-sm flex items-center justify-center text-2xl">
+            🎮
+          </div>
+<div>
+<h3 class="font-headline-sm text-title-md font-extrabold text-on-surface">Live Classroom Game Arena</h3>
+<p class="text-xs text-on-surface-variant font-label-sm">Host Grade 2 Phonics: Compound Words</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg ink-border bg-surface-container-high hover:bg-error-container hover:text-error flex items-center justify-center font-bold text-lg transition-colors" onclick="toggleModal('liveGameModal')">
+          ✕
+        </button>
+</div>
+<!-- Live Room Join PIN Display & QR -->
+<div class="bg-[#FFF8E7] rounded-2xl ink-border ink-shadow p-5 text-center space-y-3">
+<div class="text-xs font-label-sm font-black uppercase tracking-wider text-on-surface-variant">
+          Students: Join at <span class="text-secondary underline font-bold">learnora.kids/play</span>
+</div>
+<div class="inline-flex items-center gap-3 bg-surface-container-lowest px-6 py-2.5 rounded-2xl ink-border ink-shadow">
+<span class="text-xs font-bold text-on-surface-variant uppercase">ROOM PIN:</span>
+<span class="text-4xl font-headline-lg font-black text-primary tracking-widest font-mono">4829</span>
+<button class="p-1.5 rounded-lg ink-border bg-surface-container-high hover:bg-secondary-container" onclick="copyPin()" title="Copy PIN">
+<span class="material-symbols-outlined text-base">content_copy</span>
+</button>
+</div>
+<p class="text-xs text-on-surface-variant">Display this on the classroom projector or smart screen.</p>
+</div>
+<!-- Live Joined Students Avatars Cluster -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs font-label-sm font-bold">
+<span>Joined Students (<span id="studentCount">14</span> Ready)</span>
+<span class="text-tertiary flex items-center gap-1 font-black">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+            Listening for Devices...
+          </span>
+</div>
+<div class="flex flex-wrap gap-2 p-3 rounded-2xl bg-surface-container-low ink-border max-h-36 overflow-y-auto">
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🦊 Dara (ដារា)
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🐰 Bopha (បុប្ផា)
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🦁 Leo R.
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🐼 Channary
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🐯 Virak (វិរៈ)
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🐬 Sothea
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🦄 Alyssa
+          </span>
+<span class="px-2.5 py-1 bg-surface-container-lowest rounded-full ink-border text-xs font-bold flex items-center gap-1 shadow-sm">
+            🐨 Piseth
+          </span>
+</div>
+</div>
+<!-- Modal Bottom Actions -->
+<div class="flex items-center justify-between gap-3 pt-2">
+<div class="flex items-center gap-2">
+<label class="text-xs font-bold text-on-surface flex items-center gap-1.5 cursor-pointer">
+<input checked="" class="rounded ink-border text-tertiary focus:ring-0" type="checkbox">
+            Play mascot sound effects
+          </label>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl ink-border bg-surface-container-high hover:bg-surface-container text-xs font-bold" onclick="toggleModal('liveGameModal')">
+            Cancel
+          </button>
+<button class="btn-press px-5 py-2.5 rounded-xl ink-border ink-shadow bg-[#7DE8AE] hover:bg-[#6bd69d] text-on-surface font-headline-sm font-extrabold text-sm flex items-center gap-2" onclick="startLiveSession()">
+<span class="material-symbols-outlined text-lg">play_arrow</span>
+            Start Game for All Students
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Toast Notification Simulator -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<div class="bg-surface-container-lowest ink-border ink-shadow-lg px-4 py-3 rounded-2xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-[#7DE8AE] ink-border flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-base">check</span>
+</div>
+<div>
+<div class="text-xs font-headline-sm font-bold text-on-surface" id="toastTitle">Changes Saved!</div>
+<div class="text-[11px] text-on-surface-variant font-label-sm" id="toastDesc">Question set synced to classroom devices.</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 5. INLINE VANILLA JAVASCRIPT FOR DYNAMIC MICRO-INTERACTIONS              -->
+<!-- ========================================================================= -->
+<script>
+    // Toggle Modal
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    // Toggle Tab Views (Question Studio vs Classroom Utilities)
+    function toggleTab(viewId) {
+      const studio = document.getElementById('questionStudioView');
+      const tools = document.getElementById('classroomToolsView');
+      
+      if (viewId === 'classroomToolsView') {
+        studio.classList.add('hidden');
+        tools.classList.remove('hidden');
+      } else {
+        tools.classList.add('hidden');
+        studio.classList.remove('hidden');
+      }
+    }
+
+    // Toggle Accordion / Generic Element
+    function toggleElement(elementId) {
+      const el = document.getElementById(elementId);
+      el.classList.toggle('hidden');
+    }
+
+    // Language Toggle
+    function setLanguage(lang) {
+      const btnEn = document.getElementById('langEnBtn');
+      const btnKm = document.getElementById('langKmBtn');
+      
+      if (lang === 'km') {
+        btnKm.classList.add('bg-surface-container-lowest', 'ink-border', 'text-on-surface');
+        btnKm.classList.remove('text-on-surface-variant');
+        btnEn.classList.remove('bg-surface-container-lowest', 'ink-border', 'text-on-surface');
+        btnEn.classList.add('text-on-surface-variant');
+        showToast("ភាសាខ្មែរត្រូវបានជ្រើសរើស", "Khmer dual-language mode active across builder.");
+      } else {
+        btnEn.classList.add('bg-surface-container-lowest', 'ink-border', 'text-on-surface');
+        btnEn.classList.remove('text-on-surface-variant');
+        btnKm.classList.remove('bg-surface-container-lowest', 'ink-border', 'text-on-surface');
+        btnKm.classList.add('text-on-surface-variant');
+        showToast("English Active", "Question cues set to bilingual priority.");
+      }
+    }
+
+    // Save Question Set Action
+    function triggerSaveNotification() {
+      const saveIcon = document.getElementById('saveIcon');
+      const saveText = document.getElementById('saveText');
+      saveIcon.innerText = "check_circle";
+      saveText.innerText = "Saved!";
+      
+      showToast("Question Set Saved!", "8 Questions & Bilingual cues updated.");
+      
+      setTimeout(() => {
+        saveIcon.innerText = "cloud_upload";
+        saveText.innerText = "Save Set";
+      }, 2500);
+    }
+
+    // Mic recording simulation
+    function simulateRecording(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (btn.classList.contains('recording-active')) {
+        btn.classList.remove('recording-active', 'bg-red-400', 'animate-pulse');
+        icon.innerText = "mic";
+        showToast("Audio Recorded", "Voice clip attached to question prompt.");
+      } else {
+        btn.classList.add('recording-active', 'bg-red-400', 'animate-pulse');
+        icon.innerText = "stop";
+        showToast("Recording Teacher Voice...", "Speak clearly into your microphone.");
+      }
+    }
+
+    // Audio Playback simulation
+    function simulateAudioPlay() {
+      showToast("Playing Prompt Audio 🔊", "English & Khmer voice pronunciation test.");
+    }
+
+    // Correct Answer Selection Toggle
+    function setCorrectOption(btn) {
+      // Find all options in the active question container
+      const cards = btn.closest('.grid').children;
+      for (let card of cards) {
+        card.classList.remove('bg-[#dcfce7]');
+        card.classList.add('bg-surface-container-lowest');
+        const b = card.querySelector('button');
+        const checkIcon = b.querySelector('.material-symbols-outlined');
+        b.classList.remove('bg-tertiary', 'text-white');
+        b.classList.add('bg-surface-container-lowest');
+        checkIcon.classList.add('text-transparent');
+      }
+      
+      const parentCard = btn.closest('.p-3\\.5') || btn.parentElement.parentElement;
+      parentCard.classList.remove('bg-surface-container-lowest');
+      parentCard.classList.add('bg-[#dcfce7]');
+      btn.classList.remove('bg-surface-container-lowest');
+      btn.classList.add('bg-tertiary', 'text-white');
+      btn.querySelector('.material-symbols-outlined').classList.remove('text-transparent');
+      
+      showToast("Correct Option Updated!", "Target answer set for scoring.");
+    }
+
+    // Test in Game Adapter Toolbar
+    function previewInGame(gameName) {
+      showToast(`Loading ${gameName}...`, "Simulating real-time question payload in game canvas.");
+    }
+
+    // Toast Notification helper
+    function showToast(title, desc) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastDesc').innerText = desc;
+      
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    // Add New Question Simulator
+    function addNewQuestionSim() {
+      showToast("New Question Added (Q5)", "Created blank Dual-Choice template.");
+    }
+
+    // Copy PIN Action
+    function copyPin() {
+      showToast("Room PIN Copied: 4829", "Share with students or on Google Classroom.");
+    }
+
+    // Start Live Session
+    function startLiveSession() {
+      toggleModal('liveGameModal');
+      showToast("🚀 Game Live!", "Sending Question 1 to 14 connected student devices.");
+    }
+
+    // Student Wheel Simulator
+    const studentsList = [
+      "Dara (ដារា)", "Bopha (បុប្ផា)", "Leo R.", "Channary (ចន្ទនារី)", 
+      "Virak (វិរៈ)", "Sothea (សុធា)", "Alyssa", "Piseth (ពិសិដ្ឋ)"
+    ];
+    function spinStudentWheel() {
+      const picked = studentsList[Math.floor(Math.random() * studentsList.length)];
+      document.getElementById('pickedStudent').innerText = picked;
+      showToast(`Selected: ${picked}! 🎉`, "Student's turn to answer on the Smart Board.");
+    }
+
+    // Timer Logic
+    let timerSeconds = 180;
+    let timerInterval = null;
+    function updateTimerDisplay() {
+      const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+      const s = (timerSeconds % 60).toString().padStart(2, '0');
+      document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+    }
+    function adjustTimer(sec) {
+      timerSeconds += sec;
+      updateTimerDisplay();
+    }
+    function startTimer() {
+      const btn = document.getElementById('timerControlBtn');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.innerText = "Resume";
+      } else {
+        btn.innerText = "Pause";
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            btn.innerText = "Start";
+            showToast("⏰ Time's Up!", "Class round completed!");
+          }
+        }, 1000);
+      }
+    }
+
+    // Stars Dispenser
+    let lionCount = 14;
+    let dolphinCount = 12;
+    function awardStar(team) {
+      if (team === 'lion') {
+        lionCount++;
+        document.getElementById('lionStars').innerText = `⭐ ${lionCount} Stars`;
+        showToast("🦁 +1 Star for Lions!", "Keep up the awesome teamwork.");
+      } else {
+        dolphinCount++;
+        document.getElementById('dolphinStars').innerText = `⭐ ${dolphinCount} Stars`;
+        showToast("🐬 +1 Star for Dolphins!", "Splendid phonic answer!");
+      }
+    }
+  </script>
+</body></html>

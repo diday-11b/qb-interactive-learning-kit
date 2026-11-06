@@ -1,0 +1,10 @@
+/* Readable fallback while a cached legacy hub opens the current homepage. */
+@import url('/assets/qb-font.css?v=20261030-one-font');
+*{box-sizing:border-box}
+body{margin:0;background:#eaf7ff;color:#253247;font:16px/1.5 var(--qb-font,system-ui,sans-serif);overflow-wrap:anywhere}
+body>header,main,body>footer{width:min(76rem,calc(100% - 2rem));margin-inline:auto;padding-block:1rem;min-width:0}
+img,svg{max-width:100%;height:auto}
+a{color:#245d7b}
+main>section{background:white;border:2px solid #253247;border-radius:20px;padding:clamp(1rem,4vw,2rem);margin-block:1rem}
+h1{font-size:clamp(2rem,6vw,4rem);line-height:1.1}
+#featured-play{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;background:#ff9a8b;border:2px solid #253247;border-radius:14px;text-decoration:none}

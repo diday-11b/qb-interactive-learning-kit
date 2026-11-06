@@ -1,0 +1,25 @@
+.qb-game-art,.qb-catalog-results{display:none}.qb-game-content{display:flex;flex-direction:column;flex:1;gap:8px}.qb-game-content h3{margin:0;font-size:20px;line-height:1.12}.qb-game-content p{margin:0;font-size:13px;line-height:1.3;color:#526072}.card-tags{margin-top:auto}.card-tags span{font-size:10px;background:#e8f5ff;border-radius:999px;padding:3px 7px}.qb-game-content .card-action{margin-top:auto;width:100%}.question-card:nth-child(odd) .card-action{background:#72d5ff}.qb-filter-panel{margin:0}.filter-toggle{min-height:58px}.qb-catalog-filters{display:grid;gap:10px;padding:12px;background:white;border:2px solid black;border-radius:16px}.qb-catalog-field{display:grid;gap:6px}.qb-catalog-field input,.qb-catalog-field select{width:100%;padding:10px;border:2px solid black;border-radius:10px;font:inherit}.qb-game-coming-note{display:none}.qb-practice-step-symbol{font-family:"Segoe UI Symbol",sans-serif!important}.qb-catalog-shelf{padding:0}.qb-catalog-search-row{align-items:stretch}
+
+/* Game gallery reference: compact illustrated cards, three per desktop row. */
+.question-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.question-card { padding:10px; min-height:0; gap:10px; border:2px solid #111722; border-radius:12px; box-shadow:2px 3px 0 #111722; }
+.qb-game-art { position:relative; display:grid; place-items:center; width:100%; aspect-ratio:16/10; overflow:hidden; background:#e4f4ff; border-radius:7px; font-size:52px; }
+.qb-game-art-link { position:absolute; inset:0; display:block; }
+.qb-game-art img { width:100%; height:100%; object-fit:cover; object-position:top; }
+.qb-game-art img.qb-game-illustration { object-fit:contain; }
+.qb-game-content { gap:6px; }
+.qb-game-content h3 { font-size:15px; line-height:1.15; }
+.qb-game-content p { font-size:11px; line-height:1.35; }
+.qb-game-content .card-kind { align-self:flex-start; font-size:9px; }
+.qb-game-content .card-action { min-height:34px; font-size:11px; border-radius:7px; margin-top:8px; }
+.card-tags { gap:4px; }
+.card-tags span { font-size:9px; }
+@media(max-width:760px) { .question-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } }
+@media(max-width:480px) { .question-grid { grid-template-columns:1fr; } }
+
+/* Keep the game gallery footer at the bottom when filters leave little content. */
+html{min-height:100%}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;margin:0}
+body>qb-site-header{flex-shrink:0}
+body>main.page-wrap{flex:1 0 auto;align-self:center}
+body>.page-footer{flex-shrink:0;margin-top:auto;width:100%;background:#fff}

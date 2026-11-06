@@ -1,0 +1,627 @@
+<!DOCTYPE html><html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QB Interactive Learning Kits — Class Game Setup</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Google Fonts: Quicksand & Nunito Sans -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#ffb780",
+            "primary": "#924c00",
+            "error": "#ba1a1a",
+            "surface-tint": "#924c00",
+            "on-surface": "#151c28",
+            "on-surface-variant": "#554337",
+            "surface-container-highest": "#dde2f4",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#5ac58e",
+            "background": "#f9f9ff",
+            "primary-fixed": "#ffdcc4",
+            "on-primary-fixed": "#2f1400",
+            "on-tertiary-fixed": "#002111",
+            "tertiary-fixed-dim": "#70dba2",
+            "surface-dim": "#d4daeb",
+            "inverse-primary": "#ffb780",
+            "on-error": "#ffffff",
+            "on-background": "#151c28",
+            "on-secondary-fixed-variant": "#004d63",
+            "outline": "#887365",
+            "surface": "#f9f9ff",
+            "on-secondary-fixed": "#001f29",
+            "on-tertiary-container": "#004f30",
+            "surface-container-low": "#f1f3ff",
+            "outline-variant": "#dbc2b1",
+            "primary-container": "#ff983d",
+            "on-primary-container": "#6b3600",
+            "on-secondary-container": "#00607a",
+            "on-tertiary-fixed-variant": "#005232",
+            "surface-bright": "#f9f9ff",
+            "inverse-on-surface": "#edf0ff",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2a303e",
+            "surface-container": "#e8edff",
+            "secondary-container": "#83dafe",
+            "on-primary-fixed-variant": "#6f3800",
+            "secondary-fixed": "#bce9ff",
+            "tertiary": "#006c44",
+            "secondary": "#006783",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-variant": "#dde2f4",
+            "tertiary-fixed": "#8df8bd",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#7bd2f6",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#e2e8fa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem",
+            "space-md": "1rem",
+            "space-xl": "2.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Nunito Sans"],
+            "headline-md": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "display-hero": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "label-lg": ["Nunito Sans"],
+            "title-md": ["Quicksand"],
+            "label-md": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "display-hero-mobile": ["Quicksand"],
+            "label-sm": ["Nunito Sans"],
+            "headline-sm": ["Quicksand"],
+            "headline-lg-mobile": ["Quicksand"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .tactile-card {
+      border: 2px solid #151c28;
+      box-shadow: 4px 4px 0px #151c28;
+      transition: all 0.15s ease-out;
+    }
+    .tactile-btn {
+      border: 2px solid #151c28;
+      box-shadow: 4px 4px 0px #151c28;
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    }
+    .tactile-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px #151c28;
+    }
+    .tactile-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .tactile-badge {
+      border: 2px solid #151c28;
+      box-shadow: 2px 2px 0px #151c28;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32 selection:bg-secondary-container selection:text-on-surface">
+<!-- Host Lobby Top Bar (Task-Focused: Standard Bottom Nav suppressed per Semantic Filter) -->
+<header class="bg-surface-container-lowest sticky top-0 z-40 border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28]">
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+<!-- Left: Exit Lobby + Game Title Breadcrumb -->
+<div class="flex items-center space-x-3 md:space-x-4">
+<button class="tactile-btn bg-surface-container-low hover:bg-surface-container px-3 py-2 rounded-xl flex items-center gap-1.5 font-label-md text-label-md text-on-surface" title="Exit to Dashboard">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+<span class="">Exit Lobby</span>
+</button>
+<div class="h-6 w-0.5 bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary-fixed border-2 border-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="directions_boat">directions_boat</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface flex items-center gap-2">
+              Ship Battle
+              <span class="text-xs px-2 py-0.5 rounded-full bg-secondary-fixed border-2 border-on-surface font-label-sm text-on-surface font-extrabold uppercase tracking-wider">Live</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant hidden md:block">Live Classroom Session • Grade 2 English</p>
+</div>
+</div>
+</div>
+<!-- Right: Audio Controls, Volume, Fullscreen -->
+<div class="flex items-center space-x-2 md:space-x-3">
+<!-- Audio BGM Toggle -->
+<button class="tactile-btn bg-surface-container-lowest hover:bg-surface-container-low w-11 h-11 rounded-xl flex items-center justify-center text-on-surface" id="bgm-btn" title="Toggle Classroom BGM">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+<!-- Sound FX Toggle -->
+<button class="tactile-btn bg-secondary-fixed hover:bg-secondary-fixed-dim w-11 h-11 rounded-xl flex items-center justify-center text-on-surface" id="sfx-btn" title="Toggle Sound Effects">
+<span class="material-symbols-outlined text-[22px]" data-icon="music_note">music_note</span>
+</button>
+<!-- Full Screen Toggle -->
+<button class="tactile-btn bg-primary-fixed hover:bg-primary-fixed-dim w-11 h-11 rounded-xl flex items-center justify-center text-on-surface" onclick="document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()" title="Projector Fullscreen">
+<span class="material-symbols-outlined text-[22px]" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-8 space-y-6">
+<!-- Giant Top Room Access Card (Neo-Brutalist Projector Anchor) -->
+<section class="tactile-card bg-surface-container-lowest rounded-2xl overflow-hidden">
+<!-- Funky Banner Header -->
+<div class="bg-secondary-container px-6 py-3 border-b-2 border-on-surface flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="campaign">campaign</span>
+<span class="font-title-md text-title-md font-bold text-on-surface">Join Instructions for Student Tablets &amp; Laptops</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1 rounded-full border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary"></span>
+</span>
+<span class="font-label-md text-label-md text-on-surface">18 Students Connected • Waiting for 6 more</span>
+</div>
+</div>
+<div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<!-- Instructions & Huge Game PIN -->
+<div class="md:col-span-8 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-lg border-2 border-on-surface text-on-surface-variant font-label-md text-label-md"><span class="material-symbols-outlined text-[18px]" data-icon="language">language</span>
+<span class="">Join at <strong class="text-on-surface underline">qbkits.com/play</strong> or scan QR code</span></div>
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold block mb-1">Classroom Game PIN</span>
+<div class="flex flex-wrap items-center gap-3">
+<div class="bg-surface-container-high px-6 py-3 rounded-2xl border-2 border-on-surface shadow-[4px_4px_0_0_#151c28] flex items-center tracking-widest font-display-hero text-display-hero text-on-surface font-extrabold select-all">
+                482&nbsp;–&nbsp;901
+              </div>
+<!-- Quick Copy & Audible Read Buttons -->
+<div class="flex items-center gap-2">
+<button class="tactile-btn bg-surface-container-lowest hover:bg-surface-container p-3 rounded-xl text-on-surface" title="Copy Invitation Link">
+<span class="material-symbols-outlined text-[24px]" data-icon="content_copy">content_copy</span>
+</button>
+<button class="tactile-btn bg-primary-fixed hover:bg-primary-fixed-dim p-3 rounded-xl text-on-surface flex items-center gap-1 font-label-md text-label-md" title="Audible PIN Pronunciation">
+<span class="material-symbols-outlined text-[24px]" data-icon="speech_to_text">speech_to_text</span>
+<span class="hidden sm:inline">Spell Out PIN</span>
+</button>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            💡 <strong>Teacher Tip:</strong> Keep this lobby pinned on the classroom interactive whiteboard. Avatars pop into team fleets automatically once connected!
+          </p>
+</div>
+<!-- QR Code Graphic Card -->
+<div class="md:col-span-4 flex flex-col items-center justify-center p-4 bg-primary-fixed rounded-2xl border-2 border-on-surface shadow-[3px_3px_0_0_#151c28]">
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] relative group">
+<div class="w-36 h-36 md:w-40 md:h-40 bg-surface-container flex items-center justify-center rounded-lg border border-on-surface overflow-hidden relative">
+<!-- Stylized Vector QR Graphic -->
+<svg class="w-full h-full p-2 text-on-surface" fill="currentColor" viewBox="0 0 100 100">
+<!-- Positioning markers -->
+<rect fill="#151c28" height="26" rx="4" width="26" x="6" y="6"></rect>
+<rect fill="#ffffff" height="18" rx="2" width="18" x="10" y="10"></rect>
+<rect fill="#151c28" height="10" rx="1" width="10" x="14" y="14"></rect>
+<rect fill="#151c28" height="26" rx="4" width="26" x="68" y="6"></rect>
+<rect fill="#ffffff" height="18" rx="2" width="18" x="72" y="10"></rect>
+<rect fill="#151c28" height="10" rx="1" width="10" x="76" y="14"></rect>
+<rect fill="#151c28" height="26" rx="4" width="26" x="6" y="68"></rect>
+<rect fill="#ffffff" height="18" rx="2" width="18" x="10" y="72"></rect>
+<rect fill="#151c28" height="10" rx="1" width="10" x="14" y="76"></rect>
+<!-- Mock QR Data Blocks -->
+<rect fill="#151c28" height="8" rx="1" width="8" x="38" y="8"></rect>
+<rect fill="#151c28" height="8" rx="1" width="8" x="52" y="8"></rect>
+<rect fill="#151c28" height="8" rx="1" width="8" x="38" y="22"></rect>
+<rect fill="#151c28" height="6" rx="1" width="10" x="50" y="22"></rect>
+<rect fill="#151c28" height="8" rx="1" width="8" x="8" y="38"></rect>
+<rect fill="#151c28" height="14" rx="1" width="8" x="22" y="42"></rect>
+<rect fill="#151c28" height="8" rx="1" width="8" x="8" y="52"></rect>
+<!-- Center Owl/Game Emblem -->
+<circle cx="50" cy="50" fill="#ff983d" r="14" stroke="#151c28" stroke-width="2"></circle>
+<circle cx="45" cy="48" fill="#ffffff" r="3"></circle>
+<circle cx="45" cy="48" fill="#151c28" r="1.5"></circle>
+<circle cx="55" cy="48" fill="#ffffff" r="3"></circle>
+<circle cx="55" cy="48" fill="#151c28" r="1.5"></circle>
+<path d="M48 53 L52 53 L50 56 Z" fill="#151c28"></path>
+<rect fill="#151c28" height="6" rx="1" width="12" x="68" y="38"></rect>
+<rect fill="#151c28" height="12" rx="1" width="8" x="84" y="44"></rect>
+<rect fill="#151c28" height="8" rx="1" width="10" x="68" y="54"></rect>
+<rect fill="#151c28" height="8" rx="1" width="12" x="38" y="68"></rect>
+<rect fill="#151c28" height="18" rx="1" width="8" x="54" y="72"></rect>
+<rect fill="#151c28" height="10" rx="1" width="8" x="68" y="68"></rect>
+<rect fill="#151c28" height="8" rx="1" width="12" x="80" y="74"></rect>
+<rect fill="#151c28" height="8" rx="1" width="8" x="70" y="84"></rect>
+</svg>
+</div>
+<div class="mt-2 text-center">
+<span class="font-label-sm text-label-sm text-on-surface font-extrabold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="photo_camera">photo_camera</span>
+                Scan with Camera
+              </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Dual Column Workspace: Config & Live Roster -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Column: Game & Rule Configurations (5 Cols) -->
+<section class="lg:col-span-5 space-y-6">
+<!-- Question Deck Card -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl p-5 space-y-4">
+<div class="flex items-center justify-between pb-3 border-b-2 border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="auto_stories">auto_stories</span>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">Loaded Question Deck</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed border-2 border-on-surface font-label-sm text-label-sm text-on-tertiary-fixed font-bold">Ready</span>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded-xl border-2 border-on-surface flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Grade 2 Compound Words</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="quiz">quiz</span>
+                20 Questions • Multiple Choice &amp; Picture Word Match
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="tactile-btn flex-1 bg-surface-container-lowest hover:bg-surface-container-low py-2.5 px-3 rounded-xl font-label-md text-label-md text-on-surface flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+<span class="">Preview Questions</span>
+</button>
+<button class="tactile-btn bg-surface-container-lowest hover:bg-surface-container-low py-2.5 px-3 rounded-xl font-label-md text-label-md text-on-surface flex items-center justify-center gap-1.5" title="Switch Deck">
+<span class="material-symbols-outlined text-[18px]" data-icon="swap_horiz">swap_horiz</span>
+<span class="">Change</span>
+</button>
+</div>
+</div>
+<!-- Game Mode & Rules Customizer -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl p-5 space-y-5">
+<div class="flex items-center gap-2 pb-3 border-b-2 border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="tune">tune</span>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">Game Rules &amp; Settings</h2>
+</div>
+<!-- Mode Selector Pill Block -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-on-surface block">Battle Mode</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+<button class="tactile-btn bg-secondary-container text-on-surface py-2.5 px-3 rounded-xl text-left border-2 border-on-surface font-label-md text-label-md flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span class="font-bold leading-tight">Team Fleet Battle<br><small class="font-semibold text-xs opacity-80">(Sun vs Rain)</small></span>
+</button>
+<button class="bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant py-2.5 px-3 rounded-xl text-left border-2 border-outline font-label-md text-label-md flex items-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+<span class="font-bold leading-tight">Free-for-All<br><small class="font-semibold text-xs opacity-75">(Solo Practice)</small></span>
+</button>
+</div>
+</div>
+<!-- Timer Pill Selectors -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold text-on-surface block">Timer Per Question</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="tactile-badge bg-surface-container-lowest hover:bg-surface-container-low py-2 rounded-xl font-label-md text-label-md text-on-surface text-center">15s</button>
+<button class="tactile-badge bg-primary-container text-on-surface py-2 rounded-xl font-label-md text-label-md font-bold text-center border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]">30s ★</button>
+<button class="tactile-badge bg-surface-container-lowest hover:bg-surface-container-low py-2 rounded-xl font-label-md text-label-md text-on-surface text-center">45s</button>
+<button class="tactile-badge bg-surface-container-lowest hover:bg-surface-container-low py-2 rounded-xl font-label-md text-label-md text-on-surface text-center">Untimed</button>
+</div>
+</div>
+<!-- Power-Ups Checkbox Toggles -->
+<div class="space-y-3 pt-2">
+<label class="font-label-md text-label-md font-bold text-on-surface block">Kid-Friendly Power-Ups</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-2 rounded-xl bg-surface-container-low border-2 border-on-surface cursor-pointer select-none">
+<input checked="" class="w-6 h-6 rounded-lg border-2 border-on-surface text-tertiary-container focus:ring-0 checked:bg-tertiary-container focus:ring-offset-0" type="checkbox">
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="shield">shield</span>
+                    Water Shield (Protects Fleet Ship once)
+                  </div>
+</div>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-xl bg-surface-container-low border-2 border-on-surface cursor-pointer select-none">
+<input checked="" class="w-6 h-6 rounded-lg border-2 border-on-surface text-tertiary-container focus:ring-0 checked:bg-tertiary-container focus:ring-offset-0" type="checkbox">
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="filter_alt">filter_alt</span>
+                    50/50 Clue (Removes 2 incorrect choices)
+                  </div>
+</div>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-xl bg-surface-container-low border-2 border-on-surface cursor-pointer select-none">
+<input checked="" class="w-6 h-6 rounded-lg border-2 border-on-surface text-tertiary-container focus:ring-0 checked:bg-tertiary-container focus:ring-offset-0" type="checkbox">
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[#ffb780] text-[18px]" data-icon="bolt">bolt</span>
+                    Streak Multipliers (Bonus star rewards)
+                  </div>
+</div>
+</label>
+</div>
+</div>
+<!-- Kid-Safe Privacy Mode -->
+<div class="pt-2 border-t-2 border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="verified_user">verified_user</span>
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Kid-Safe Privacy Mode</span>
+<span class="text-xs text-on-surface-variant">Only first names and initials displayed</span>
+</div>
+</div>
+<div class="px-3 py-1 rounded-full bg-tertiary-fixed border-2 border-on-surface font-label-sm text-label-sm text-on-surface font-bold">
+              ON
+            </div>
+</div>
+</div>
+</section>
+<!-- Right Column: Live Student Roster & Team Split (7 Cols) -->
+<section class="lg:col-span-7 space-y-6">
+<!-- Roster Command Header Card -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl p-5 space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b-2 border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[26px]" data-icon="diversity_3">diversity_3</span>
+<div>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">Live Classroom Roster</h2>
+<span class="text-xs text-on-surface-variant font-semibold">18 Active Players • Balanced 9 vs 9</span>
+</div>
+</div>
+<!-- Quick Roster Actions -->
+<div class="flex items-center gap-2">
+<button class="tactile-btn bg-surface-container-low hover:bg-surface-container px-2.5 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface flex items-center gap-1" title="Randomly re-balance teams">
+<span class="material-symbols-outlined text-[18px]" data-icon="shuffle">shuffle</span>
+<span class="">Shuffle Teams</span>
+</button>
+<button class="tactile-btn bg-surface-container-low hover:bg-surface-container px-2.5 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface flex items-center gap-1" title="Manually add an offline student or spare tablet">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span class="">Add Guest Tablet</span>
+</button>
+<button class="tactile-btn bg-surface-container-low hover:bg-surface-container px-2.5 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface flex items-center gap-1" title="Prevent new devices from joining">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock_open">lock_open</span>
+<span class="">Lock Room</span>
+</button>
+</div>
+</div>
+<!-- Dual Team Fleet Visualizer Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Team Sun (Yellow / Orange Warm Accent) -->
+<div class="rounded-xl border-2 border-on-surface overflow-hidden bg-surface-container-lowest shadow-[3px_3px_0_0_#151c28]">
+<!-- Team Banner -->
+<div class="bg-primary-fixed px-4 py-2.5 border-b-2 border-on-surface flex items-center justify-between">
+<div class="flex items-center gap-1.5 font-label-md text-label-md font-extrabold text-on-surface">
+<span class="material-symbols-outlined text-[#924c00]" data-icon="wb_sunny">wb_sunny</span>
+<span class="">Team Sun</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest border-2 border-on-surface font-label-sm text-label-sm font-bold text-on-surface">
+                  9 Players
+                </span>
+</div>
+<!-- Student Avatars Grid -->
+<div class="p-3 grid grid-cols-1 sm:grid-cols-2 gap-2 bg-surface-container-low/50">
+<!-- Player 1 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#ffb780] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">LM</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Leo M.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 2 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#ffdcc4] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">MR</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Maya R.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 3 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">EC</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Ethan C.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 4 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#8df8bd] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">LP</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Lucas P.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 5 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#e7d8ff] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">SW</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Sophia W.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 6 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#ffdad6] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">OK</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Oliver K.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 7 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#fff0a8] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">CT</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Chloe T.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 8 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#dde2f4] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">JD</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Jack D.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 9 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2 sm:col-span-2">
+<div class="w-8 h-8 rounded-full bg-[#ffb780] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">MB</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Mia B.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Team Rain (Sky Blue / Aqua Cool Accent) -->
+<div class="rounded-xl border-2 border-on-surface overflow-hidden bg-surface-container-lowest shadow-[3px_3px_0_0_#151c28]">
+<!-- Team Banner -->
+<div class="bg-secondary-fixed px-4 py-2.5 border-b-2 border-on-surface flex items-center justify-between">
+<div class="flex items-center gap-1.5 font-label-md text-label-md font-extrabold text-on-surface">
+<span class="material-symbols-outlined text-secondary" data-icon="water_drop">water_drop</span>
+<span class="">Team Rain</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest border-2 border-on-surface font-label-sm text-label-sm font-bold text-on-surface">
+                  9 Players
+                </span>
+</div>
+<!-- Student Avatars Grid -->
+<div class="p-3 grid grid-cols-1 sm:grid-cols-2 gap-2 bg-surface-container-low/50">
+<!-- Player 1 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#83dafe] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">LN</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Liam N.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 2 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#ffdcc4] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">ES</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Emma S.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 3 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#70dba2] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">NG</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Noah G.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 4 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#e7d8ff] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">AL</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Ava L.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 5 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#ffb780] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">JH</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">James H.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 6 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#dde2f4] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">HM</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Harper M.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 7 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#ffdad6] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">BV</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Benjamin V.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 8 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#fff0a8] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">ER</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Evelyn R.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Player 9 -->
+<div class="tactile-badge bg-surface-container-lowest p-2 rounded-xl flex items-center gap-2 sm:col-span-2">
+<div class="w-8 h-8 rounded-full bg-[#83dafe] border-2 border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">HB</div>
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Henry B.</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary ml-auto" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mascot Tip Callout Bubble -->
+<div class="tactile-card bg-surface-container-lowest rounded-2xl p-4 flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed border-2 border-on-surface flex-shrink-0 flex items-center justify-center shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-secondary text-[32px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Hootie the Owl says:</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              "Both fleets have 9 courageous ship captains! You can click <strong class="text-on-surface">Shuffle Teams</strong> if you want to mix table partners, or launch straight into the ocean battle!"
+            </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Sticky Action Bar (Host Ready Status & Launch Button) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t-2 border-on-surface shadow-[0_-4px_0_0_#151c28] px-4 md:px-8 py-3.5">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<!-- Left: Host System Readiness Indicator -->
+<div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+<div class="flex items-center gap-2">
+<span class="inline-flex p-1.5 rounded-lg bg-tertiary-fixed border-2 border-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="tv">tv</span>
+</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="">All systems ready for projector launch!</span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse inline-block"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant hidden md:block">Connected to Classroom Main Display (HDMI 1)</p>
+</div>
+</div>
+<!-- Audio Sound Effects Quick Preview -->
+<div class="hidden lg:flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-xl border-2 border-on-surface">
+<button class="tactile-badge bg-surface-container-lowest hover:bg-surface-container px-2 py-1 rounded-lg text-xs font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="play_arrow">play_arrow</span>
+<span class="">Bells SFX</span>
+</button>
+<button class="tactile-badge bg-surface-container-lowest hover:bg-surface-container px-2 py-1 rounded-lg text-xs font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="play_arrow">play_arrow</span>
+<span class="">Horn SFX</span>
+</button>
+</div>
+</div>
+<!-- Right: Massive Neo-Brutalist Game Start Action Button -->
+<div class="w-full sm:w-auto">
+<button class="tactile-btn w-full sm:w-auto bg-primary-container text-on-surface hover:bg-[#ff8a24] px-8 py-3.5 rounded-2xl font-label-lg text-label-lg font-extrabold flex items-center justify-center gap-3 tracking-wide" id="start-game-btn">
+<span class="text-xl">🚀</span>
+<span class="">START LIVE GAME NOW!</span>
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- Light Vanilla Script for Interactive Feedback -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/qb-supabase.js?v=google-2"></script>
+<script src="../assets/qb-live-host-setup.js?v=20261026-3" defer></script>
+
+
+</body></html>

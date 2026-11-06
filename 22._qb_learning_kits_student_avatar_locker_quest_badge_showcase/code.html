@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QB Learning Kits — Student Avatar Locker &amp; Quest Badge Showcase</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Google Fonts for Quicksand and Nunito Sans -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#887365",
+            "on-primary-fixed-variant": "#6f3800",
+            "inverse-primary": "#ffb780",
+            "tertiary": "#006c44",
+            "on-secondary": "#ffffff",
+            "primary-container": "#ff983d",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#004d63",
+            "surface-variant": "#dde2f4",
+            "primary": "#924c00",
+            "on-surface": "#151c28",
+            "on-background": "#151c28",
+            "on-tertiary-container": "#004f30",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-secondary-fixed": "#001f29",
+            "on-tertiary-fixed": "#002111",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#00607a",
+            "surface-container": "#e8edff",
+            "on-primary-fixed": "#2f1400",
+            "inverse-surface": "#2a303e",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#ffdcc4",
+            "secondary-fixed": "#bce9ff",
+            "inverse-on-surface": "#edf0ff",
+            "on-tertiary-fixed-variant": "#005232",
+            "on-primary-container": "#6b3600",
+            "surface-bright": "#f9f9ff",
+            "surface-container-low": "#f1f3ff",
+            "surface-dim": "#d4daeb",
+            "secondary-fixed-dim": "#7bd2f6",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#8df8bd",
+            "secondary": "#006783",
+            "primary-fixed-dim": "#ffb780",
+            "outline-variant": "#dbc2b1",
+            "on-surface-variant": "#554337",
+            "surface-tint": "#924c00",
+            "surface": "#f9f9ff",
+            "tertiary-container": "#5ac58e",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#dde2f4",
+            "background": "#f9f9ff",
+            "error": "#ba1a1a",
+            "surface-container-high": "#e2e8fa",
+            "secondary-container": "#83dafe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-xl": "2.25rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Nunito Sans"],
+            "headline-lg": ["Quicksand"],
+            "body-sm": ["Nunito Sans"],
+            "headline-lg-mobile": ["Quicksand"],
+            "headline-sm": ["Quicksand"],
+            "headline-md": ["Quicksand"],
+            "display-hero-mobile": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "label-md": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "display-hero": ["Quicksand"],
+            "title-md": ["Quicksand"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Soft Pop Custom Properties & Tactile Depth */
+    .neo-border {
+      border: 2px solid #151c28;
+    }
+    .neo-shadow-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-shadow {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .neo-shadow-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .neo-btn-press {
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .neo-btn-press:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-btn-press-lg:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0px #151c28;
+    }
+
+    /* Tactile Floating Mascot Bob Animation */
+    @keyframes gentle-bob {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    .animate-gentle-bob {
+      animation: gentle-bob 4s ease-in-out infinite;
+    }
+
+    /* Sparkle twinkle */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.15) rotate(15deg); }
+    }
+    .animate-twinkle {
+      animation: twinkle 2.5s ease-in-out infinite;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-surface">
+<!-- ==================== TOP NAVIGATION BAR (Brand Anchored) ==================== -->
+<header class="bg-surface-container-lowest border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28] sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+<!-- Brand & Mascot Identity -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2 neo-btn-press group" href="/qb_student_game_hub_rewards_arena/code.html">
+<div class="w-12 h-12 rounded-xl bg-primary-container neo-border neo-shadow-sm flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffd166] to-[#ff983d]">
+<img alt="QB Learning Kits Lion Mascot" class="w-10 h-10 object-contain drop-shadow" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida/AEtjO1Wp7KB8wrpZz0fv-oCilDcOh8A99cnSGU8VdHMa_j8UhEuUpH9AShpio6c5qB3a0snJ5bCBYiOa2fDTpiOwUw950bThDcUEqKuGUSktJtwSPPdB8eikE6HYBAkFkNHA8UeJodXkXtlJie8lm8H9LpOF-1olGvD0NR4P2PPqT6sWGm5mLQnjroR2CSKg_5D48-qbCosnwE1ZnzNjMDBFT9n94WAhwEfWsQN22oC9Mnz0p-GyiYS2-aByE62V';" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX-brQBc_MmqDCXw84s2ODf5F7-hsyfRTO3eZjsJKK-Y80PmY4xV_I-gAztgxwtV4HfstRzr8d7zW2XK7lPDXQ9zzrfI0p9EWG4t5lAae5cTf7pAf7oHe69oVJoZ0kz_22mJxhUqEvMBoxTgf1i2E1Xn0ObhWKGqnP4hN30Cdm3VYmO-btOHVqwG5ybgLR-gDTOnyThIEwgjJVRLz6-4WLMYf4XPujHcktb9X5xWuv1a0PXSQFoXnURLQ4h7SddBOEhjc"/>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight block leading-tight">QB Learning Kits</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+              Avatar Locker &amp; Quests
+            </span>
+</div>
+</a>
+<!-- Separator -->
+<div class="hidden lg:block h-8 w-[2px] bg-surface-variant"></div>
+<!-- Student Profile Info Pill -->
+<div class="hidden sm:flex items-center gap-2.5 bg-surface-container-low px-3 py-1.5 rounded-full neo-border neo-shadow-sm">
+<div class="w-8 h-8 rounded-full bg-[#ffd166] neo-border flex items-center justify-center font-bold font-headline-sm text-on-surface text-sm">
+            LK
+          </div>
+<div class="text-left pr-1">
+<p class="font-label-md text-label-md text-on-surface font-bold leading-tight">Leo K. (Grade 3)</p>
+<p class="font-label-sm text-label-sm text-tertiary font-extrabold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+              Level 7 Star Explorer
+            </p>
+</div>
+</div>
+</div>
+<!-- Currency Pill Badges & System Controls -->
+<div class="flex items-center gap-2 md:gap-3 flex-wrap">
+<!-- Stars Currency -->
+<div class="flex items-center gap-1.5 bg-[#FFF0A8] px-3 py-1.5 rounded-full neo-border neo-shadow-sm">
+<span class="text-lg leading-none">⭐</span>
+<span class="font-label-md text-label-md text-on-surface font-black tracking-wide">240</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:inline">Stars</span>
+</div>
+<!-- Gem Keys Currency -->
+<div class="flex items-center gap-1.5 bg-secondary-container px-3 py-1.5 rounded-full neo-border neo-shadow-sm">
+<span class="text-lg leading-none">💎</span>
+<span class="font-label-md text-label-md text-on-surface font-black tracking-wide">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:inline">Keys</span>
+</div>
+<!-- Daily Streak Badge -->
+<div class="flex items-center gap-1.5 bg-[#FFAAA9] px-3 py-1.5 rounded-full neo-border neo-shadow-sm">
+<span class="text-lg leading-none animate-bounce">🔥</span>
+<span class="font-label-md text-label-md text-on-surface font-black tracking-wide">5-Day</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:inline">Streak!</span>
+</div>
+<!-- Action / Toggle Buttons -->
+<div class="flex items-center gap-2 ml-1">
+<!-- Audio SFX Toggle -->
+<button aria-label="Toggle Sound Effects" class="w-10 h-10 rounded-xl bg-surface-container-lowest neo-border neo-shadow-sm neo-btn-press flex items-center justify-center text-on-surface hover:bg-surface-container-high" id="sfx-toggle">
+<span class="material-symbols-outlined text-[20px]" id="sfx-icon">volume_up</span>
+</button>
+<!-- Back to Games Navigation -->
+<a class="hidden sm:inline-flex items-center gap-1.5 bg-surface-container-lowest text-on-surface px-3 py-2 rounded-xl neo-border neo-shadow-sm neo-btn-press font-label-md text-label-md hover:bg-surface-container-low" href="/02._qb_explore_games_catalog/code.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Games</span>
+</a>
+</div>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT HUB: AVATAR CUSTOMIZER + QUEST CABINET ==================== -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-6 md:py-8 space-y-8 pb-28 md:pb-12">
+<!-- Top Welcome Banner & Daily Motivational Callout -->
+<div class="bg-gradient-to-r from-secondary-container via-surface-container-low to-primary-fixed rounded-2xl neo-border neo-shadow p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden">
+<div class="flex items-center gap-4 z-10">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest neo-border neo-shadow-sm flex items-center justify-center text-3xl shrink-0">
+          🦁✨
+        </div>
+<div>
+<div class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-0.5 rounded-full neo-border neo-shadow-sm text-xs font-black text-primary uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> Dressing Room Open!
+          </div>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">
+            Customize Leo the Lion &amp; Claim Quest Trophies!
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Dress up your learning companion, spend earned stars, and inspect your classroom battle achievements.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-3 z-10 shrink-0">
+<button class="bg-[#7DE8AE] hover:bg-[#68d89a] text-on-surface px-5 py-2.5 rounded-xl neo-border neo-shadow neo-btn-press font-label-lg text-label-lg flex items-center gap-2" onclick="triggerConfetti()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">celebration</span>
+<span>Claim Daily Star Gift</span>
+</button>
+</div>
+<!-- Background playful floating deco circles -->
+<div class="absolute -right-10 -bottom-10 w-36 h-36 rounded-full bg-primary-container opacity-20 pointer-events-none"></div>
+<div class="absolute right-40 top-1 w-16 h-16 rounded-full bg-[#FFF0A8] opacity-40 pointer-events-none"></div>
+</div>
+<!-- 2-COLUMN HERO SECTION: 3D DRESSING STAGE (Left) & CUSTOMIZATION GRID (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- ==================== LEFT COLUMN: AVATAR STAGE SHOWCASE (5 Cols) ==================== -->
+<section class="lg:col-span-5 bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 md:p-6 flex flex-col relative overflow-hidden">
+<!-- Header & Equipped Label -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-tertiary-container inline-block neo-border"></span>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">Avatar Fitting Room</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-black uppercase neo-border">
+            Interactive 3D Stage
+          </span>
+</div>
+<!-- Stage Container with Sky Backdrop & Lighting Ring -->
+<div class="relative w-full aspect-square max-h-[380px] bg-gradient-to-b from-[#bce9ff] via-[#d7f2ff] to-[#f9f9ff] rounded-2xl neo-border overflow-hidden flex flex-col items-center justify-center p-4 shadow-inner">
+<!-- Atmospheric Stage Decos -->
+<span class="absolute top-4 left-6 text-xl animate-twinkle">✨</span>
+<span class="absolute top-8 right-8 text-2xl animate-twinkle" style="animation-delay: 1.2s;">⭐</span>
+<span class="absolute bottom-16 left-8 text-base animate-twinkle" style="animation-delay: 0.6s;">🪐</span>
+<!-- Pedestal Ring Shadow Base -->
+<div class="absolute bottom-6 w-52 h-14 bg-[#151c28]/15 rounded-[100%] blur-[2px]"></div>
+<div class="absolute bottom-7 w-48 h-12 bg-[#83dafe] border-2 border-on-surface rounded-[100%] shadow-[0_4px_0_0_#151c28]"></div>
+<!-- Leo the Lion Mascot Avatar Wrapper -->
+<div class="relative z-10 flex flex-col items-center justify-center animate-gentle-bob transition-all duration-300" id="mascot-stage-target">
+<!-- Equipped Accessory Overlays (Cosmetic Layers) -->
+<!-- Helmet Layer -->
+<div class="absolute -top-3 z-30 transition-all duration-200" id="layer-helmet">
+<div class="bg-white/90 backdrop-blur-sm neo-border px-3 py-1 rounded-full neo-shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">rocket_launch</span>
+<span class="font-label-sm text-label-sm text-on-surface">Space Visor On</span>
+</div>
+</div>
+<!-- Detective Glasses Layer (Toggled) -->
+<div class="absolute top-14 z-30 flex items-center justify-center gap-4 pointer-events-none" id="layer-glasses">
+<div class="w-7 h-7 rounded-full border-4 border-on-surface bg-cyan-200/40 shadow-sm"></div>
+<div class="w-3 h-1 bg-on-surface"></div>
+<div class="w-7 h-7 rounded-full border-4 border-on-surface bg-cyan-200/40 shadow-sm"></div>
+</div>
+<!-- Primary Lion Image from Reference -->
+<div class="relative w-56 h-56 md:w-64 md:h-64 flex items-center justify-center">
+<img alt="Leo Mascot Character in Dressing Room" class="w-full h-full object-contain filter drop-shadow-[0_8px_0_rgba(21,28,40,0.18)]" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAX-brQBc_MmqDCXw84s2ODf5F7-hsyfRTO3eZjsJKK-Y80PmY4xV_I-gAztgxwtV4HfstRzr8d7zW2XK7lPDXQ9zzrfI0p9EWG4t5lAae5cTf7pAf7oHe69oVJoZ0kz_22mJxhUqEvMBoxTgf1i2E1Xn0ObhWKGqnP4hN30Cdm3VYmO-btOHVqwG5ybgLR-gDTOnyThIEwgjJVRLz6-4WLMYf4XPujHcktb9X5xWuv1a0PXSQFoXnURLQ4h7SddBOEhjc';" src="https://lh3.googleusercontent.com/aida/AEtjO1Wp7KB8wrpZz0fv-oCilDcOh8A99cnSGU8VdHMa_j8UhEuUpH9AShpio6c5qB3a0snJ5bCBYiOa2fDTpiOwUw950bThDcUEqKuGUSktJtwSPPdB8eikE6HYBAkFkNHA8UeJodXkXtlJie8lm8H9LpOF-1olGvD0NR4P2PPqT6sWGm5mLQnjroR2CSKg_5D48-qbCosnwE1ZnzNjMDBFT9n94WAhwEfWsQN22oC9Mnz0p-GyiYS2-aByE62V"/>
+</div>
+<!-- Handheld Wand/Tool Layer -->
+<div class="absolute -right-2 bottom-12 z-20" id="layer-wand">
+<div class="w-10 h-10 rounded-full bg-[#FFF0A8] neo-border neo-shadow-sm flex items-center justify-center text-xl transform rotate-12 hover:rotate-45 transition-transform">
+                ⭐
+              </div>
+</div>
+</div>
+<!-- Dynamic Speech Bubble Callout -->
+<div class="absolute bottom-3 left-4 right-4 z-20 bg-surface-container-lowest neo-border rounded-xl px-3 py-2 neo-shadow-sm flex items-center gap-2">
+<span class="text-xl">💬</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight" id="leo-dialogue">
+              "Looking roar-some! Ready for our next classroom math battle!"
+            </p>
+</div>
+</div>
+<!-- Stage Interaction Controls: Rotate & Emotes -->
+<div class="flex items-center justify-between gap-2 mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-xl bg-surface-container-low neo-border neo-shadow-sm neo-btn-press flex items-center justify-center text-on-surface" onclick="rotateMascot(-15)" title="Rotate Left">
+<span class="material-symbols-outlined text-[18px]">rotate_left</span>
+</button>
+<button class="w-9 h-9 rounded-xl bg-surface-container-low neo-border neo-shadow-sm neo-btn-press flex items-center justify-center text-on-surface" onclick="rotateMascot(15)" title="Rotate Right">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+<button class="px-3 h-9 rounded-xl bg-[#FFF0A8] neo-border neo-shadow-sm neo-btn-press flex items-center gap-1.5 text-xs font-bold text-on-surface" onclick="triggerLeoWave()">
+<span>👋</span> Wave!
+            </button>
+</div>
+<!-- Save Avatar Look Tactile CTA -->
+<button class="bg-primary-container hover:bg-[#ff8a24] text-on-surface font-extrabold px-5 py-2.5 rounded-xl neo-border neo-shadow neo-btn-press-lg font-label-lg text-label-lg flex items-center gap-2" id="save-look-btn" onclick="saveAvatarLook()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Save Avatar Look</span>
+</button>
+</div>
+</section>
+<!-- ==================== RIGHT COLUMN: CUSTOMIZATION WARDROBE & GEAR SELECTOR (7 Cols) ==================== -->
+<section class="lg:col-span-7 bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 md:p-6 flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Locker Inventory &amp; Wardrobe</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tap an item to equip or unlock with stars</p>
+</div>
+<!-- Filter indicator -->
+<div class="flex items-center gap-1.5 self-start sm:self-auto bg-surface-container px-3 py-1 rounded-full neo-border text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>6 Items Equipped</span>
+</div>
+</div>
+<!-- Category Selector Segmented Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-4">
+<button class="category-tab active bg-secondary-container text-on-surface px-3.5 py-2 rounded-xl neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap transition-all font-black" onclick="switchTab(this, 'all')">
+            🎒 All Gear
+          </button>
+<button class="category-tab bg-surface-container-low text-on-surface-variant hover:text-on-surface px-3.5 py-2 rounded-xl neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap transition-all" onclick="switchTab(this, 'hats')">
+            🎩 Hats &amp; Goggles
+          </button>
+<button class="category-tab bg-surface-container-low text-on-surface-variant hover:text-on-surface px-3.5 py-2 rounded-xl neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap transition-all" onclick="switchTab(this, 'outfits')">
+            🦸 Outfits &amp; Suits
+          </button>
+<button class="category-tab bg-surface-container-low text-on-surface-variant hover:text-on-surface px-3.5 py-2 rounded-xl neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap transition-all" onclick="switchTab(this, 'wands')">
+            🪄 Handheld Toys
+          </button>
+<button class="category-tab bg-surface-container-low text-on-surface-variant hover:text-on-surface px-3.5 py-2 rounded-xl neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap transition-all" onclick="switchTab(this, 'mane')">
+            🦁 Mane Colors
+          </button>
+</div>
+<!-- Item Cards Grid (Neo-Brutalist Affordances) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="gear-grid">
+<!-- ITEM 1: Astronaut Helmet (Equipped) -->
+<div class="gear-card bg-surface-container-lowest rounded-xl neo-border neo-shadow p-3.5 flex flex-col justify-between hover:bg-surface-container-low transition-colors relative border-2 border-on-surface" data-category="hats">
+<div class="absolute top-2.5 right-2.5 bg-[#7DE8AE] text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border neo-shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check</span> Equipped
+            </div>
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed/50 neo-border flex items-center justify-center text-3xl mb-2 mt-1">
+              👨‍🚀
+            </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-tight">Astronaut Space Helmet</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Equipped • Level 5+ Quest</p>
+</div>
+<button class="mt-3 w-full py-1.5 rounded-lg bg-surface-container-highest neo-border neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1" onclick="toggleEquip(this, 'Astronaut Space Helmet')">
+<span>Unequip</span>
+</button>
+</div>
+<!-- ITEM 2: Pirate Captain Hat (Unlocked) -->
+<div class="gear-card bg-surface-container-lowest rounded-xl neo-border neo-shadow p-3.5 flex flex-col justify-between hover:bg-surface-container-low transition-colors relative" data-category="hats">
+<div class="absolute top-2.5 right-2.5 bg-surface-container text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border">
+              Unlocked
+            </div>
+<div class="w-14 h-14 rounded-xl bg-[#FFF0A8] neo-border flex items-center justify-center text-3xl mb-2 mt-1">
+              🏴‍☠️
+            </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-tight">Pirate Captain Hat</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Unlocked • Cost 40 ⭐</p>
+</div>
+<button class="mt-3 w-full py-1.5 rounded-lg bg-secondary-container neo-border neo-shadow-sm neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1" onclick="toggleEquip(this, 'Pirate Captain Hat')">
+<span>Equip Item</span>
+</button>
+</div>
+<!-- ITEM 3: Rainbow Science Cape (Unlocked) -->
+<div class="gear-card bg-surface-container-lowest rounded-xl neo-border neo-shadow p-3.5 flex flex-col justify-between hover:bg-surface-container-low transition-colors relative" data-category="outfits">
+<div class="absolute top-2.5 right-2.5 bg-surface-container text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border">
+              Unlocked
+            </div>
+<div class="w-14 h-14 rounded-xl bg-[#E7D8FF] neo-border flex items-center justify-center text-3xl mb-2 mt-1">
+              🦸
+            </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-tight">Rainbow Science Cape</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Unlocked • Cost 60 ⭐</p>
+</div>
+<button class="mt-3 w-full py-1.5 rounded-lg bg-secondary-container neo-border neo-shadow-sm neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1" onclick="toggleEquip(this, 'Rainbow Science Cape')">
+<span>Equip Item</span>
+</button>
+</div>
+<!-- ITEM 4: Golden Dino Wand (Locked) -->
+<div class="gear-card bg-surface-container-low rounded-xl neo-border neo-shadow p-3.5 flex flex-col justify-between opacity-85 hover:opacity-100 transition-opacity relative" data-category="wands">
+<div class="absolute top-2.5 right-2.5 bg-[#FFAAA9] text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">lock</span> Locked
+            </div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high neo-border flex items-center justify-center text-3xl mb-2 mt-1 grayscale contrast-125">
+              🦖
+            </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-tight">Golden Dino Wand</h3>
+<p class="font-label-sm text-label-sm text-primary font-bold mt-0.5">Requires 100 ⭐ (Have 240)</p>
+</div>
+<button class="mt-3 w-full py-1.5 rounded-lg bg-primary-container text-on-surface neo-border neo-shadow-sm neo-btn-press text-xs font-black flex items-center justify-center gap-1" onclick="unlockItem(this, 100, 'Golden Dino Wand')">
+<span>Unlock for 100 ⭐</span>
+</button>
+</div>
+<!-- ITEM 5: Neon Robo Mane (Epic Locked) -->
+<div class="gear-card bg-surface-container-low rounded-xl neo-border neo-shadow p-3.5 flex flex-col justify-between opacity-85 hover:opacity-100 transition-opacity relative" data-category="mane">
+<div class="absolute top-2.5 right-2.5 bg-[#E7D8FF] text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">star</span> Epic
+            </div>
+<div class="w-14 h-14 rounded-xl bg-[#bce9ff] neo-border flex items-center justify-center text-3xl mb-2 mt-1">
+              🤖
+            </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-tight">Neon Robo Mane</h3>
+<p class="font-label-sm text-label-sm text-primary font-bold mt-0.5">Requires 150 ⭐ (Have 240)</p>
+</div>
+<button class="mt-3 w-full py-1.5 rounded-lg bg-primary-container text-on-surface neo-border neo-shadow-sm neo-btn-press text-xs font-black flex items-center justify-center gap-1" onclick="unlockItem(this, 150, 'Neon Robo Mane')">
+<span>Unlock for 150 ⭐</span>
+</button>
+</div>
+<!-- ITEM 6: Detective Glasses (Equipped) -->
+<div class="gear-card bg-surface-container-lowest rounded-xl neo-border neo-shadow p-3.5 flex flex-col justify-between hover:bg-surface-container-low transition-colors relative" data-category="hats">
+<div class="absolute top-2.5 right-2.5 bg-[#7DE8AE] text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border neo-shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check</span> Equipped
+            </div>
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed/60 neo-border flex items-center justify-center text-3xl mb-2 mt-1">
+              🔍
+            </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-tight">Detective Glasses</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Equipped • Mystery Island</p>
+</div>
+<button class="mt-3 w-full py-1.5 rounded-lg bg-surface-container-highest neo-border neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1" onclick="toggleEquip(this, 'Detective Glasses')">
+<span>Unequip</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- ==================== QUEST BADGES & ACHIEVEMENTS CABINET (Full Width Arena) ==================== -->
+<section class="bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 md:p-8 space-y-6">
+<!-- Section Title & Trophy Showcase Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-2 border-surface-container pb-5">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-[#FFF0A8] neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+            🏆
+          </div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">
+              Leo's Quest Trophy Case
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Track your weekly learning streaks, subject challenges, and badge masteries!
+            </p>
+</div>
+</div>
+<!-- Cabinet Sub Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="px-4 py-2 rounded-xl bg-primary-container text-on-surface neo-border neo-shadow-sm font-label-md text-label-md font-bold whitespace-nowrap">
+            In Progress (3)
+          </button>
+<button class="px-4 py-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap">
+            Completed Badges (14)
+          </button>
+<button class="px-4 py-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container neo-border neo-shadow-sm font-label-md text-label-md whitespace-nowrap">
+            Secret Badges (2)
+          </button>
+</div>
+</div>
+<!-- SPECIAL WEEKEND MISSION BANNER -->
+<div class="bg-gradient-to-r from-[#ffdcc4] via-[#FFF0A8] to-[#bce9ff] rounded-xl neo-border neo-shadow p-4 md:p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<span class="text-3xl shrink-0">👑</span>
+<div>
+<span class="inline-block bg-primary text-on-primary text-[11px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-0.5">
+              Special Weekend Mission
+            </span>
+<h3 class="font-title-md text-title-md text-on-surface font-extrabold">
+              Finish 3 Quests before Sunday to unlock the Legendary Star Crown! 👑
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Current progress: 2 of 3 completed. Only 1 more quest needed!
+            </p>
+</div>
+</div>
+<a class="shrink-0 bg-on-surface text-surface px-5 py-2.5 rounded-xl neo-border neo-shadow-sm neo-btn-press font-label-md text-label-md font-extrabold flex items-center gap-2" href="#quests">
+<span>Jump to Quests</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- RICH BADGE SHOWCASE CARDS GRID -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- BADGE 1: Spelling Ace (Completed) -->
+<div class="bg-surface-bright rounded-2xl neo-border neo-shadow p-4 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="w-12 h-12 rounded-xl bg-[#E7D8FF] neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+                📖
+              </div>
+<span class="bg-[#7DE8AE] text-on-surface text-xs font-black px-2.5 py-1 rounded-full neo-border neo-shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span> 100% Claimed
+              </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Spelling Ace</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Spelled 50 alien words without hints in Cosmic English voyage.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center justify-between text-xs font-black text-on-surface mb-1">
+<span>Progress: 50 / 50 Words</span>
+<span class="text-tertiary">Claimed +50 ⭐</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container neo-border overflow-hidden">
+<div class="h-full bg-tertiary-container w-full"></div>
+</div>
+</div>
+</div>
+<!-- BADGE 2: Cannon Master (In Progress 90%) -->
+<div class="bg-surface-bright rounded-2xl neo-border neo-shadow p-4 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="w-12 h-12 rounded-xl bg-[#ffdad6] neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+                💥
+              </div>
+<span class="bg-secondary-container text-on-surface text-xs font-black px-2.5 py-1 rounded-full neo-border neo-shadow-sm">
+                18 / 20 Ships
+              </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Cannon Master</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Sunk 20 pirate ships with geometry angle shots in Ship Battle.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center justify-between text-xs font-black text-on-surface mb-1">
+<span>90% Complete (2 to go!)</span>
+<span class="text-primary font-bold">Reward: 60 ⭐</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container neo-border overflow-hidden">
+<div class="h-full bg-secondary-container w-[90%]"></div>
+</div>
+</div>
+</div>
+<!-- BADGE 3: Math Wizard (Completed) -->
+<div class="bg-surface-bright rounded-2xl neo-border neo-shadow p-4 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+                ➗
+              </div>
+<span class="bg-[#7DE8AE] text-on-surface text-xs font-black px-2.5 py-1 rounded-full neo-border neo-shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span> 100% Claimed
+              </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Math Wizard</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Solved 100 quick recall equations in Rapid Multiplication Blitz.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center justify-between text-xs font-black text-on-surface mb-1">
+<span>Progress: 100 / 100 Solved</span>
+<span class="text-tertiary">Claimed +75 ⭐</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container neo-border overflow-hidden">
+<div class="h-full bg-tertiary-container w-full"></div>
+</div>
+</div>
+</div>
+<!-- BADGE 4: Daily Streak Hero (In Progress 71%) -->
+<div class="bg-surface-bright rounded-2xl neo-border neo-shadow p-4 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="w-12 h-12 rounded-xl bg-[#FFAAA9] neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+                🔥
+              </div>
+<span class="bg-[#FFF0A8] text-on-surface text-xs font-black px-2.5 py-1 rounded-full neo-border neo-shadow-sm">
+                5 / 7 Days
+              </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Daily Streak Hero</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Played educational minigames 5 days in a row without breaking streak.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center justify-between text-xs font-black text-on-surface mb-1">
+<span>71% Completed</span>
+<span class="text-primary font-bold">Reward: 100 ⭐ + Rare Cape</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container neo-border overflow-hidden">
+<div class="h-full bg-primary-container w-[71%]"></div>
+</div>
+</div>
+</div>
+<!-- BADGE 5: Kind Teammate (In Progress 80%) -->
+<div class="bg-surface-bright rounded-2xl neo-border neo-shadow p-4 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="w-12 h-12 rounded-xl bg-[#FFF0A8] neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+                🤝
+              </div>
+<span class="bg-surface-container text-on-surface text-xs font-black px-2.5 py-1 rounded-full neo-border">
+                8 / 10 Praise
+              </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Kind Teammate</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Awarded 10 high-five stars by Teacher in Classroom Live collaboration.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center justify-between text-xs font-black text-on-surface mb-1">
+<span>80% Completed</span>
+<span class="text-tertiary font-bold">Reward: 40 ⭐</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container neo-border overflow-hidden">
+<div class="h-full bg-tertiary-container w-[80%]"></div>
+</div>
+</div>
+</div>
+<!-- BADGE 6: Science Discovery Pioneer (Upcoming Secret) -->
+<div class="bg-surface-container-low rounded-2xl neo-border neo-shadow p-4 flex flex-col justify-between border-dashed border-2">
+<div>
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high neo-border neo-shadow-sm flex items-center justify-center text-2xl">
+                🔬
+              </div>
+<span class="bg-surface-container-high text-on-surface-variant text-xs font-black px-2.5 py-1 rounded-full">
+                Locked Secret
+              </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Lab Pioneer ???</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Complete the Volcano Chemistry simulator to discover this classified badge!
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-surface-container">
+<div class="flex items-center justify-between text-xs font-black text-on-surface-variant mb-1">
+<span>0 / 1 Completed</span>
+<span>Reward: ???</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-highest neo-border overflow-hidden">
+<div class="h-full bg-outline-variant w-0"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ==================== MOBILE / TABLET DOCKED BOTTOM NAV BAR (Shared Components Exact Blueprint) ==================== -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface bg-surface-container-lowest shadow-[0_-4px_0_0_#151c28]">
+<!-- Destination 1: Play -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#play">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+<span class="font-label-md text-label-md mt-0.5">Play</span>
+</a>
+<!-- Destination 2: Subjects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#subjects">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+<span class="font-label-md text-label-md mt-0.5">Subjects</span>
+</a>
+<!-- Destination 3: Quests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#quests">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="font-label-md text-label-md mt-0.5">Quests</span>
+</a>
+<!-- Destination 4: Badges (CURRENT ACTIVE LOCK: Avatar Locker & Badges Showcase Screen) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#badges">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-md text-label-md mt-0.5 font-bold">Badges</span>
+</a>
+</nav>
+<!-- ==================== LIGHTWEIGHT INTERACTION SCRIPTS ==================== -->
+<script>
+    let currentRotation = 0;
+    const mascotTarget = document.getElementById('mascot-stage-target');
+    const leoDialogue = document.getElementById('leo-dialogue');
+    const glassesLayer = document.getElementById('layer-glasses');
+    const helmetLayer = document.getElementById('layer-helmet');
+
+    // 1. Rotate Mascot
+    function rotateMascot(deg) {
+      currentRotation += deg;
+      if (mascotTarget) {
+        mascotTarget.style.transform = `rotate(${currentRotation}deg)`;
+      }
+    }
+
+    // 2. Wave Trigger
+    function triggerLeoWave() {
+      if (!mascotTarget) return;
+      mascotTarget.classList.add('animate-bounce');
+      leoDialogue.innerText = '"Roaaar! High paw! Keep learning and collecting stars!"';
+      setTimeout(() => {
+        mascotTarget.classList.remove('animate-bounce');
+      }, 1200);
+    }
+
+    // 3. Save Avatar Look Tactile Feedback
+    function saveAvatarLook() {
+      const btn = document.getElementById('save-look-btn');
+      if (!btn) return;
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span><span>Saved to Locker!</span>`;
+      btn.classList.remove('bg-primary-container');
+      btn.classList.add('bg-[#7DE8AE]');
+      leoDialogue.innerText = '"Your new outfit is locked in for class games!"';
+      triggerConfetti();
+
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('bg-[#7DE8AE]');
+        btn.classList.add('bg-primary-container');
+      }, 2500);
+    }
+
+    // 4. Category Tabs Switching
+    function switchTab(btn, category) {
+      document.querySelectorAll('.category-tab').forEach(b => {
+        b.classList.remove('active', 'bg-secondary-container', 'font-black');
+        b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      btn.classList.add('active', 'bg-secondary-container', 'font-black');
+      btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+      const cards = document.querySelectorAll('.gear-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 5. Toggle Equip State
+    function toggleEquip(button, itemName) {
+      const card = button.closest('.gear-card');
+      const isEquipped = button.innerText.includes('Unequip');
+
+      if (isEquipped) {
+        button.innerHTML = `<span>Equip Item</span>`;
+        button.className = "mt-3 w-full py-1.5 rounded-lg bg-secondary-container neo-border neo-shadow-sm neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1";
+        const tag = card.querySelector('.absolute');
+        if (tag) {
+          tag.className = "absolute top-2.5 right-2.5 bg-surface-container text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border";
+          tag.innerHTML = `Unlocked`;
+        }
+        if (itemName === 'Astronaut Space Helmet' && helmetLayer) helmetLayer.style.display = 'none';
+        if (itemName === 'Detective Glasses' && glassesLayer) glassesLayer.style.display = 'none';
+        leoDialogue.innerText = `You unequipped the ${itemName}.`;
+      } else {
+        button.innerHTML = `<span>Unequip</span>`;
+        button.className = "mt-3 w-full py-1.5 rounded-lg bg-surface-container-highest neo-border neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1";
+        const tag = card.querySelector('.absolute');
+        if (tag) {
+          tag.className = "absolute top-2.5 right-2.5 bg-[#7DE8AE] text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border neo-shadow-sm flex items-center gap-0.5";
+          tag.innerHTML = `<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check</span> Equipped`;
+        }
+        if (itemName === 'Astronaut Space Helmet' && helmetLayer) helmetLayer.style.display = 'block';
+        if (itemName === 'Detective Glasses' && glassesLayer) glassesLayer.style.display = 'flex';
+        leoDialogue.innerText = `Awesome! ${itemName} equipped!`;
+      }
+    }
+
+    // 6. Unlock item with stars
+    function unlockItem(btn, cost, name) {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[14px]">check</span> Unlocked!`;
+      btn.className = "mt-3 w-full py-1.5 rounded-lg bg-secondary-container neo-border neo-shadow-sm neo-btn-press text-xs font-black text-on-surface flex items-center justify-center gap-1";
+      btn.setAttribute("onclick", `toggleEquip(this, '${name}')`);
+      const card = btn.closest('.gear-card');
+      card.classList.remove('opacity-85');
+      const tag = card.querySelector('.absolute');
+      if (tag) {
+        tag.className = "absolute top-2.5 right-2.5 bg-surface-container text-on-surface text-[11px] font-black px-2 py-0.5 rounded-full neo-border";
+        tag.innerHTML = `Unlocked`;
+      }
+      leoDialogue.innerText = `Woohoo! You unlocked the ${name} for ${cost} stars!`;
+      triggerConfetti();
+    }
+
+    // 7. Light SFX Toggle
+    let soundOn = true;
+    const sfxBtn = document.getElementById('sfx-toggle');
+    const sfxIcon = document.getElementById('sfx-icon');
+    if (sfxBtn && sfxIcon) {
+      sfxBtn.addEventListener('click', () => {
+        soundOn = !soundOn;
+        sfxIcon.innerText = soundOn ? 'volume_up' : 'volume_off';
+      });
+    }
+
+    // 8. Visual Confetti Shower for Kid Rewards
+    function triggerConfetti() {
+      for (let i = 0; i < 24; i++) {
+        const particle = document.createElement('div');
+        const colors = ['#FF983D', '#7DE8AE', '#79D0F4', '#FFF0A8', '#E7D8FF'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.position = 'fixed';
+        particle.style.left = (Math.random() * 90 + 5) + 'vw';
+        particle.style.top = '-20px';
+        particle.style.width = (Math.random() * 10 + 8) + 'px';
+        particle.style.height = (Math.random() * 10 + 8) + 'px';
+        particle.style.backgroundColor = color;
+        particle.style.border = '1.5px solid #151c28';
+        particle.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        particle.style.zIndex = '9999';
+        particle.style.pointerEvents = 'none';
+        particle.style.transform = `rotate(${Math.random() * 360}deg)`;
+        particle.style.transition = `all ${Math.random() * 1.5 + 1.2}s cubic-bezier(0.25, 1, 0.5, 1)`;
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+          particle.style.top = '105vh';
+          particle.style.transform = `rotate(${Math.random() * 720}deg) scale(0.6)`;
+          particle.style.opacity = '0';
+        }, 20);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 2800);
+      }
+    }
+  </script>
+</body></html>

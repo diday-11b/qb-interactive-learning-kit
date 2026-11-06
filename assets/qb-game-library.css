@@ -1,0 +1,338 @@
+
+    body.qb-catalog-loading header:not(.qb-library-header):not(.qb-header), body.qb-catalog-loading footer:not(.qb-library-footer):not(.qb-library-footer-shared), body.qb-catalog-loading section.sticky { visibility:hidden }
+    body.qb-catalog-app header:not(.qb-library-header), body.qb-catalog-app footer:not(.qb-library-footer):not(.qb-library-footer-shared), body.qb-catalog-app section.sticky { display:none !important }
+    body.qb-catalog-app { background:#d7ecfa }
+    .qb-library-header { position:sticky; top:0; z-index:20; display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:clamp(10px,1.4vw,20px); padding:12px clamp(16px,4vw,48px); background:#fff; border-bottom:3px solid #151c28; box-shadow:0 4px 0 rgba(37,50,71,.08); color:#253247 }
+    .qb-library-brand { display:flex; align-items:center; gap:10px; width:max-content; color:inherit; text-decoration:none }
+    .qb-library-brand-mark { display:grid; place-items:center; width:48px; height:48px; border:3px solid #151c28; border-radius:16px; background:#ffd76a; box-shadow:3px 3px 0 #151c28; font-size:1.15rem }
+    .qb-library-brand-copy { display:grid; line-height:1.05; font-size:1rem }
+    .qb-library-nav { display:flex; justify-content:center; gap:clamp(3px,1vw,12px); padding:7px 10px; border:3px solid #151c28; border-radius:18px; background:#fff8c7; box-shadow:3px 3px 0 #151c28 }
+    .qb-library-nav a { display:flex; align-items:center; justify-content:center; min-height:44px; padding:7px clamp(7px,1vw,13px); border-radius:10px; color:#151c28; text-align:center; text-decoration:none; text-transform:uppercase; font-size:.9rem; line-height:1.05; white-space:nowrap }
+    .qb-library-nav a:hover { background:#fff }
+    .qb-library-actions { position:relative; justify-self:end; display:flex; align-items:center; gap:10px }
+    .qb-library-start-wrap { position:relative }
+    .qb-library-header-action { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:8px 18px; border:3px solid #151c28; border-radius:16px; background:#80e8ac; color:#151c28; text-decoration:none; text-transform:uppercase; box-shadow:3px 3px 0 #151c28; cursor:pointer }
+    .qb-library-header-action:focus-visible,.qb-library-start-menu a:focus-visible { outline:3px solid #176ba0; outline-offset:3px }
+    .qb-library-chevron { display:inline-block; transition:transform .15s ease }
+    .qb-library-header-action[aria-expanded="true"] .qb-library-chevron { transform:rotate(180deg) }
+    .qb-library-start-menu { position:absolute; top:calc(100% + 12px); right:0; z-index:30; display:grid; gap:8px; width:198px; padding:10px; border:3px solid #151c28; border-radius:18px; background:#fff; box-shadow:5px 6px 0 #151c28 }
+    .qb-library-start-menu[hidden] { display:none }
+    .qb-library-start-menu a { display:flex; align-items:center; justify-content:center; min-height:54px; padding:9px 12px; border:2px solid #d9e0e8; border-radius:13px; background:#f7fafc; color:#151c28; text-decoration:none; text-transform:uppercase; font-size:1rem }
+    .qb-library-start-menu a:last-child { border-color:#151c28; background:#80e8ac; box-shadow:2px 2px 0 #151c28 }
+    .qb-library-start-menu a:hover { filter:brightness(.97) }
+    .qb-catalog { width:min(100% - 32px,1180px); max-width:none; margin:0 auto; padding:26px 0 48px; color:#253247; font-family:"Nunito Sans",system-ui,sans-serif }
+    .qb-catalog, html body .qb-catalog *:not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-icons):not(.material-icons-outlined):not(:lang(km)) { font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important; letter-spacing:normal !important }
+    html body .qb-catalog h1:not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-icons):not(.material-icons-outlined):not(:lang(km)), html body .qb-catalog h2:not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-icons):not(.material-icons-outlined):not(:lang(km)), html body .qb-catalog h3:not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-icons):not(.material-icons-outlined):not(:lang(km)) { font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important; letter-spacing:.01em !important }
+    .qb-catalog * { box-sizing:border-box }
+    .qb-catalog-top { display:none }
+    .qb-catalog-top a { color:#253247 }
+    .qb-practice-steps { display:flex; align-items:center; justify-content:center; gap:clamp(8px,2vw,24px); width:min(100%,940px); margin:0 auto 20px; padding:14px 18px; border:2px solid #151c28; border-radius:18px; background:#fff; box-shadow:3px 3px 0 #151c28 }
+    .qb-practice-step { display:flex; align-items:center; gap:8px; color:#788397; font-size:clamp(.8rem,1.6vw,1rem); text-transform:uppercase }
+    .qb-practice-step[aria-current="step"] { color:#151c28 }
+    .qb-practice-step-number { display:grid; place-items:center; width:34px; height:34px; flex:none; border:2px solid #151c28; border-radius:10px; background:#e9edf1 }
+    .qb-practice-step[aria-current="step"] .qb-practice-step-number { background:#75c9f5 }
+    .qb-practice-arrow { color:#a8b1bf }
+    .qb-practice-prompt { margin:14px auto 0 !important; padding:8px 16px; width:fit-content; max-width:min(100%,760px); border:2px solid #151c28; border-radius:10px; background:#ffd76a; box-shadow:2px 2px 0 #151c28; font-weight:700; line-height:1.35; overflow-wrap:anywhere }
+    .qb-catalog h1 { margin:6px 0 8px; font-size:clamp(2rem,5vw,3.2rem); line-height:1.08 }
+    .qb-catalog h2 { margin:28px 0 14px; font-size:1.55rem }
+    .qb-catalog-hero { width:min(100%,860px); margin:0 auto 18px; padding:20px 18px 18px; background:#fff; border:2px solid #151c28; border-radius:18px; box-shadow:3px 3px 0 #151c28; text-align:center }
+    .qb-catalog-hero h1 { margin:0; color:#ff8735; font-size:clamp(2.3rem,4vw,3.2rem); text-transform:uppercase; -webkit-text-stroke:1px #111722; text-shadow:3px 4px 0 #111722 }
+    .qb-catalog-hero > p:not(.qb-practice-prompt) { max-width:700px; margin:8px auto 0; color:#52637a; font-size:1rem; line-height:1.4 }
+    .qb-live-pill { display:inline-flex; align-items:center; border-radius:999px; padding:6px 12px; background:#ffd76a; border:1px solid #253247; font-weight:700 }
+    .qb-filter-panel { margin:0 0 12px; }
+    .qb-filter-panel summary { display:flex; align-items:center; justify-content:center; gap:7px; width:fit-content; margin:0 auto; padding:7px 14px; border:2px solid #253247; border-radius:999px; background:#fff; box-shadow:2px 2px 0 #253247; cursor:pointer; }
+    .qb-filter-icon { display:inline-grid; place-items:center; width:20px; height:20px; border-radius:50%; background:#75c9f5; font-size:1.1rem; line-height:1 }
+    .qb-catalog-filters { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:14px; margin:12px 0; background:#fff; border:2px solid #253247; border-radius:16px; box-shadow:3px 3px 0 #253247 }
+    .qb-catalog-field { display:flex; flex-direction:column; gap:6px; min-width:0 }
+    .qb-catalog-field label { font-size:.95rem }
+    .qb-catalog-field input, .qb-catalog-field select { min-height:48px; width:100%; padding:10px 12px; border:2px solid #253247; border-radius:12px; background:#fff; color:#253247; font:inherit }
+    .qb-catalog-field input:focus-visible, .qb-catalog-field select:focus-visible, .qb-catalog a:focus-visible, .qb-catalog button:focus-visible { outline:3px solid #2563eb; outline-offset:3px }
+    .qb-catalog-shelf { padding:16px; background:#fff; border:2px solid #151c28; border-radius:18px; box-shadow:4px 4px 0 #151c28 }
+    .qb-catalog-shelf-heading { margin:0 0 14px; text-align:center }
+    .qb-catalog-shelf-heading h2 { margin:0; font-size:clamp(1.5rem,3vw,2rem) }
+    .qb-catalog-shelf-heading p { margin:5px 0 0; color:#52637a; line-height:1.4 }
+    .qb-catalog-results { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; }
+    .qb-catalog-count { margin:0; padding:8px 12px; width:fit-content; border:2px solid #253247; border-radius:999px; background:#fff; box-shadow:2px 2px 0 #253247; }
+    .qb-catalog-reset, .qb-catalog-play { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:8px 14px; border:2px solid #151c28; border-radius:10px; background:#a8e6cf; color:#253247; font:inherit; font-weight:800; text-transform:uppercase; text-decoration:none; box-shadow:2px 2px 0 #151c28; cursor:pointer }
+    .qb-catalog-play:active, .qb-catalog-reset:active { transform:translate(2px,2px); box-shadow:none }
+    .qb-game-card:nth-child(5n + 1) .qb-catalog-play { background:#ffd76a }
+    .qb-game-card:nth-child(5n + 2) .qb-catalog-play { background:#a8e6cf }
+    .qb-game-card:nth-child(5n + 3) .qb-catalog-play { background:#75c9f5 }
+    .qb-game-card:nth-child(5n + 4) .qb-catalog-play { background:#ff9a8b }
+    .qb-game-card:nth-child(5n + 5) .qb-catalog-play { background:#e9eef3 }
+    .qb-catalog-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; gap:16px }
+    .qb-game-card { display:flex; flex-direction:column; width:100%; min-width:0; min-height:330px; justify-self:stretch; overflow:hidden; background:#fff; border:2px solid #253247; border-radius:14px; box-shadow:2px 2px 0 #253247; transition:transform .15s ease,box-shadow .15s ease }
+    .qb-game-card:hover { transform:translateY(-2px); box-shadow:5px 5px 0 #253247 }
+    .qb-game-art { position:relative; display:grid; place-items:center; height:140px; overflow:hidden; background:#dff3ff; border-bottom:2px solid #253247; font-size:4.5rem }
+    .qb-game-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
+    .qb-game-art img.qb-game-illustration { object-fit:contain; padding:8px; background:#dff3ff }
+    .qb-game-art > span { position:relative; z-index:1; pointer-events:none }
+    .qb-game-content { display:flex; flex:1; flex-direction:column; gap:8px; padding:12px }
+    .qb-game-content h3 { margin:0; font-size:1rem; line-height:1.2 }
+    .qb-game-content p { margin:0; line-height:1.4; font-size:.875rem }
+    .qb-game-meta { display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding:3px 0 8px }
+    .qb-game-meta span { padding:5px 9px; border:1px solid #8290a1; border-radius:999px; background:#f7fafc; font-size:.9rem }
+    .qb-game-empty { grid-column:1/-1; width:100%; max-width:900px; margin:8px auto; padding:22px; border:3px dashed #8290a1; border-radius:16px; background:#fff; box-shadow:3px 3px 0 #253247; line-height:1.5; text-align:center }
+    .qb-game-coming-note { margin:16px 0 0; padding:15px 18px; border:2px solid #253247; border-radius:16px; background:#fff; line-height:1.45; text-align:center; box-shadow:3px 3px 0 #253247 }
+    .qb-game-error { border-color:#b64c43; background:#fff0ee }
+    .qb-library-footer { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px clamp(16px,4vw,48px); border-top:3px solid #151c28; background:#fff; color:#253247 }
+    .qb-library-footer p { margin:0; line-height:1.4 }
+    .qb-library-footer nav { display:flex; flex-wrap:wrap; gap:16px }
+    .qb-library-footer a { color:#253247 }
+    .qb-catalog-loading-message { display:flex; align-items:center; gap:12px }
+    .qb-spinner { width:22px; height:22px; border:3px solid #cbd5e1; border-top-color:#253247; border-radius:50%; animation:qb-spin .8s linear infinite }
+    @keyframes qb-spin { to { transform:rotate(360deg) } }
+    @media (prefers-reduced-motion:reduce) { .qb-game-card { transition:none } .qb-spinner { animation:none; border-top-color:#253247 } }
+    @media (max-width:1080px) { .qb-library-header { grid-template-columns:1fr auto; gap:10px } .qb-library-nav { grid-column:1/-1; grid-row:2; overflow-x:auto; justify-content:flex-start; scrollbar-width:thin; -webkit-overflow-scrolling:touch } }
+    @media (max-width:900px) { .qb-catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)) } }
+    @media (max-width:560px) { .qb-library-header { position:relative; grid-template-columns:1fr auto; padding:10px 14px } .qb-library-brand-mark { width:42px; height:42px } .qb-library-brand-copy { font-size:.85rem } .qb-library-nav { gap:2px; padding:5px; grid-column:1/-1; flex-wrap:wrap; overflow:visible } .qb-library-nav a { min-height:40px; padding:6px 9px; font-size:.8rem } .qb-library-header-action { min-height:42px; padding:6px 11px; font-size:.82rem } .qb-library-start-menu { right:0; width:min(198px,calc(100vw - 28px)) } .qb-library-footer { align-items:flex-start; flex-direction:column } .qb-catalog { width:calc(100% - 28px); padding:18px 0 32px } .qb-catalog-shelf { padding:10px } .qb-catalog-results { flex-wrap:wrap } .qb-catalog-hero { padding:12px 8px 18px } .qb-catalog-hero h1 { font-size:clamp(2.3rem,12vw,3.3rem) } .qb-practice-steps { padding:10px 7px; gap:5px } .qb-practice-step { gap:4px; font-size:.67rem } .qb-practice-step-number { width:27px; height:27px } .qb-catalog-filters { grid-template-columns:1fr } .qb-catalog-grid { grid-template-columns:minmax(0,360px); } .qb-game-art { height:175px } }
+    /* Match the public homepage's paper and sky section, card edges, and type. */
+    body.qb-catalog-app { background:#d9efff }
+    .qb-library-header { display:flex; align-items:center; min-height:clamp(3rem,6.25vw,6rem); padding:0 clamp(18px,7.3vw,72px); gap:clamp(14px,1.8vw,28px); border-bottom:2px solid #151c28; box-shadow:none; backdrop-filter:none }
+    .qb-library-brand { flex:none; gap:clamp(5px,.5vw,10px); font-size:clamp(9px,1.2vw,18px); line-height:1.05 }
+    .qb-library-brand-mark { width:clamp(26px,3.2vw,52px); height:clamp(26px,3.2vw,52px); border:2px solid #253247; border-radius:.7rem; box-shadow:2px 3px 0 rgb(37 50 71 / 16%); object-fit:cover }
+    .qb-library-brand-copy { gap:2px; font-size:clamp(9px,1.2vw,18px); line-height:1.05 }
+    .qb-library-brand-copy small { display:none }
+    .qb-library-nav { flex:none; gap:clamp(2px,.4vw,6px); margin-left:0; padding:3px; border:3px solid #080808; border-radius:13px; background:#fff7c6; box-shadow:3px 3px 0 #151c28 }
+    .qb-library-nav a { min-height:clamp(24px,2.5vw,48px); padding:clamp(4px,.5vw,10px) clamp(5px,.5vw,10px); border-radius:7px; font-size:clamp(7px,.8vw,15px); line-height:1.05; text-transform:uppercase; white-space:nowrap }
+    .qb-library-nav a:hover { background:#fff }
+    .qb-library-actions { margin-left:auto; gap:clamp(8px,1vw,16px) }
+    .qb-library-header-action { min-height:clamp(26px,2.5vw,48px); padding:clamp(5px,.45vw,9px) clamp(10px,.8vw,16px); border:2px solid #253247; border-radius:9px; box-shadow:2px 3px 0 rgb(37 50 71 / 16%); font-size:clamp(8px,.8vw,15px) }
+    .qb-catalog { width:100%; max-width:none; margin:0; padding:clamp(1rem,2vw,1.5rem) 0 clamp(3.25rem,7vw,5.5rem); background:#d9efff }
+    .qb-catalog > * { width:min(80vw,68rem); margin-right:auto; margin-left:auto }
+    .qb-catalog > .qb-practice-steps { width:min(80vw,68rem) }
+    .qb-catalog > .qb-catalog-hero { width:min(80vw,68rem) }
+    .qb-practice-steps { gap:clamp(10px,2vw,32px); margin-bottom:clamp(12px,1.5vw,24px); padding:clamp(8px,1.25vw,24px) 14px; border:3px solid #080808; border-radius:18px; box-shadow:4px 5px 0 #151c28 }
+    .qb-practice-step { gap:clamp(6px,.8vw,12px); font-size:clamp(9px,1vw,18px); line-height:1.15 }
+        .qb-practice-step-number { position:relative; display:grid; place-items:center; width:clamp(30px,3vw,56px); height:clamp(30px,3vw,56px); flex:none; border:2px solid #151c28; border-radius:10px; background:#e9edf1; color:#718198; box-shadow:none; font-size:clamp(14px,1.2vw,24px); line-height:1 }
+    .qb-practice-step[aria-current="step"] .qb-practice-step-number { background:#75c9f5; color:#111722 }
+    .qb-practice-step-badge { position:absolute; top:clamp(-8px,-.45vw,-4px); left:clamp(-8px,-.45vw,-4px); z-index:1; display:grid; place-items:center; width:clamp(14px,.8vw,26px); aspect-ratio:1; border:1px solid #080808; border-radius:50%; background:#080808; color:#fff; font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important; font-size:clamp(9px,.7vw,16px); font-weight:700; line-height:1 }
+    .qb-practice-step-symbol { font-family:"Noto Sans Symbols 2","Segoe UI Symbol",sans-serif !important; font-weight:400; line-height:1 }
+    .qb-practice-step-label { display:block; text-align:left }
+    .qb-catalog-hero { margin-bottom:18px; padding:8px 18px 12px; border:0; border-radius:0; background:transparent; box-shadow:none }
+    .qb-practice-prompt { margin:clamp(8px,1vw,16px) auto 0 !important; padding:clamp(6px,.8vw,15px) clamp(12px,1.2vw,24px); border:0; border-radius:999px; background:#fff; box-shadow:none; color:#334155; font-size:clamp(9px,1.05vw,20px) }
+    .qb-catalog-hero > p:not(.qb-practice-prompt) { display:none }
+    .qb-catalog-hero h1 { color:#ff8b32; font-size:clamp(45px,5.3vw,96px); -webkit-text-stroke:2px #080808; text-shadow:4px 5px 0 #080808,7px 8px 0 rgb(0 0 0 / 10%) }
+    .qb-catalog-shelf { padding:0; border:0; border-radius:0; background:transparent; box-shadow:none }
+    .qb-catalog-shelf-heading { max-width:46rem; margin:0 auto 2rem }
+    .qb-catalog-shelf-heading h2 { margin:0; font-size:clamp(2rem,4vw,3rem) }
+    .qb-catalog-shelf-heading p { margin:.65rem 0 0; color:#526174 }
+    .qb-catalog-results { margin-bottom:1rem }
+    .qb-catalog-count { border:2px solid #253247; box-shadow:2px 3px 0 rgb(37 50 71 / 12%) }
+    .qb-game-card { min-height:0; border:2px solid #253247; border-radius:1rem; box-shadow:4px 5px 0 rgb(37 50 71 / 16%) }
+    .qb-game-card:hover { box-shadow:5px 6px 0 rgb(37 50 71 / 20%) }
+    .qb-game-art { height:12rem; background:#dff3ff; border-bottom:2px solid #253247 }
+    .qb-game-art img { object-position:top }
+    .qb-game-content { gap:.55rem; padding:1rem }
+    .qb-game-content h3 { font-size:clamp(1rem,1.35vw,1.2rem); line-height:1.2 }
+    .qb-game-content p { color:#526174; line-height:1.4; font-size:clamp(.8rem,.95vw,.9rem) }
+    .qb-live-pill { width:fit-content; padding:.25rem .7rem; border:1px solid #253247; background:#dff3ff; font-weight:400 }
+    .qb-game-card[data-slug="alien-spelling"] .qb-live-pill { background:#a8e6cf }
+    .qb-catalog-play { min-height:2.9rem; margin-top:.35rem; padding:.65rem 1rem; border:2px solid #253247; border-radius:.75rem; box-shadow:2px 3px 0 rgb(37 50 71 / 16%); font:inherit; font-weight:400; text-transform:none }
+    .qb-game-card[data-slug="ship-battle"] .qb-catalog-play { background:#75c9f5 }
+    .qb-game-card[data-slug="alien-spelling"] .qb-catalog-play { background:#a8e6cf }
+    .qb-game-meta { gap:.4rem; padding:.3rem 0 .5rem }
+    .qb-game-meta span { padding:.25rem .55rem; border-color:#253247; background:#f7fafc; font-size:.85rem }
+    .qb-game-coming-note { border:2px solid #253247; border-radius:1rem; background:#fff; box-shadow:4px 5px 0 rgb(37 50 71 / 16%) }
+    .qb-library-footer { border-top:2px solid #253247; box-shadow:none }
+    @media (max-width:560px) { .qb-library-header { flex-wrap:wrap; justify-content:space-between; gap:8px 12px; padding:8px 14px } .qb-library-nav { order:3; width:100%; justify-content:center; flex-wrap:wrap; overflow:visible } .qb-library-actions { margin-left:auto } .qb-library-nav a { min-height:34px; padding:5px 8px; font-size:9px } }
+    @media (max-width:900px) { .qb-library-header { min-height:0; padding-block:.6rem } }
+    @media (max-width:680px) { .qb-catalog { padding-block:3.25rem } .qb-catalog-grid { grid-template-columns:1fr } .qb-game-art { height:12rem } }
+    @media (max-width:390px) { .qb-catalog > * { width:calc(100% - 1.25rem) } .qb-practice-steps { gap:5px } .qb-practice-step { font-size:.72rem } }
+    .qb-game-card[data-slug="wheel-spin-carnival"] .qb-live-pill { background:#fff4d1 }
+    .qb-game-card[data-slug="claw-machine-toy-drop"] .qb-live-pill { background:#ffdfdd }
+    .qb-game-card[data-slug="potion-lab-alchemy"] .qb-live-pill { background:#e8f8f0 }
+    .qb-game-card[data-slug="balloon-pop-math-sprint"] .qb-live-pill { background:#e4f7ff }
+    .qb-game-card[data-slug="wheel-spin-carnival"] .qb-catalog-play { background:#ffd76a }
+    .qb-game-card[data-slug="claw-machine-toy-drop"] .qb-catalog-play { background:#ff9a8b }
+    .qb-game-card[data-slug="potion-lab-alchemy"] .qb-catalog-play { background:#a8e6cf }
+    .qb-game-card[data-slug="balloon-pop-math-sprint"] .qb-catalog-play { background:#75c9f5 }
+    .qb-game-art { height:auto; aspect-ratio:16 / 9 }
+    .qb-game-art-link { position:absolute; inset:0; z-index:2; display:block; cursor:pointer }
+    .qb-game-art-link:focus-visible { outline:3px solid #176ba0; outline-offset:-5px }
+    @media (max-width:680px) { .qb-game-art { height:auto } }
+    @media (max-width:560px) { .qb-catalog-hero h1 { font-size:clamp(2.3rem,12vw,3.3rem) } .qb-practice-steps { padding:8px 7px; gap:5px } .qb-practice-step { gap:4px; font-size:.67rem } .qb-practice-step-number { width:27px; height:27px } }
+    /* Match the Explore Questions page proportions and components. */
+    .qb-library-header { min-height:clamp(2.6rem,4.8vw,5rem); padding-inline:max(calc((100vw - 92rem)/2),9.2vw) }
+    .qb-catalog > .qb-practice-steps { width:min(80vw,68rem) }
+    .qb-practice-steps { padding:clamp(9px,1vw,18px) 14px }
+    .qb-catalog-search-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:clamp(8px,1vw,18px); margin:0 auto clamp(8px,1vw,18px) }
+    .qb-catalog-search { width:100%; min-width:0; min-height:clamp(30px,3.2vw,58px); padding:clamp(6px,.65vw,12px) clamp(10px,.9vw,16px); border:3px solid #151c28; border-radius:10px; background:#fff; color:#151c28; font:inherit; font-size:clamp(10px,1vw,18px); box-shadow:2px 3px 0 rgb(37 50 71 / 12%) }
+    .qb-filter-panel { position:relative; margin:0 }
+    .qb-filter-panel summary.qb-catalog-filter-button { min-height:clamp(30px,3.2vw,58px); padding:clamp(6px,.65vw,12px) clamp(12px,1.1vw,20px); border:3px solid #151c28; border-radius:10px; background:#65dfa1; box-shadow:2px 3px 0 rgb(37 50 71 / 14%); font-size:clamp(9px,.9vw,16px); text-transform:uppercase }
+    .qb-filter-panel[open] .qb-catalog-filters { grid-template-columns:repeat(2,minmax(0,1fr)); width:min(80vw,68rem); margin-top:10px }
+    .qb-catalog-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(8px,1vw,12px); margin:0 auto clamp(10px,1.2vw,18px) }
+    .qb-catalog-tab { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(5px,.65vw,10px); min-width:0; min-height:clamp(56px,6.7vw,120px); padding:8px; border:2px solid #151c28; border-radius:14px; background:#fff; color:#151c28; box-shadow:3px 4px 0 #151c28; font:inherit; font-size:clamp(9px,.95vw,17px); text-transform:uppercase; cursor:pointer }
+    .qb-catalog-tab[aria-pressed="true"] { background:#75c9f5 }
+    .qb-catalog-tab-icon, .qb-catalog-community-icon { font-family:"Segoe UI Emoji",sans-serif !important }
+    .qb-catalog-tab-icon { font-size:clamp(18px,2vw,36px); line-height:1 }
+    .qb-catalog-community { display:flex; align-items:center; justify-content:center; gap:clamp(8px,1vw,14px); min-height:clamp(36px,4vw,72px); margin:0 auto clamp(12px,1.3vw,20px); padding:6px 12px; border:2px solid #151c28; border-radius:14px; background:#fff; box-shadow:3px 4px 0 #151c28; text-align:center }
+    .qb-catalog-community-icon { display:grid; place-items:center; width:clamp(20px,2.2vw,40px); height:clamp(20px,2.2vw,40px); flex:none; border:2px solid #151c28; border-radius:50%; background:#75c9f5; font-size:clamp(12px,1.2vw,22px) }
+    .qb-catalog-community-copy { display:grid; gap:2px; font-size:clamp(9px,.85vw,15px); line-height:1.1; text-align:left }
+    .qb-catalog-community-copy small { color:#526174; font-size:clamp(7px,.65vw,12px) }
+    .qb-catalog-shelf { width:min(80vw,68rem); padding:0; border:0; border-radius:0; background:transparent; box-shadow:none }
+    .qb-catalog-shelf-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0 0 clamp(8px,1vw,14px); text-align:left }
+    .qb-catalog-shelf-heading h2 { margin:0; font-size:clamp(12px,1.3vw,23px); line-height:1.1 }
+    .qb-catalog-section-hint { flex:none; padding:5px 9px; border:1px solid #151c28; border-radius:999px; background:#fff; font-size:clamp(7px,.65vw,12px); text-transform:uppercase }
+    .qb-catalog-results { justify-content:flex-end; margin:0 0 8px }
+    .qb-catalog-count { padding:4px 8px; border:0; border-radius:999px; background:#f2eaff; box-shadow:none; color:#4d2888; font-size:clamp(8px,.7vw,13px) }
+    .qb-catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(8px,1vw,12px) }
+    .qb-game-card { min-height:0; border:3px solid #151c28; border-radius:16px; box-shadow:6px 8px 0 #151c28 }
+    .qb-game-card:hover { box-shadow:8px 10px 0 #151c28 }
+    .qb-game-art { height:auto; aspect-ratio:16/9; border-bottom:3px solid #151c28 }
+    .qb-game-content { gap:clamp(5px,.65vw,10px); padding:clamp(8px,.9vw,16px) }
+    .qb-game-content h3 { font-size:clamp(11px,1vw,18px) }
+    .qb-game-content p { font-size:clamp(9px,.8vw,15px) }
+    .qb-game-meta span { font-size:clamp(8px,.7vw,13px) }
+    .qb-catalog-play { min-height:clamp(28px,2.5vw,46px); padding:clamp(5px,.6vw,10px) clamp(8px,.8vw,14px); font-size:clamp(9px,.75vw,14px) }
+    .qb-library-footer { padding:clamp(12px,1.4vw,24px) max(calc((100vw - 68rem)/2),20vw); border-top:2px solid #151c28 }
+    @media (max-width:680px) { .qb-catalog > *, .qb-catalog > .qb-practice-steps, .qb-catalog > .qb-catalog-hero, .qb-catalog-shelf { width:calc(100% - 2rem) } .qb-catalog-grid { grid-template-columns:1fr } .qb-catalog-tabs { gap:7px } .qb-library-footer { padding:18px 20px } }
+    @media (max-width:560px) { .qb-library-header { min-height:0; padding:8px 14px } .qb-catalog-search-row { gap:7px } .qb-catalog-filter-button { padding:6px 8px !important } .qb-catalog-tab { min-height:64px; font-size:9px } .qb-catalog-community-copy small { display:none } }
+    .qb-library-footer { display:grid; grid-template-columns:1.4fr .65fr .8fr auto; align-items:start; gap:clamp(12px,1.2vw,22px); }
+    .qb-library-footer-brand, .qb-library-footer-group, .qb-library-footer-actions { display:grid; align-content:start; gap:clamp(3px,.35vw,7px); }
+    .qb-library-footer-brand strong, .qb-library-footer-group strong { font-size:clamp(8px,.75vw,14px); line-height:1.15; }
+    .qb-library-footer-brand small, .qb-library-footer-actions small { color:#526174; font-size:clamp(7px,.6vw,11px); line-height:1.3; }
+    .qb-library-footer-group a { color:#151c28; font-size:clamp(7px,.65vw,12px); line-height:1.2; text-decoration:none; }
+    .qb-library-footer-actions { min-width:clamp(84px,9vw,164px); }
+    .qb-library-footer-actions a { display:flex; align-items:center; justify-content:center; min-height:clamp(24px,2.1vw,40px); padding:4px 8px; border:2px solid #151c28; border-radius:8px; background:#65dfa1; box-shadow:2px 3px 0 rgb(37 50 71 / 14%); color:#151c28; font-size:clamp(7px,.65vw,12px); text-decoration:none; }
+    .qb-library-footer-actions a:nth-of-type(2) { background:#75c9f5; }
+    @media (max-width:680px) { .qb-library-footer { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; } }
+    @media (max-width:420px) { .qb-library-footer { grid-template-columns:1fr; } }
+    /* Keep every remaining control and state on the same outlined style system. */
+    .qb-catalog :is(button, input, select, summary, a) { font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif); }
+    .qb-catalog :is(button, input, select, summary, a):focus-visible { outline:3px solid #176ba0; outline-offset:3px; }
+    .qb-catalog-filters { gap:clamp(8px,.8vw,14px); padding:clamp(10px,1vw,18px); border:3px solid #151c28; border-radius:12px; background:#fff; box-shadow:4px 5px 0 #151c28; }
+    .qb-catalog-field { gap:clamp(4px,.45vw,8px); }
+    .qb-catalog-field label { color:#151c28; font-size:clamp(9px,.8vw,14px); line-height:1.2; }
+    .qb-catalog-field input, .qb-catalog-field select { min-height:clamp(30px,3.2vw,58px); padding:clamp(6px,.65vw,12px) clamp(9px,.8vw,14px); border:3px solid #151c28; border-radius:10px; background:#fff; color:#151c28; font-size:clamp(9px,.8vw,14px); box-shadow:2px 3px 0 rgb(37 50 71 / 12%); }
+    .qb-catalog-reset { min-height:clamp(28px,2.5vw,46px); padding:clamp(5px,.6vw,10px) clamp(9px,.8vw,14px); border:2px solid #151c28; border-radius:9px; background:#e9eef3; color:#151c28; box-shadow:2px 3px 0 #151c28; font-size:clamp(8px,.75vw,14px); text-transform:uppercase; }
+    .qb-catalog-play { border:2px solid #151c28; border-radius:9px; box-shadow:2px 3px 0 #151c28; color:#151c28; font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif); font-size:clamp(9px,.75vw,14px); font-weight:400; text-transform:uppercase; }
+    .qb-game-card .qb-live-pill { border:1px solid #151c28; border-radius:999px; color:#151c28; font-size:clamp(8px,.7vw,13px); line-height:1.2; }
+    .qb-game-meta { gap:clamp(4px,.45vw,8px); padding:3px 0 clamp(5px,.55vw,10px); }
+    .qb-game-meta span { padding:clamp(3px,.35vw,6px) clamp(6px,.55vw,10px); border:1px solid #151c28; border-radius:999px; background:#f7fafc; color:#253247; line-height:1.15; }
+    .qb-game-card:focus-within { box-shadow:8px 10px 0 #151c28; }
+    .qb-game-card:hover { transform:translate(-1px,-1px); }
+    .qb-game-coming-note { margin:clamp(8px,.9vw,16px) 0 0; padding:clamp(8px,.9vw,16px); border:2px solid #151c28; border-radius:12px; background:#fff; box-shadow:3px 4px 0 #151c28; font-size:clamp(9px,.8vw,14px); }
+    .qb-game-empty { padding:clamp(12px,1.4vw,24px); border:2px dashed #151c28; border-radius:12px; background:#fff; box-shadow:3px 4px 0 #151c28; font-size:clamp(10px,.9vw,16px); }
+    .qb-game-error { border-style:solid; background:#fff0ee; }
+    .qb-library-start-menu { border:2px solid #151c28; border-radius:12px; box-shadow:4px 5px 0 #151c28; }
+    .qb-library-start-menu a { border:2px solid #151c28; border-radius:8px; font-size:clamp(9px,.8vw,14px); }
+    .qb-library-footer a:hover { text-decoration:underline; text-underline-offset:2px; }
+    @media (max-width:680px) { .qb-catalog-filters { grid-template-columns:1fr; } .qb-game-card:focus-within { box-shadow:5px 6px 0 #151c28; } }
+
+
+    .qb-library-header[hidden] { display:none !important; }
+    /* Align the game picker to Explore Questions sizing and keep game cards in rows. */
+    .qb-catalog { width:min(1080px,calc(100% - 40px)); margin:0 auto; padding:32px 0 48px; }
+    .qb-catalog > *, .qb-catalog > .qb-practice-steps, .qb-catalog > .qb-catalog-hero, .qb-catalog-shelf { width:100%; }
+    .qb-practice-steps { min-height:104px; margin-bottom:32px; gap:clamp(10px,2vw,26px); padding:14px 22px; border-width:4px; border-radius:24px; box-shadow:5px 5px 0 #151c28; }
+    .qb-practice-step { gap:12px; font-size:clamp(12px,1.2vw,17px); line-height:1.15; text-decoration:none; }
+    .qb-practice-step-number { width:58px; height:58px; border-width:3px; border-radius:15px; font-size:28px; }
+    .qb-practice-step-badge { width:25px; font-size:14px; }
+    .qb-catalog-hero { margin-bottom:28px; padding:8px 18px 12px; }
+    .qb-catalog-hero h1 { font-size:clamp(50px,8vw,96px); line-height:1.05; letter-spacing:.012em; -webkit-text-stroke:2px #080808; text-shadow:4px 5px 0 #080808,7px 8px 0 rgb(0 0 0 / 10%); }
+    .qb-practice-prompt { margin-top:12px !important; padding:8px 22px; font-size:clamp(15px,1.45vw,21px); }
+    .qb-catalog-search-row { gap:12px; margin:26px 0 18px; }
+    .qb-catalog-search { min-height:58px; padding:0 20px; border-width:4px; border-radius:16px; font-size:18px; box-shadow:3px 3px 0 rgb(32 38 51 / 8%); }
+    .qb-filter-panel summary.qb-catalog-filter-button { min-height:58px; min-width:160px; padding:0 18px; border-width:4px; border-radius:16px; box-shadow:3px 3px 0 rgb(32 38 51 / 8%); }
+    .qb-catalog-tabs { gap:16px; margin-bottom:20px; }
+    .qb-catalog-tab { min-height:122px; border-width:3px; border-radius:21px; box-shadow:4px 5px 0 #151c28; font-size:17px; }
+    .qb-catalog-community { width:min(680px,100%); min-height:66px; margin-bottom:22px; padding:10px 18px; border-width:3px; border-radius:17px; box-shadow:3px 4px 0 #151c28; }
+    .qb-catalog-shelf { padding:14px; border:3px solid #080808; border-radius:19px; background:#fff; box-shadow:4px 5px 0 #151c28; }
+    .qb-catalog-shelf-heading { margin-bottom:15px; }
+    .qb-catalog-shelf-heading h2 { font-size:20px; }
+    .qb-catalog-section-hint { padding:6px 12px; font-size:13px; }
+    .qb-catalog-results { margin-bottom:8px; }
+    .qb-catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .qb-game-card { min-height:0; border-width:3px; border-radius:19px; box-shadow:4px 5px 0 #151c28; }
+    .qb-game-card:hover, .qb-game-card:focus-within { box-shadow:6px 7px 0 #151c28; }
+    .qb-game-art { aspect-ratio:16/9; border-bottom-width:3px; }
+    .qb-game-content { gap:8px; padding:14px; }
+    .qb-game-content h3 { font-size:clamp(16px,1.55vw,20px); line-height:1.12; }
+    .qb-game-content p { font-size:13px; line-height:1.3; }
+    .qb-live-pill { font-size:10px; }
+    .qb-game-meta span { padding:3px 7px; font-size:10px; }
+    .qb-catalog-play { min-height:38px; padding:5px 9px; border-radius:10px; font-size:12px; }
+    @media (max-width:760px) {
+      .qb-catalog { width:min(100% - 28px,600px); padding-top:24px; }
+      .qb-practice-steps { min-height:auto; gap:8px; padding:12px 8px; border-width:3px; }
+      .qb-practice-step-number { width:44px; height:44px; border-width:2px; border-radius:12px; font-size:21px; }
+      .qb-practice-step { font-size:10px; }
+      .qb-catalog-tabs { gap:10px; }
+      .qb-catalog-tab { min-height:104px; }
+      .qb-game-card { padding:0; }
+      .qb-game-content { padding:12px; }
+      .qb-library-footer { padding:18px 20px; }
+    }
+    @media (max-width:560px) {
+      .qb-catalog { width:calc(100% - 22px); padding-top:18px; }
+      .qb-practice-steps { gap:4px; padding-inline:5px; border-radius:16px; }
+      .qb-practice-step-number { width:38px; height:38px; font-size:18px; }
+      .qb-practice-step { gap:4px; font-size:8px; }
+      .qb-catalog-hero { margin-bottom:18px; }
+      .qb-catalog-hero h1 { font-size:clamp(38px,11vw,52px); }
+      .qb-catalog-search-row { gap:7px; margin-top:18px; }
+      .qb-catalog-search { min-height:50px; padding-inline:11px; border-width:3px; border-radius:12px; font-size:14px; }
+      .qb-filter-panel summary.qb-catalog-filter-button { min-width:92px; min-height:50px; padding-inline:8px; border-width:3px; border-radius:12px; font-size:12px; }
+      .qb-catalog-tabs { gap:8px; margin-bottom:17px; }
+      .qb-catalog-tab { min-height:88px; padding:9px 5px; border-width:2px; border-radius:14px; box-shadow:3px 3px 0 #151c28; font-size:11px; }
+      .qb-catalog-community { min-height:58px; gap:8px; padding:8px 10px; }
+      .qb-catalog-shelf { padding:10px; }
+      .qb-catalog-shelf-heading h2 { font-size:15px; }
+      .qb-catalog-grid { grid-template-columns:1fr; gap:12px; }
+      .qb-game-card { min-height:0; }
+      .qb-game-art { aspect-ratio:16/9; }
+      .qb-library-footer { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+
+    /* Lower sections follow the approved sky, white paper and black outline UI. */
+    .qb-catalog { color:#111722; }
+    .qb-catalog-search, .qb-filter-panel summary.qb-catalog-filter-button { color:#111722; font-size:16px; }
+    .qb-catalog-search::placeholder { color:#99a2b0; }
+    .qb-filter-panel { position:static; }
+    .qb-filter-panel[open] .qb-catalog-filters { position:static; width:100%; margin-top:12px; }
+    .qb-catalog-search-row:has(.qb-filter-panel[open]) { grid-template-columns:1fr; }
+    .qb-filter-panel[open] summary { margin-right:0; }
+    .qb-catalog-tab { color:#111722; background:#fff; border-color:#080808; }
+    .qb-catalog-tab[aria-pressed="true"] { background:#72d5ff; }
+    .qb-catalog-tab-icon { font-size:34px; }
+    .qb-catalog-community { border-color:#080808; }
+    .qb-catalog-community-copy { font-size:14px; line-height:1.2; }
+    .qb-catalog-community-copy small { font-size:12px; line-height:1.3; }
+    .qb-catalog-shelf { padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; }
+    .qb-catalog-shelf-heading { max-width:none; width:100%; }
+    .qb-catalog-section-hint { border:2px solid #080808; background:#fff; }
+    .qb-catalog-count { font-size:12px; }
+    .qb-game-card { border-color:#080808; background:#fff; }
+    .qb-game-art { background:#e4f4ff; border-color:#080808; }
+    .qb-game-content { color:#111722; }
+    .qb-game-content h3 { text-transform:uppercase; }
+    .qb-game-content p { color:#526072; }
+    .qb-game-card .qb-live-pill { align-self:flex-start; width:fit-content; padding:4px 8px; font-size:10px; background:#72d5ff; }
+    .qb-game-meta { margin-top:auto; }
+    .qb-game-meta span { border:0; background:#e8f5ff; color:#17568c; }
+    .qb-catalog-play { width:100%; margin-top:4px; border-color:#080808; background:#72d5ff !important; box-shadow:2px 2px 0 rgb(17 23 34 / 12%); }
+    .qb-game-card:nth-child(even) .qb-catalog-play { background:#ff8b32 !important; }
+    .qb-game-coming-note { border-color:#080808; border-radius:17px; font-size:13px; }
+    .qb-library-footer { grid-template-columns:1.5fr 1fr 1fr auto; gap:24px; padding:24px max(20px,calc((100% - 1080px)/2)); border-top:2px solid #080808; color:#111722; }
+    .qb-library-footer-brand strong { font-size:17px; }
+    .qb-library-footer-brand small { font-size:12px; }
+    .qb-library-footer-group strong { font-size:11px; }
+    .qb-library-footer-group a { font-size:12px; }
+    .qb-library-footer-actions a { min-height:38px; font-size:12px; }
+    @media(max-width:760px) {
+      .qb-library-footer { grid-template-columns:repeat(2,minmax(0,1fr)); padding:24px 14px; gap:20px 16px; }
+      .qb-library-footer-brand { grid-column:1/-1; }
+      .qb-catalog-community-copy { font-size:12px; }
+    }
+    @media(max-width:560px) {
+      .qb-catalog-tab-icon { font-size:24px; }
+      .qb-catalog-search, .qb-filter-panel summary.qb-catalog-filter-button { font-size:12px; }
+      .qb-catalog-section-hint { font-size:10px; }
+      .qb-catalog-community-copy { font-size:11px; }
+    }
+
+
+  
+.qb-catalog > * { width:100%; } .qb-catalog-community { width:min(680px,100%); } .qb-game-art { display:none; } .qb-game-content { padding:0; flex:1; gap:8px; } .qb-game-card { min-height:216px; } .qb-game-content h3 { font-size:20px; } .qb-game-content p { font-size:13px; } .qb-catalog-hero { padding:0; } .qb-catalog-results { display:none; } .qb-game-coming-note { display:none; } .qb-game-content .qb-live-pill { font-size:10px; } .qb-game-meta { margin-top:auto; } .qb-catalog-play { margin-top:auto; }

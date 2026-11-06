@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dff3ff">
+  <title>Play a Learning Game — QB Interactive Learning Kits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="/assets/supabase-config.js"></script>
+  <script defer src="/assets/qb-supabase.js?v=google-2"></script>
+  <script defer src="/assets/qb-game-engine.js?v=20261105-main-flow"></script>
+  <style>
+    :root { color-scheme:light; --sky:#75c9f5; --soft:#dff3ff; --yellow:#ffd76a; --mint:#a8e6cf; --coral:#ff9a8b; --ink:#253247; --paper:#fff; --bg:#f7fafc; --muted:#64748b; }
+    * { box-sizing:border-box }
+    body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink) }
+    .player-shell { width:min(100% - 28px, 900px); margin:0 auto; padding:16px 0 48px }
+    .player-header { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 0 20px }
+    .player-brand { display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none; font-size:1.05rem }
+    .brand-mark { display:grid; place-items:center; width:44px; height:44px; border:2px solid var(--ink); border-radius:14px; background:var(--yellow); box-shadow:3px 3px 0 var(--ink); font-size:25px }
+    .player-tools { display:flex; gap:8px; align-items:center }
+    .player-button,.player-link,.player-select { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:10px 16px; border:2px solid var(--ink); border-radius:14px; background:var(--paper); color:var(--ink); text-decoration:none; font:inherit; cursor:pointer; box-shadow:2px 2px 0 var(--ink) }
+    .player-button:hover,.player-link:hover { transform:translateY(-1px) }
+    .player-button:focus-visible,.player-link:focus-visible,.player-select:focus-visible { outline:3px solid #176ba0; outline-offset:3px }
+    .player-button--primary { background:var(--mint) }
+    .player-button--yellow { background:var(--yellow) }
+    .player-button--quiet { background:var(--soft) }
+    .player-button[disabled] { opacity:.55; cursor:wait; transform:none }
+    .player-panel { padding:clamp(18px,4vw,34px); border:2px solid var(--ink); border-radius:26px; background:var(--paper); box-shadow:5px 5px 0 var(--ink) }
+    .player-kicker { display:inline-flex; padding:7px 12px; border:1px solid var(--ink); border-radius:999px; background:var(--yellow); font-size:.86rem }
+    h1 { margin:14px 0 8px; font-size:clamp(2rem,6vw,3.7rem); line-height:1.08 }
+    h2 { margin:8px 0 12px; font-size:clamp(1.5rem,4vw,2.25rem) }
+    p { line-height:1.55 }
+    .player-note { color:var(--muted); max-width:65ch }
+    .player-start-form { display:grid; gap:14px; max-width:550px; margin-top:24px }
+    .player-label { display:grid; gap:7px }
+    .player-select { width:100%; justify-content:flex-start; background:#fff }
+    .player-status { margin-top:16px; padding:12px 15px; border:2px solid var(--ink); border-radius:14px; background:var(--soft) }
+    .player-status[data-kind="error"] { background:#fff0ee; border-color:#b64c43 }
+    .player-status[data-kind="success"] { background:#eafbf3 }
+    .player-progress { margin:14px 0 22px }
+    .progress-top { display:flex; justify-content:space-between; gap:12px; margin-bottom:8px }
+    .progress-track { height:14px; overflow:hidden; border:2px solid var(--ink); border-radius:999px; background:#e9eef3 }
+    .progress-fill { height:100%; width:0; background:var(--mint); transition:width .2s ease }
+    .question-card { padding:clamp(16px,3.5vw,28px); border:2px solid var(--ink); border-radius:22px; background:var(--soft) }
+    .question-prompt { margin:0 0 18px; font-size:clamp(1.2rem,3vw,1.65rem); line-height:1.3 }
+    .picture-frame { display:grid; place-items:center; min-height:200px; margin:0 auto 20px; padding:12px; border:2px solid var(--ink); border-radius:18px; background:#fff; text-align:center }
+    .picture-frame img { width:100%; max-width:420px; max-height:300px; object-fit:contain; border-radius:12px }
+    .picture-fallback { color:var(--muted); font-size:1rem }
+    .answer-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px }
+    .answer-choice { min-height:76px; padding:12px; border:2px solid var(--ink); border-radius:16px; background:#fff; color:var(--ink); font:inherit; cursor:pointer; box-shadow:2px 3px 0 var(--ink) }
+    .answer-choice:hover:not(:disabled) { background:#fff8d2; transform:translateY(-1px) }
+    .answer-choice:disabled { cursor:default }
+    .answer-choice img { width:72px; height:72px; object-fit:contain; display:block; margin:0 auto 8px }
+    .matching-layout { display:grid; grid-template-columns:1fr 1fr; gap:16px }
+    .matching-column { display:grid; gap:9px; align-content:start }
+    .matching-choice { min-height:54px; text-align:left }
+    .matching-choice[aria-pressed="true"] { background:var(--yellow); outline:3px solid #176ba0; outline-offset:2px }
+    .flashcard { display:grid; place-items:center; min-height:240px; padding:24px; border:2px solid var(--ink); border-radius:22px; background:#fff; text-align:center; font-size:clamp(1.5rem,4vw,2.3rem); box-shadow:4px 4px 0 var(--ink) }
+    .feedback-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:18px }
+    .feedback { flex:1; min-height:52px; margin:0; padding:12px 14px; border-radius:14px; background:#fff; line-height:1.4 }
+    .feedback[data-correct="true"] { background:#eafbf3 }
+    .feedback[data-correct="false"] { background:#fff0ee }
+    .game-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px }
+    .result-score { display:inline-flex; align-items:center; min-height:80px; margin:12px 0; padding:14px 24px; border:2px solid var(--ink); border-radius:20px; background:var(--yellow); font-size:clamp(2rem,7vw,4rem); box-shadow:4px 4px 0 var(--ink) }
+    .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+    [hidden] { display:none !important }
+    @media(max-width:600px) { .player-shell { width:min(100% - 20px,900px); padding-top:8px } .player-header { align-items:flex-start } .player-brand { font-size:.86rem } .brand-mark { width:38px; height:38px } .player-tools .player-link { padding-inline:10px } .answer-grid { grid-template-columns:1fr } .answer-choice { min-height:60px } .feedback-row { align-items:stretch; flex-direction:column } .matching-layout { gap:9px } .matching-choice { padding:9px; font-size:.92rem } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; transition:none !important } }
+  </style>
+  <link href="/assets/qb-activity-consistency.css?v=20261030-game-style-match" rel="stylesheet">
+<link rel="stylesheet" href="/assets/qb-adventure-setup.css?v=20261105-main-flow"><script src="/assets/qb-adventure-setup.js?v=20261105-main-flow"></script></head>
+<body class="qb-game-player">
+  <div class="player-shell">
+    <header class="player-header">
+      <a class="player-brand" href="/index.html"><span class="brand-mark" aria-hidden="true">🦁</span><span>QB Interactive Learning Kits</span></a>
+      <div class="player-tools"><button class="player-button player-button--quiet" id="sound-toggle" type="button" aria-pressed="false">🔈 Sound off</button><a class="player-link" href="/18._qb_user_profile_system_preferences/code.html">Settings</a><a class="player-link" href="/index.html">Exit</a></div>
+    </header>
+    <main id="game-root" aria-live="polite" aria-busy="true"><section class="player-panel"><p>Loading your game…</p></section></main>
+  </div>
+
+  <script defer src="/assets/qb-accessibility.js"></script>
+</body>
+</html>

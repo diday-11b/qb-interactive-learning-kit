@@ -1,0 +1,110 @@
+body{margin:0;background:#e5f6ff;color:#16364b;font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif)}#ocean-game{max-width:1050px;margin:28px auto;padding:0 20px 40px}#ocean-game *{box-sizing:border-box;font-family:"Noto Sans Khmer",system-ui,sans-serif!important}#ocean-game h1{font-size:clamp(32px,5vw,58px);color:#185b78;margin:12px 0}#ocean-game h2{font-size:28px}#ocean-game button,#ocean-game select,#ocean-game a{min-height:48px;padding:12px 20px;border:2px solid #185b78;border-radius:16px;background:white;color:#16364b;font-size:17px;font-weight:700}#ocean-game button{cursor:pointer}#ocean-game button:disabled{opacity:.55;cursor:default}#ocean-game :focus-visible{outline:4px solid #ed9758;outline-offset:4px}.ocean-panel{background:white;padding:24px;border-radius:24px;box-shadow:0 8px 28px #185b7818;margin:18px 0}.ocean-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.ocean-controls label{display:grid;gap:8px;flex:1}.ocean-scene{height:300px;position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(#bcecff 0 48%,#62c9de 48% 68%,#3cafcf 68%);margin:20px 0}.ocean-sun{position:absolute;right:12%;top:22px;background:#ffdc70;width:65px;height:65px;border-radius:50%}.ocean-island{position:absolute;right:15px;bottom:60px;font-size:90px}.ocean-ship{position:absolute;left:4%;bottom:65px;transition:left .7s ease;width:110px;animation:bob 3s ease-in-out infinite}.ocean-wave{position:absolute;bottom:25px;color:#fff9;font-size:45px;white-space:nowrap;animation:wave 8s linear infinite}.ocean-answers{display:grid;grid-template-columns:1fr 1fr;gap:14px}.ocean-answers button{min-height:80px!important;background:#e8f8f4!important}.ocean-primary{background:#ffda73!important}.ocean-feedback{padding:18px;border-radius:18px;background:#e8f8f4;font-size:20px;margin-top:16px}.ocean-hud{display:flex;justify-content:space-between;gap:10px;align-items:center}.ocean-notice{font-size:14px;color:#567183;line-height:1.5}.ocean-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.ocean-summary div{padding:20px;background:#e8f8f4;border-radius:18px;text-align:center}.ocean-summary strong{display:block;font-size:32px}@keyframes bob{50%{transform:translateY(-8px)}}@keyframes wave{50%{transform:translateX(-50px)}}@media(max-width:600px){.ocean-scene{height:230px}.ocean-panel{padding:18px}.ocean-answers,.ocean-summary{grid-template-columns:1fr}.ocean-controls>*{width:100%}.ocean-island{font-size:65px}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}.reduce-motion *{animation:none!important;transition:none!important}
+
+/* Keep the ocean game footer at the bottom of short screens. */
+html{min-height:100%}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+body>qb-site-header{flex-shrink:0}
+body>main#ocean-game{flex:1 0 auto;align-self:center}
+body>.page-footer{flex-shrink:0;width:100%;margin-top:auto;background:#fff}
+
+#ocean-game{font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important;line-height:1.5}
+#ocean-game :is(h1,h2){font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important;font-weight:400;line-height:1.2}
+#ocean-game #question{font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important;font-weight:700;line-height:1.4}
+#ocean-game :lang(km){font-family:"Noto Sans Khmer",sans-serif!important}
+
+#ocean-game[data-view="game"] .ocean-scene{height:clamp(300px,48vh,540px)}.ocean-game-prompt{text-align:center}.ocean-question-screen{min-height:460px;padding:40px}.ocean-question-screen h2{text-align:center;font-size:clamp(26px,4vw,44px);margin:20px 0 30px}.ocean-question-screen #audio{text-align:center;margin-bottom:24px}.answer-wrong{background:#ffe4dc!important;border-color:#a84635!important}.answer-correct{background:#b8ebc9!important;border-color:#27724a!important}@media(max-width:600px){.ocean-question-screen{padding:20px;min-height:0}#ocean-game[data-view="game"] .ocean-scene{height:320px}}
+
+.ocean-eyebrow{font-size:14px;letter-spacing:.08em;color:#397785;text-transform:uppercase}.ocean-lead{font-size:22px}.ocean-welcome{max-width:850px;margin-inline:auto;text-align:center}.ocean-welcome .ocean-controls{justify-content:center}.ocean-objectives{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:24px 0;color:#27724a}.ocean-subjects{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.ocean-subjects button,.ocean-modes button{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-width:0;background:#f1fbff!important;padding:20px 12px!important;box-shadow:0 4px 0 #d3e9ed}.ocean-subjects small,.ocean-modes small{font-size:14px;font-weight:400;line-height:1.5}.subject-icon{font-size:42px}.ocean-subjects [aria-pressed=true],.ocean-modes [aria-pressed=true]{background:#d8f5e8!important;border:2px solid #267755!important;box-shadow:0 0 0 3px #b1e5cd}.ocean-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.ocean-config-summary{padding:20px;margin:20px 0;border-radius:16px;background:#fff5d6;line-height:1.5}.ocean-scene{background:radial-gradient(ellipse at 25% 22%,#fff 0 4%,transparent 4.5%),radial-gradient(ellipse at 32% 22%,#fff 0 5%,transparent 5.5%),linear-gradient(#bcecff 0 48%,#62c9de 48% 68%,#3cafcf 68%)}.ocean-ship{width:150px;filter:drop-shadow(0 8px 3px #185b7820)}.ocean-question-screen{border-top:8px solid #65bdce}.ocean-answers button:nth-child(4n+1){background:#e5f3ff!important}.ocean-answers button:nth-child(4n+2){background:#fff1cc!important}.ocean-answers button:nth-child(4n+3){background:#f3e8ff!important}.ocean-answers button:nth-child(4n+4){background:#ffe5dc!important}.ocean-answers .answer-correct{background:#b8ebc9!important}.ocean-answers .answer-wrong{background:#ffdad1!important}@media(max-width:850px){.ocean-subjects{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:600px){.ocean-subjects{grid-template-columns:repeat(2,minmax(0,1fr))}.ocean-modes{grid-template-columns:1fr}.ocean-lead{font-size:18px}.ocean-ship{width:100px}}
+
+#ocean-game[data-view="game"]{max-width:1400px;width:calc(100% - 32px)}#ocean-game[data-view="game"] .ocean-scene{height:auto;aspect-ratio:16/9;min-height:320px;max-height:72vh}.ocean-cloud{position:absolute;top:8%;left:18%;font-size:95px;color:white;animation:cloud-drift 22s ease-in-out infinite}.ocean-birds{position:absolute;top:25%;left:50%;font-size:45px;color:#397785;animation:cloud-drift 12s ease-in-out infinite}.ocean-fish{position:absolute;top:70%;left:38%;font-size:clamp(24px,4vw,44px);line-height:1;animation:ocean-swim 9s ease-in-out infinite}.ocean-life{position:absolute;top:84%;right:28%;font-size:clamp(20px,3.5vw,40px);line-height:1;opacity:.7;animation:ocean-swim 14s ease-in-out infinite reverse}.ocean-reward{font-size:50px;animation:star-rise 1s ease-out}.ocean-answers button{font-size:clamp(20px,3vw,30px)!important;min-height:110px!important}.ocean-question-screen{max-width:1000px;margin-inline:auto}.ocean-answers button:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 6px 0 #185b7820}@keyframes cloud-drift{50%{transform:translateX(60px)}}@keyframes ocean-swim{0%,100%{transform:translateX(0)}50%{transform:translateX(35px)}}@keyframes star-rise{from{transform:translateY(20px) scale(.6);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}@media(max-width:600px){#ocean-game[data-view="game"] .ocean-scene{aspect-ratio:4/3;min-height:280px}.ocean-cloud{font-size:60px}.ocean-answers button{min-height:80px!important}.ocean-life{font-size:28px}}
+
+#ocean-game[data-view="intro"]{max-width:1120px;padding-top:12px}#ocean-game[data-view="intro"] :is(p,small,a,button,.ocean-eyebrow,.ocean-objectives span){font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif) !important;line-height:1.6}#ocean-game[data-view="intro"] h1{font-size:clamp(38px,5vw,68px);text-align:center;margin:12px 0}#ocean-game[data-view="intro"] .ocean-eyebrow,#ocean-game[data-view="intro"] .ocean-lead{text-align:center}#ocean-game[data-view="intro"] .ocean-lead{font-size:22px;margin:10px 0 24px}.ocean-landing-art{border-radius:28px;overflow:hidden;box-shadow:0 12px 30px #185b7818}.ocean-landing-art img{display:block;width:100%;height:auto}#ocean-game[data-view="intro"] .ocean-welcome{max-width:none;padding:28px 36px;margin-top:22px}#ocean-game[data-view="intro"] .ocean-welcome p{font-size:19px;max-width:780px;margin:14px auto}#ocean-game[data-view="intro"] .ocean-welcome h2{font-size:28px;margin:0}#ocean-game[data-view="intro"] button{min-height:58px;padding:14px 26px;font-size:19px;transition:transform .15s,box-shadow .15s}#ocean-game[data-view="intro"] .ocean-primary{background:#ffcf62!important;box-shadow:0 5px 0 #c58a2d}#ocean-game[data-view="intro"] button:hover{transform:translateY(-2px)}#ocean-game[data-view="intro"] button:active{transform:translateY(2px);box-shadow:none}#ocean-game[data-view="intro"] .ocean-notice{font-size:14px!important}#ocean-game[data-view="intro"] .ocean-welcome>a{border:0;background:transparent;font-size:17px;padding:8px;text-decoration:underline}@media(max-width:600px){#ocean-game[data-view="intro"] .ocean-welcome{padding:24px 18px}#ocean-game[data-view="intro"] .ocean-lead{font-size:18px}#ocean-game[data-view="intro"] .ocean-welcome p{font-size:17px}#ocean-game[data-view="intro"] .ocean-controls button{width:100%;font-size:17px!important}.ocean-landing-art{border-radius:18px}.ocean-objectives{gap:10px;font-size:14px}}
+
+/* The entire setup screen uses the same shared face as its title. */
+#ocean-game[data-view="config"],#ocean-game[data-view="config"] *{font-family:"Luckiest Guy","Noto Sans Khmer",sans-serif!important;font-weight:400}
+#ocean-game[data-view="config"] :is(p,small,label,select,option,button,.ocean-config-summary){letter-spacing:.02em;line-height:1.5}
+#ocean-game[data-view="config"] :is(small,.ocean-notice){font-size:15px}
+#ocean-game[data-view="config"] .subject-icon{font-family:"Segoe UI Emoji",sans-serif!important}
+
+/* One text face in every ocean screen, including answers, HUD and results. */
+#ocean-game[data-view] :is(h1,h2,h3,p,small,strong,label,select,option,button,a,span),
+#ocean-game[data-view] :is(.ocean-config-summary,.ocean-feedback,.ocean-eyebrow,.ocean-summary,.ocean-hud){font-family:"Luckiest Guy","Noto Sans Khmer",sans-serif!important;font-weight:400}
+#ocean-game[data-view="question"] #question,#ocean-game[data-view="question"] #answers button{font-family:"Luckiest Guy","Noto Sans Khmer",sans-serif!important;font-weight:400;line-height:1.4}
+#ocean-game[data-view] :lang(km){font-family:"Noto Sans Khmer",sans-serif!important}
+
+/* Cohesive illustrated gameplay stage, matching the landing artwork. */
+.ocean-illustrated-stage{isolation:isolate;background:#53bfd6;border:3px solid #fff;box-shadow:0 10px 30px #185b7818}
+.ocean-environment{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;z-index:0}
+.ocean-illustrated-stage .ocean-ship{bottom:33%;width:24%;max-width:260px;z-index:1;filter:drop-shadow(0 8px 4px #185b7828);animation:bob 4s ease-in-out infinite}
+.ocean-illustrated-stage .ocean-ship img{display:block;width:100%;height:auto}
+.ocean-route-label{position:absolute;right:18px;bottom:16px;border:2px solid #20556b;border-radius:999px;padding:8px 14px;background:#fff5d7;color:#20556b;font-size:13px;z-index:2}
+#ocean-game[data-view="game"] h1{font-size:clamp(28px,4vw,48px);margin:18px 0}
+#ocean-game[data-view="game"] .ocean-hud{padding:12px 16px;border-radius:18px;background:white;box-shadow:0 4px 16px #185b7810}
+#ocean-game[data-view="game"] .ocean-game-prompt{max-width:700px;margin:18px auto;text-align:center;padding:20px}
+#ocean-game[data-view="game"] .ocean-game-prompt p{margin:0 0 14px;font-size:20px}
+#ocean-game[data-view="game"] .ocean-game-prompt button{min-width:240px;min-height:56px}
+@media(max-width:600px){.ocean-illustrated-stage .ocean-ship{width:28%;bottom:35%}.ocean-route-label{font-size:10px;right:8px;bottom:8px;padding:6px 9px}#ocean-game[data-view="game"] .ocean-game-prompt button{min-width:0;width:100%}}
+
+/* Ocean pre-play sheet follows the supplied stacked settings reference. */
+#ocean-game[data-view="config"]{max-width:1040px;padding-bottom:36px}#ocean-game[data-view="config"]>h1{font-size:clamp(30px,4vw,48px);margin-bottom:24px}.ocean-setup-how{display:grid;grid-template-columns:240px 1fr;gap:22px;align-items:center;padding:18px;border:3px solid #b1e6ff;background:#f0faff;border-radius:18px;margin-bottom:22px}.ocean-setup-how img{width:100%;border:2px solid #173b4d;border-radius:12px}.ocean-setup-how h2{margin:0 0 10px;font-size:24px}.ocean-setup-how p{margin:6px 0;font-size:15px}.ocean-setup-questions{border:3px solid #173b4d;border-radius:18px;padding:18px;background:#dae6ef;margin-bottom:22px;box-shadow:3px 4px #173b4d}.ocean-setup-questions summary,.ocean-setup-settings>summary{cursor:pointer;font-size:23px}.ocean-setup-questions p{font-size:15px;line-height:1.6}.ocean-setup-sheet{padding:0;background:transparent;box-shadow:none}.ocean-setup-settings{overflow:hidden;border:3px solid #173b4d;border-radius:22px;background:white;box-shadow:4px 5px #173b4d}.ocean-setup-settings>summary{padding:20px;background:#def3ff;border-bottom:2px solid #173b4d}.ocean-settings-content{padding:24px}.ocean-settings-content h2{font-size:22px;margin:22px 0 16px}.ocean-settings-content h2:first-child{margin-top:0}.ocean-setup-toggles{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.ocean-setup-toggles label{display:flex;align-items:center;justify-content:space-between;padding:18px;border:2px solid #173b4d;border-radius:16px;background:#f5f0ff;gap:15px}.ocean-setup-toggles input{width:24px;height:24px;accent-color:#2cbf94;cursor:pointer}.ocean-setup-ships{margin-top:30px}.ocean-setup-ships h2{font-size:25px}.ocean-ship-options{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.ocean-ship-options button{display:flex;flex-direction:column;align-items:center;background:white!important;gap:10px}.ocean-ship-options img{width:130px;height:110px;object-fit:contain}.ocean-ship-options [aria-pressed="true"]{outline:3px solid #299fc9;background:#def3ff!important;box-shadow:3px 4px #173b4d}.ocean-setup-playbar{position:sticky;bottom:0;z-index:5;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;background:#fff;padding:16px;border-top:2px solid #173b4d;box-shadow:0 -8px 24px #173b4d10;border-radius:14px}.ocean-setup-playbar #config-actions{display:flex;gap:12px;margin:0}.ocean-setup-playbar .ocean-primary{background:#85e8b1!important;min-width:150px}.ocean-illustrated-stage .ocean-ship img{filter:var(--ship-filter,none)}@media(max-width:650px){.ocean-setup-how{grid-template-columns:1fr}.ocean-setup-how img{max-height:180px;object-fit:cover}.ocean-settings-content{padding:16px}.ocean-setup-toggles{grid-template-columns:1fr}.ocean-ship-options{gap:10px}.ocean-ship-options button{padding:12px 6px!important;font-size:12px!important}.ocean-ship-options img{width:80px;height:85px}.ocean-setup-playbar{justify-content:center}.ocean-setup-playbar #config-actions{width:100%}.ocean-setup-playbar button{flex:1}.ocean-setup-playbar a{font-size:14px!important}}
+
+/* Ocean responsive layout: scoped rules follow the shared site baseline. */
+#ocean-game{width:min(1120px,calc(100% - 40px));padding-inline:0;min-width:0}
+#ocean-game :is(.ocean-panel,.ocean-settings-content,.ocean-controls,.ocean-subjects,.ocean-modes,.ocean-answers,.ocean-hud,.ocean-setup-how)>*{min-width:0}
+#ocean-game :is(button,select,a,summary){max-width:100%;white-space:normal;overflow-wrap:anywhere}
+#ocean-game .ocean-controls label{min-width:0;flex:1 1 220px}
+#ocean-game .ocean-setup-how{grid-template-columns:minmax(160px,240px) minmax(0,1fr)}
+#ocean-game .ocean-setup-playbar{padding-bottom:max(16px,env(safe-area-inset-bottom))}
+#ocean-game .ocean-setup-playbar #config-actions{flex-wrap:wrap;min-width:0}
+#ocean-game .ocean-summary{grid-template-columns:repeat(3,minmax(0,1fr))}
+#ocean-game[data-view="game"]{width:min(1400px,calc(100% - 40px))}
+#ocean-game[data-view="game"] .ocean-scene{max-height:none}
+#ocean-game .ocean-illustrated-stage .ocean-environment{max-width:none}
+@media(max-width:900px){#ocean-game .ocean-subjects{grid-template-columns:repeat(3,minmax(0,1fr))}#ocean-game .ocean-modes{grid-template-columns:repeat(3,minmax(0,1fr))}#ocean-game .ocean-modes button{padding:14px 10px!important}}
+@media(max-width:650px){
+ #ocean-game,#ocean-game[data-view="game"]{width:calc(100% - 28px);margin-top:20px}
+ #ocean-game .ocean-setup-how{grid-template-columns:1fr}
+ #ocean-game .ocean-subjects{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ #ocean-game .ocean-modes{grid-template-columns:1fr}
+ #ocean-game .ocean-controls{align-items:stretch}
+ #ocean-game .ocean-hud #tools{width:100%}
+ #ocean-game .ocean-hud #tools>.ocean-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #ocean-game .ocean-hud #tools button{width:100%;min-height:48px;font-size:14px!important;line-height:1.4}
+ #ocean-game .ocean-hud #tools button:last-child:nth-child(odd){grid-column:1/-1}
+ #ocean-game .ocean-ship-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ #ocean-game .ocean-ship-options img{max-width:100%;height:80px}
+ #ocean-game .ocean-setup-playbar{gap:12px}
+ #ocean-game .ocean-setup-playbar>a{width:100%;justify-content:center}
+ #ocean-game .ocean-setup-playbar #config-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:100%}
+ #ocean-game .ocean-setup-playbar button{min-width:0;width:100%}
+ #ocean-game .ocean-question-screen{padding:22px 16px}
+ #ocean-game .ocean-question-screen #question{font-size:clamp(24px,5vw,32px)}
+ #ocean-game .ocean-summary{grid-template-columns:1fr}
+}
+@media(max-width:400px){#ocean-game,#ocean-game[data-view="game"]{width:calc(100% - 24px)}#ocean-game .ocean-subjects{grid-template-columns:1fr}#ocean-game .ocean-ship-options{grid-template-columns:1fr}#ocean-game .ocean-ship-options button{flex-direction:row;justify-content:flex-start;font-size:15px!important;gap:16px}#ocean-game .ocean-ship-options img{width:75px;flex:none}#ocean-game .ocean-route-label{max-width:calc(100% - 16px);font-size:10px}}
+@media(max-height:500px) and (min-width:651px){#ocean-game[data-view="game"] .ocean-scene{min-height:260px;height:65vh;aspect-ratio:auto}#ocean-game .ocean-setup-playbar{position:static}}
+
+/* Stable pre-play layout: selection must not resize or displace adjacent controls. */
+html{scrollbar-gutter:stable}
+#ocean-game[data-view="config"]{width:min(1120px,calc(100% - 40px));max-width:1120px;margin:28px auto;padding:0 0 40px;overflow-anchor:none}
+#ocean-game[data-view="config"] :is(.ocean-setup-how,.ocean-setup-questions,.ocean-setup-sheet,.ocean-setup-settings,.ocean-setup-ships,.ocean-config-summary,.ocean-setup-playbar){width:100%;box-sizing:border-box;margin-inline:0}
+#ocean-game[data-view="config"] :is(button,select,a,summary,label,p,small,strong,span){font-family:"Luckiest Guy","Noto Sans Khmer",sans-serif!important;font-weight:400}
+#ocean-game[data-view="config"] :is(.ocean-subjects,.ocean-modes) button{border-width:2px!important;transform:none;transition:background-color .15s,box-shadow .15s}
+#ocean-game[data-view="config"] :is(.ocean-subjects,.ocean-modes) [aria-pressed="true"]{border-width:2px!important;outline:2px solid #267755;outline-offset:1px}
+#ocean-game[data-view="config"] .ocean-config-summary{min-height:88px;display:flex;align-items:center;margin-block:24px;line-height:1.5}
+#ocean-game[data-view="config"] .ocean-setup-playbar{position:static;bottom:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px;padding:16px;border:2px solid #20556b;border-radius:18px;box-shadow:none}
+#ocean-game[data-view="config"] .ocean-setup-playbar #config-actions{display:flex;flex:0 0 auto;width:auto;gap:12px;flex-wrap:nowrap;align-items:center}
+#ocean-game[data-view="config"] .ocean-setup-playbar :is(a,button){width:auto;flex:none;min-height:52px;margin:0;padding:12px 20px;font-size:16px!important;line-height:1.4;transform:none}
+#ocean-game[data-view="config"] .ocean-setup-playbar .ocean-primary{min-width:110px}
+#ocean-game[data-view="config"] .ocean-setup-settings>summary{min-height:70px;padding:20px 24px;line-height:1.25}
+@media(prefers-reduced-motion:reduce){#ocean-game[data-view="config"] :is(.ocean-subjects,.ocean-modes) button{transition:none}}
+@media(max-width:650px){#ocean-game[data-view="config"]{width:calc(100% - 28px);margin-top:20px}#ocean-game[data-view="config"] .ocean-setup-playbar{padding:14px;gap:12px}#ocean-game[data-view="config"] .ocean-setup-playbar>a{width:100%;justify-content:center}#ocean-game[data-view="config"] .ocean-setup-playbar #config-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}#ocean-game[data-view="config"] .ocean-setup-playbar button{width:100%;min-width:0;padding:12px;font-size:15px!important}#ocean-game[data-view="config"] .ocean-setup-settings>summary{padding:18px 16px}}
+@media(max-width:400px){#ocean-game[data-view="config"]{width:calc(100% - 24px)}}
+
+/* Ship movement is controlled by the pausable round animation. */
+#ocean-game .ocean-ship{transition:none}
+#ocean-game[data-paused="true"] *{animation-play-state:paused!important}
+#ocean-game .ocean-hud{flex-wrap:wrap}
+#ocean-game .ocean-source{padding:16px;border:2px solid #b1dce9;border-radius:16px;background:#f5fbff;overflow-wrap:anywhere}
+#ocean-game[data-view="config"] .ocean-config-summary{min-height:132px}
+#ocean-game[data-view] :is(div,summary){font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif)!important}

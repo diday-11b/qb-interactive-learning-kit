@@ -1,0 +1,553 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QB Interactive Learning Kits — Plans, Pricing &amp; District Licensing</title>
+<!-- Google Fonts: Quicksand & Nunito Sans -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Container Queries and Forms -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#002111",
+            "secondary": "#006783",
+            "outline-variant": "#dbc2b1",
+            "surface-container-highest": "#dde2f4",
+            "tertiary-fixed": "#8df8bd",
+            "on-secondary-fixed-variant": "#004d63",
+            "surface-bright": "#f9f9ff",
+            "on-background": "#151c28",
+            "surface-container-low": "#f1f3ff",
+            "on-tertiary-container": "#004f30",
+            "inverse-primary": "#ffb780",
+            "on-tertiary-fixed-variant": "#005232",
+            "on-secondary-fixed": "#001f29",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#00607a",
+            "on-error-container": "#93000a",
+            "secondary-container": "#83dafe",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#ffdcc4",
+            "inverse-surface": "#2a303e",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "outline": "#887365",
+            "surface-container-high": "#e2e8fa",
+            "on-primary-fixed-variant": "#6f3800",
+            "on-primary-container": "#6b3600",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-surface": "#151c28",
+            "on-error": "#ffffff",
+            "primary": "#924c00",
+            "on-primary-fixed": "#2f1400",
+            "surface-tint": "#924c00",
+            "surface-dim": "#d4daeb",
+            "primary-container": "#ff983d",
+            "primary-fixed-dim": "#ffb780",
+            "surface-variant": "#dde2f4",
+            "tertiary": "#006c44",
+            "surface-container": "#e8edff",
+            "tertiary-container": "#5ac58e",
+            "background": "#f9f9ff",
+            "on-surface-variant": "#554337",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#edf0ff",
+            "secondary-fixed": "#bce9ff",
+            "secondary-fixed-dim": "#7bd2f6",
+            "surface": "#f9f9ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.25rem",
+            "space-md": "1rem",
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"],
+            "display-hero": ["Quicksand"],
+            "label-sm": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "label-md": ["Nunito Sans"],
+            "headline-md": ["Quicksand"],
+            "title-md": ["Quicksand"],
+            "headline-sm": ["Quicksand"],
+            "display-hero-mobile": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "headline-lg-mobile": ["Quicksand"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Neo-Brutalism shadow utilities matching brand rules */
+    .neo-border {
+      border: 2px solid #151c28;
+    }
+    .neo-shadow-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-shadow {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .neo-shadow-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .neo-btn {
+      transition: all 0.15s ease-out;
+    }
+    .neo-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px #151c28;
+    }
+    .neo-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen selection:bg-secondary-container selection:text-on-secondary-container pb-28 md:pb-16">
+<!-- ================= TOP APP BAR (Shared Components JSON Anchor) ================= -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest neo-border border-t-0 border-x-0 shadow-[0_4px_0_0_#151c28]">
+<div class="flex justify-between items-center w-full px-4 md:px-8 py-3 max-w-7xl mx-auto">
+<!-- Brand Logo & Owl Mascot Avatar -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-secondary-container neo-border neo-shadow-sm flex items-center justify-center text-on-secondary-container overflow-hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight leading-none">QB Learning Kits</span>
+<span class="text-[11px] font-extrabold text-on-surface-variant uppercase tracking-wider mt-0.5">Kids Learning OS</span>
+</div>
+</div>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-7">
+<a class="text-on-surface-variant hover:text-primary font-label-lg text-label-lg transition-colors" href="/02._qb_explore_games_catalog/code.html">Games</a>
+<a class="text-on-surface-variant hover:text-primary font-label-lg text-label-lg transition-colors" href="/literacy.html">Curriculum</a>
+<a class="text-primary font-bold font-label-lg text-label-lg relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-primary" href="#pricing">Pricing</a>
+<a class="text-on-surface-variant hover:text-primary font-label-lg text-label-lg transition-colors" href="#district">District Licensing</a>
+</nav>
+<!-- Trailing CTAs -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:inline-flex text-on-surface font-label-lg text-label-lg px-4 py-2 hover:bg-surface-container-high rounded-xl transition-colors">
+          Sign In
+        </button>
+<button class="neo-btn bg-primary-container text-on-surface font-label-lg text-label-lg px-5 py-2.5 rounded-xl neo-border neo-shadow flex items-center gap-2">
+<span class="">Start Free Trial</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="max-w-7xl mx-auto px-4 md:px-8 pt-10 pb-16">
+<!-- Hero / Headline Section -->
+<section class="text-center max-w-4xl mx-auto mb-12">
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container neo-border neo-shadow-sm px-4 py-1.5 rounded-full mb-5">
+<span class="material-symbols-outlined text-lg" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Trusted by 14,000+ Elementary Teachers &amp; SLPs</span>
+</div>
+<h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface tracking-tight mb-4">
+        Simple, Honest Pricing for <span class="text-primary inline-block relative underline decoration-secondary-container decoration-wavy decoration-2">Joyful Classrooms</span> &amp; Thriving Districts
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
+        Turn high-frequency phonics, math fact drills, and speech articulation tasks into thrilling multiplayer adventures. Zero ad tracking. Instant roster setup.
+      </p>
+<!-- Billing Frequency Toggle Switch -->
+<div class="inline-flex items-center p-1.5 bg-surface-container-lowest neo-border rounded-2xl neo-shadow" role="tablist">
+<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all neo-border bg-secondary-container text-on-secondary-container neo-shadow-sm flex items-center gap-2" id="btn-annual" onclick="setBilling('annual')">
+<span class="">Billed Annually</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed neo-border text-xs px-2 py-0.5 rounded-full font-bold">Save 20% + 2 Mo Free</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant transition-all hover:text-on-surface" id="btn-monthly" onclick="setBilling('monthly')">
+          Monthly
+        </button>
+</div>
+</section>
+<!-- ================= THREE-TIER PRICING MATRIX ================= -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-20" id="pricing">
+<!-- TIER 1: Free Explorer -->
+<div class="bg-surface-container-lowest rounded-2xl neo-border neo-shadow flex flex-col justify-between p-6 sm:p-7 relative transition-all hover:-translate-y-1">
+<div>
+<!-- Header Tag -->
+<div class="flex items-center justify-between mb-4">
+<span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full neo-border">
+              Free Explorer
+            </span>
+<span class="material-symbols-outlined text-outline" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Free Forever</h3>
+<p class="text-on-surface-variant font-label-md text-label-md mb-6">For individual teachers testing QB Interactive Learning Kits in smaller rotations</p>
+<div class="mb-6 flex items-baseline gap-1.5 pb-6 neo-border border-t-0 border-x-0 border-dashed">
+<span class="font-display-hero text-4xl font-bold text-on-surface">$0</span>
+<span class="text-on-surface-variant font-label-md text-label-md">/ forever</span>
+</div>
+<!-- Feature List -->
+<ul class="space-y-3.5 mb-8 text-on-surface">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">6 Standard Games</strong> (Flash Quests, Balloon Pop, Maze)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Up to <strong class="font-bold">5 Question Sets</strong> stored</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Single-player student self-paced mode</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Basic classroom timer &amp; mystery spinner wheel</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Community shared questions library (read-only)</span>
+</li>
+</ul>
+</div>
+<button class="neo-btn w-full bg-surface-bright text-on-surface font-label-lg text-label-lg py-3.5 rounded-xl neo-border neo-shadow">
+          Get Started Free
+        </button>
+</div>
+<!-- TIER 2: Teacher Pro (POPULAR / HIGHLIGHT) -->
+<div class="bg-surface-container-lowest rounded-2xl neo-border neo-shadow-lg flex flex-col justify-between p-6 sm:p-7 relative border-primary bg-gradient-to-b from-primary-fixed/20 to-surface-container-lowest scale-100 md:-translate-y-3 ring-4 ring-primary-container/30">
+<!-- Popular Ribbon Badge -->
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-on-surface font-label-md text-label-md px-4 py-1 rounded-full neo-border neo-shadow-sm flex items-center gap-1.5 uppercase tracking-wider">
+<span class="material-symbols-outlined text-base" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="">Most Popular For Teachers</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-4 mt-2">
+<span class="bg-primary-container/20 text-primary font-label-sm text-label-sm px-3 py-1 rounded-full neo-border border-primary">
+              Teacher Pro
+            </span>
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Teacher Pro</h3>
+<p class="text-on-surface-variant font-label-md text-label-md mb-6">For everyday active classroom engagement &amp; deep student insight</p>
+<div class="mb-6 flex items-baseline gap-1.5 pb-6 neo-border border-t-0 border-x-0 border-dashed">
+<span class="font-display-hero text-4xl font-bold text-on-surface" id="price-teacher-val">$39</span>
+<span class="text-on-surface-variant font-label-md text-label-md" id="price-teacher-freq">/ year ($3.25/mo billed yearly)</span>
+</div>
+<!-- Feature List -->
+<ul class="space-y-3.5 mb-8 text-on-surface">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">Unlimited Question Sets</strong> &amp; 1-click AI PDF Importer</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">All 12+ Game Arenas</strong> (Ship Battle, Alien Spelling, Potion Lab)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">Live Multi-Student Battle Lobby</strong> (up to 35 students per game PIN)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md">Full <strong class="font-bold">Misconception Diagnostics</strong> &amp; Student Heatmaps</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md">Audio Pronunciation Recording for speech practice</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md">Exportable Gradebook CSV &amp; Google Classroom export</span>
+</li>
+</ul>
+</div>
+<button class="neo-btn w-full bg-primary-container text-on-surface font-label-lg text-label-lg py-4 rounded-xl neo-border neo-shadow flex items-center justify-center gap-2">
+<span class="">Start 14-Day Pro Free Trial</span>
+<span class="material-symbols-outlined text-xl" data-icon="rocket_launch">rocket_launch</span>
+</button>
+</div>
+<!-- TIER 3: School & District Enterprise -->
+<div class="bg-surface-container-lowest rounded-2xl neo-border neo-shadow flex flex-col justify-between p-6 sm:p-7 relative transition-all hover:-translate-y-1" id="district">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-3 py-1 rounded-full neo-border">
+              District Enterprise
+            </span>
+<span class="material-symbols-outlined text-secondary" data-icon="domain">domain</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">School &amp; District</h3>
+<p class="text-on-surface-variant font-label-md text-label-md mb-6">For whole campuses, special-ed cohorts, and district-wide rollouts</p>
+<div class="mb-6 flex items-baseline gap-1.5 pb-6 neo-border border-t-0 border-x-0 border-dashed">
+<span class="font-display-hero text-4xl font-bold text-on-surface">$2.50</span>
+<span class="text-on-surface-variant font-label-md text-label-md">/ student per year (volume discounts)</span>
+</div>
+<!-- Feature List -->
+<ul class="space-y-3.5 mb-8 text-on-surface">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">Unlimited Teachers</strong> &amp; District-wide Question Deck Sharing</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">Clever, ClassLink &amp; Google Roster</strong> Auto-Sync (OneRoster)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md"><strong class="font-bold">FERPA &amp; COPPA</strong> Compliant Signed Data Processing Agreement</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">District Admin Analytics Dashboard &amp; usage monitoring</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Dedicated Professional Development coach &amp; SLA support</span>
+</li>
+</ul>
+</div>
+<button class="neo-btn w-full bg-inverse-surface text-on-primary font-label-lg text-label-lg py-3.5 rounded-xl neo-border neo-shadow flex items-center justify-center gap-2">
+<span class="">Request District Quote &amp; Pilot</span>
+<span class="material-symbols-outlined text-lg" data-icon="assignment">assignment</span>
+</button>
+</div>
+</section>
+<!-- ================= SLP & SPECIAL ED ADD-ON SPOTLIGHT CARD ================= -->
+<section class="bg-surface-container-low rounded-2xl neo-border neo-shadow-lg p-6 sm:p-8 mb-20 relative overflow-hidden">
+<!-- Accent Top Banner Line -->
+<div class="absolute top-0 left-0 w-full h-2.5 bg-tertiary-container neo-border border-t-0 border-x-0"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+<div class="lg:col-span-8">
+<div class="inline-flex items-center gap-2 bg-tertiary-container text-on-tertiary-container neo-border neo-shadow-sm px-3.5 py-1 rounded-full mb-4">
+<span class="material-symbols-outlined text-base" data-icon="hearing">hearing</span>
+<span class="font-label-sm text-label-sm">Pediatric Speech &amp; Inclusive Education</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3">
+            Built Hand-in-Hand with Speech-Language Pathologists &amp; Interventionists
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Children with articulation delays, ADHD, and dyslexia thrive when learning is predictable, paced, and play-driven. QB Learning Kits includes specialized clinical settings at no extra tier charge.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl neo-border neo-shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center mb-2 neo-border">
+<span class="material-symbols-outlined text-base" data-icon="record_voice_over">record_voice_over</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-1">Articulation Lists</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Over 1,200 targeted R, S, L &amp; TH phoneme prompt sets with visual mouth guides.</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl neo-border neo-shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center mb-2 neo-border">
+<span class="material-symbols-outlined text-base" data-icon="speed">speed</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-1">Phoneme Speed Controls</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Adjust replay speeds down to 0.75x and 0.5x without pitch warping for auditory processing.</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl neo-border neo-shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center mb-2 neo-border">
+<span class="material-symbols-outlined text-base" data-icon="visibility">visibility</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-1">Dyslexia-Friendly Mode</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-legibility OpenDyslexic font toggles, zero strobe flashes, and muted low-sensory themes.</p>
+</div>
+</div>
+</div>
+<!-- Callout Quote & Quick Demo Pill -->
+<div class="lg:col-span-4 bg-surface-container-lowest p-6 rounded-2xl neo-border neo-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-primary-container mb-3">
+<span class="material-symbols-outlined text-xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mb-4">
+              "My speech therapy students beg to do their 'R-blends' now. The ship battle arena gives them 60 trials in under 7 minutes without feeling tested."
+            </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold neo-border">
+                MS
+              </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface leading-tight">Megan S., M.S., CCC-SLP</p>
+<p class="text-xs text-on-surface-variant">Austin Independent School District</p>
+</div>
+</div>
+</div>
+<button class="neo-btn mt-6 w-full bg-secondary-container text-on-secondary-container font-label-md text-label-md py-3 rounded-xl neo-border neo-shadow-sm flex items-center justify-center gap-2">
+<span class="">Explore Clinical SLP Deck</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_outward">arrow_outward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ================= SCHOOL SAFETY, POs & FAQ ACCORDION ================= -->
+<section class="max-w-4xl mx-auto mb-16">
+<div class="text-center mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Frequently Asked Questions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Everything school boards, principals, and teachers need to know before joining.</p>
+</div>
+<div class="space-y-4">
+<!-- FAQ 1: Student Privacy -->
+<details class="group bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 open:pb-6 transition-all" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-on-surface select-none">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="lock">lock</span>
+<span class="">How does student privacy work? (Zero ad tracking, zero student emails needed)</span>
+</span>
+<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 pt-4 border-t-2 border-surface-container-high font-body-md text-body-md text-on-surface-variant pl-9">QB Interactive Learning Kits operates on a 100% ad-free, zero-tracker architecture. Elementary students never need an email address; they join via a secure 6-character game code or Clever badge. We comply fully with FERPA, COPPA, and CSPC guidelines, and we never sell student data or use inputs for external LLM training.</div>
+</details>
+<!-- FAQ 2: POs and Title I Grants -->
+<details class="group bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 open:pb-6 transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-on-surface select-none">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="receipt_long">receipt_long</span>
+<span class="">Can we pay via School Purchase Order (PO) or Title I / ESSER Grants?</span>
+</span>
+<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 pt-4 border-t-2 border-surface-container-high font-body-md text-body-md text-on-surface-variant pl-9">Yes! We accept official district Purchase Orders (Net-30 or Net-60 terms), credit cards, checks, and ACH wire transfers. QB Interactive Learning Kits qualifies as evidence-based supplementary learning software under Title I (School Improvement) and Title III (English Learners) grant funding.</div>
+</details>
+<!-- FAQ 3: Home Use for Parents -->
+<details class="group bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 open:pb-6 transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-on-surface select-none">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="home_app_logo">home_app_logo</span>
+<span class="">Can parents use this at home with homework codes?</span>
+</span>
+<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 pt-4 border-t-2 border-surface-container-high font-body-md text-body-md text-on-surface-variant pl-9">
+            Absolutely. When a teacher publishes an assignment or articulation practice deck, students can log in from home on any iPad, Chromebook, or home computer using their single-click student card. Parents receive weekly email badges celebrating mastered spelling, math facts, and reading stamina.
+          </div>
+</details>
+<!-- FAQ 4: Teacher Reimbursement -->
+<details class="group bg-surface-container-lowest rounded-2xl neo-border neo-shadow p-5 open:pb-6 transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-on-surface select-none">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="request_quote">request_quote</span>
+<span class="">Can I get reimbursed with my classroom stipend?</span>
+</span>
+<span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 pt-4 border-t-2 border-surface-container-high font-body-md text-body-md text-on-surface-variant pl-9">
+            Yes. Every Pro invoice generates an itemized, PDF receipt compliant with typical classroom supply stipends and PTA mini-grants. If your district later purchases an enterprise license, we will prorate and refund your individual subscription.
+          </div>
+</details>
+</div>
+</section>
+<!-- ================= BOTTOM CALL TO ACTION BANNER ================= -->
+<section class="bg-primary-container rounded-2xl neo-border neo-shadow-lg p-8 sm:p-10 text-on-surface text-center relative overflow-hidden">
+<div class="max-w-2xl mx-auto relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Ready to transform your classroom into a learning arcade?</h2>
+<p class="font-body-lg text-body-lg mb-6 text-on-surface font-semibold">Join hundreds of thousands of smiling elementary students practicing every day.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="neo-btn w-full sm:w-auto bg-surface-container-lowest text-on-surface font-label-lg text-label-lg px-8 py-4 rounded-xl neo-border neo-shadow flex items-center justify-center gap-2">
+<span class="">Get Started in 60 Seconds</span>
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</button>
+<a class="neo-btn w-full sm:w-auto bg-secondary-container text-on-secondary-container font-label-lg text-label-lg px-7 py-4 rounded-xl neo-border neo-shadow flex items-center justify-center gap-2" href="#district">
+<span class="">Talk to District Team</span>
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= BOTTOM NAV BAR (Shared Components JSON Anchor) ================= -->
+<!-- Executing JSON specifications: destination_count: 4, labels: ["Play", "Subjects", "Quests", "Badges"] -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface bg-surface-container-lowest shadow-[0_-4px_0_0_#151c28]">
+<!-- 1. Play (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md mt-0.5">Play</span>
+</button>
+<!-- 2. Subjects (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md mt-0.5">Subjects</span>
+</button>
+<!-- 3. Quests (Active - Commercial / Pricing Plan Context closest match) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] active:translate-x-[1px] active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md text-label-md mt-0.5">Quests</span>
+</button>
+<!-- 4. Badges (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-label-md mt-0.5">Badges</span>
+</button>
+</nav>
+<!-- ================= INLINE INTERACTION SCRIPT ================= -->
+<script>
+    function setBilling(freq) {
+      const btnAnnual = document.getElementById('btn-annual');
+      const btnMonthly = document.getElementById('btn-monthly');
+      const priceVal = document.getElementById('price-teacher-val');
+      const priceFreq = document.getElementById('price-teacher-freq');
+
+      if (freq === 'annual') {
+        btnAnnual.className = 'px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all neo-border bg-secondary-container text-on-secondary-container neo-shadow-sm flex items-center gap-2';
+        btnMonthly.className = 'px-5 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant transition-all hover:text-on-surface';
+        priceVal.textContent = '$39';
+        priceFreq.textContent = '/ year ($3.25/mo billed yearly)';
+      } else {
+        btnMonthly.className = 'px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all neo-border bg-secondary-container text-on-secondary-container neo-shadow-sm';
+        btnAnnual.className = 'px-5 py-2.5 rounded-xl font-label-lg text-label-lg text-on-surface-variant transition-all hover:text-on-surface flex items-center gap-2';
+        priceVal.textContent = '$4.99';
+        priceFreq.textContent = '/ month (cancel anytime)';
+      }
+    }
+  </script>
+
+
+</body></html>

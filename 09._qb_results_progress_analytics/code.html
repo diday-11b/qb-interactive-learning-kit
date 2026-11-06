@@ -1,0 +1,728 @@
+<!DOCTYPE html><html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QB Interactive Learning Kits — Results &amp; Progress Analytics</title>
+<!-- Fonts -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#ffb780",
+            "primary": "#924c00",
+            "error": "#ba1a1a",
+            "surface-tint": "#924c00",
+            "on-surface": "#151c28",
+            "on-surface-variant": "#554337",
+            "surface-container-highest": "#dde2f4",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#5ac58e",
+            "background": "#f9f9ff",
+            "primary-fixed": "#ffdcc4",
+            "on-primary-fixed": "#2f1400",
+            "on-tertiary-fixed": "#002111",
+            "tertiary-fixed-dim": "#70dba2",
+            "surface-dim": "#d4daeb",
+            "inverse-primary": "#ffb780",
+            "on-error": "#ffffff",
+            "on-background": "#151c28",
+            "on-secondary-fixed-variant": "#004d63",
+            "outline": "#887365",
+            "surface": "#f9f9ff",
+            "on-secondary-fixed": "#001f29",
+            "on-tertiary-container": "#004f30",
+            "surface-container-low": "#f1f3ff",
+            "outline-variant": "#dbc2b1",
+            "primary-container": "#ff983d",
+            "on-primary-container": "#6b3600",
+            "on-secondary-container": "#00607a",
+            "on-tertiary-fixed-variant": "#005232",
+            "surface-bright": "#f9f9ff",
+            "inverse-on-surface": "#edf0ff",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2a303e",
+            "surface-container": "#e8edff",
+            "secondary-container": "#83dafe",
+            "on-primary-fixed-variant": "#6f3800",
+            "secondary-fixed": "#bce9ff",
+            "tertiary": "#006c44",
+            "secondary": "#006783",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-variant": "#dde2f4",
+            "tertiary-fixed": "#8df8bd",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#7bd2f6",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#e2e8fa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem",
+            "space-md": "1rem",
+            "space-xl": "2.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Nunito Sans"],
+            "headline-md": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "display-hero": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "label-lg": ["Nunito Sans"],
+            "title-md": ["Quicksand"],
+            "label-md": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "display-hero-mobile": ["Quicksand"],
+            "label-sm": ["Nunito Sans"],
+            "headline-sm": ["Quicksand"],
+            "headline-lg-mobile": ["Quicksand"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-brutalist tactile shadows & interactions */
+    .shadow-brutal-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .shadow-brutal {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .shadow-brutal-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .shadow-brutal-amber {
+      box-shadow: 4px 4px 0px #6b3600;
+    }
+    .press-effect {
+      transition: all 0.1s ease-in-out;
+    }
+    .press-effect:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .press-effect-subtle:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px #151c28;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+<link href="/assets/qb-progress-report.css" rel="stylesheet">
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b-2 border-on-surface dark:border-outline-variant shadow-[0_4px_0_0_#151c28] sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-4 md:px-8 py-3 max-w-7xl mx-auto">
+<!-- Brand & Mascot Logo -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-primary-container border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-on-surface text-2xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary font-bold tracking-tight leading-none">QB Learning Kits</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold tracking-wider uppercase">Kids Classroom</span>
+</div>
+</div>
+<!-- Main Navigation Menu (Desktop) -->
+<nav class="hidden lg:flex items-center gap-1 bg-surface-container-low px-2 py-1.5 rounded-xl border-2 border-on-surface shadow-brutal-sm">
+<a class="px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="/04._qb_teacher_dashboard/code.html">Dashboard</a>
+<a class="px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="/05._qb_question_sets_manager/code.html">Question Sets</a>
+<a class="px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="/02._qb_explore_games_catalog/code.html">Game Library</a>
+<a class="px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="/17._qb_classroom_student_roster_manager/code.html">Classes</a>
+<!-- Reports is Active -->
+<a class="px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-primary dark:text-inverse-primary font-bold bg-secondary-container text-on-secondary-container border-2 border-on-surface shadow-brutal-sm" href="/09._qb_results_progress_analytics/code.html">Reports</a>
+<a class="px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="/20._qb_teacher_classroom_utility_suite/code.html">Classroom Tools</a>
+</nav>
+<!-- Right Action Cluster / Teacher Profile -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-xl border-2 border-on-surface shadow-brutal-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Room 2A Live</span>
+</div>
+<div class="flex items-center gap-2.5 pl-2">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-on-tertiary-fixed shadow-brutal-sm overflow-hidden">
+<span class="material-symbols-outlined text-2xl">face_3</span>
+</div>
+<div class="hidden md:flex flex-col text-left">
+<span class="text-label-md font-label-md text-on-surface leading-tight">Ms. Jenkins</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Grade 2 Teacher</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-6 pb-24 md:pb-12 space-y-6">
+<!-- BREADCRUMB & BACK ROW -->
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<a class="hover:text-primary flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+<span class="">Back to Class 2A Reports</span>
+</a>
+<span class="">/</span>
+<span class="text-on-surface font-bold">Session Analytics</span>
+</div>
+<!-- HEADER & SESSION SUMMARY BAR -->
+<section class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-5 md:p-6 shadow-brutal flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative overflow-hidden">
+<!-- Decorative Pastel Stripe -->
+<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-primary-container via-secondary-container to-tertiary-container border-b-2 border-on-surface"></div>
+<div class="space-y-1.5 mt-1">
+<div class="flex flex-wrap items-center gap-2.5">
+<h1 class="text-headline-md font-headline-md text-on-surface font-bold tracking-tight">Session Results: Ship Battle Tournament</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed border-2 border-on-surface text-on-tertiary-fixed shadow-brutal-sm">
+<span class="material-symbols-outlined text-sm font-bold">verified</span>
+            Completed
+          </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1 font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm text-secondary">meeting_room</span>
+            Room 2A
+          </span>
+<span class="">•</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">auto_stories</span>
+            Grade 2 Compound Words
+          </span>
+<span class="">•</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+            Completed today at 10:15 AM
+          </span>
+</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-3">
+<button class="press-effect px-3.5 py-2.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface border-2 border-on-surface rounded-xl shadow-brutal font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-base">download</span>
+<span class="">Export CSV / Grades</span>
+</button>
+<button class="press-effect px-3.5 py-2.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface border-2 border-on-surface rounded-xl shadow-brutal font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-base">print</span>
+<span class="">Print Summary PDF</span>
+</button>
+<button class="press-effect px-4 py-2.5 bg-primary-container text-on-surface font-label-md text-label-md border-2 border-on-surface rounded-xl shadow-brutal flex items-center gap-2 font-bold hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">add_task</span>
+<span class="">Assign Follow-up Practice</span>
+</button>
+</div>
+</section>
+<!-- HIGH-LEVEL METRIC STAT CARDS (4 across) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Class Accuracy (Mint Green) -->
+<div class="bg-tertiary-fixed border-2 border-on-surface rounded-2xl p-5 shadow-brutal relative overflow-hidden flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-md font-label-md text-on-tertiary-fixed uppercase tracking-wider">Class Accuracy</span>
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">donut_large</span>
+</div>
+</div>
+<div>
+<div class="text-display-hero-mobile lg:text-display-hero font-headline-lg text-on-tertiary-fixed font-bold leading-none mb-1">
+            89%
+          </div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-lowest border-2 border-on-surface text-label-sm font-label-sm text-tertiary font-bold shadow-brutal-sm">
+<span class="material-symbols-outlined text-sm font-bold">trending_up</span>
+<span class="">+6% vs last week</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Total Questions Solved (Sunny Sky Blue) -->
+<div class="bg-secondary-fixed border-2 border-on-surface rounded-2xl p-5 shadow-brutal flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-md font-label-md text-on-secondary-fixed uppercase tracking-wider">Questions Solved</span>
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-secondary text-xl">quiz</span>
+</div>
+</div>
+<div>
+<div class="text-display-hero-mobile lg:text-display-hero font-headline-lg text-on-secondary-fixed font-bold leading-none mb-1">
+            380
+          </div>
+<p class="text-body-sm font-body-sm text-on-secondary-fixed-variant">
+            Across 24 active student ships
+          </p>
+</div>
+</div>
+<!-- Card 3: Average Speed (Warm Amber/Coral) -->
+<div class="bg-primary-fixed border-2 border-on-surface rounded-2xl p-5 shadow-brutal flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-md font-label-md text-on-primary-fixed uppercase tracking-wider">Average Speed</span>
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+</div>
+</div>
+<div>
+<div class="text-display-hero-mobile lg:text-display-hero font-headline-lg text-on-primary-fixed font-bold leading-none mb-1">
+            8.4s
+          </div>
+<p class="text-body-sm font-body-sm text-on-primary-fixed-variant">
+            Per question (Goal: &lt;10s)
+          </p>
+</div>
+</div>
+<!-- Card 4: Class MVP / Streak Leader (Royal Lavender / Gold) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-5 shadow-brutal flex flex-col justify-between relative">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Class MVP Leader</span>
+<div class="w-9 h-9 rounded-xl bg-primary-container border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-on-surface text-xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-headline-md font-headline-md text-on-surface font-bold">Maya R.</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container border-2 border-on-surface text-label-sm font-label-sm text-on-surface font-bold flex items-center gap-1 shadow-brutal-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+              MVP
+            </span>
+</div>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+              14 Streak!
+            </span>
+<span class="">•</span>
+<span class="">100% Accuracy</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MIDDLE SECTION: DUAL DEEP DIVE -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT CARD: Curriculum Question Breakdown & Item Analysis (7 Cols) -->
+<section class="lg:col-span-7 bg-surface-container-lowest border-2 border-on-surface rounded-2xl shadow-brutal overflow-hidden">
+<!-- Header Banner -->
+<div class="bg-secondary-fixed border-b-2 border-on-surface p-4 md:p-5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-secondary text-xl">analytics</span>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface font-bold">Question Breakdown &amp; Item Analysis</h2>
+<p class="text-body-sm font-body-sm text-on-secondary-fixed-variant">Detailed mastery report by compound word formula</p>
+</div>
+</div>
+<span class="hidden sm:inline-flex px-3 py-1 bg-surface-container-lowest rounded-full border-2 border-on-surface text-label-sm font-label-sm font-bold shadow-brutal-sm">
+            5 Questions Tested
+          </span>
+</div>
+<!-- Question List / Bento Table -->
+<div class="p-4 md:p-5 space-y-3.5">
+<!-- Item 1: Sun + Shine -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface-container-low hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest border border-on-surface flex items-center justify-center text-label-sm font-bold">1</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Sun + Shine = Sunshine</span>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed border-2 border-on-surface text-on-tertiary-fixed text-label-sm font-label-sm font-bold">
+                  96% Correct
+                </span>
+<span class="text-body-sm font-body-sm text-tertiary font-bold">Mastered</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-3 bg-surface-container-lowest border-2 border-on-surface rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container border-r-2 border-on-surface" style="width: 96%"></div>
+</div>
+</div>
+<!-- Item 2: Rain + Bow -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface-container-low hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest border border-on-surface flex items-center justify-center text-label-sm font-bold">2</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Rain + Bow = Rainbow</span>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed border-2 border-on-surface text-on-tertiary-fixed text-label-sm font-label-sm font-bold">
+                  92% Correct
+                </span>
+<span class="text-body-sm font-body-sm text-tertiary font-bold">Mastered</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border-2 border-on-surface rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container border-r-2 border-on-surface" style="width: 92%"></div>
+</div>
+</div>
+<!-- Item 3: Butter + Fly -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface-container-low hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest border border-on-surface flex items-center justify-center text-label-sm font-bold">3</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Butter + Fly = Butterfly</span>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed border-2 border-on-surface text-on-tertiary-fixed text-label-sm font-label-sm font-bold">
+                  88% Correct
+                </span>
+<span class="text-body-sm font-body-sm text-tertiary font-bold">Mastered</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border-2 border-on-surface rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container border-r-2 border-on-surface" style="width: 88%"></div>
+</div>
+</div>
+<!-- Item 4: Star + Fish -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface-container-low hover:bg-surface-container transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest border border-on-surface flex items-center justify-center text-label-sm font-bold">4</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Star + Fish = Starfish</span>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed border-2 border-on-surface text-on-secondary-fixed text-label-sm font-label-sm font-bold">
+                  79% Correct
+                </span>
+<span class="text-body-sm font-body-sm text-secondary font-bold">Review Recommended</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border-2 border-on-surface rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container border-r-2 border-on-surface" style="width: 79%"></div>
+</div>
+</div>
+<!-- Item 5: Book + Shelf (TRICKY ALERT) -->
+<div class="border-2 border-on-surface rounded-xl p-4 bg-error-container/40 border-error/80 shadow-brutal-sm relative">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-error-container border border-on-surface flex items-center justify-center text-label-sm font-bold text-on-surface">5</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Book + Shelf = Bookshelf</span>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container border-2 border-on-surface text-error text-label-sm font-label-sm font-bold">
+                  64% Correct
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-error text-on-error font-bold text-label-sm flex items-center gap-1 shadow-brutal-sm">
+<span class="material-symbols-outlined text-xs">warning</span>
+                  TRICKY ALERT!
+                </span>
+</div>
+</div>
+<!-- Detailed Misconception Callout -->
+<div class="mt-2 text-body-sm font-body-sm text-on-surface bg-surface-container-lowest p-2.5 rounded-lg border border-on-surface mb-3 flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-base shrink-0 mt-0.5">info</span>
+<span class=""><strong>8 students</strong> confused with <em>"Bookcase"</em> or dropped the letter 's'. Common distractor picked: "Bookbag".</span>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border-2 border-on-surface rounded-full overflow-hidden mb-3.5">
+<div class="h-full bg-error border-r-2 border-on-surface" style="width: 64%"></div>
+</div>
+<!-- Remediation Action Trigger -->
+<button class="press-effect w-full sm:w-auto px-4 py-2 bg-primary-container text-on-surface font-label-md text-label-md border-2 border-on-surface rounded-xl shadow-brutal-sm flex items-center justify-center gap-2 font-bold hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="">Generate 3-Min Remediation Quest</span>
+</button>
+</div>
+</div>
+</section>
+<!-- RIGHT CARD: Student Performance & Intervention Roster (5 Cols) -->
+<section class="lg:col-span-5 bg-surface-container-lowest border-2 border-on-surface rounded-2xl shadow-brutal overflow-hidden">
+<!-- Header Banner -->
+<div class="bg-primary-fixed border-b-2 border-on-surface p-4 md:p-5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-primary text-xl">groups</span>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-on-surface font-bold">Student Performance Roster</h2>
+<p class="text-body-sm font-body-sm text-on-primary-fixed-variant">Individual learner breakdown &amp; actions</p>
+</div>
+</div>
+</div>
+<!-- Filter Tabs (Neo-brutalist Segmented Tabs) -->
+<div class="p-3 border-b-2 border-on-surface bg-surface-container-low overflow-x-auto">
+<div class="flex items-center gap-1.5 min-w-max">
+<button class="px-3 py-1.5 rounded-xl border-2 border-on-surface bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shadow-brutal-sm">
+              All Students (24)
+            </button>
+<button class="px-3 py-1.5 rounded-xl border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container-lowest transition-all font-label-sm text-label-sm font-bold">
+              High Accuracy (16)
+            </button>
+<button class="px-3 py-1.5 rounded-xl border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container-lowest transition-all font-label-sm text-label-sm font-bold">
+              Needs Practice (4)
+            </button>
+<button class="px-3 py-1.5 rounded-xl border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container-lowest transition-all font-label-sm text-label-sm font-bold">
+              Speed Stars (4)
+            </button>
+</div>
+</div>
+<!-- Student Roster List -->
+<div class="p-4 space-y-3 max-h-[520px] overflow-y-auto">
+<!-- Student Row 1: Maya R (Top) -->
+<div class="border-2 border-on-surface rounded-xl p-3 bg-surface-container-lowest hover:bg-surface-container-low transition-all shadow-brutal-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-on-tertiary-fixed">
+                  MR
+                </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg text-on-surface font-bold">Maya R.</span>
+<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Score: 1,480 pts • 100% (5/5)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded-md bg-tertiary-fixed border border-on-surface text-label-sm font-bold text-on-tertiary-fixed">
+                  5/5 Stars
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-surface-container-high">
+<button class="press-effect-subtle flex-1 py-1.5 bg-surface-container hover:bg-surface-container-high border-2 border-on-surface rounded-lg text-label-sm font-label-sm font-bold text-on-surface flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">celebration</span>
+<span class="">Send High-Five</span>
+</button>
+</div>
+</div>
+<!-- Student Row 2: Leo T. (Needs Practice) -->
+<div class="border-2 border-on-surface rounded-xl p-3 bg-error-container/20 border-outline transition-all shadow-brutal-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-on-primary-fixed">
+                  LT
+                </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg text-on-surface font-bold">Leo T.</span>
+<span class="px-1.5 py-0.2 rounded bg-error text-on-error text-[10px] font-bold">Needs Help</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Score: 620 pts • 60% (3/5)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded-md bg-error-container border border-on-surface text-label-sm font-bold text-error">
+                  Struggled with Bookshelf
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-surface-container-high">
+<button class="press-effect-subtle flex-1 py-1.5 bg-primary-container hover:bg-primary-fixed border-2 border-on-surface rounded-lg text-label-sm font-label-sm font-bold text-on-surface flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">assignment_add</span>
+<span class="">Assign Solo Booster</span>
+</button>
+<button class="press-effect-subtle px-2.5 py-1.5 bg-surface-container border-2 border-on-surface rounded-lg text-label-sm font-label-sm font-bold text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Student Row 3: Sophia K. (Speed Star) -->
+<div class="border-2 border-on-surface rounded-xl p-3 bg-surface-container-lowest hover:bg-surface-container-low transition-all shadow-brutal-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed border-2 border-on-surface flex items-center justify-center font-bold text-on-secondary-fixed">
+                  SK
+                </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg text-on-surface font-bold">Sophia K.</span>
+<span class="material-symbols-outlined text-secondary text-base">bolt</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Score: 1,320 pts • 100% • 5.1s avg</span>
+</div>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed border border-on-surface text-label-sm font-bold text-on-secondary-fixed">
+                  Speed Star
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-surface-container-high">
+<button class="press-effect-subtle flex-1 py-1.5 bg-surface-container hover:bg-surface-container-high border-2 border-on-surface rounded-lg text-label-sm font-label-sm font-bold text-on-surface flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="">Send Encouragement</span>
+</button>
+</div>
+</div>
+<!-- Student Row 4: Daniel B. -->
+<div class="border-2 border-on-surface rounded-xl p-3 bg-surface-container-lowest hover:bg-surface-container-low transition-all shadow-brutal-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high border-2 border-on-surface flex items-center justify-center font-bold text-on-surface">
+                  DB
+                </div>
+<div>
+<span class="text-label-lg font-label-lg text-on-surface font-bold">Daniel B.</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Score: 980 pts • 80% (4/5)</p>
+</div>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded-md bg-surface-container border border-on-surface text-label-sm font-bold text-on-surface">
+                  4/5 Stars
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-surface-container-high">
+<button class="press-effect-subtle flex-1 py-1.5 bg-surface-container hover:bg-surface-container-high border-2 border-on-surface rounded-lg text-label-sm font-label-sm font-bold text-on-surface flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">thumb_up</span>
+<span class="">Send Encouragement</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Callout -->
+<div class="p-3 bg-surface-container-low border-t-2 border-on-surface flex items-center justify-between">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Showing 4 of 24 students</span>
+<button class="text-label-sm font-label-sm text-primary font-bold hover:underline flex items-center gap-0.5">
+            View All 24
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+<!-- BOTTOM SECTION: NEXT RECOMMENDED ACTIONS -->
+<section class="space-y-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container border-2 border-on-surface flex items-center justify-center shadow-brutal-sm">
+<span class="material-symbols-outlined text-on-surface text-lg" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-bold">Next Recommended Actions for Room 2A</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Action Card 1 -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-5 shadow-brutal flex flex-col justify-between hover:-translate-y-1 transition-transform">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container border-2 border-on-surface flex items-center justify-center shadow-brutal-sm mb-4">
+<span class="material-symbols-outlined text-on-secondary-container text-2xl">rocket_launch</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed border border-on-surface text-on-primary-fixed text-label-sm font-bold uppercase tracking-wider mb-2 inline-block">
+              Remediation Game
+            </span>
+<h3 class="text-title-md font-title-md text-on-surface font-bold mb-2">
+              Play Alien Spelling with troublesome compound root words
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+              Focuses on <em>bookshelf</em>, <em>starfish</em>, and multi-syllable root splitters with automated voice guidance.
+            </p>
+</div>
+<button class="press-effect w-full py-2.5 bg-primary-container text-on-surface border-2 border-on-surface rounded-xl shadow-brutal-sm font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-base">play_circle</span>
+<span class="">Launch Activity</span>
+</button>
+</div>
+<!-- Action Card 2 -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-5 shadow-brutal flex flex-col justify-between hover:-translate-y-1 transition-transform">
+<div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed border-2 border-on-surface flex items-center justify-center shadow-brutal-sm mb-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-2xl">mark_email_read</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed border border-on-surface text-on-tertiary-fixed text-label-sm font-bold uppercase tracking-wider mb-2 inline-block">
+              Parent Communication
+            </span>
+<h3 class="text-title-md font-title-md text-on-surface font-bold mb-2">
+              Send Weekly Star Report to Parents
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+              Generates kid-friendly badges and praise cards ready for automated SMS and classroom portal distribution.
+            </p>
+</div>
+<button class="press-effect w-full py-2.5 bg-tertiary-container text-on-surface border-2 border-on-surface rounded-xl shadow-brutal-sm font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-tertiary-fixed">
+<span class="material-symbols-outlined text-base">send</span>
+<span class="">Send to 24 Guardians</span>
+</button>
+</div>
+<!-- Action Card 3 -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-5 shadow-brutal flex flex-col justify-between hover:-translate-y-1 transition-transform">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed border-2 border-on-surface flex items-center justify-center shadow-brutal-sm mb-4">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">redeem</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed border border-on-surface text-on-secondary-fixed text-label-sm font-bold uppercase tracking-wider mb-2 inline-block">
+              Gamified Milestone
+            </span>
+<h3 class="text-title-md font-title-md text-on-surface font-bold mb-2">
+              Unlock Friday Free Play Badge for 100% participation
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+              All 24 students joined the tournament! Reward the entire class with 15 minutes of sandbox creature builder.
+            </p>
+</div>
+<button class="press-effect w-full py-2.5 bg-secondary-container text-on-surface border-2 border-on-surface rounded-xl shadow-brutal-sm font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-secondary-fixed">
+<span class="material-symbols-outlined text-base">lock_open</span>
+<span class="">Grant Class Reward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- MOBILE BOTTOM NAV BAR (Shared Component Anchor) -->
+<!-- Rendered on mobile (md:hidden) as per semantic shell mandate -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface dark:border-outline-variant bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_0_0_#151c28]">
+<!-- Play -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">smart_toy</span>
+<span class="text-label-md font-label-md mt-0.5">Play</span>
+</a>
+<!-- Subjects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">auto_stories</span>
+<span class="text-label-md font-label-md mt-0.5">Subjects</span>
+</a>
+<!-- Quests / Reports (Active State applied) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1.5 border-2 border-on-surface dark:border-outline-variant shadow-[2px_2px_0_0_#151c28] active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-label-md font-label-md mt-0.5">Quests</span>
+</a>
+<!-- Badges -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 active:translate-x-[1px] active:translate-y-[1px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">military_tech</span>
+<span class="text-label-md font-label-md mt-0.5">Badges</span>
+</a>
+</nav>
+<!-- Interactive Demo Micro-script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Small tactile feedback audio placeholder or state toggle
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Playful ripple or state animation hook
+        });
+      });
+    });
+  </script>
+
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script><script src="/assets/supabase-config.js"></script><script src="/assets/qb-supabase.js?v=google-2"></script><script src="/assets/qb-progress-report.js?v=20261104-direct-games"></script>
+
+  <script defer src="/assets/qb-accessibility.js"></script>
+</body></html>

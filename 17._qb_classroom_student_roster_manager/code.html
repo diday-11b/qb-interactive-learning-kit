@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7fafc">
+  <title>Classes &amp; students | QB Interactive Learning Kits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="../assets/qb-font.css?v=20261030-one-font" rel="stylesheet"><link href="../assets/teacher-dashboard.css" rel="stylesheet"><link href="../assets/teacher-dashboard-overrides.css?v=brand-size-fix-2" rel="stylesheet"><link href="../assets/classroom-management.css" rel="stylesheet"><link href="../assets/classroom-assignment.css" rel="stylesheet">
+</head><body>
+  <header class="topbar"><a class="brand" href="../index.html" aria-label="QB Interactive Learning Kits home"><span class="brand-mark" aria-hidden="true"><img src="../qb_learning_kits_lion_mascot_logo/screen.png" width="48" height="48" alt=""></span><span>QB Interactive<br>Learning Kits</span></a>
+    <nav aria-label="Teacher tools"><a href="../04._qb_teacher_dashboard/code.html">Dashboard</a><a class="active" href="code.html" aria-current="page">Classes</a><a href="../05._qb_question_sets_manager/code.html">Question sets</a><a href="../07._qb_game_library_arena_selection/code.html">Activities</a><a href="../18._qb_user_profile_system_preferences/code.html">Settings</a></nav>
+    <button id="sign-out" class="button button-outline" type="button" hidden>Sign out</button>
+  </header>
+  <main class="classroom-page">
+    <section class="classroom-intro"><div><p class="eyebrow">TEACHER CLASSROOM</p><h1>Classes &amp; students</h1><p class="subhead">Keep your groups organized and check in on each learner’s activity.</p></div><button id="new-class" class="button button-primary" type="button" hidden>＋ Create a class</button></section>
+    <p id="status" class="notice" role="status" aria-live="polite">Loading your classes…</p>
+    <section id="app" hidden>
+      <div class="class-layout">
+        <aside class="panel class-sidebar"><div class="panel-heading"><div><p class="eyebrow">YOUR GROUPS</p><h2>Classes</h2></div><span id="class-total" class="period-pill">0</span></div><div id="class-list" class="class-list"></div></aside>
+        <section class="panel roster-panel" aria-labelledby="selected-class-name"><div id="class-detail"></div></section>
+      </div>
+    </section>
+  </main>
+  <dialog id="class-dialog" class="class-dialog"><form id="class-form"><div class="dialog-heading"><div><p class="eyebrow">CLASS DETAILS</p><h2 id="class-dialog-title">Create a class</h2></div><button type="button" class="icon-button" data-close="class-dialog" aria-label="Close">×</button></div><label>Class name<input name="name" maxlength="100" required autocomplete="off" placeholder="e.g. Morning Readers"></label><label>Grade or age group <span class="optional">Optional</span><input name="grade" maxlength="50" placeholder="e.g. Grade 1"></label><p class="form-message" id="class-form-message" role="status"></p><div class="dialog-actions"><button type="button" class="button button-outline" data-close="class-dialog">Cancel</button><button class="button button-primary" type="submit">Save class</button></div></form></dialog>
+  <dialog id="assign-dialog" class="class-dialog"><form id="assign-form"><div class="dialog-heading"><div><p class="eyebrow">LEARNING ACTIVITY</p><h2>Make an assignment</h2></div><button type="button" class="icon-button" data-close="assign-dialog" aria-label="Close">×</button></div><label>Activity<select name="activity" required><option value="">Choose a published activity</option></select></label><label>Recipients<select name="audience" required><option value="class">Everyone in this class</option><option value="students">Choose students</option></select></label><label id="student-recipient-label" hidden>Students <span class="optional">Select one or more</span><select name="students" multiple size="5" aria-describedby="student-recipient-help"></select><span id="student-recipient-help" class="optional">Use Ctrl or Command to select more than one learner.</span></label><label>Instructions <span class="optional">Optional · 500 characters max</span><textarea name="instructions" maxlength="500" rows="3" placeholder="A helpful note for your learners"></textarea></label><label>Due date <span class="optional">Optional</span><input name="due" type="date"></label><section id="assignment-review" class="assignment-review" hidden aria-live="polite"></section><p class="form-message" id="assign-form-message" role="status"></p><div class="dialog-actions"><button type="button" class="button button-outline" data-close="assign-dialog">Cancel</button><button class="button button-primary" type="submit">Review assignment</button></div></form></dialog>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script><script src="../assets/supabase-config.js"></script><script src="../assets/qb-supabase.js?v=google-2"></script><script src="../assets/classroom-management.js" defer></script>
+
+  <script defer src="../assets/qb-accessibility.js"></script>
+</body></html>

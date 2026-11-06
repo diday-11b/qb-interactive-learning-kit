@@ -1,0 +1,345 @@
+:root {
+  --classroom-ink: #253247;
+  --classroom-edge: 3px solid var(--classroom-ink);
+  --classroom-shadow: 5px 5px 0 var(--classroom-ink);
+}
+
+body {
+  background-color: #dff3ff;
+  background-image: radial-gradient(rgba(255, 255, 255, .95) 3px, transparent 3.5px);
+  background-size: 38px 38px;
+}
+
+.topbar {
+  position: relative;
+  z-index: 5;
+  min-height: 88px;
+  padding-inline: clamp(16px, 3vw, 44px);
+  border-bottom: var(--classroom-edge);
+  box-shadow: 0 4px 0 rgba(37, 50, 71, .08);
+}
+
+.brand {
+  flex: 0 0 auto;
+  font-size: 17px;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border: var(--classroom-edge);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 0;
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--classroom-ink);
+  transform: none;
+}
+
+.brand-mark img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.topbar nav {
+  justify-content: center;
+  gap: 3px;
+  padding: 5px;
+  border: var(--classroom-edge);
+  border-radius: 20px;
+  background: #fff7c2;
+}
+
+.topbar nav a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 13px;
+  color: var(--classroom-ink);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.topbar nav a:hover,
+.topbar nav a.active {
+  background: #75c9f5;
+  color: var(--classroom-ink);
+}
+
+.button {
+  min-height: 50px;
+  border: var(--classroom-edge);
+  border-radius: 16px;
+  box-shadow: 3px 3px 0 var(--classroom-ink);
+}
+
+.button-primary {
+  background: #a8e6cf;
+}
+
+.button:hover {
+  box-shadow: 1px 1px 0 var(--classroom-ink);
+}
+
+.teacher-journey {
+  width: min(1000px, calc(100% - 36px));
+  margin: 26px auto 0;
+  padding: 12px clamp(12px, 3vw, 28px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(6px, 2vw, 22px);
+  border: 4px solid var(--classroom-ink);
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--classroom-ink);
+}
+
+.teacher-journey a {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--classroom-ink);
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+}
+
+.teacher-journey a:hover span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.journey-number {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: var(--classroom-edge);
+  border-radius: 13px;
+  background: #75c9f5;
+  box-shadow: 2px 2px 0 var(--classroom-ink);
+  transform: rotate(-4deg);
+}
+
+.teacher-journey a:nth-of-type(2) .journey-number {
+  background: #ffd76a;
+  transform: rotate(3deg);
+}
+
+.teacher-journey a:nth-of-type(3) .journey-number {
+  background: #a8e6cf;
+  transform: rotate(-2deg);
+}
+
+.journey-arrow {
+  color: #9aa8b8;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.page-wrap {
+  padding-top: 34px;
+}
+
+.welcome-row {
+  position: relative;
+  overflow: hidden;
+  min-height: 166px;
+  padding: clamp(22px, 4vw, 36px);
+  margin-bottom: 24px;
+  border: 4px solid var(--classroom-ink);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 7px 7px 0 var(--classroom-ink);
+}
+
+.welcome-row::after {
+  content: "✦";
+  position: absolute;
+  right: 24%;
+  top: -38px;
+  color: #ffd76a;
+  font-size: 154px;
+  line-height: 1;
+  opacity: .45;
+  pointer-events: none;
+}
+
+.welcome-row > * {
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-row h1 {
+  font-size: clamp(34px, 4.5vw, 52px);
+  text-shadow: 2px 2px 0 #ffd76a;
+}
+
+.subhead {
+  max-width: 580px;
+  font-size: 15px;
+}
+
+.notice {
+  border: var(--classroom-edge);
+  border-radius: 20px;
+  box-shadow: var(--classroom-shadow);
+}
+
+.metrics {
+  gap: 18px;
+}
+
+.metric-card {
+  min-height: 160px;
+  border: var(--classroom-edge);
+  border-radius: 23px;
+  box-shadow: 4px 4px 0 var(--classroom-ink);
+}
+
+.metric-card p {
+  color: var(--classroom-ink);
+  font-size: 14px;
+}
+
+.metric-card strong {
+  font-size: 42px;
+}
+
+.quick-actions a {
+  min-height: 82px;
+  border: 2px solid var(--classroom-ink);
+  border-radius: 19px;
+  box-shadow: 3px 3px 0 var(--classroom-ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.quick-actions a:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--classroom-ink);
+}
+
+.quick-actions a:nth-child(2) > span:first-child {
+  background: #fff1c4;
+}
+
+.quick-actions a:nth-child(3) > span:first-child {
+  background: #d6f5e8;
+}
+
+.quick-actions a:nth-child(4) > span:first-child {
+  background: #ffe0db;
+}
+
+.panel {
+  border: 2px solid var(--classroom-ink);
+  border-radius: 22px;
+  box-shadow: 4px 4px 0 var(--classroom-ink);
+}
+
+.panel-heading h2 {
+  font-size: 22px;
+}
+
+.period-pill {
+  border: 1px solid #dbe3e9;
+  background: #f4f9fc;
+}
+
+.list-row,
+.activity-row,
+.empty-row {
+  border: 1px solid #e4ebf0;
+  background: #f8fcff;
+}
+
+.footnote {
+  padding: 11px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .8);
+}
+
+@media (max-width: 900px) {
+  .topbar nav {
+    justify-content: flex-start;
+    border-radius: 17px;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    border-bottom-width: 3px;
+  }
+
+  .topbar nav {
+    padding: 4px;
+  }
+
+  .topbar nav a {
+    min-height: 42px;
+    padding-inline: 11px;
+  }
+
+  .teacher-journey {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 10px 14px;
+    border-width: 3px;
+    border-radius: 21px;
+  }
+
+  .teacher-journey a {
+    justify-content: flex-start;
+    padding-inline: 8px;
+  }
+
+  .journey-arrow {
+    justify-self: start;
+    margin-left: 19px;
+    transform: rotate(90deg);
+    font-size: 22px;
+  }
+
+  .welcome-row {
+    border-width: 3px;
+    border-radius: 23px;
+    box-shadow: 5px 5px 0 var(--classroom-ink);
+  }
+
+  .welcome-row::after {
+    right: 1%;
+    top: -22px;
+    font-size: 96px;
+  }
+
+  .metrics {
+    gap: 12px;
+  }
+
+  .metric-card {
+    min-height: 144px;
+  }
+
+  .metric-card strong {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-actions a {
+    transition: none;
+  }
+}
+
+[hidden] { display: none !important; }

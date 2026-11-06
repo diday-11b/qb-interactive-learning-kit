@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 24 464 464" role="img" aria-labelledby="title"><title id="title">QB waving lion</title><defs>
+    <filter id="neo-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#151c28" flood-opacity="1"/>
+    </filter>
+    <filter id="neo-shadow-sm" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#151c28" flood-opacity="1"/>
+    </filter>
+  </defs>
+  <g transform="translate(256, 235)">
+    <!-- Waving Tail behind body -->
+    <path d="M 55 125 C 105 135 130 90 120 50 C 115 30 95 35 105 55 C 110 65 95 95 60 85" fill="none" stroke="#151c28" stroke-width="7" stroke-linecap="round"/>
+    <path d="M 120 45 C 145 25 155 55 140 70 C 125 80 110 60 120 45 Z" fill="#e0691e" stroke="#151c28" stroke-width="5"/>
+
+    <!-- Fluffy Lion Mane with Neo-brutalist shadow -->
+    <g filter="url(#neo-shadow)">
+      <!-- Mane base layered cloud / flower scallops -->
+      <path d="M 0 -170 
+               C 45 -180 85 -160 110 -130 
+               C 150 -135 180 -95 185 -55 
+               C 215 -25 220 25 195 65 
+               C 210 105 180 145 145 160 
+               C 130 195 85 210 45 200 
+               C 15 215 -35 215 -65 195 
+               C -105 205 -145 180 -160 145 
+               C -195 125 -215 80 -195 40 
+               C -220 -5 -205 -55 -175 -85 
+               C -175 -130 -135 -165 -95 -160 
+               C -60 -185 -20 -180 0 -170 Z" 
+            fill="#e0691e" stroke="#151c28" stroke-width="7"/>
+      
+      <!-- Mane inner hair accent tufts -->
+      <path d="M -85 -135 Q -70 -105 -50 -120" stroke="#f28938" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M 70 -135 Q 60 -105 40 -120" stroke="#f28938" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M 145 -40 Q 115 -35 125 -15" stroke="#f28938" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M -150 -30 Q -120 -25 -130 -5" stroke="#f28938" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </g>
+
+    <!-- Ears -->
+    <!-- Left Ear -->
+    <g transform="translate(-105, -95)">
+      <circle cx="0" cy="0" r="30" fill="#facc38" stroke="#151c28" stroke-width="6"/>
+      <circle cx="-2" cy="0" r="17" fill="#ff7da7" stroke="#151c28" stroke-width="4"/>
+      <!-- Inner ear details -->
+      <path d="M -8 -6 Q -2 -14 6 -8" stroke="#151c28" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </g>
+    <!-- Right Ear -->
+    <g transform="translate(105, -95)">
+      <circle cx="0" cy="0" r="30" fill="#facc38" stroke="#151c28" stroke-width="6"/>
+      <circle cx="2" cy="0" r="17" fill="#ff7da7" stroke="#151c28" stroke-width="4"/>
+      <path d="M 8 -6 Q 2 -14 -6 -8" stroke="#151c28" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </g>
+
+    <!-- Round Lion Face -->
+    <ellipse cx="0" cy="-5" rx="122" ry="110" fill="#facc38" stroke="#151c28" stroke-width="7"/>
+
+    <!-- Cheerful rosy cheeks -->
+    <ellipse cx="-72" cy="22" rx="20" ry="14" fill="#ff7da7"/>
+    <ellipse cx="72" cy="22" rx="20" ry="14" fill="#ff7da7"/>
+
+    <!-- Freckles -->
+    <circle cx="-75" cy="42" r="2.5" fill="#c47814"/>
+    <circle cx="-67" cy="46" r="2.5" fill="#c47814"/>
+    <circle cx="-60" cy="41" r="2.5" fill="#c47814"/>
+    <circle cx="75" cy="42" r="2.5" fill="#c47814"/>
+    <circle cx="67" cy="46" r="2.5" fill="#c47814"/>
+    <circle cx="60" cy="41" r="2.5" fill="#c47814"/>
+
+    <!-- Big Joyful Eyes -->
+    <!-- Left Eye -->
+    <g transform="translate(-46, -18)">
+      <ellipse cx="0" cy="0" rx="19" ry="24" fill="#151c28"/>
+      <!-- Eye Highlights -->
+      <circle cx="-6" cy="-7" r="7.5" fill="#ffffff"/>
+      <circle cx="6" cy="7" r="3.5" fill="#ffffff"/>
+      <!-- Eyelashes -->
+      <path d="M -16 -18 Q -24 -24 -20 -30" stroke="#151c28" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M -6 -24 Q -8 -32 0 -34" stroke="#151c28" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <!-- Cute Eyebrow -->
+      <path d="M -16 -34 Q -2 -42 12 -34" stroke="#151c28" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </g>
+
+    <!-- Right Eye -->
+    <g transform="translate(46, -18)">
+      <ellipse cx="0" cy="0" rx="19" ry="24" fill="#151c28"/>
+      <!-- Eye Highlights -->
+      <circle cx="-6" cy="-7" r="7.5" fill="#ffffff"/>
+      <circle cx="6" cy="7" r="3.5" fill="#ffffff"/>
+      <!-- Eyelashes -->
+      <path d="M 16 -18 Q 24 -24 20 -30" stroke="#151c28" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M 6 -24 Q 8 -32 0 -34" stroke="#151c28" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <!-- Cute Eyebrow -->
+      <path d="M -12 -34 Q 2 -42 16 -34" stroke="#151c28" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </g>
+
+    <!-- Cute Heart-rounded Nose -->
+    <path d="M 0 3 C -14 3 -16 -12 0 -12 C 16 -12 14 3 0 3 Z" fill="#3d2112" stroke="#151c28" stroke-width="3"/>
+
+    <!-- Happy Smile -->
+    <path d="M 0 3 L 0 16" stroke="#151c28" stroke-width="5" stroke-linecap="round"/>
+    <path d="M -30 18 Q 0 46 30 18" stroke="#151c28" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Waving Paw on Right -->
+    <g transform="translate(132, 2) rotate(16)" filter="url(#neo-shadow-sm)">
+      <ellipse cx="0" cy="0" rx="34" ry="40" fill="#facc38" stroke="#151c28" stroke-width="6"/>
+      <!-- Paw Pads (Pink) -->
+      <ellipse cx="0" cy="8" rx="16" ry="13" fill="#ff7da7" stroke="#151c28" stroke-width="3"/>
+      <circle cx="-14" cy="-14" r="6" fill="#ff7da7" stroke="#151c28" stroke-width="2.5"/>
+      <circle cx="0" cy="-20" r="6.5" fill="#ff7da7" stroke="#151c28" stroke-width="2.5"/>
+      <circle cx="14" cy="-14" r="6" fill="#ff7da7" stroke="#151c28" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  </svg>

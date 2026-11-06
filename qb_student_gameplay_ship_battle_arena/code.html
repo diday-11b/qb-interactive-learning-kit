@@ -1,0 +1,629 @@
+<!DOCTYPE html><html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ship Battle • Grade 2 Compound Words - QB Interactive Learning Kits</title>
+<!-- Fonts -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#924c00",
+            "tertiary-container": "#5ac58e",
+            "surface-bright": "#f9f9ff",
+            "background": "#f9f9ff",
+            "surface-container-highest": "#dde2f4",
+            "surface-container-low": "#f1f3ff",
+            "secondary-fixed": "#bce9ff",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#8df8bd",
+            "on-background": "#151c28",
+            "secondary-fixed-dim": "#7bd2f6",
+            "surface-dim": "#d4daeb",
+            "on-tertiary-fixed-variant": "#005232",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#002111",
+            "surface-variant": "#dde2f4",
+            "inverse-primary": "#ffb780",
+            "on-primary-container": "#6b3600",
+            "primary": "#924c00",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#2f1400",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "surface-container": "#e8edff",
+            "secondary": "#006783",
+            "inverse-surface": "#2a303e",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-surface": "#151c28",
+            "on-error-container": "#93000a",
+            "outline-variant": "#dbc2b1",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#ff983d",
+            "surface-container-high": "#e2e8fa",
+            "on-secondary-fixed": "#001f29",
+            "secondary-container": "#83dafe",
+            "primary-fixed-dim": "#ffb780",
+            "on-surface-variant": "#554337",
+            "on-primary-fixed-variant": "#6f3800",
+            "on-secondary-fixed-variant": "#004d63",
+            "tertiary": "#006c44",
+            "inverse-on-surface": "#edf0ff",
+            "surface": "#f9f9ff",
+            "outline": "#887365",
+            "on-tertiary-container": "#004f30",
+            "primary-fixed": "#ffdcc4",
+            "on-secondary-container": "#00607a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-sm": "0.5rem",
+            "gutter": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2.25rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-sm": ["Nunito Sans", "sans-serif"],
+            "headline-sm": ["Quicksand", "sans-serif"],
+            "label-lg": ["Nunito Sans", "sans-serif"],
+            "display-hero-mobile": ["Quicksand", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "title-md": ["Quicksand", "sans-serif"],
+            "headline-lg-mobile": ["Quicksand", "sans-serif"],
+            "label-md": ["Nunito Sans", "sans-serif"],
+            "label-sm": ["Nunito Sans", "sans-serif"],
+            "display-hero": ["Quicksand", "sans-serif"],
+            "headline-lg": ["Quicksand", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "headline-md": ["Quicksand", "sans-serif"],
+            "khmer": ["Kantumruy Pro", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "headline-sm": ["22px", { lineHeight: "30px", fontWeight: "600" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "800" }],
+            "display-hero-mobile": ["34px", { lineHeight: "42px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            "title-md": ["18px", { lineHeight: "26px", fontWeight: "700" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "0", fontWeight: "700" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "800" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "display-hero": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+            "headline-md": ["28px", { lineHeight: "36px", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Tactical Animations & Shadows */
+    .ink-border {
+      border: 2px solid #151c28;
+    }
+    .hard-shadow-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .hard-shadow-md {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .hard-shadow-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .hard-shadow-inner {
+      box-shadow: inset 2px 2px 0px #151c28;
+    }
+
+    /* Bobbing motion for ships */
+    @keyframes bobbleLeft {
+      0%, 100% { transform: translateY(0px) rotate(-1deg); }
+      50% { transform: translateY(-7px) rotate(1.5deg); }
+    }
+    @keyframes bobbleRight {
+      0%, 100% { transform: translateY(0px) rotate(1deg); }
+      50% { transform: translateY(-9px) rotate(-1.5deg); }
+    }
+    @keyframes floatWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulseGaze {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+    @keyframes soundBarPulse {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+
+    .ship-float-left {
+      animation: bobbleLeft 4s ease-in-out infinite;
+    }
+    .ship-float-right {
+      animation: bobbleRight 4.5s ease-in-out infinite;
+    }
+    .reticle-pulse {
+      animation: pulseGaze 2s infinite ease-in-out;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+<link rel="stylesheet" href="/assets/qb-design-system.css?v=20261104-shell-links"><link rel="stylesheet" href="/assets/qb-activity-consistency.css"><link rel="stylesheet" href="/assets/qb-game-flow.css?v=20261030-rounds-verified"><script src="/assets/qb-design-system.js?v=20261104-shell-links" defer></script><link rel="stylesheet" href="/assets/qb-flow-layout.css?v=20261104-direct-games"><link rel="stylesheet" href="/assets/qb-responsive.css?v=1"><script src="/assets/vendor/lottie-light-5.12.2.min.js" defer></script><script src="/assets/qb-answer-confetti.js?v=1" defer></script></head>
+<body class="bg-surface-container-low text-on-surface font-body-md min-h-screen select-none antialiased flex flex-col justify-between overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- 1. TOP GAMEPLAY HUD (Focused Task Header - Suppresses Global Navigation) -->
+<!-- ========================================================================= -->
+<header class="w-full bg-surface-container-lowest ink-border border-b-2 border-t-0 border-x-0 hard-shadow-sm sticky top-0 z-40 px-3 md:px-6 py-2.5">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+<!-- Left: Exit Button & Quest Title -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-highest text-on-surface ink-border rounded-xl hard-shadow-sm font-title-md font-bold text-xs md:text-sm tracking-wide"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="">12. SCREEN 12 / 18</span></div><button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_0px_#151c28] ink-border rounded-xl hard-shadow-sm font-label-md text-label-md text-on-surface transition-all" id="exitBtn">
+<span class="material-symbols-outlined text-lg leading-none" data-icon="arrow_back">arrow_back</span>
+<span class="hidden sm:inline">Exit Hub</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container ink-border flex items-center justify-center hard-shadow-sm">
+<span class="material-symbols-outlined text-on-secondary-container text-xl" data-icon="sailing">sailing</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-on-surface leading-tight">Ship Battle</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full text-[11px] font-extrabold uppercase ink-border">Grade 2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="">Compound Words</span>
+<span class="text-xs">•</span>
+<span class="text-tertiary font-bold font-khmer">ពាក្យផ្សំ</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Center: Round Progress & Multiplier Streak -->
+<div class="flex items-center gap-3 order-3 md:order-2 w-full md:w-auto justify-center">
+<!-- Progress Counter -->
+<div class="bg-surface-container-highest px-3 py-1.5 rounded-xl ink-border hard-shadow-sm flex items-center gap-2.5">
+<span class="font-label-md text-label-md text-on-surface whitespace-nowrap">Round 3 of 5</span>
+<div class="w-24 sm:w-32 h-3.5 bg-surface-container-lowest rounded-full ink-border overflow-hidden p-0.5 flex items-center">
+<div class="h-full bg-tertiary-container rounded-full transition-all duration-500" style="width: 60%;"></div>
+</div>
+</div>
+<!-- 2x Streak Fire Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-primary-container text-on-primary-container ink-border rounded-full hard-shadow-sm font-label-md text-label-md animate-bounce">
+<span class="material-symbols-outlined text-base leading-none text-on-primary-container" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="">2x Streak!</span>
+</div>
+<!-- Sound Toggle -->
+<button class="w-9 h-9 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high ink-border hard-shadow-sm flex items-center justify-center text-on-surface active:translate-x-[1px] active:translate-y-[1px] transition-all" id="soundToggle">
+<span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Right: Stars, Energy Hearts & Student Tag -->
+<div class="flex items-center gap-2.5 order-2 md:order-3">
+<!-- Stars Counter -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#FFF0A8] text-on-surface ink-border rounded-full hard-shadow-sm font-label-md text-label-md">
+<span class="material-symbols-outlined text-yellow-600 text-lg leading-none" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">+40</span>
+</div>
+<!-- Live Energy Hearts -->
+<div class="flex items-center gap-1 px-2.5 py-1 bg-surface-container-lowest ink-border rounded-full hard-shadow-sm">
+<span class="material-symbols-outlined text-error text-lg" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-error text-lg" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-error text-lg" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Leo Student Badge -->
+<div class="flex items-center gap-2 pl-2 pr-3 py-1 bg-surface-container-lowest ink-border rounded-xl hard-shadow-sm">
+<div class="w-7 h-7 rounded-lg bg-primary-fixed ink-border flex items-center justify-center font-bold text-sm">
+            🦁
+          </div>
+<span class="font-label-md text-label-md text-on-surface">Leo</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 2. MAIN BATTLE STAGE (Interactive Sunlit Naval Arena) -->
+<!-- ========================================================================= -->
+<main class="w-full max-w-7xl mx-auto px-3 md:px-6 py-3 flex-1 flex flex-col justify-between gap-3">
+<section class="relative w-full rounded-2xl ink-border bg-gradient-to-b from-[#A5E3FF] via-[#75D2FD] to-[#36A8E0] hard-shadow-md overflow-hidden min-h-[220px] sm:min-h-[260px] md:min-h-[290px] flex flex-col justify-between p-3 sm:p-5">
+<!-- Sky Background Details (Sun & Cartoon Clouds) -->
+<div class="absolute top-3 left-1/2 -translate-x-1/2 flex items-center gap-8 opacity-80 pointer-events-none">
+<div class="w-16 h-6 bg-white rounded-full ink-border opacity-70"></div>
+<div class="w-12 h-12 rounded-full bg-[#FFF0A8] ink-border hard-shadow-sm flex items-center justify-center">
+<span class="text-xl">☀️</span>
+</div>
+<div class="w-20 h-7 bg-white rounded-full ink-border opacity-70"></div>
+</div>
+<!-- Distant Green Islands -->
+<div class="absolute bottom-16 left-12 w-28 h-10 bg-tertiary-fixed ink-border rounded-t-full opacity-70 pointer-events-none"></div>
+<div class="absolute bottom-20 right-28 w-36 h-12 bg-tertiary ink-border rounded-t-full opacity-60 pointer-events-none"></div>
+<!-- Water Trajectory Arc Overlay (Water Cannon Aim) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" fill="none" preserveAspectRatio="none" viewBox="0 0 800 240">
+<path class="animate-pulse" d="M 190 140 Q 400 30 630 130" opacity="0.85" stroke="#FFFFFF" stroke-dasharray="10 8" stroke-linecap="round" stroke-width="4"></path>
+<circle class="reticle-pulse" cx="630" cy="130" fill="none" r="14" stroke="#FFFFFF" stroke-dasharray="4 4" stroke-width="3"></circle>
+</svg>
+<!-- Target Marker on Kraken / Sea Enemy -->
+<div class="absolute right-[17%] sm:right-[19%] top-[34%] z-20 pointer-events-none">
+<div class="w-10 h-10 rounded-full border-2 border-dashed border-[#151c28] bg-[#FFF0A8]/80 flex items-center justify-center reticle-pulse hard-shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="gps_fixed">gps_fixed</span>
+</div>
+</div>
+<!-- Floating Reward Stars in the Arena -->
+<div class="absolute left-1/3 top-10 flex items-center gap-1 bg-surface-container-lowest/90 px-2.5 py-1 rounded-full ink-border hard-shadow-sm text-xs font-bold pointer-events-none animate-bounce">
+<span class="">✨ +10 Combo Boost</span>
+</div>
+<!-- Arena Actors: Ships & Enemies Layer -->
+<div class="relative z-10 w-full flex items-end justify-between px-2 sm:px-8 mt-auto mb-2">
+<!-- LEFT: Leo's Friendly Water-Cannon Pirate Flagship -->
+<div class="ship-float-left flex flex-col items-center">
+<!-- Ship Dialogue Bubble -->
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-xl ink-border hard-shadow-sm mb-2 relative text-xs sm:text-sm font-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="">🦁 Water Cannons Charged!</span>
+<!-- Bubble tail -->
+<div class="absolute -bottom-1.5 left-6 w-3 h-3 bg-surface-container-lowest border-r-2 border-b-2 border-on-surface transform rotate-45"></div>
+</div>
+<!-- Vessel Layout -->
+<div class="relative w-36 sm:w-48 h-28 sm:h-32 flex flex-col items-center justify-end">
+<!-- Mast & Cheerful QB Interactive Learning Kits Flag -->
+<div class="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<div class="bg-primary-container text-on-primary-container font-extrabold text-[10px] px-2 py-0.5 rounded ink-border hard-shadow-sm flex items-center gap-1">
+<span class="">⛵ LEO</span>
+</div>
+<div class="w-1.5 h-12 bg-[#887365] ink-border"></div>
+</div>
+<!-- Captain Leo at the Helm -->
+<div class="absolute bottom-12 left-10 w-11 h-11 bg-primary-fixed rounded-full ink-border hard-shadow-sm flex items-center justify-center text-xl z-10">
+              🦁
+            </div>
+<!-- Double Friendly Water Cannon -->
+<div class="absolute bottom-9 right-4 w-10 h-4 bg-secondary-fixed ink-border rounded-r-full rotate-[-18deg] hard-shadow-sm"></div>
+<!-- Ship Hull -->
+<div class="w-full h-14 bg-[#ff983d] ink-border rounded-b-3xl rounded-t-lg hard-shadow-md flex items-center justify-between px-4">
+<div class="w-4 h-4 rounded-full bg-surface-container-lowest ink-border"></div>
+<div class="w-4 h-4 rounded-full bg-surface-container-lowest ink-border"></div>
+<div class="w-4 h-4 rounded-full bg-surface-container-lowest ink-border"></div>
+</div>
+</div>
+</div>
+<!-- RIGHT: Friendly Target (Playful Kraken on Raft) -->
+<div class="ship-float-right flex flex-col items-center">
+<!-- Enemy Health & Shield Bar -->
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-xl ink-border hard-shadow-sm mb-2 w-36 sm:w-44 flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-bold">
+<span class="flex items-center gap-1 text-on-surface">🐙 Squidy Bob</span>
+<span class="text-error font-extrabold">HP 45%</span>
+</div>
+<!-- Health Bar -->
+<div class="w-full h-2.5 bg-surface-container-highest rounded-full ink-border overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Target Raft & Friendly Monster -->
+<div class="relative w-32 sm:w-44 h-28 sm:h-32 flex flex-col items-center justify-end">
+<!-- Octopus Character -->
+<div class="absolute bottom-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-2xl bg-[#FFAAA9] ink-border hard-shadow-sm flex items-center justify-center text-3xl">
+                🐙
+              </div>
+</div>
+<!-- Cute Target Raft / Buoy -->
+<div class="w-full h-11 bg-[#E7D8FF] ink-border rounded-xl hard-shadow-md flex items-center justify-around px-2">
+<span class="text-xs font-black tracking-wider text-on-surface uppercase">TARGET BOWL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ocean Foreground Wave Border -->
+<div class="absolute -bottom-3 left-0 w-full h-8 bg-[#1875A8] opacity-90 rounded-t-xl ink-border border-b-0 border-x-0"></div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. QUESTION & BILINGUAL PROMPT STAGE -->
+<!-- ========================================================================= -->
+<section class="bg-surface-container-lowest rounded-2xl ink-border hard-shadow-md p-4 sm:p-5 relative">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Left: Question Text & Khmer Translation -->
+<div class="flex-1 space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full text-xs font-black ink-border uppercase">
+              Challenge 3
+            </span>
+<span class="text-body-sm font-label-md text-on-surface-variant">Identify the correct equation</span>
+</div>
+<!-- English Question Prompt -->
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">
+            Which two words combine to make a new <span class="text-primary underline decoration-primary-container decoration-wavy decoration-2">compound word</span>?
+          </h2>
+<!-- Khmer Translation Subtitle -->
+<p class="font-khmer text-body-md font-semibold text-secondary flex items-center gap-1.5">
+<span class="">តើពាក្យពីរណាខ្លះផ្គុំគ្នាបង្កើតបានជាពាក្យថ្មីមួយ?</span>
+</p>
+</div>
+<!-- Right: Audio Listen + Clue Tooltip Button -->
+<div class="flex items-center gap-2.5 self-start md:self-center shrink-0">
+<!-- Audio Clue Button -->
+<button class="flex items-center gap-2 px-3.5 py-2.5 bg-secondary-container hover:bg-secondary-fixed active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#151c28] ink-border rounded-xl hard-shadow-sm font-label-md text-label-md text-on-secondary-container transition-all" id="audioClueBtn">
+<span class="material-symbols-outlined text-xl" data-icon="volume_up">volume_up</span>
+<span class="">Listen to Clue</span>
+<!-- Equalizer Mini Indicator -->
+<span class="flex items-center gap-0.5 ml-1">
+<span class="w-1 h-3 bg-on-secondary-container rounded-full animate-pulse"></span>
+<span class="w-1 h-4 bg-on-secondary-container rounded-full animate-bounce"></span>
+<span class="w-1 h-2 bg-on-secondary-container rounded-full animate-pulse"></span>
+</span>
+</button>
+<!-- Clue Lightbulb -->
+<button class="w-11 h-11 bg-[#FFF0A8] hover:bg-yellow-200 active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#151c28] ink-border rounded-xl hard-shadow-sm flex items-center justify-center text-on-surface transition-all" id="hintBtn" title="Need a Hint?">
+<span class="material-symbols-outlined text-2xl text-on-surface" data-icon="lightbulb" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</button>
+</div>
+</div>
+<!-- Pop-down Dynamic Hint Alert Box (Toggled or Contextual) -->
+<div class="mt-3 p-3 bg-surface-container rounded-xl ink-border hard-shadow-sm flex items-center gap-3 border-l-4 border-l-primary" id="hintBox">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container ink-border flex items-center justify-center shrink-0 font-bold">
+          💡
+        </div>
+<div class="text-body-sm font-body-sm text-on-surface">
+<strong class="font-bold">Captain's Clue:</strong> Look for a bright golden source of light + what it does in the sky! (<span class="font-khmer font-bold">ពន្លឺនៃព្រះអាទិត្យ</span>)
+        </div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. CHILD-FRIENDLY 4-CHOICE ANSWER GRID (TACTILE NEO-BRUTALIST CARDS) -->
+<!-- ========================================================================= -->
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 my-1" id="answersContainer">
+<!-- CARD A: SELECTED / ACTIVE STATE -->
+<div class="answer-card relative p-4 rounded-2xl bg-[#E7D8FF] border-2 border-on-surface hard-shadow-md translate-x-[2px] translate-y-[2px] cursor-pointer transition-all flex flex-col justify-between min-h-[92px]">
+<!-- Badge Tag -->
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-lowest text-on-surface ink-border font-bold text-sm flex items-center justify-center hard-shadow-sm">A</span>
+<span class="bg-[#7DE8AE] text-on-surface px-2 py-0.5 rounded-full text-xs font-black ink-border flex items-center gap-1 hard-shadow-sm">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="check_circle">check_circle</span>
+<span class="">Ready to Fire! 🌊</span>
+</span>
+</div>
+<span class="text-xs font-extrabold text-secondary px-2 py-0.5 bg-surface-container-lowest rounded-md ink-border">Valid Word ✓</span>
+</div>
+<!-- Main Answer Body (English + Khmer) -->
+<div class="mt-1">
+<div class="font-title-md text-headline-sm font-bold text-on-surface flex items-center gap-1.5 flex-wrap">
+<span class="">Sun</span>
+<span class="text-secondary font-black">+</span>
+<span class="">Shine</span>
+<span class="text-secondary font-black">=</span>
+<span class="text-primary font-black underline decoration-2">Sunshine</span>
+</div>
+<p class="font-khmer text-body-sm font-semibold text-on-surface-variant mt-0.5">
+            ព្រះអាទិត្យ + ពន្លឺ = ពន្លឺព្រះអាទិត្យ
+          </p>
+</div>
+</div>
+<!-- CARD B: UNSELECTED NORMAL STATE -->
+<div class="answer-card relative p-4 rounded-2xl bg-surface-container-lowest border-2 border-on-surface hard-shadow-md hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[2px] active:translate-y-[2px] cursor-pointer transition-all flex flex-col justify-between min-h-[92px]">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-high text-on-surface ink-border font-bold text-sm flex items-center justify-center hard-shadow-sm">B</span>
+<span class="text-xs font-bold text-on-surface-variant">Compound Pair</span>
+</div>
+</div>
+<div class="mt-1">
+<div class="font-title-md text-headline-sm font-bold text-on-surface flex items-center gap-1.5 flex-wrap">
+<span class="">Rain</span>
+<span class="text-secondary font-black">+</span>
+<span class="">Bow</span>
+<span class="text-secondary font-black">=</span>
+<span class="text-on-surface">Rainbow</span>
+</div>
+<p class="font-khmer text-body-sm font-semibold text-on-surface-variant mt-0.5">
+            ទឹកភ្លៀង + ធ្នូ = ឥន្ធនូ
+          </p>
+</div>
+</div>
+<!-- CARD C: UNSELECTED DISTRACTOR -->
+<div class="answer-card relative p-4 rounded-2xl bg-surface-container-lowest border-2 border-on-surface hard-shadow-md hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[2px] active:translate-y-[2px] cursor-pointer transition-all flex flex-col justify-between min-h-[92px]">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-high text-on-surface ink-border font-bold text-sm flex items-center justify-center hard-shadow-sm">C</span>
+<span class="text-xs font-bold text-on-surface-variant">Incorrect Mix</span>
+</div>
+</div>
+<div class="mt-1">
+<div class="font-title-md text-headline-sm font-bold text-on-surface flex items-center gap-1.5 flex-wrap">
+<span class="">Book</span>
+<span class="text-secondary font-black">+</span>
+<span class="">Read</span>
+<span class="text-secondary font-black">=</span>
+<span class="text-outline">Bookread ❌</span>
+</div>
+<p class="font-khmer text-body-sm font-semibold text-on-surface-variant mt-0.5">
+            សៀវភៅ + អាន
+          </p>
+</div>
+</div>
+<!-- CARD D: UNSELECTED DISTRACTOR -->
+<div class="answer-card relative p-4 rounded-2xl bg-surface-container-lowest border-2 border-on-surface hard-shadow-md hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[2px] active:translate-y-[2px] cursor-pointer transition-all flex flex-col justify-between min-h-[92px]">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-surface-container-high text-on-surface ink-border font-bold text-sm flex items-center justify-center hard-shadow-sm">D</span>
+<span class="text-xs font-bold text-on-surface-variant">Incorrect Mix</span>
+</div>
+</div>
+<div class="mt-1">
+<div class="font-title-md text-headline-sm font-bold text-on-surface flex items-center gap-1.5 flex-wrap">
+<span class="">Dog</span>
+<span class="text-secondary font-black">+</span>
+<span class="">Bark</span>
+<span class="text-secondary font-black">=</span>
+<span class="text-outline">Dogbark ❌</span>
+</div>
+<p class="font-khmer text-body-sm font-semibold text-on-surface-variant mt-0.5">
+            ឆ្កែ + ព្រុស
+          </p>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. BOTTOM ACTION & POWER-UP BAR -->
+<!-- ========================================================================= -->
+<section class="bg-surface-container-lowest rounded-2xl ink-border hard-shadow-md p-3 sm:p-4 mt-1">
+<div class="flex flex-col md:flex-row items-center justify-between gap-3">
+<!-- Left: Student Power-Up Buttons -->
+<div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start w-full md:w-auto">
+<span class="text-xs font-extrabold uppercase text-on-surface-variant tracking-wider mr-1">Power-ups:</span>
+<!-- 50/50 Shield -->
+<button class="flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest hover:bg-surface-container-high ink-border rounded-xl hard-shadow-sm active:translate-x-[2px] active:translate-y-[2px] text-xs font-label-md font-bold text-on-surface transition-all">
+<span class="text-base">🛡️</span>
+<span class="">50/50 Shield</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.2 rounded-full text-[10px] ink-border">1</span>
+</button>
+<!-- Extra Hint -->
+<button class="flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest hover:bg-surface-container-high ink-border rounded-xl hard-shadow-sm active:translate-x-[2px] active:translate-y-[2px] text-xs font-label-md font-bold text-on-surface transition-all">
+<span class="text-base">💡</span>
+<span class="">Extra Clue</span>
+<span class="bg-primary-fixed text-on-primary-fixed px-1.5 py-0.2 rounded-full text-[10px] ink-border">2</span>
+</button>
+<!-- Ask Peer / Teacher -->
+<button class="flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest hover:bg-surface-container-high ink-border rounded-xl hard-shadow-sm active:translate-x-[2px] active:translate-y-[2px] text-xs font-label-md font-bold text-on-surface transition-all">
+<span class="text-base">🤝</span>
+<span class="">Ask Teacher</span>
+</button>
+</div>
+<!-- Right: Primary Action "FIRE WATER CANNON!" -->
+<div class="w-full md:w-auto flex items-center justify-end">
+<button class="w-full md:w-72 h-14 bg-[#FF983D] hover:bg-[#ff8a24] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0px_#151c28] ink-border rounded-2xl hard-shadow-md text-on-surface font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2.5 transition-all text-lg tracking-wide" id="fireCannonBtn">
+<span class="material-symbols-outlined text-2xl leading-none text-on-surface animate-spin-slow" data-icon="rocket_launch">rocket_launch</span>
+<span class="">FIRE WATER CANNON!</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- MODAL DIALOG: CONFIRM EXIT TO HUB (SUPPRESSION SAFEGUARD) -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-[#202633]/60 backdrop-blur-[2px] hidden items-center justify-center p-4" id="exitModal">
+<div class="bg-surface-container-lowest rounded-2xl ink-border hard-shadow-lg max-w-sm w-full p-6 text-center transform scale-95 transition-all">
+<div class="w-16 h-16 bg-[#FFF0A8] rounded-full ink-border hard-shadow-sm mx-auto flex items-center justify-center text-3xl mb-3">
+        ⚓
+      </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Leave Battle?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5 mb-5">
+        Leo's ship will pause right here! Your +40 stars and streak will be safely stored.
+      </p>
+<div class="flex items-center justify-center gap-3">
+<button class="flex-1 py-2.5 bg-surface-container hover:bg-surface-container-high ink-border rounded-xl hard-shadow-sm font-label-md text-on-surface font-bold active:translate-x-[2px] active:translate-y-[2px]" id="cancelExitBtn">
+          Keep Playing
+        </button>
+<button class="flex-1 py-2.5 bg-primary-container hover:bg-primary ink-border rounded-xl hard-shadow-sm font-label-md text-on-primary-container font-bold active:translate-x-[2px] active:translate-y-[2px]" id="confirmExitBtn">
+          Exit to Hub
+        </button>
+</div>
+</div>
+</div>
+<!-- Lightweight Game Micro-Interactions Script -->
+<script>
+    // Selection Handling for Answer Cards
+    const cards = document.querySelectorAll('.answer-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => {
+          c.classList.remove('bg-[#E7D8FF]', 'translate-x-[2px]', 'translate-y-[2px]');
+          c.classList.add('bg-surface-container-lowest');
+          // Reset internal indicators if needed
+        });
+        card.classList.remove('bg-surface-container-lowest');
+        card.classList.add('bg-[#E7D8FF]', 'translate-x-[2px]', 'translate-y-[2px]');
+      });
+    });
+
+    // Exit Modal Interactivity
+    const exitBtn = document.getElementById('exitBtn');
+    const exitModal = document.getElementById('exitModal');
+    const cancelExitBtn = document.getElementById('cancelExitBtn');
+    const confirmExitBtn = document.getElementById('confirmExitBtn');
+
+    if (exitBtn && exitModal) {
+      exitBtn.addEventListener('click', () => {
+        exitModal.classList.remove('hidden');
+        exitModal.classList.add('flex');
+      });
+      cancelExitBtn.addEventListener('click', () => {
+        exitModal.classList.add('hidden');
+        exitModal.classList.remove('flex');
+      });
+      confirmExitBtn.addEventListener('click', () => {
+        exitModal.classList.add('hidden');
+        exitModal.classList.remove('flex');
+      });
+    }
+
+    // Toggle Hint Clue
+    const hintBtn = document.getElementById('hintBtn');
+    const hintBox = document.getElementById('hintBox');
+    if (hintBtn && hintBox) {
+      hintBtn.addEventListener('click', () => {
+        hintBox.classList.toggle('hidden');
+      });
+    }
+
+    // Cannon Fire Feedback
+    const fireBtn = document.getElementById('fireCannonBtn');
+    if (fireBtn) {
+      fireBtn.addEventListener('click', () => {
+        fireBtn.innerHTML = `
+          <span class="material-symbols-outlined text-2xl text-on-surface" data-icon="waves">waves</span>
+          <span>SPLASH! DIRECT HIT! 💥</span>
+        `;
+        fireBtn.classList.remove('bg-[#FF983D]');
+        fireBtn.classList.add('bg-[#7DE8AE]');
+        
+        setTimeout(() => {
+          fireBtn.innerHTML = `
+            <span class="material-symbols-outlined text-2xl text-on-surface" data-icon="rocket_launch">rocket_launch</span>
+            <span>FIRE WATER CANNON!</span>
+          `;
+          fireBtn.classList.add('bg-[#FF983D]');
+          fireBtn.classList.remove('bg-[#7DE8AE]');
+        }, 1500);
+      });
+    }
+
+    // Sound toggle state switch
+    const soundToggle = document.getElementById('soundToggle');
+    let soundOn = true;
+    if (soundToggle) {
+      soundToggle.addEventListener('click', () => {
+        soundOn = !soundOn;
+        const icon = soundToggle.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = soundOn ? 'volume_up' : 'volume_off';
+        }
+      });
+    }
+  </script>
+
+
+
+
+<script src="/assets/qb-game-detail-screen.js?v=confetti-1"></script><script>QBGameDetailScreen.renderStandalone("ship-battle","Ship Battle","Read each clue and choose the correct answer to advance.");</script></body></html>

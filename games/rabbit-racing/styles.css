@@ -1,0 +1,112 @@
+/* Rabbit Racing owns its screens, race artwork and responsive layout. */
+body{margin:0;background:#f1f8ed;color:#273e50}
+#rabbit-game{--rr-vehicle-width:130px;width:min(1140px,calc(100% - 40px));margin:24px auto 48px;line-height:1.6}
+#rabbit-game,#rabbit-game *{box-sizing:border-box}
+#rabbit-game :is(h1,h2,h3,p,button,a,strong,span,li,dt,dd,small){font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif);font-weight:400}
+#rabbit-game :is(h1,h2,p){overflow-wrap:anywhere}
+#rabbit-game h1{font-size:clamp(34px,5.5vw,66px);line-height:1.15;margin:10px 0 18px;color:#345e53}
+#rabbit-game h2{font-size:clamp(23px,3vw,32px);line-height:1.35;margin:0 0 18px}
+#rabbit-game button,#rabbit-game .rr-back{font:inherit;min-height:48px;max-width:100%;border:2px solid #273e50;border-radius:14px;padding:11px 19px;background:white;color:#273e50;cursor:pointer;line-height:1.45;overflow-wrap:anywhere;text-decoration:none}
+#rabbit-game button{box-shadow:0 3px 0 #273e5025;transition:background .15s,box-shadow .15s}
+#rabbit-game button:hover:not(:disabled){background:#e9f5ed;box-shadow:0 4px 0 #273e5040}
+#rabbit-game button:disabled{opacity:.65;cursor:default}
+#rabbit-game :focus-visible{outline:4px solid #eea848;outline-offset:4px}
+#rabbit-game h1:focus{outline:none}
+#rabbit-game [hidden]{display:none!important}
+#rabbit-game .rr-primary{background:#ffda75;box-shadow:0 4px 0 #b79243}
+#rabbit-game .rr-secondary{background:#fff1e8}
+.rr-toolbar,.rr-toolbar>div,.rr-actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.rr-toolbar>div{justify-content:flex-end}.rr-actions{justify-content:center;margin-top:24px}
+.rr-view-status{font-size:12px;color:#5a736a;margin:10px 0}
+.rr-eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-top:22px;color:#526e64}
+.rr-lead{font-size:clamp(17px,2.5vw,22px);max-width:700px}
+.rr-panel{padding:28px;border:2px solid #273e50;border-radius:24px;background:white;box-shadow:4px 5px 0 #273e5020;margin:24px 0}
+.rr-characters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#rabbit-game .rr-characters button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:16px;background:#f5faf8}
+.rr-characters svg{width:min(180px,100%);height:auto}.rr-characters strong{font-size:23px}.rr-characters span{font-size:13px}
+#rabbit-game .rr-characters [aria-pressed=true]{background:#dcf4e8;border-color:#386958;outline:3px solid #86c7ab;outline-offset:2px}
+.rr-instructions{padding-left:24px;margin:26px 0;display:grid;gap:12px;font-size:16px}
+.rr-intro-art{height:300px;position:relative;overflow:hidden;background:#d3eff9;border:2px solid #273e50;border-radius:28px;isolation:isolate}
+.rr-sun{width:82px;height:82px;position:absolute;right:13%;top:25px;border-radius:50%;background:#ffdf87;box-shadow:0 0 0 14px #ffeaad66}
+.rr-hill{position:absolute;border-radius:50% 50% 0 0;background:#9ecfa1;width:75%;height:70%;bottom:20%;left:-15%;transform:rotate(8deg)}
+.rr-hill-two{left:45%;bottom:15%;background:#7cbf9d;transform:rotate(-8deg)}
+.rr-intro-road{position:absolute;inset:62% 0 0;background:#dfbf8e;border-top:8px solid #fff2d5;transform:rotate(-4deg) scale(1.1)}
+.rr-intro-car{position:absolute;width:240px;left:15%;bottom:28px;transform:rotate(-4deg)}
+.rr-art-flag{position:absolute;right:15%;bottom:52px;font-size:100px;color:#345e53}.rr-art-label{position:absolute;top:20px;left:20px;padding:8px 12px;background:#fff9e5;border-radius:10px;font-size:12px}
+.rr-hud{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px 20px;border:2px solid #c4d9cc;border-radius:16px;background:white;margin:22px 0;font-size:15px}
+.rr-hud strong{color:#416451;font-size:21px}
+.rr-track{border:3px solid #273e50;border-radius:24px;overflow:hidden;background:#aed6af;padding:0 16px 20px;box-shadow:4px 6px #273e5020}
+.rr-track-sky{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:16px 0;color:#365c43;font-size:13px}
+.rr-lane{margin:0 0 18px;min-width:0}
+.rr-lane:last-child{margin-bottom:0}.rr-lane-label{display:flex;justify-content:space-between;gap:10px;padding:9px 14px;border-radius:10px 10px 0 0;background:#fff9e7;font-size:16px}
+.rr-roadway{height:160px;position:relative;background:linear-gradient(transparent 73%,#fff5cf 73% 77%,transparent 77%),#bb987b;border-block:4px solid #fbe6b7;isolation:isolate}
+.rr-roadway::before{content:'';position:absolute;inset:0 0 0 98%;background:repeating-conic-gradient(#fff 0 25%,#273e50 0 50%) 0 0/16px 16px;opacity:.8;z-index:0}
+.rr-roadway::after{content:'';position:absolute;left:2%;height:100%;width:3px;background:#fff9db;z-index:0}
+.rr-vehicle{position:absolute;bottom:15px;width:var(--rr-vehicle-width);z-index:1}
+.rr-vehicle svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #493e3533)}
+.rr-track-status{text-align:center}.rr-track-status p{font-size:18px}.rr-track-status button{min-width:220px}
+.rr-question{text-align:center;min-height:390px;max-width:900px;margin-inline:auto}
+#rabbit-game .rr-problem{font-size:clamp(36px,7vw,70px);padding:28px 0;line-height:1.3}
+.rr-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+#rabbit-game .rr-answers button{display:flex;align-items:center;gap:18px;min-height:95px;text-align:left;font-size:32px;padding:18px}
+.rr-answers button:nth-child(4n+1){background:#e2f2ff!important}.rr-answers button:nth-child(4n+2){background:#fff1d0!important}.rr-answers button:nth-child(4n+3){background:#ede6ff!important}.rr-answers button:nth-child(4n+4){background:#e1f5e8!important}
+.rr-letter{display:grid;place-items:center;border:2px solid #273e5030;border-radius:10px;background:#fff9;min-width:42px;height:42px;font-size:20px}
+#rabbit-game .rr-answers .is-correct{background:#bce9ca!important;border-color:#327146;opacity:1}
+#rabbit-game .rr-answers .is-incorrect{background:#fbd8cd!important;border-color:#aa6049;opacity:1}
+.rr-feedback{margin-top:24px;min-height:40px;line-height:1.6}
+.rr-feedback.is-success,.rr-feedback.is-retry{padding:18px;border-radius:16px;border:2px solid #a1cbb0;background:#eaf8ef}
+.rr-feedback.is-retry{background:#fff2df;border-color:#e8c786}.rr-feedback strong{font-size:23px}.rr-feedback p{margin:8px 0}.rr-feedback small{font-size:13px}
+.rr-podium{width:min(300px,70%);margin:10px auto}.rr-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0}
+.rr-results>div{padding:18px;border-radius:16px;background:#edf8f0;border:1px solid #c7dece;min-width:0}
+.rr-results dt{font-size:13px;color:#557466}.rr-results dd{font-size:24px;line-height:1.5;margin:8px 0 0;overflow-wrap:anywhere}
+.rr-source{padding:16px;border:1px solid #c4d9cc;border-radius:16px;background:#ffffffa0;color:#506a61;font-size:13px;overflow-wrap:anywhere}
+#rr-exit-dialog{width:min(500px,calc(100% - 32px));max-height:calc(100dvh - 40px);overflow:auto;padding:28px;border:3px solid #273e50;border-radius:24px;background:#fff9e8;color:#273e50;box-shadow:0 16px 70px #182a3750}
+#rr-exit-dialog::backdrop{background:#182a37a0}
+#rr-exit-dialog.rr-dialog-fallback{position:fixed;inset:0;margin:auto;z-index:10001;box-shadow:0 0 0 100vmax #182a37a0}
+.rr-confirming *{animation-play-state:paused!important}
+body.rr-view-lock{overflow:hidden}
+#rabbit-game.rr-expanded,#rabbit-game:fullscreen{position:fixed;inset:0;z-index:9000;margin:0;width:100%;max-width:none;height:100dvh;overflow:auto;background:#f1f8ed;padding:20px max(20px,calc((100vw - 1140px)/2)) 40px}
+#rabbit-game.rr-expanded .rr-toolbar,#rabbit-game:fullscreen .rr-toolbar{position:sticky;top:-20px;z-index:5;background:#f1f8ed;padding-block:12px}
+@media(max-width:800px){.rr-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#rabbit-game{width:calc(100% - 24px);--rr-vehicle-width:96px}.rr-panel{padding:20px 16px}.rr-toolbar{align-items:stretch}.rr-toolbar>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.rr-toolbar .rr-back{border:0;padding:4px 0;min-height:40px}.rr-characters{gap:10px}.rr-characters span{display:none}.rr-characters strong{font-size:17px}.rr-intro-art{height:230px}.rr-intro-car{width:190px;left:6%}.rr-art-label{font-size:10px;max-width:70%}.rr-art-flag{font-size:70px;right:8%}.rr-roadway{height:125px}.rr-lane-label{font-size:13px}.rr-track{padding-inline:10px}.rr-track-sky{font-size:10px}.rr-hud{font-size:12px;padding:12px}.rr-hud strong{font-size:17px}#rabbit-game .rr-answers button{min-height:80px;font-size:28px;gap:10px;padding:12px}.rr-answers{gap:12px}.rr-letter{min-width:32px;height:36px}.rr-results{gap:10px}.rr-results>div{padding:13px}.rr-results dd{font-size:21px}.rr-actions{align-items:stretch}.rr-actions>*{flex:1 1 100%}.rr-instructions{font-size:14px}#rabbit-game .rr-track-status button{min-width:0;width:100%}}
+@media(max-width:360px){.rr-characters{grid-template-columns:1fr}#rabbit-game .rr-characters button{flex-direction:row;justify-content:center}.rr-characters svg{width:100px}.rr-answers{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#rabbit-game *{transition:none!important;animation:none!important}}
+
+/* Keep the shared footer at the bottom of short normal-view screens. */
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+body>qb-site-header,body>.page-footer{flex-shrink:0}
+#rabbit-game{flex:1 0 auto}
+body>.page-footer{margin-top:auto}
+
+/* Keep both racers on one visual scale and use the shared adventure palette. */
+#rabbit-game{color:#16364b}
+#rabbit-game #rr-screen>h1{font-size:clamp(30px,4vw,48px);color:#185b78;line-height:1.2;margin:12px 0 24px}
+#rabbit-game .rr-primary{background:#85e8b1;box-shadow:none}
+#rabbit-game :is(.rr-panel,.rr-hud){border-color:#20556b;background:#fff;box-shadow:none}
+#rabbit-game .rr-toolbar button,#rabbit-game .rr-back{border-color:#185b78;color:#16364b;border-radius:16px;box-shadow:none}
+#rabbit-game .rr-track{border:2px solid #173b4d;background:#def3ff;padding:0 18px 20px;box-shadow:4px 5px #173b4d}
+#rabbit-game .rr-track-sky{padding:16px 0;color:#185b78}
+#rabbit-game .rr-distance-ruler{display:flex;justify-content:space-between;margin:0 calc(var(--rr-vehicle-width)/2) 12px;font-size:12px;color:#436579}
+#rabbit-game .rr-lane{margin:0 0 18px;border:2px solid #8cb5bc;border-radius:16px;overflow:hidden;background:#f1fbff;box-shadow:none}
+#rabbit-game .rr-lane:last-child{margin-bottom:0}
+#rabbit-game .rr-lane-label{border-radius:0;background:#fff;padding:10px 14px;color:#16364b;border-bottom:2px solid #b8d7dc}
+#rabbit-game .rr-roadway{height:144px;border:0;background:linear-gradient(transparent 76%,#fff 76% 79%,transparent 79%),#cee5d4}
+#rabbit-game .rr-roadway::before{inset:0 auto 0 calc(100% - var(--rr-vehicle-width)/2);width:8px;background:repeating-conic-gradient(#fff 0 25%,#173b4d 0 50%) 0 0/8px 8px;opacity:.7}
+#rabbit-game .rr-roadway::after{left:calc(var(--rr-vehicle-width)/2);width:4px;background:#fff}
+#rabbit-game .rr-vehicle{bottom:14px}
+#rabbit-game .rr-track-status{text-align:center;padding:24px;margin-top:24px}
+#rabbit-game .rr-track-status h2{font-size:28px;color:#185b78;margin-bottom:12px;text-align:center}
+#rabbit-game .rr-track-status p{font-size:16px;margin:0 0 20px}
+#rabbit-game .rr-track-status button{min-height:52px;border-color:#185b78;border-radius:16px;font-size:16px}
+/* Single supported choices form matching horizontal cards instead of uneven grids. */
+body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes):has(>button:only-child){grid-template-columns:1fr}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child{flex-direction:row;justify-content:flex-start;text-align:left;gap:20px;min-height:104px;padding:20px!important}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child strong{min-width:190px}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup .setup-modes>button:only-child::before{content:'⚑';font-size:42px;min-width:42px;text-align:center}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup h1:focus{outline:none}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-intro-art{background:#d3eff9!important}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-sun{background:#ffdf87!important}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-hill{background:#9ecfa1!important}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-hill-two{background:#7cbf9d!important}
+body.qb-adventure-page #rabbit-game .qb-adventure-setup .rr-intro-road{background:#dfbf8e!important}
+@media(max-width:650px){body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child{flex-wrap:wrap;gap:12px;min-height:0}body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child strong{min-width:0}body.qb-adventure-page #rabbit-game .qb-adventure-setup :is(.setup-subjects,.setup-modes)>button:only-child small{flex-basis:100%}#rabbit-game .rr-distance-ruler{font-size:10px}#rabbit-game .rr-roadway{height:125px}#rabbit-game .rr-track{padding-inline:10px}#rabbit-game .rr-track-status{padding:20px 16px}#rabbit-game .rr-track-status h2{font-size:24px}}

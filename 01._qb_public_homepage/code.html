@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7fafc">
+  <meta name="description" content="Playful English and Khmer learning adventures for children, families, and teachers.">
+  <title>QB Interactive Learning Kits — Big Adventures. Little Learners.</title>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="/assets/qb-design-system.css?v=20261104-shell-links">
+  <style>
+    :root { --lp-ink: #253247; --lp-sky: #75c9f5; --lp-blue: #dff3ff; --lp-yellow: #ffd76a; --lp-mint: #a8e6cf; --lp-coral: #ff9a8b; --lp-paper: #f7fafc; --lp-line: 2px solid var(--lp-ink); --lp-shadow: 4px 5px 0 rgb(37 50 71 / 16%); }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body { margin: 0; background: var(--lp-paper); color: var(--lp-ink); font: 400 16px/1.5 "Luckiest Guy", "Trebuchet MS", cursive; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .lp-shell { width: min(100% - 2rem, 76rem); margin-inline: auto; }
+    .lp-header { position: sticky; top: 0; z-index: 30; background: rgb(255 255 255 / 96%); border-bottom: var(--lp-line); backdrop-filter: blur(12px); }
+    .lp-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 5.25rem; }
+    .lp-brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font-size: 1.05rem; line-height: 1.05; }
+    .lp-brand img { width: 3.2rem; height: 3.2rem; object-fit: cover; border: var(--lp-line); border-radius: 1rem; background: white; }
+    .lp-brand small { display: block; color: #526174; font-size: .72rem; }
+    .lp-nav { display: flex; align-items: center; gap: .25rem; }
+    .lp-nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.8rem; padding: .5rem .7rem; border-radius: .75rem; text-decoration: none; }
+    .lp-nav a:hover { background: var(--lp-blue); }
+    .lp-language-control, .lp-start-wrap { box-sizing: border-box; position: relative; width: 9.4rem; flex: 0 0 9.4rem; }
+    .lp-language-control { min-height: 2.9rem; padding: 0; border: 0; border-radius: .7rem; background: transparent; color: var(--lp-ink); }
+    .lp-language-trigger { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; min-height: 2.9rem; min-width: 0; padding: .65rem 1rem; border: 2px solid var(--lp-ink); border-radius: var(--qb-radius-sm, .7rem); background: var(--lp-blue); color: var(--lp-ink); box-shadow: var(--qb-shadow-sm, 2px 3px 0 rgb(37 50 71 / 16%)); font: inherit; cursor: pointer; }
+    .lp-language-current { display: inline-flex; align-items: center; justify-content: center; min-width: 0; white-space: nowrap; }
+    .lp-language-name { overflow: hidden; text-overflow: ellipsis; }
+    .lp-language-trigger:focus-visible { outline: 3px solid #2376a1; outline-offset: 2px; }
+    .lp-language-menu { position: absolute; top: calc(100% + .45rem); left: 0; z-index: 50; display: grid; gap: .25rem; width: max-content; min-width: 100%; max-width: calc(100vw - 1.5rem); padding: .35rem; border: 2px solid var(--lp-ink); border-radius: .75rem; background: #fff; color: var(--lp-ink); box-shadow: 0 7px 18px rgb(37 50 71 / 20%); animation: lp-language-open .16s ease-out; }
+    .lp-language-menu[hidden] { display: none; }
+    .lp-language-option { display: flex; align-items: center; justify-content: space-between; gap: .9rem; min-height: 2.65rem; padding: .45rem .65rem; border: 0; border-radius: .45rem; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+    .lp-language-option:hover { background: var(--lp-blue); }
+    .lp-language-option[aria-checked="true"] { background: var(--lp-mint); }
+    .lp-language-option:focus-visible { outline: 3px solid #2376a1; outline-offset: 1px; }
+    .lp-language-check { font-size: 1.05em; }
+    @keyframes lp-language-open { from { opacity: 0; transform: translateY(-.25rem); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-color-scheme: dark) {
+      .lp-language-control { --lp-ink: #e8f2ff; color: #f6f9ff; }
+      .lp-language-trigger { border-color: #e8f2ff; background: #35516c; color: #fff; }
+      .lp-language-menu { border-color: #e8f2ff; background: #182538; color: #f6f9ff; box-shadow: 0 7px 18px rgb(0 0 0 / 45%); }
+      .lp-language-option:hover { background: #35516c; }
+      .lp-language-option[aria-checked="true"] { background: #2f705d; }
+    }
+    .lp-start-wrap { position: relative; }
+    .lp-start-trigger { box-sizing: border-box; width: 100%; min-height: 2.9rem; text-transform: uppercase; }
+    .lp-start-menu { position: absolute; top: calc(100% + .65rem); right: 0; z-index: 40; display: grid; gap: .5rem; width: min(13rem, calc(100vw - 1.5rem)); padding: .55rem; border: 2px solid var(--lp-ink); border-radius: 1rem; background: white; box-shadow: 4px 5px 0 var(--lp-ink); }
+    .lp-start-menu[hidden] { display: none; }
+    .lp-start-menu a { display: flex; align-items: center; justify-content: center; min-height: 3rem; padding: .6rem .8rem; border: 2px solid var(--lp-ink); border-radius: .8rem; background: var(--lp-paper); color: var(--lp-ink); text-align: center; text-decoration: none; text-transform: uppercase; }
+    .lp-start-menu a:last-child { background: var(--lp-mint); }
+    .lp-start-menu a:focus-visible { outline: 3px solid #2376a1; outline-offset: 2px; }
+    .lp-actions { display: flex; flex: 0 0 auto; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .65rem; margin-left: auto; }
+    .lp-actions .qb-button { min-width: 7.5rem; justify-content: center; }
+    .lp-menu { display: none; min-height: 2.8rem; min-width: 2.8rem; border: var(--lp-line); border-radius: .75rem; background: var(--lp-blue); color: var(--lp-ink); cursor: pointer; }
+    .lp-hero { position: relative; overflow: hidden; padding: clamp(3rem, 7vw, 6.5rem) 0; background-color: #eaf7ff; background-image: radial-gradient(circle, #fff 5px, transparent 5.7px); background-size: 34px 34px; }
+    .lp-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(18rem, .95fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); }
+    .lp-kicker { display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .8rem; border: var(--lp-line); border-radius: 99px; background: white; box-shadow: 2px 3px 0 rgb(37 50 71 / 12%); }
+    .lp-title { max-width: 12ch; margin: 1rem 0; font-size: clamp(3rem, 6.5vw, 5.7rem); line-height: .98; letter-spacing: -.02em; }
+    .lp-title span { color: #d56b24; }
+    .lp-lede { max-width: 39rem; margin: 0; color: #405069; font-size: clamp(1.1rem, 2vw, 1.35rem); }
+    .lp-hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 1.5rem; }
+    .lp-hero-art { position: relative; display: grid; place-items: center; min-height: 22rem; }
+    .lp-hero-art::before { position: absolute; width: min(88%, 22rem); aspect-ratio: 1; border: 3px solid var(--lp-ink); border-radius: 50%; background: var(--lp-yellow); box-shadow: 7px 8px 0 rgb(37 50 71 / 15%); content: ""; }
+    .lp-hero-mascot { position: relative; width: min(78%, 20rem); border: 3px solid var(--lp-ink); border-radius: 2rem; background: white; box-shadow: 6px 7px 0 var(--lp-ink); animation: lp-bob 4s ease-in-out infinite; }
+    .lp-spark { position: absolute; z-index: 1; color: #df7926; font-size: 2.4rem; animation: lp-twinkle 3s ease-in-out infinite; }
+    .lp-spark--one { top: 7%; right: 4%; }.lp-spark--two { bottom: 12%; left: 2%; color: #2687ae; animation-delay: .6s; }
+    .lp-section { padding-block: clamp(3.25rem, 7vw, 5.5rem); }
+    .lp-section--blue { background: var(--lp-blue); }
+    .lp-section--yellow { background: #fff6d9; }
+    .lp-heading { max-width: 46rem; margin: 0 auto 2rem; text-align: center; }
+    .lp-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+    .lp-heading p { margin: .65rem 0 0; color: #526174; }
+    .lp-category-grid, .lp-game-grid, .lp-benefit-grid, .lp-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .lp-category { min-height: 9.5rem; display: flex; flex-direction: column; justify-content: space-between; padding: 1.2rem; color: var(--lp-ink); text-decoration: none; }
+    .lp-category:nth-child(1) { background: #e4f7ff; }.lp-category:nth-child(2) { background: #fff4d1; }.lp-category:nth-child(3) { background: #e8f8f0; }
+    .lp-category-icon { font-size: 2rem; }
+    .lp-category strong { font-size: 1.25rem; }
+    .lp-game { overflow: hidden; display: flex; flex-direction: column; padding: 0; }
+    .lp-game img { width: 100%; height: 12rem; object-fit: cover; object-position: top; border-bottom: var(--lp-line); background: var(--lp-blue); }
+    .lp-game-copy { display: grid; align-content: start; gap: .55rem; padding: 1rem; flex: 1; }
+    .lp-game-copy h3, .lp-benefit h3, .lp-step h3 { margin: 0; font-size: 1.25rem; }
+    .lp-game-copy p, .lp-benefit p, .lp-step p { margin: 0; color: #526174; }
+    .lp-game-copy .qb-button { justify-self: start; margin-top: .35rem; }
+    .lp-literacy { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 2rem; }
+    .lp-literacy h2 { margin: 0 0 .7rem; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+    .lp-literacy p { color: #526174; }
+    .lp-language-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+    .lp-language-cards [hidden] { display: none !important; }
+    .lp-letter { min-height: 11rem; display: grid; align-content: center; justify-items: center; gap: .25rem; text-align: center; }
+    .lp-letter--khmer { background: #fff4d1; }
+    .lp-letter b { font-size: clamp(3rem, 7vw, 5rem); line-height: 1; }
+    .lp-letter span { color: #526174; }
+    .lp-benefit-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lp-benefit { display: grid; align-content: start; gap: .65rem; min-height: 12rem; }
+    .lp-benefit-icon { display: grid; place-items: center; width: 3rem; height: 3rem; border: var(--lp-line); border-radius: 1rem; background: var(--lp-yellow); font-size: 1.5rem; }
+    .lp-step { display: grid; align-content: start; gap: .75rem; }
+    .lp-step-number { display: grid; place-items: center; width: 2.8rem; height: 2.8rem; border: var(--lp-line); border-radius: .85rem; background: var(--lp-sky); box-shadow: var(--lp-shadow); font-size: 1.3rem; }
+    .lp-final-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: clamp(1.2rem, 4vw, 2.4rem); border: var(--lp-line); border-radius: 1.5rem; background: var(--lp-yellow); box-shadow: var(--lp-shadow); }
+    .lp-final-cta h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .lp-final-cta p { margin: .35rem 0 0; }
+    .lp-footer { padding: 2.5rem 0; border-top: var(--lp-line); background: white; }
+    .lp-footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; }
+    .lp-footer p { max-width: 28rem; margin: .5rem 0 0; color: #526174; }
+    .lp-footer-nav { display: flex; flex-wrap: wrap; gap: .55rem 1rem; }
+    .lp-footer-nav a { padding: .25rem; }
+    @keyframes lp-bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-.55rem) rotate(2deg); } }
+    @keyframes lp-twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.13) rotate(12deg); } }
+    @media (max-width: 900px) { .lp-header-inner { flex-wrap: wrap; padding-block: .6rem; }.lp-menu { display: inline-block; }.lp-nav { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; order: 3; padding: .5rem; border: var(--lp-line); border-radius: 1rem; background: white; }.lp-nav[data-open="true"] { display: flex; }.lp-nav a { justify-content: flex-start; }.lp-actions { margin-left: auto; }.lp-hero-grid { grid-template-columns: 1fr .8fr; gap: 1.25rem; }.lp-hero-art { min-height: 18rem; } }
+    @media (max-width: 680px) { .lp-shell { width: min(100% - 1.25rem, 76rem); }.lp-hero-grid, .lp-literacy { grid-template-columns: 1fr; }.lp-hero-grid { text-align: center; }.lp-title { margin-inline: auto; }.lp-lede { margin-inline: auto; }.lp-hero-actions { justify-content: center; }.lp-hero-art { min-height: 17rem; }.lp-hero-mascot { width: min(64%, 16rem); }.lp-category-grid, .lp-game-grid, .lp-benefit-grid, .lp-steps { grid-template-columns: 1fr; }.lp-category { min-height: 7.5rem; }.lp-game { display: grid; grid-template-columns: 42% 1fr; }.lp-game img { height: 100%; min-height: 13rem; border-right: var(--lp-line); border-bottom: 0; }.lp-language-cards { max-width: 34rem; margin-inline: auto; }.lp-final-cta, .lp-footer-inner { align-items: flex-start; flex-direction: column; }.lp-brand { font-size: .88rem; }.lp-brand img { width: 2.7rem; height: 2.7rem; }.lp-actions { width: 100%; margin-left: 0; justify-content: center; gap: .55rem; }.lp-actions .qb-button, .lp-language-control, .lp-start-wrap { flex: 1 1 7rem; max-width: 9rem; min-width: 0; }.lp-actions .qb-button { justify-content: center; }.lp-header-inner { gap: .5rem; } }
+    @media (max-width: 390px) { .lp-brand small { display: none; }.lp-game { grid-template-columns: 1fr; }.lp-game img { height: 11rem; min-height: 0; border-right: 0; border-bottom: var(--lp-line); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+<style>.lp-game img{width:100%;aspect-ratio:16/10;height:auto;object-fit:contain;background:#e4f4ff}.lp-game-copy{display:flex;flex-direction:column;flex:1}.lp-game-copy .qb-button{margin-top:auto;align-self:flex-start}</style>
+<link rel="stylesheet" href="/assets/qb-responsive.css?v=1"><link rel="stylesheet" href="/assets/qb-homepage-refresh.css?v=10-phone-menus"></head>
+<body id="top">
+  <header class="lp-header">
+    <div class="lp-shell lp-header-inner">
+      <a class="lp-brand" href="#top" aria-label="QB Interactive Learning Kits home">
+        <img src="../qb_learning_kits_lion_mascot_logo/screen.png" alt="QB Learning Kits lion mascot">
+        <span>QB Interactive<br>Learning Kits<small>Playful learning for curious kids</small></span>
+      </a>
+      <div class="lp-actions">
+        <div class="lp-language-control" id="language-control">
+          <button class="lp-language-trigger" id="language-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu" aria-label="Choose interface language">
+            <span class="lp-language-current" id="language-current"><span class="lp-language-name" id="language-name">English</span></span>
+          </button>
+          <div class="lp-language-menu" id="language-menu" role="menu" aria-label="Interface language" hidden>
+            <button class="lp-language-option" type="button" role="menuitemradio" data-language-option="en" aria-checked="true"><span class="lp-language-current">English</span><span class="lp-language-check" aria-hidden="true">✓</span></button>
+            <button class="lp-language-option" type="button" role="menuitemradio" data-language-option="km" aria-checked="false"><span class="lp-language-current" lang="km">ភាសាខ្មែរ</span><span class="lp-language-check" aria-hidden="true" hidden>✓</span></button>
+          </div>
+        </div>
+        <div class="lp-start-wrap">
+          <button class="qb-button qb-button--mint lp-start-trigger" id="get-started-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="get-started-menu">Get Started</button>
+          <div class="lp-start-menu" id="get-started-menu" aria-label="Get started" hidden>
+            <a href="/16._qb_unified_sign_in_sign_up/code.html?next=student">Log In</a>
+            <a href="/16._qb_unified_sign_in_sign_up/code.html?mode=signup">Sign Up</a>
+          </div>
+        </div>
+        <a class="qb-button qb-button--mint" href="/02._qb_explore_games_catalog/code.html?ui=20261104-direct-games">Games</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="lp-hero" aria-labelledby="hero-title"><div class="lp-animated-sky" aria-hidden="true"><span class="lp-cloud lp-cloud-one"></span><span class="lp-cloud lp-cloud-two"></span><span class="lp-sky-star lp-sky-star-one">✦</span><span class="lp-sky-star lp-sky-star-two">✦</span><span class="lp-sky-star lp-sky-star-three">✧</span><span class="lp-sky-orbit"></span></div>
+      <div class="lp-shell lp-hero-grid">
+        <div>
+          <span class="lp-kicker">A happy place for curious minds</span>
+          <h1 class="lp-title" id="hero-title">Big Adventures.<br><span>Little Learners.</span></h1>
+          <p class="lp-lede">Turn “what’s that?” into “I did it!” Explore words, numbers, nature, and playful adventures in English and Khmer.</p>
+          <div class="lp-hero-actions"><a class="qb-button qb-button--coral" href="/explore-questions.html#question-sets">Explore Activities</a></div>
+          <div class="lp-hero-pills"><span>English + Khmer</span><span>Learn through play</span><span>Little steps, happy wins</span></div>
+        </div>
+        <div class="lp-hero-art lp-hero-art--illustrated lp-mascot-display"><img class="lp-generated-hero" src="/assets/game-art/homepage-lion-statue-v1.png" alt="A friendly lion explorer mascot waving from a mint display stand, holding a book." width="1280" height="1280" fetchpriority="high" decoding="async"></div>
+      </div>
+    </section>
+
+    <section class="lp-section lp-section--blue lp-featured-games" id="activities" aria-labelledby="games-title"><span id="games" class="lp-section-anchor" aria-hidden="true"></span>
+      <div class="lp-shell"><div class="lp-heading"><h2 id="games-title">Pick a game. Start an adventure.</h2><p>Explore playful challenges for curious minds. Choose a game to begin your learning adventure.</p></div>
+        <div class="lp-game-grid">
+<article class="qb-card lp-game"><img src="/assets/game-art/ship-battle.svg" alt="Ship Battle game illustration" loading="lazy" width="640" height="400"><div class="lp-game-copy"><span class="qb-badge">Letters &amp; sounds</span><h3>Ship Battle</h3><p>Read, listen, and guide your ship through a word challenge.</p><a class="qb-button qb-button--blue" href="/explore-questions.html#question-sets">Explore activity</a></div></article>
+<article class="qb-card lp-game"><img src="/assets/game-art/alien-spelling.svg" alt="Alien Spelling game illustration" loading="lazy" width="640" height="400"><div class="lp-game-copy"><span class="qb-badge">Spelling</span><h3>Alien Spelling</h3><p>Build a word one letter at a time on a space mission.</p><a class="qb-button qb-button--mint" href="/explore-questions.html#question-sets">Explore activity</a></div></article>
+<article class="qb-card lp-game"><img src="/assets/game-art/wheel-spin-carnival.svg?v=2-fixed" alt="Wheel Spin Carnival game illustration" loading="lazy" width="640" height="400"><div class="lp-game-copy"><span class="qb-badge">Math</span><h3>Wheel Spin Carnival</h3><p>Solve number challenges and spin the colorful prize wheel.</p><a class="qb-button qb-button--coral" href="/explore-questions.html#question-sets">Explore activity</a></div></article>
+<article class="qb-card lp-game"><img src="/assets/game-art/claw-machine-toy-drop.svg" alt="Claw Machine Toy Drop game illustration" loading="lazy" width="640" height="400"><div class="lp-game-copy"><span class="qb-badge">Vocabulary</span><h3>Claw Machine Toy Drop</h3><p>Match sight words and collect playful toy prizes.</p><a class="qb-button qb-button--blue" href="/explore-questions.html#question-sets">Explore activity</a></div></article>
+<article class="qb-card lp-game"><img src="/assets/game-art/potion-lab-alchemy.svg?v=2-fixed" alt="Potion Lab Alchemy game illustration" loading="lazy" width="640" height="400"><div class="lp-game-copy"><span class="qb-badge">Matching</span><h3>Potion Lab Alchemy</h3><p>Match ideas and mix colorful learning potions.</p><a class="qb-button qb-button--mint" href="/explore-questions.html#question-sets">Explore activity</a></div></article>
+<article class="qb-card lp-game"><img src="/assets/game-art/balloon-pop-math-sprint.svg" alt="Balloon Pop Math Sprint game illustration" loading="lazy" width="640" height="400"><div class="lp-game-copy"><span class="qb-badge">Math</span><h3>Balloon Pop Math Sprint</h3><p>Solve quick sums and pop the correct number balloons.</p><a class="qb-button qb-button--coral" href="/explore-questions.html#question-sets">Explore activity</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="lp-section lp-section--yellow" id="families" aria-labelledby="families-title">
+      <div class="lp-shell"><div class="lp-heading"><h2 id="families-title">A happy team around every learner</h2><p>One playful learning space, with a helpful view for each grown-up.</p></div>
+        <div class="lp-benefit-grid">
+          <article class="qb-card lp-benefit"><span class="lp-benefit-icon" aria-hidden="true">🌱</span><h3>For children</h3><p>Friendly challenges, gentle retries, and small wins help practice feel encouraging.</p><a href="/02._qb_explore_games_catalog/code.html?ui=20261104-direct-games">Explore games →</a></article>
+          <article class="qb-card lp-benefit"><span class="lp-benefit-icon" aria-hidden="true">🏡</span><h3>For parents</h3><p>Follow a child’s learning journey and find simple ideas for practice at home.</p><a href="/14._qb_parent_dashboard_weekly_digest/code.html">Explore the family view →</a></article>
+          <article class="qb-card lp-benefit"><span class="lp-benefit-icon" aria-hidden="true">🍎</span><h3>For teachers</h3><p>Prepare question sets, choose a game, and bring the activity to your class.</p><a href="/04._qb_teacher_dashboard/code.html">Explore teacher tools →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section" id="how-it-works" aria-labelledby="how-title">
+      <div class="lp-shell"><div class="lp-heading"><h2 id="how-title">How learning works</h2><p>A simple rhythm for classroom play or a little practice at home.</p></div>
+        <div class="lp-steps">
+          <article class="qb-card lp-step"><span class="lp-step-number">1</span><h3>Pick a question set</h3><p>Choose a topic that fits the learner and the moment.</p></article>
+          <article class="qb-card lp-step"><span class="lp-step-number">2</span><h3>Choose an activity</h3><p>Turn the same learning goal into a game kids can explore.</p></article>
+          <article class="qb-card lp-step"><span class="lp-step-number">3</span><h3>Play and celebrate</h3><p>Practice, try again, and notice the progress along the way.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section lp-section--blue" aria-label="Start learning">
+      <div class="lp-shell lp-final-cta"><div><h2>Ready for a little adventure?</h2><p>Join a class activity or browse the learning games.</p></div><div class="lp-hero-actions"><a class="qb-button qb-button--coral" href="/explore-questions.html#question-sets">Explore Activities</a></div></div>
+    </section>
+  </main>
+
+  <footer class="lp-footer">
+    <div class="lp-shell lp-footer-inner"><div><a class="lp-brand" href="#top"><img src="../qb_learning_kits_lion_mascot_logo/screen.png" alt=""><span>QB Interactive Learning Kits<small>Big adventures. Little learners.</small></span></a><p>Playful English and Khmer learning for children, families, and teachers.</p></div>
+      <nav class="lp-footer-nav" aria-label="Footer navigation"><a href="#activities">Activities</a><a href="#games">Games</a><a href="/literacy.html">Literacy</a><a href="/14._qb_parent_dashboard_weekly_digest/code.html">Family view</a><a href="/04._qb_teacher_dashboard/code.html">Teacher tools</a><a href="/16._qb_unified_sign_in_sign_up/code.html">Sign in</a></nav>
+    </div>
+  </footer>
+  <script>
+    const startTrigger = document.querySelector('#get-started-trigger');
+    const startMenu = document.querySelector('#get-started-menu');
+    const closeStartMenu = () => {
+      startMenu.hidden = true;
+      startTrigger.setAttribute('aria-expanded', 'false');
+    };
+    startTrigger.addEventListener('click', () => {
+      const open = startTrigger.getAttribute('aria-expanded') !== 'true';
+      startTrigger.setAttribute('aria-expanded', String(open));
+      startMenu.hidden = !open;
+      if (open) startMenu.querySelector('a')?.focus();
+    });
+    startMenu.addEventListener('click', event => {
+      if (event.target.closest('a')) closeStartMenu();
+    });
+    document.addEventListener('pointerdown', event => {
+      if (!event.composedPath().includes(startTrigger.parentElement)) closeStartMenu();
+    });
+    startMenu.parentElement.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !startMenu.hidden) {
+        closeStartMenu();
+        startTrigger.focus();
+      }
+    });
+
+    const languageTrigger = document.querySelector('#language-trigger');
+    const languageMenu = document.querySelector('#language-menu');
+    const languageOptions = [...languageMenu.querySelectorAll('[data-language-option]')];
+    const languageCurrent = document.querySelector('#language-current');
+    const translations = {
+      en: {
+        title: 'QB Interactive Learning Kits — Big Adventures. Little Learners.', brandTag: 'Playful learning for curious kids', brandHome: 'QB Interactive Learning Kits home', brandLogo: 'QB Learning Kits lion mascot', heroAlt: 'Leo the friendly QB Learning Kits lion waving hello',
+        description: 'Playful English and Khmer learning adventures for children, families, and teachers.',
+        menu: 'Main navigation', footerMenu: 'Footer navigation', openMenu: 'Open navigation',
+        activities: 'Activities', games: 'Games', families: 'For families', login: 'Log In', signup: 'Sign Up', join: 'Games',
+        kicker: '⭐ Made for little learners', heroFirst: 'Big Adventures.', heroSecond: 'Little Learners.',
+        heroLead: 'Explore letters, discover new words, and learn through playful activities in Khmer and English.',
+        start: 'Start Learning', explore: 'Explore Activities', heroHint: 'Explore short English and Khmer examples in the literacy section below.',
+        pathTitle: 'A little curiosity. A whole world to discover.', pathCopy: 'From first letters to big discoveries—find a subject that makes their eyes light up.',
+        categoryLetters: 'Letters & sounds', categoryNumbers: 'Numbers & puzzles', categoryStories: 'Words & stories',
+        gamesTitle: 'Learning feels like play', gamesCopy: 'Choose an activity to explore questions and start learning.',
+        gameTagLetters: 'Letters & sounds', gameTagSpelling: 'Spelling', gameTagCollection: 'Game collection',
+        shipTitle: 'Ship Battle', shipCopy: 'Read, listen, and guide your ship through a word challenge.', shipAction: 'Explore Ship Battle',
+        alienTitle: 'Alien Spelling', alienCopy: 'Build a word one letter at a time on a space mission.', alienAction: 'Explore spelling',
+        arenaTitle: 'Choose an arena', arenaCopy: 'Browse activities and pick the next learning adventure.', arenaAction: 'See the game hub',
+        literacyTag: 'English + Khmer', literacyTitle: 'Two languages. One joyful start.',
+        literacyCopy: 'Children can explore early sounds and words in English and Khmer, with familiar pictures and room to practice at their own pace.',
+        literacyHint: 'English and Khmer examples are shown together.',
+        teamTitle: 'A happy team around every learner', teamCopy: 'One playful learning space, with a helpful view for each grown-up.',
+        children: 'For children', childrenCopy: 'Friendly challenges, gentle retries, and small wins help practice feel encouraging.',
+        joinPin: 'Explore games →', parents: 'For parents', parentsCopy: 'Follow a child’s learning journey and find simple ideas for practice at home.',
+        familyView: 'Explore the family view →', teachers: 'For teachers', teachersCopy: 'Prepare question sets, choose a game, and bring the activity to your class.',
+        teacherTools: 'Explore teacher tools →', howTitle: 'How learning works', howCopy: 'A simple rhythm for classroom play or a little practice at home.',
+        step1Title: 'Pick a question set', step1Copy: 'Choose a topic that fits the learner and the moment.',
+        step2Title: 'Choose an activity', step2Copy: 'Turn the same learning goal into a game kids can explore.',
+        step3Title: 'Play and celebrate', step3Copy: 'Practice, try again, and notice the progress along the way.',
+        finalTitle: 'Ready for a little adventure?', finalCopy: 'Join a class activity or browse the learning games.',
+        footerCopy: 'Playful English and Khmer learning for children, families, and teachers.', footerLiteracy: 'Literacy', footerSignIn: 'Sign in'
+      },
+      km: {
+        title: 'QB Interactive Learning Kits — ដំណើរផ្សងព្រេងដ៏អស្ចារ្យ សម្រាប់អ្នករៀនតូចៗ', brandTag: 'ការរៀនដ៏រីករាយសម្រាប់កុមារដែលចង់ស្វែងយល់', brandHome: 'ទំព័រដើម QB Interactive Learning Kits', brandLogo: 'រូបតោ mascot របស់ QB Learning Kits', heroAlt: 'តោ Leo ដ៏រួសរាយរបស់ QB Learning Kits កំពុងគ្រវីដៃស្វាគមន៍',
+        description: 'ដំណើរផ្សងព្រេងសិក្សាភាសាអង់គ្លេស និងខ្មែរដ៏រីករាយ សម្រាប់កុមារ គ្រួសារ និងគ្រូបង្រៀន។',
+        menu: 'ម៉ឺនុយមេ', footerMenu: 'ម៉ឺនុយបាតទំព័រ', openMenu: 'បើកម៉ឺនុយ',
+        activities: 'សកម្មភាព', games: 'ហ្គេម', families: 'សម្រាប់គ្រួសារ', login: 'ចូលគណនី', signup: 'បង្កើតគណនី', join: 'ហ្គេម',
+        kicker: '⭐ បង្កើតសម្រាប់អ្នករៀនតូចៗ', heroFirst: 'ដំណើរផ្សងព្រេងដ៏អស្ចារ្យ។', heroSecond: 'សម្រាប់អ្នករៀនតូចៗ។',
+        heroLead: 'ស្វែងយល់ពីអក្សរ រកឃើញពាក្យថ្មីៗ ហើយរៀនតាមរយៈសកម្មភាពលេងសប្បាយៗជាភាសាខ្មែរ និងអង់គ្លេស។',
+        start: 'ចាប់ផ្តើមរៀន', explore: 'ស្វែងយល់ពីសកម្មភាព', heroHint: 'ស្វែងយល់ពីឧទាហរណ៍ភាសាអង់គ្លេស និងខ្មែរខ្លីៗនៅផ្នែកអក្ខរកម្មខាងក្រោម។',
+        pathTitle: 'ជ្រើសរើសផ្លូវរៀន ហើយលេង', pathCopy: 'សកម្មភាពខ្លីៗ និងរីករាយ ជួយកុមារហាត់ជំនាញតូចៗម្តងមួយៗ។',
+        categoryLetters: 'អក្សរ និងសំឡេង', categoryNumbers: 'លេខ និងល្បែងផ្គុំរូប', categoryStories: 'ពាក្យ និងរឿងនិទាន',
+        gamesTitle: 'ការរៀនមានភាពសប្បាយដូចការលេង', gamesCopy: 'ជ្រើសរើសហ្គេមមួយ ដើម្បីមើលសកម្មភាពដែលមាន។',
+        gameTagLetters: 'អក្សរ និងសំឡេង', gameTagSpelling: 'ការប្រកបពាក្យ', gameTagCollection: 'បណ្ណាល័យហ្គេម',
+        shipTitle: 'ប្រយុទ្ធលើនាវា', shipCopy: 'អាន ស្តាប់ និងបញ្ជានាវារបស់អ្នកឆ្លងកាត់ល្បែងពាក្យ។', shipAction: 'ស្វែងយល់ពីហ្គេមនាវា',
+        alienTitle: 'ប្រកបពាក្យជាមួយមនុស្សភពក្រៅ', alienCopy: 'បង្កើតពាក្យម្តងមួយអក្សរ ក្នុងបេសកកម្មអវកាស។', alienAction: 'ស្វែងយល់ពីការប្រកបពាក្យ',
+        arenaTitle: 'ជ្រើសរើសសង្វៀន', arenaCopy: 'រកមើលសកម្មភាព ហើយជ្រើសរើសដំណើរផ្សងព្រេងសិក្សាបន្ទាប់។', arenaAction: 'មើលមជ្ឈមណ្ឌលហ្គេម',
+        literacyTag: 'អង់គ្លេស + ខ្មែរ', literacyTitle: 'ពីរភាសា ចាប់ផ្តើមដោយភាពរីករាយ។',
+        literacyCopy: 'កុមារអាចស្វែងយល់ពីសំឡេង និងពាក្យដំបូងៗជាភាសាអង់គ្លេស និងខ្មែរ តាមរយៈរូបភាពដែលស្គាល់ និងហាត់រៀនតាមល្បឿនរបស់ពួកគេ។',
+        literacyHint: 'ឧទាហរណ៍ជាភាសាអង់គ្លេស និងខ្មែរ ត្រូវបានបង្ហាញជាមួយគ្នា។', khmerExampleHelp: 'មើលអក្សរខ្មែរ ហើយភ្ជាប់វាទៅនឹងពាក្យមួយ។',
+        teamTitle: 'ក្រុមរីករាយជួយអ្នករៀនគ្រប់រូប', teamCopy: 'កន្លែងរៀនលេងដ៏រីករាយ ជាមួយទិដ្ឋភាពមានប្រយោជន៍សម្រាប់មនុស្សធំគ្រប់រូប។',
+        children: 'សម្រាប់កុមារ', childrenCopy: 'ល្បែងប្រកួតប្រជែងដ៏រួសរាយ ការសាកល្បងម្តងទៀត និងជោគជ័យតូចៗ ជួយឱ្យការហាត់រៀនកាន់តែរីករាយ។',
+        joinPin: 'ស្វែងយល់ពីហ្គេម →', parents: 'សម្រាប់មាតាបិតា', parentsCopy: 'តាមដានដំណើរការរៀនរបស់កូន និងស្វែងរកគំនិតងាយៗសម្រាប់ហាត់រៀននៅផ្ទះ។',
+        familyView: 'មើលទំព័រគ្រួសារ →', teachers: 'សម្រាប់គ្រូបង្រៀន', teachersCopy: 'រៀបចំសំណុំសំណួរ ជ្រើសរើសហ្គេម ហើយនាំសកម្មភាពទៅកាន់ថ្នាក់រៀន។',
+        teacherTools: 'ស្វែងយល់ពីឧបករណ៍គ្រូ →', howTitle: 'របៀបរៀន', howCopy: 'វិធីងាយៗសម្រាប់លេងនៅថ្នាក់រៀន ឬហាត់រៀនបន្តិចនៅផ្ទះ។',
+        step1Title: 'ជ្រើសរើសសំណុំសំណួរ', step1Copy: 'ជ្រើសរើសប្រធានបទដែលសមស្របនឹងអ្នករៀន និងពេលវេលា។',
+        step2Title: 'ជ្រើសរើសសកម្មភាព', step2Copy: 'បម្លែងគោលដៅសិក្សាទៅជាហ្គេមដែលកុមារអាចស្វែងយល់។',
+        step3Title: 'លេង និងអបអរសាទរ', step3Copy: 'ហាត់រៀន សាកល្បងម្តងទៀត និងកត់សម្គាល់ការរីកចម្រើន។',
+        finalTitle: 'ត្រៀមខ្លួនសម្រាប់ដំណើរផ្សងព្រេងហើយឬនៅ?', finalCopy: 'ចូលរួមសកម្មភាពក្នុងថ្នាក់ ឬរកមើលហ្គេមសិក្សា។',
+        footerCopy: 'ការរៀនភាសាអង់គ្លេស និងខ្មែរដ៏រីករាយសម្រាប់កុមារ គ្រួសារ និងគ្រូបង្រៀន។', footerLiteracy: 'អក្ខរកម្ម', footerSignIn: 'ចូលគណនី'
+      }
+    };
+    const translationsBySelector = {
+      '#main-nav a:nth-child(1)': 'activities', '#main-nav a:nth-child(2)': 'games', '#main-nav a:nth-child(3)': 'families',
+      '#get-started-trigger': 'getStarted', '#get-started-menu a:nth-child(1)': 'login', '#get-started-menu a:nth-child(2)': 'signup',
+      '.lp-actions > .qb-button': 'join', '.lp-kicker': 'kicker', '.lp-lede': 'heroLead', '.lp-hero-actions a:nth-child(1)': 'explore',
+      '.lp-hero-actions a:nth-child(2)': 'explore', '.lp-hero .qb-help': 'heroHint', '#activities-title': 'pathTitle',
+      '#activities .lp-heading p': 'pathCopy', '#games-title': 'gamesTitle', '#games .lp-heading p': 'gamesCopy',
+      '#literacy .qb-badge': 'literacyTag', '#literacy-title': 'literacyTitle', '#literacy .lp-literacy > div:first-child > p': 'literacyCopy',
+      '#literacy .qb-help': 'literacyHint', '#families-title': 'teamTitle', '#families .lp-heading p': 'teamCopy',
+      '#how-title': 'howTitle', '#how-it-works .lp-heading p': 'howCopy', '#families .lp-benefit:nth-child(1) h3': 'children',
+      '#families .lp-benefit:nth-child(1) p': 'childrenCopy', '#families .lp-benefit:nth-child(1) a': 'joinPin',
+      '#families .lp-benefit:nth-child(2) h3': 'parents', '#families .lp-benefit:nth-child(2) p': 'parentsCopy',
+      '#families .lp-benefit:nth-child(2) a': 'familyView', '#families .lp-benefit:nth-child(3) h3': 'teachers',
+      '#families .lp-benefit:nth-child(3) p': 'teachersCopy', '#families .lp-benefit:nth-child(3) a': 'teacherTools',
+      '.lp-final-cta h2': 'finalTitle', '.lp-final-cta p': 'finalCopy', '.lp-final-cta .lp-hero-actions a:nth-child(1)': 'explore',
+      '.lp-final-cta .lp-hero-actions a:nth-child(2)': 'explore', '.lp-footer-inner > div > p': 'footerCopy',
+      '.lp-footer-nav a:nth-child(1)': 'activities', '.lp-footer-nav a:nth-child(2)': 'games', '.lp-footer-nav a:nth-child(3)': 'footerLiteracy',
+      '.lp-footer-nav a:nth-child(4)': 'familyView', '.lp-footer-nav a:nth-child(5)': 'teacherTools', '.lp-footer-nav a:nth-child(6)': 'footerSignIn'
+    };
+    const repeatedTranslations = [
+      ['.lp-category strong', ['categoryLetters', 'categoryNumbers', 'categoryStories']],
+
+      ['.lp-step h3', ['step1Title', 'step2Title', 'step3Title']],
+      ['.lp-step p', ['step1Copy', 'step2Copy', 'step3Copy']]
+    ];
+    function replaceVisibleText(node, value) {
+      if (node.id === 'get-started-trigger') {
+        const textNode = [...node.childNodes].find(child => child.nodeType === Node.TEXT_NODE && child.textContent.trim());
+        if (textNode) textNode.textContent = ` ${value} `;
+      } else if (node.id === 'hero-title') {
+        node.childNodes[0].textContent = `${value[0]} `;
+        node.querySelector('span').textContent = value[1];
+      } else if (node.children.length) {
+        const textNode = [...node.childNodes].find(child => child.nodeType === Node.TEXT_NODE && child.textContent.trim());
+        if (textNode) textNode.textContent = `${value} `;
+      } else node.textContent = value;
+    }
+    function applyInterfaceLanguage(language) {
+      const strings = translations[language];
+      document.documentElement.lang = language;
+      document.title = strings.title;
+      document.querySelector('meta[name="description"]').content = strings.description;
+      for (const [selector, key] of Object.entries(translationsBySelector)) {
+        const node = document.querySelector(selector);
+        if (node) replaceVisibleText(node, key === 'getStarted' ? (language === 'km' ? 'ចាប់ផ្តើម' : 'Get Started') : strings[key]);
+      }
+      for (const [selector, keys] of repeatedTranslations) {
+        document.querySelectorAll(selector).forEach((node, index) => strings[keys[index]] !== undefined && replaceVisibleText(node, strings[keys[index]]));
+      }
+      const headline = document.querySelector('#hero-title');
+      headline.childNodes[0].textContent = `${strings.heroFirst} `;
+      headline.querySelector('span').textContent = strings.heroSecond;
+      document.querySelector('.lp-footer-nav').setAttribute('aria-label', strings.footerMenu);
+      document.querySelectorAll('.lp-brand small').forEach(node => { node.textContent = strings.brandTag; });
+      document.querySelectorAll('.lp-brand[aria-label]').forEach(node => { node.setAttribute('aria-label', strings.brandHome); });
+      document.querySelectorAll('.lp-brand img').forEach(node => { node.alt = node.alt ? strings.brandLogo : ''; });
+      const heroMascot=document.querySelector('.lp-hero-mascot');if(heroMascot)heroMascot.alt=strings.heroAlt;
+      document.querySelectorAll('.lp-game img').forEach(node => {
+        const title=node.closest('.lp-game').querySelector('h3')?.textContent || 'Learning game';
+        node.alt=title+' game illustration';
+      });
+      const khmerExample=document.querySelector('#khmer-example-help');if(khmerExample)khmerExample.textContent=strings.khmerExampleHelp;
+      document.querySelector('.lp-start-menu').setAttribute('aria-label', language === 'km' ? 'ចាប់ផ្តើម' : 'Get started');
+      document.querySelector('.lp-final-cta').closest('section').setAttribute('aria-label', strings.explore);
+      languageTrigger.setAttribute('aria-label', language === 'km' ? 'ជ្រើសរើសភាសាចំណុចប្រទាក់' : 'Choose interface language');
+      languageMenu.setAttribute('aria-label', language === 'km' ? 'ភាសាចំណុចប្រទាក់' : 'Interface language');
+      document.querySelector('#language-name').textContent = language === 'km' ? 'ខ្មែរ' : 'English';
+      document.querySelectorAll('#language-samples [data-language]').forEach(sample => { sample.hidden = sample.dataset.language !== language; });
+      languageOptions.forEach(option => {
+        const selected = option.dataset.languageOption === language;
+        option.setAttribute('aria-checked', String(selected));
+        option.querySelector('.lp-language-check').hidden = !selected;
+      });
+      try { localStorage.setItem('qb-interface-language', language); } catch {}
+    }
+    const previousLanguage = (() => {
+      try { return localStorage.getItem('qb-interface-language') || localStorage.getItem('qb-learning-language'); }
+      catch { return null; }
+    })();
+    let currentLanguage = previousLanguage === 'km' ? 'km' : 'en';
+    const closeLanguageMenu = (restoreFocus = false) => {
+      languageMenu.hidden = true;
+      languageTrigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) languageTrigger.focus();
+    };
+    languageTrigger.addEventListener('click', () => {
+      const open = languageTrigger.getAttribute('aria-expanded') !== 'true';
+      languageTrigger.setAttribute('aria-expanded', String(open));
+      languageMenu.hidden = !open;
+      if (open) languageOptions.find(option => option.dataset.languageOption === currentLanguage)?.focus();
+    });
+    languageOptions.forEach(option => option.addEventListener('click', () => {
+      currentLanguage = option.dataset.languageOption;
+      applyInterfaceLanguage(currentLanguage);
+      closeLanguageMenu(true);
+    }));
+    languageMenu.addEventListener('keydown', event => {
+      const index = languageOptions.indexOf(document.activeElement);
+      if (event.key === 'Escape') { event.preventDefault(); closeLanguageMenu(true); }
+      else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        languageOptions[(index + (event.key === 'ArrowDown' ? 1 : languageOptions.length - 1)) % languageOptions.length].focus();
+      } else if (event.key === 'Home' || event.key === 'End') {
+        event.preventDefault(); languageOptions[event.key === 'Home' ? 0 : languageOptions.length - 1].focus();
+      }
+    });
+    document.addEventListener('pointerdown', event => {
+      if (!event.composedPath().includes(document.querySelector('#language-control'))) closeLanguageMenu();
+    });
+    applyInterfaceLanguage(currentLanguage);
+  </script>
+</body>
+</html>

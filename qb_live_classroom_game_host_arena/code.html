@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QB Interactive Learning Kits - Live Classroom Game Room &amp; Host Command Screen</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Google Fonts: Quicksand & Nunito Sans -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config directly adhering to System Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#dbc2b1",
+            "secondary-container": "#83dafe",
+            "outline": "#887365",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#edf0ff",
+            "surface-container-high": "#e2e8fa",
+            "surface-container-highest": "#dde2f4",
+            "inverse-primary": "#ffb780",
+            "surface-dim": "#d4daeb",
+            "background": "#f9f9ff",
+            "on-secondary-fixed": "#001f29",
+            "on-surface-variant": "#554337",
+            "on-tertiary-fixed-variant": "#005232",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f1f3ff",
+            "tertiary-container": "#5ac58e",
+            "primary-container": "#ff983d",
+            "primary-fixed-dim": "#ffb780",
+            "tertiary": "#006c44",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#002111",
+            "on-error-container": "#93000a",
+            "surface-container": "#e8edff",
+            "primary": "#924c00",
+            "on-primary-fixed-variant": "#6f3800",
+            "secondary": "#006783",
+            "secondary-fixed": "#bce9ff",
+            "on-primary-fixed": "#2f1400",
+            "on-surface": "#151c28",
+            "inverse-surface": "#2a303e",
+            "surface-tint": "#924c00",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "on-primary-container": "#6b3600",
+            "on-secondary-fixed-variant": "#004d63",
+            "secondary-fixed-dim": "#7bd2f6",
+            "primary-fixed": "#ffdcc4",
+            "on-secondary-container": "#00607a",
+            "on-background": "#151c28",
+            "on-tertiary-container": "#004f30",
+            "tertiary-fixed": "#8df8bd",
+            "surface-variant": "#dde2f4"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Quicksand", "sans-serif"],
+            "label-sm": ["Nunito Sans", "sans-serif"],
+            "headline-lg-mobile": ["Quicksand", "sans-serif"],
+            "body-sm": ["Nunito Sans", "sans-serif"],
+            "display-hero": ["Quicksand", "sans-serif"],
+            "headline-lg": ["Quicksand", "sans-serif"],
+            "headline-md": ["Quicksand", "sans-serif"],
+            "label-md": ["Nunito Sans", "sans-serif"],
+            "label-lg": ["Nunito Sans", "sans-serif"],
+            "title-md": ["Quicksand", "sans-serif"],
+            "display-hero-mobile": ["Quicksand", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "khmer": ["Kantumruy Pro", "sans-serif"]
+          },
+          fontSize: {
+            "headline-sm": ["22px", { lineHeight: "30px", fontWeight: "600" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "0", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "display-hero": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "800" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "800" }],
+            "title-md": ["18px", { lineHeight: "26px", fontWeight: "700" }],
+            "display-hero-mobile": ["34px", { lineHeight: "42px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Tactical Shadows */
+    .neo-box-shadow {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .neo-box-shadow-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-box-shadow-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .neo-box-shadow-modal {
+      box-shadow: 8px 8px 0px #151c28;
+    }
+
+    /* Chunky physical tap animation */
+    .neo-btn-press {
+      transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .neo-btn-press:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+
+    /* Atmospheric Pattern */
+    .polka-bg {
+      background-color: #e8edff;
+      background-image: radial-gradient(#83dafe 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    /* Countdown stroke animation */
+    @keyframes countdownPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    .timer-beat {
+      animation: countdownPulse 1.2s infinite ease-in-out;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="polka-bg text-on-surface min-h-screen flex flex-col font-body-md select-none overflow-x-hidden">
+<!-- ================= TOP APP BAR (Shared Component Anchor) ================= -->
+<header class="w-full bg-surface-container-lowest border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28] sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center gap-2">
+<!-- Brand & Mascot Logo -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-secondary-container border-2 border-on-surface neo-box-shadow-sm flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface text-3xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">QB Interactive Learning Kits</span>
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full border border-on-surface hidden sm:inline-block">LIVE HOST</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Grade 2 • Phonics &amp; Compound Words</p>
+</div>
+</div>
+<!-- Center Room PIN & QR Join Pill -->
+<div class="flex items-center gap-2 bg-surface-container-low border-2 border-on-surface rounded-xl px-3 py-1.5 neo-box-shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">PIN:</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-extrabold tracking-wider bg-surface-container-lowest px-2.5 py-0.5 rounded-lg border-2 border-on-surface">7482</span>
+<button class="p-1 rounded-lg hover:bg-surface-container-high transition-colors text-on-surface flex items-center justify-center neo-btn-press" id="qrOpenBtn" onclick="toggleQrModal(true)" title="Show QR Code Invite">
+<span class="material-symbols-outlined text-xl" data-icon="qr_code_2">qr_code_2</span>
+</button>
+</div>
+<!-- Right Header Actions (Sound, Roster Counter, & Start Button) -->
+<div class="flex items-center gap-2 sm:gap-3">
+<!-- Live Student Counter Pill -->
+<div class="hidden sm:flex items-center gap-1.5 bg-tertiary-fixed border-2 border-on-surface px-3 py-1.5 rounded-xl neo-box-shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-ping"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary -ml-4"></span>
+<span class="font-label-md text-label-md text-on-tertiary-fixed font-bold">18 Students Joined</span>
+</div>
+<!-- Sound Toggle -->
+<button class="w-10 h-10 rounded-xl bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center neo-box-shadow-sm neo-btn-press hover:bg-surface-container-high" id="soundToggleBtn" onclick="toggleSound()" title="Mute/Unmute Classroom Sound FX">
+<span class="material-symbols-outlined text-on-surface text-xl" data-icon="volume_up" id="soundIcon">volume_up</span>
+</button>
+<!-- Start Game CTA Button (Shared Component Spec: trailing_action_text 'Start Learning' customized to Host Game context) -->
+<button class="bg-primary-container text-on-surface font-label-lg text-label-lg font-bold px-4 md:px-6 py-2.5 rounded-xl border-2 border-on-surface neo-box-shadow neo-btn-press flex items-center gap-2" id="hostStartGameBtn" onclick="triggerHostAction('Game Resumed &amp; Timer Rolling!')">
+<span class="material-symbols-outlined font-bold" data-icon="play_arrow">play_arrow</span>
+<span>Start Learning</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MAIN VIEWPORT CONTENT (CANVAS LAYOUT) ================= -->
+<main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-4 pb-24 md:pb-8">
+<!-- LEFT COLUMN: LIVE ROSTER & MISSION CONTROL (Lg: 3 cols) -->
+<aside class="lg:col-span-3 flex flex-col gap-4 order-2 lg:order-1">
+<!-- Student Presence Dock -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-on-surface neo-box-shadow p-3.5 flex flex-col h-fit">
+<div class="flex items-center justify-between pb-2 mb-2 border-b-2 border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary font-bold text-xl" data-icon="groups">groups</span>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">Class Roster</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full border border-on-surface">18 / 20</span>
+</div>
+<!-- Student Micro-Avatar Badge Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 max-h-[320px] overflow-y-auto pr-1">
+<!-- Student Card: Leo (Answered) -->
+<div class="bg-surface-container-low rounded-xl p-2 border-2 border-on-surface flex items-center gap-2 neo-box-shadow-sm relative">
+<div class="w-8 h-8 rounded-full bg-primary-fixed border border-on-surface flex items-center justify-center font-bold text-xs text-on-primary-fixed">🦁</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface truncate font-bold">Leo M.</p>
+<span class="text-[10px] text-tertiary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Ready</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Student Card: Sam (Thinking) -->
+<div class="bg-surface-container-low rounded-xl p-2 border-2 border-on-surface flex items-center gap-2 neo-box-shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed border border-on-surface flex items-center justify-center font-bold text-xs text-on-secondary-fixed">🚀</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface truncate font-bold">Sam T.</p>
+<span class="text-[10px] text-primary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span> Picking</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm animate-spin" data-icon="progress_activity">progress_activity</span>
+</div>
+<!-- Student Card: Dara (Answered) -->
+<div class="bg-surface-container-low rounded-xl p-2 border-2 border-on-surface flex items-center gap-2 neo-box-shadow-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed border border-on-surface flex items-center justify-center font-bold text-xs text-on-tertiary-fixed">🐯</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface truncate font-bold">Dara K.</p>
+<span class="text-[10px] text-tertiary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Ready</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Student Card: Bopha (Answered) -->
+<div class="bg-surface-container-low rounded-xl p-2 border-2 border-on-surface flex items-center gap-2 neo-box-shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-on-surface flex items-center justify-center font-bold text-xs text-on-surface">🌸</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface truncate font-bold">Bopha S.</p>
+<span class="text-[10px] text-tertiary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Ready</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Student Card: Kim (Thinking) -->
+<div class="bg-surface-container-low rounded-xl p-2 border-2 border-on-surface flex items-center gap-2 neo-box-shadow-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed border border-on-surface flex items-center justify-center font-bold text-xs text-on-primary-fixed">⚡</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface truncate font-bold">Kim L.</p>
+<span class="text-[10px] text-primary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Picking</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm animate-spin" data-icon="progress_activity">progress_activity</span>
+</div>
+<!-- Student Card: Sophie (Answered) -->
+<div class="bg-surface-container-low rounded-xl p-2 border-2 border-on-surface flex items-center gap-2 neo-box-shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed border border-on-surface flex items-center justify-center font-bold text-xs text-on-secondary-fixed">🎨</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface truncate font-bold">Sophie R.</p>
+<span class="text-[10px] text-tertiary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Ready</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t-2 border-surface-container flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Class Submissions:</span>
+<span class="font-label-sm text-label-sm font-extrabold text-on-surface">14 / 18 (78%)</span>
+</div>
+</section>
+<!-- Ship Battle Fleet Status Mini-Panel -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-on-surface neo-box-shadow p-3.5">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="sailing">sailing</span>
+<span class="font-title-md text-title-md font-bold">Fleet Points</span>
+</div>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full border border-on-surface">Round 3/5</span>
+</div>
+<div class="space-y-2">
+<!-- Team Red Pirate -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="font-bold flex items-center gap-1">⛵ Red Galleon</span>
+<span class="font-extrabold text-primary">850 XP</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 border-2 border-on-surface overflow-hidden">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 75%"></div>
+</div>
+</div>
+<!-- Team Blue Frigate -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="font-bold flex items-center gap-1">⚓ Blue Nautilus</span>
+<span class="font-extrabold text-secondary">920 XP</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-3 border-2 border-on-surface overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full transition-all duration-500" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</section>
+</aside>
+<!-- CENTER & RIGHT COLUMN: GAME STAGE ARENA (Lg: 9 cols) -->
+<section class="lg:col-span-9 flex flex-col gap-4 order-1 lg:order-2">
+<!-- ARENA TOP: Mascot speech & Bilingual Live Question Banner -->
+<div class="bg-surface-container-lowest rounded-2xl border-2 border-on-surface neo-box-shadow p-4 sm:p-5 relative overflow-hidden">
+<!-- Top accent banner bar -->
+<div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b-2 border-on-surface">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-surface font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg border-2 border-on-surface neo-box-shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="auto_stories">auto_stories</span>
+              Phonics Challenge #3
+            </span>
+<span class="bg-primary-fixed text-on-surface font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg border-2 border-on-surface hidden sm:inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="military_tech">military_tech</span>
+              Double XP Multiplier
+            </span>
+</div>
+<!-- Tactile Countdown Timer Ring -->
+<div class="flex items-center gap-2 bg-surface-container-low border-2 border-on-surface px-3 py-1 rounded-xl neo-box-shadow-sm timer-beat">
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="14" stroke="#dde2f4" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="14" stroke="#ff983d" stroke-dasharray="88" stroke-dashoffset="26" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<span class="material-symbols-outlined text-primary text-xs absolute" data-icon="timer">timer</span>
+</div>
+<div class="leading-none">
+<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface" id="countdownNumber">25s</span>
+<span class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Remaining</span>
+</div>
+</div>
+</div>
+<!-- Mascot Dialog + Khmer-English Question -->
+<div class="flex items-start gap-3 sm:gap-4">
+<!-- Mascot Character Avatar with Speech Anchor -->
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-secondary-container border-2 border-on-surface neo-box-shadow-sm flex-shrink-0 flex items-center justify-center relative">
+<span aria-label="Owl Mascot" class="text-3xl sm:text-4xl" role="img">🦉</span>
+<div class="absolute -bottom-1 -right-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-extrabold px-1.5 rounded-full border border-on-surface">
+              Host
+            </div>
+</div>
+<!-- Question Content with Dual Language Clarity -->
+<div class="flex-1">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">
+              Which two words make a compound word?
+            </h1>
+<p class="font-khmer text-title-md text-secondary font-bold mt-1 leading-relaxed">
+              តើពាក្យពីរណាខ្លះផ្គុំគ្នាបង្កើតបានជាពាក្យថ្មីមួយ?
+            </p>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE GAME ARENA: Ship Battle & Wheel Arena -->
+<div class="bg-secondary-fixed/40 rounded-2xl border-2 border-on-surface neo-box-shadow p-4 sm:p-5 flex flex-col relative min-h-[160px] justify-between">
+<div class="flex items-center justify-between pb-2 mb-2 border-b-2 border-on-surface/20">
+<span class="font-label-md text-label-md font-bold flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="sailing">sailing</span>
+            Arena Stage: Sea Storm &amp; Island Discovery
+          </span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2 py-0.5 rounded-md border border-on-surface text-on-surface font-bold">
+            Live Interactive View
+          </span>
+</div>
+<!-- Arena Illustration Graphics & Battle Visualizer -->
+<div class="relative w-full h-36 sm:h-44 bg-surface-container-lowest rounded-xl border-2 border-on-surface overflow-hidden flex items-center justify-between px-6 neo-box-shadow-sm">
+<!-- Background decorative waves -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #006783 0, #006783 2px, transparent 0, transparent 16px);"></div>
+<!-- Left Ship (Red Pirate) -->
+<div class="relative z-10 flex flex-col items-center animate-bounce" style="animation-duration: 2.4s;">
+<div class="text-4xl sm:text-5xl">⛵</div>
+<span class="bg-primary-container text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full border border-on-surface mt-1 font-bold">
+              Team Sun ☀️
+            </span>
+</div>
+<!-- Center Animated Mystery Wheel / Target Island -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-secondary-container border-2 border-on-surface neo-box-shadow-sm flex items-center justify-center relative cursor-pointer hover:rotate-45 transition-transform duration-300" onclick="triggerHostAction('Name Wheel Spun!')">
+<span class="material-symbols-outlined text-on-surface text-3xl sm:text-4xl" data-icon="explore">explore</span>
+<span class="absolute -top-2 -right-2 bg-primary-container text-on-surface text-[10px] font-bold px-1.5 rounded-full border border-on-surface">SPIN</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold mt-1">Treasure Cove</span>
+</div>
+<!-- Right Ship (Blue Galleon) -->
+<div class="relative z-10 flex flex-col items-center animate-bounce" style="animation-duration: 2.8s;">
+<div class="text-4xl sm:text-5xl">⚓</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full border border-on-surface mt-1 font-bold">
+              Team Rain 🌧️
+            </span>
+</div>
+</div>
+</div>
+<!-- 4 LARGE ANSWER OPTION BLOCKS (2px ink navy outlines & offset shadows) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<!-- Option A: Sun + Shine = Sunshine (Correct Answer) -->
+<button class="group text-left bg-surface-container-lowest hover:bg-surface-container-low border-2 border-on-surface rounded-2xl p-4 neo-box-shadow neo-btn-press relative flex flex-col justify-between transition-all" onclick="handleAnswerSelection('Option A', true)">
+<div class="flex items-center justify-between mb-2">
+<span class="w-8 h-8 rounded-xl bg-secondary-container border-2 border-on-surface font-headline-sm text-headline-sm flex items-center justify-center font-bold text-on-surface">A</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold bg-surface-container px-2 py-0.5 rounded-lg border border-on-surface">
+              8 votes (57%)
+            </span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+<span>Sun + Shine</span>
+<span class="text-secondary font-extrabold">=</span>
+<span class="bg-primary-fixed px-2 py-0.5 rounded-lg border border-on-surface">Sunshine</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 font-semibold">☀️ Two small words combined into one</p>
+</div>
+<!-- Live Vote Progress Bar inside card -->
+<div class="w-full bg-surface-container rounded-full h-2.5 border border-on-surface mt-3 overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 57%"></div>
+</div>
+</button>
+<!-- Option B: Rain + Bow = Rainbow (Another Compound Word example / alternative) -->
+<button class="group text-left bg-surface-container-lowest hover:bg-surface-container-low border-2 border-on-surface rounded-2xl p-4 neo-box-shadow neo-btn-press relative flex flex-col justify-between transition-all" onclick="handleAnswerSelection('Option B', true)">
+<div class="flex items-center justify-between mb-2">
+<span class="w-8 h-8 rounded-xl bg-tertiary-fixed border-2 border-on-surface font-headline-sm text-headline-sm flex items-center justify-center font-bold text-on-surface">B</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold bg-surface-container px-2 py-0.5 rounded-lg border border-on-surface">
+              5 votes (35%)
+            </span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+<span>Rain + Bow</span>
+<span class="text-tertiary font-extrabold">=</span>
+<span class="bg-tertiary-fixed px-2 py-0.5 rounded-lg border border-on-surface">Rainbow</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 font-semibold">🌈 Sky colors joined together</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2.5 border border-on-surface mt-3 overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 35%"></div>
+</div>
+</button>
+<!-- Option C: Book + Read (Distractor) -->
+<button class="group text-left bg-surface-container-lowest hover:bg-surface-container-low border-2 border-on-surface rounded-2xl p-4 neo-box-shadow neo-btn-press relative flex flex-col justify-between transition-all" onclick="handleAnswerSelection('Option C', false)">
+<div class="flex items-center justify-between mb-2">
+<span class="w-8 h-8 rounded-xl bg-surface-container border-2 border-on-surface font-headline-sm text-headline-sm flex items-center justify-center font-bold text-on-surface">C</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold bg-surface-container px-2 py-0.5 rounded-lg border border-on-surface">
+              1 vote (7%)
+            </span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+<span>Book + Read</span>
+<span class="text-on-surface-variant font-extrabold">≠</span>
+<span class="text-on-surface-variant italic">Not Compound</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 font-semibold">📖 An action phrase, not a new word</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2.5 border border-on-surface mt-3 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 7%"></div>
+</div>
+</button>
+<!-- Option D: Dog + Bark (Distractor) -->
+<button class="group text-left bg-surface-container-lowest hover:bg-surface-container-low border-2 border-on-surface rounded-2xl p-4 neo-box-shadow neo-btn-press relative flex flex-col justify-between transition-all" onclick="handleAnswerSelection('Option D', false)">
+<div class="flex items-center justify-between mb-2">
+<span class="w-8 h-8 rounded-xl bg-surface-container border-2 border-on-surface font-headline-sm text-headline-sm flex items-center justify-center font-bold text-on-surface">D</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold bg-surface-container px-2 py-0.5 rounded-lg border border-on-surface">
+              0 votes (0%)
+            </span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+<span>Dog + Bark</span>
+<span class="text-on-surface-variant font-extrabold">≠</span>
+<span class="text-on-surface-variant italic">Not Compound</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 font-semibold">🐕 An animal sound, not a compound noun</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2.5 border border-on-surface mt-3 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 0%"></div>
+</div>
+</button>
+</div>
+<!-- TEACHER HOST QUICK TOOLS COMMAND BAR -->
+<div class="bg-surface-container-lowest rounded-2xl border-2 border-on-surface neo-box-shadow p-3 sm:p-4 flex flex-wrap items-center justify-between gap-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-bold text-2xl" data-icon="construction">construction</span>
+<span class="font-title-md text-title-md font-bold hidden sm:inline-block">Host Command:</span>
+</div>
+<!-- Tool Buttons Cluster -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Name Wheel Randomizer -->
+<button class="bg-secondary-fixed hover:bg-secondary-container text-on-secondary-fixed font-label-md text-label-md font-bold px-3 py-2 rounded-xl border-2 border-on-surface neo-box-shadow-sm neo-btn-press flex items-center gap-1.5" onclick="triggerHostAction('Name Wheel: Leo Selected!')">
+<span class="material-symbols-outlined text-lg" data-icon="casino">casino</span>
+<span>Name Wheel Randomizer</span>
+</button>
+<!-- Pause Timer -->
+<button class="bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-bold px-3 py-2 rounded-xl border-2 border-on-surface neo-box-shadow-sm neo-btn-press flex items-center gap-1.5" id="pauseTimerBtn" onclick="togglePauseTimer()">
+<span class="material-symbols-outlined text-lg" data-icon="pause" id="pauseIcon">pause</span>
+<span id="pauseText">Pause Timer</span>
+</button>
+<!-- Reveal Answer -->
+<button class="bg-tertiary-fixed hover:bg-tertiary-container text-on-tertiary-fixed font-label-md text-label-md font-bold px-3 py-2 rounded-xl border-2 border-on-surface neo-box-shadow-sm neo-btn-press flex items-center gap-1.5" onclick="revealHostAnswer()">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+<span>Reveal Answer</span>
+</button>
+<!-- Skip Question -->
+<button class="bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-bold px-3 py-2 rounded-xl border-2 border-on-surface neo-box-shadow-sm neo-btn-press flex items-center gap-1.5" onclick="triggerHostAction('Question Skipped to #4')">
+<span class="material-symbols-outlined text-lg" data-icon="skip_next">skip_next</span>
+<span>Skip Question</span>
+</button>
+<!-- Show Leaderboard -->
+<button class="bg-primary-fixed hover:bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold px-3.5 py-2 rounded-xl border-2 border-on-surface neo-box-shadow-sm neo-btn-press flex items-center gap-1.5" onclick="toggleLeaderboardModal(true)">
+<span class="material-symbols-outlined text-lg" data-icon="military_tech">military_tech</span>
+<span>Show Leaderboard</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= BOTTOM NAVIGATION BAR (Shared Component Anchor) ================= -->
+<!-- Present for mobile quick switching while matching the semantic schema -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface bg-surface-container-lowest shadow-[0_-4px_0_0_#151c28]">
+<!-- Tab 1: Play (Active on this screen) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]" href="#play">
+<span class="material-symbols-outlined text-xl" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md font-bold">Play</span>
+</a>
+<!-- Tab 2: Subjects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-low transition-colors" href="#subjects">
+<span class="material-symbols-outlined text-xl" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md">Subjects</span>
+</a>
+<!-- Tab 3: Quests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-low transition-colors" href="#quests">
+<span class="material-symbols-outlined text-xl" data-icon="explore">explore</span>
+<span class="font-label-md text-label-md">Quests</span>
+</a>
+<!-- Tab 4: Badges -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-low transition-colors" href="#badges">
+<span class="material-symbols-outlined text-xl" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-label-md">Badges</span>
+</a>
+</nav>
+<!-- ================= QR CODE INVITE MODAL ================= -->
+<div class="fixed inset-0 z-50 bg-[#202633]/50 backdrop-blur-[2px] hidden items-center justify-center p-4" id="qrModal">
+<div class="bg-surface-container-lowest w-full max-w-sm rounded-2xl border-2 border-on-surface neo-box-shadow-modal p-6 relative flex flex-col items-center text-center">
+<button class="absolute top-3 right-3 w-8 h-8 rounded-lg bg-surface-container border-2 border-on-surface flex items-center justify-center neo-btn-press" onclick="toggleQrModal(false)" title="Close QR Dialog">
+<span class="material-symbols-outlined text-on-surface text-base" data-icon="close">close</span>
+</button>
+<div class="w-12 h-12 rounded-full bg-secondary-container border-2 border-on-surface flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="qr_code_2">qr_code_2</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Scan &amp; Join Room</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4">Open QB Interactive Learning Kits app on tablet or scan with camera.</p>
+<!-- Chunky QR Mock Graphic -->
+<div class="w-48 h-48 bg-surface-container rounded-2xl border-2 border-on-surface neo-box-shadow p-3 flex flex-col items-center justify-center gap-2">
+<div class="w-full h-full bg-surface-container-lowest border-2 border-on-surface rounded-xl p-2 flex flex-col items-center justify-center relative">
+<!-- Stylized Mock QR Pattern -->
+<div class="grid grid-cols-5 gap-1.5 w-32 h-32">
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-transparent"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-transparent"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-transparent"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-secondary text-center text-[10px] font-bold text-on-secondary rounded flex items-center justify-center">🦉</div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-transparent"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-transparent"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-transparent"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+<div class="bg-on-surface rounded-sm"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 bg-primary-fixed border-2 border-on-surface rounded-xl px-4 py-2 w-full flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-fixed font-bold">Room PIN Code</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-on-primary-fixed">7482</span>
+</div>
+</div>
+</div>
+<!-- ================= LEADERBOARD FLYOUT MODAL ================= -->
+<div class="fixed inset-0 z-50 bg-[#202633]/50 backdrop-blur-[2px] hidden items-center justify-center p-4" id="leaderboardModal">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-2xl border-2 border-on-surface neo-box-shadow-modal p-5 sm:p-6 relative">
+<button class="absolute top-3 right-3 w-8 h-8 rounded-lg bg-surface-container border-2 border-on-surface flex items-center justify-center neo-btn-press" onclick="toggleLeaderboardModal(false)" title="Close Leaderboard">
+<span class="material-symbols-outlined text-on-surface text-base" data-icon="close">close</span>
+</button>
+<div class="flex items-center gap-2.5 mb-4">
+<span class="material-symbols-outlined text-primary text-3xl font-bold" data-icon="military_tech">military_tech</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Live Class Standings</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Top Explorers • Question 3</p>
+</div>
+</div>
+<!-- Top 3 Podium Cards -->
+<div class="space-y-2 mb-4">
+<div class="bg-primary-fixed/40 border-2 border-on-surface rounded-xl p-2.5 flex items-center justify-between neo-box-shadow-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary-container border border-on-surface flex items-center justify-center font-bold text-xs">1</span>
+<span class="text-xl">🐯</span>
+<div>
+<p class="font-label-md text-label-md font-bold">Dara K.</p>
+<p class="text-[11px] text-tertiary font-bold">3 Streak 🔥</p>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary">1,240 pts</span>
+</div>
+<div class="bg-surface-container-low border-2 border-on-surface rounded-xl p-2.5 flex items-center justify-between neo-box-shadow-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-secondary-container border border-on-surface flex items-center justify-center font-bold text-xs">2</span>
+<span class="text-xl">🌸</span>
+<div>
+<p class="font-label-md text-label-md font-bold">Bopha S.</p>
+<p class="text-[11px] text-tertiary font-bold">2 Streak 🔥</p>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm font-extrabold text-secondary">1,180 pts</span>
+</div>
+<div class="bg-surface-container-low border-2 border-on-surface rounded-xl p-2.5 flex items-center justify-between neo-box-shadow-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-on-surface flex items-center justify-center font-bold text-xs">3</span>
+<span class="text-xl">🦁</span>
+<div>
+<p class="font-label-md text-label-md font-bold">Leo M.</p>
+<p class="text-[11px] text-tertiary font-bold">Fastest Answer ⚡</p>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">1,090 pts</span>
+</div>
+</div>
+<button class="w-full bg-tertiary-fixed text-on-tertiary-fixed font-label-lg text-label-lg font-bold py-2.5 rounded-xl border-2 border-on-surface neo-box-shadow-sm neo-btn-press" onclick="toggleLeaderboardModal(false)">
+        Return to Arena
+      </button>
+</div>
+</div>
+<!-- Notification Toast -->
+<div class="fixed top-20 right-4 z-50 bg-surface-container-lowest border-2 border-on-surface neo-box-shadow-lg px-4 py-2.5 rounded-xl hidden items-center gap-2 transition-all" id="toastNotification">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+<span class="font-label-md text-label-md font-bold text-on-surface" id="toastMsg">Action completed</span>
+</div>
+<!-- ================= INLINE LOGIC FOR INTERACTIVITY ================= -->
+<script>
+    // State variables
+    let isSoundOn = true;
+    let isTimerRunning = true;
+    let timerSeconds = 25;
+    let countdownInterval = null;
+
+    // Countdown logic
+    function startCountdown() {
+      if (countdownInterval) clearInterval(countdownInterval);
+      countdownInterval = setInterval(() => {
+        if (isTimerRunning && timerSeconds > 0) {
+          timerSeconds--;
+          const timerEl = document.getElementById('countdownNumber');
+          if (timerEl) {
+            timerEl.textContent = timerSeconds + 's';
+          }
+          if (timerSeconds === 0) {
+            clearInterval(countdownInterval);
+            showToast("Time's Up! Collect Answers!");
+          }
+        }
+      }, 1000);
+    }
+    startCountdown();
+
+    // Toggle Sound FX
+    function toggleSound() {
+      isSoundOn = !isSoundOn;
+      const soundIcon = document.getElementById('soundIcon');
+      soundIcon.textContent = isSoundOn ? 'volume_up' : 'volume_off';
+      showToast(isSoundOn ? "Sound Effects ON" : "Sound Effects MUTED");
+    }
+
+    // Toggle Pause/Play Timer
+    function togglePauseTimer() {
+      isTimerRunning = !isTimerRunning;
+      const pauseIcon = document.getElementById('pauseIcon');
+      const pauseText = document.getElementById('pauseText');
+      if (isTimerRunning) {
+        pauseIcon.textContent = 'pause';
+        pauseText.textContent = 'Pause Timer';
+        showToast("Timer Resumed");
+      } else {
+        pauseIcon.textContent = 'play_arrow';
+        pauseText.textContent = 'Resume Timer';
+        showToast("Timer Paused");
+      }
+    }
+
+    // Modal Handlers
+    function toggleQrModal(show) {
+      const modal = document.getElementById('qrModal');
+      modal.style.display = show ? 'flex' : 'none';
+    }
+
+    function toggleLeaderboardModal(show) {
+      const modal = document.getElementById('leaderboardModal');
+      modal.style.display = show ? 'flex' : 'none';
+    }
+
+    // Host Action Trigger
+    function triggerHostAction(msg) {
+      showToast(msg);
+    }
+
+    // Reveal correct answers highlighting
+    function revealHostAnswer() {
+      showToast("Correct Compound Words: Sun+Shine & Rain+Bow!");
+    }
+
+    // Answer click behavior
+    function handleAnswerSelection(optionName, isCorrect) {
+      if (isCorrect) {
+        showToast(optionName + " is a Compound Word! +100 XP!");
+      } else {
+        showToast(optionName + " is not a compound word. Try again!");
+      }
+    }
+
+    // Toast messenger
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const msg = document.getElementById('toastMsg');
+      msg.textContent = message;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2600);
+    }
+  </script>
+</body></html>

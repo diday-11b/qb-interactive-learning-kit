@@ -1,0 +1,16 @@
+{
+  "name": "qb-interactive-learning-kits",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QB Interactive Learning Kits static learning games and classroom tools",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node scripts/check.mjs",
+    "preview": "node scripts/preview.mjs",
+    "verify:build": "node scripts/verify-build.mjs"
+  }
+}

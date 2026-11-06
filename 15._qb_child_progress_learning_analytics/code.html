@@ -1,0 +1,788 @@
+<!DOCTYPE html><html lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QB Interactive Learning Kits — Child Progress &amp; Learning Analytics</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Google Fonts: Quicksand & Nunito Sans -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN with forms/container plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#e8edff",
+            "inverse-surface": "#2a303e",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#00607a",
+            "on-tertiary-fixed": "#002111",
+            "surface-container-high": "#e2e8fa",
+            "outline": "#887365",
+            "inverse-on-surface": "#edf0ff",
+            "on-surface": "#151c28",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#ffb780",
+            "tertiary-container": "#5ac58e",
+            "primary-fixed-dim": "#ffb780",
+            "surface-dim": "#d4daeb",
+            "on-surface-variant": "#554337",
+            "secondary-container": "#83dafe",
+            "on-background": "#151c28",
+            "secondary": "#006783",
+            "surface-tint": "#924c00",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#6f3800",
+            "surface-container-highest": "#dde2f4",
+            "on-error-container": "#93000a",
+            "background": "#f9f9ff",
+            "on-primary-container": "#6b3600",
+            "error-container": "#ffdad6",
+            "primary-container": "#ff983d",
+            "tertiary": "#006c44",
+            "surface-bright": "#f9f9ff",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#2f1400",
+            "surface-variant": "#dde2f4",
+            "outline-variant": "#dbc2b1",
+            "primary-fixed": "#ffdcc4",
+            "secondary-fixed-dim": "#7bd2f6",
+            "surface": "#f9f9ff",
+            "primary": "#924c00",
+            "surface-container-low": "#f1f3ff",
+            "on-secondary-fixed": "#001f29",
+            "secondary-fixed": "#bce9ff",
+            "on-tertiary-container": "#004f30",
+            "on-tertiary-fixed-variant": "#005232",
+            "tertiary-fixed": "#8df8bd",
+            "on-secondary-fixed-variant": "#004d63",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2.25rem",
+            "gutter": "1.25rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "label-md": ["Nunito Sans"],
+            "headline-md": ["Quicksand"],
+            "label-sm": ["Nunito Sans"],
+            "display-hero-mobile": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "headline-lg-mobile": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "label-lg": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"],
+            "title-md": ["Quicksand"],
+            "headline-sm": ["Quicksand"],
+            "display-hero": ["Quicksand"]
+          },
+          "fontSize": {
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Soft Pop Custom Utilities */
+    .neo-border {
+      border: 2px solid #151c28;
+    }
+    .neo-shadow {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .neo-shadow-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-shadow-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .neo-press {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .neo-press:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28 !important;
+    }
+    .neo-press-nav:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #151c28 !important;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+<link href="/assets/qb-progress-report.css" rel="stylesheet">
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-16 selection:bg-secondary-container selection:text-on-surface">
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<header class="bg-surface-container-lowest border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28] sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-4 md:px-8 py-3 max-w-7xl mx-auto">
+<!-- Brand & Parent Identity Cluster -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-primary-container neo-border neo-shadow-sm flex items-center justify-center text-on-surface overflow-hidden">
+<span class="material-symbols-outlined text-[26px]">smart_toy</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">QB Learning Kits</span>
+<span class="bg-[#FFF0A8] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface shadow-[2px_2px_0_0_#151c28]">
+            PARENTS &amp; PROGRESS
+          </span>
+</div>
+</div>
+<!-- Navigation & Filters Cluster -->
+<div class="hidden md:flex items-center gap-4">
+<!-- Date Selector -->
+<div class="flex items-center gap-2 bg-surface-container-low neo-border rounded-xl px-3 py-1.5 shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-secondary text-[20px]">calendar_month</span>
+<span class="text-label-md font-label-md text-on-surface">Past 30 Days (Oct 1 - Oct 31)</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<!-- Export CTA -->
+<button class="bg-surface-container-lowest hover:bg-surface-container-high text-on-surface neo-border rounded-xl px-3 py-1.5 flex items-center gap-1.5 text-label-md font-label-md shadow-[3px_3px_0_0_#151c28] neo-press">
+<span class="material-symbols-outlined text-[18px]">download</span>
+          Export Data
+        </button>
+</div>
+<!-- Trailing Action / Child Profile Capsule -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2.5 bg-secondary-fixed neo-border rounded-2xl p-1.5 pr-3 shadow-[2px_2px_0_0_#151c28]">
+<img class="w-8 h-8 rounded-xl object-cover neo-border" data-alt="Playful vibrant illustrated 3D character portrait avatar of a cheerful young elementary student girl named Maya with curly hair, wearing cute star-shaped hairpins, bright joyful smile, set against a soft pastel sky blue round backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOC4uElnFY7fSP8DfUtO9HlDzq88Tz6HaBBHvAth8mSxu1VEVioZoKB5L4IQYhrk5dbp_IRa4JvHCC6LobB_pZ1kv95kfjO0Pcht5JQDi5m4YDa-YrYsTIgNnZ3-EG-S_AoikCQ8sMyiH9ROc8uFuwOfvS6SpnumZJuNZn8rWROF41YZsWEVqXVnfhye1rDDJkkksc8Yil-aXMyK7o1HuaAveowJ33yCj6YP2JyQbcXumP2JS_KNBoHQ">
+<div class="flex flex-col text-left leading-tight">
+<span class="text-label-md font-label-md text-on-surface">Maya R.</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold">Grade 2</span>
+</div>
+</div>
+<button class="bg-primary-container text-on-surface neo-border rounded-xl px-4 py-2 font-label-md text-label-md shadow-[3px_3px_0_0_#151c28] neo-press flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="">Start Learning</span>
+</button>
+</div>
+</div>
+</header>
+<!-- SUB-HEADER: Breadcrumb & Context Navigation -->
+<div class="max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-2">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">Parent Portal</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded-md text-on-surface neo-border">Maya R.</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Detailed Skill Mastery &amp; Progress</span>
+</nav>
+<!-- Grade 2 Curriculum Badge -->
+<div class="flex items-center gap-2 self-start md:self-auto">
+<div class="bg-tertiary-fixed neo-border px-3 py-1 rounded-full text-label-sm font-label-sm text-on-tertiary-fixed shadow-[2px_2px_0_0_#151c28] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="">Curriculum Standards Aligned (Grade 2 Common Core)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN CANVAS -->
+<main class="max-w-7xl mx-auto px-4 md:px-8 pt-4 space-y-6">
+<!-- 1. MASTERY OVERVIEW BANNER (Bento / Asymmetrical Layout) -->
+<section class="bg-surface-container-lowest neo-border rounded-2xl p-6 md:p-8 neo-shadow relative overflow-hidden">
+<!-- Decorative background playful blobs / pills -->
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-secondary-container opacity-40 blur-xl pointer-events-none"></div>
+<div class="absolute right-36 -bottom-10 w-36 h-36 rounded-full bg-primary-fixed opacity-60 blur-lg pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<!-- Score & Mascot Callout Column -->
+<div class="lg:col-span-4 flex items-center gap-5 border-b lg:border-b-0 lg:border-r-2 border-on-surface/20 pb-5 lg:pb-0 lg:pr-6">
+<!-- Circular Accuracy Meter -->
+<div class="relative w-28 h-28 flex-shrink-0 flex items-center justify-center bg-surface-container-low rounded-full neo-border neo-shadow-sm">
+<svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#dde2f4" stroke-width="9"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#ff983d" stroke-dasharray="251.2" stroke-dashoffset="22.6" stroke-linecap="round" stroke-width="9"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-headline-md font-headline-md text-on-surface font-extrabold leading-none">91%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold">Accuracy</span>
+</div>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">MONTHLY MILESTONE</span>
+<h1 class="text-headline-sm font-headline-sm text-on-surface font-bold leading-tight mt-0.5">Maya is Crushing Grade 2!</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">420 interactive questions solved across 18 learning sessions.</p>
+</div>
+</div>
+<!-- Progress Metrics & Alignment Bar -->
+<div class="lg:col-span-5 space-y-3">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-title-md font-title-md text-on-surface font-bold">Grade 2 Curriculum Alignment</span>
+<span class="text-label-lg font-label-lg text-primary font-extrabold bg-primary-fixed neo-border px-2.5 py-0.5 rounded-lg shadow-[2px_2px_0_0_#151c28]">78% Completed</span>
+</div>
+<!-- Chunky Meter Bar -->
+<div class="w-full h-5 bg-surface-container neo-border rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-tertiary-container rounded-full border-r-2 border-on-surface transition-all duration-500" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Quick Stats Row -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="bg-surface-container-low neo-border rounded-xl p-2.5 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#FFAAA9] neo-border flex items-center justify-center text-on-surface shadow-[1px_1px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Daily Learning Streak</div>
+<div class="text-label-lg font-label-lg text-on-surface font-extrabold">12 Days Active</div>
+</div>
+</div>
+<div class="bg-surface-container-low neo-border rounded-xl p-2.5 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#FFF0A8] neo-border flex items-center justify-center text-on-surface shadow-[1px_1px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Total Stars Earned</div>
+<div class="text-label-lg font-label-lg text-on-surface font-extrabold">1,480 Stars</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Superstars & Growth Pillows -->
+<div class="lg:col-span-3 space-y-2.5 bg-surface-container-low neo-border rounded-xl p-3.5 shadow-[2px_2px_0_0_#151c28]">
+<!-- Strength Callout -->
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<span class="text-label-sm font-label-sm text-tertiary font-bold block">Superstar at:</span>
+<p class="text-body-sm font-body-sm text-on-surface font-bold leading-snug">Phonics Blends, Sight Words, Double-digit Addition</p>
+</div>
+</div>
+<div class="border-t-2 border-on-surface/15 pt-2 flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">crisis_alert</span>
+<div>
+<span class="text-label-sm font-label-sm text-primary font-bold block">Needs Practice:</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-semibold leading-snug">Silent Letters (kn, wr) and 3D Shape Vertices</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SUBJECT MASTERY BREAKDOWN (2-Column Asymmetric Deep Dive) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- COLUMN 1: Reading & Phonics Fluency -->
+<section class="bg-surface-container-lowest neo-border rounded-2xl neo-shadow overflow-hidden flex flex-col justify-between">
+<div>
+<!-- Header Banner -->
+<div class="bg-[#E7D8FF] p-4 border-b-2 border-on-surface flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest neo-border flex items-center justify-center neo-shadow-sm">
+<span class="material-symbols-outlined text-[#683ab7]">auto_stories</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">LITERACY DOMAIN</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-bold">Reading &amp; Phonics Fluency</h2>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-on-surface font-extrabold">88%</span>
+<span class="block text-label-sm font-label-sm text-on-surface-variant font-bold">Overall Mastery</span>
+</div>
+</div>
+<!-- Skills Drilldown -->
+<div class="p-5 md:p-6 space-y-4">
+<!-- Skill Item 1 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Compound Words</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#7DE8AE] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">Mastered</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">96%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest neo-border rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 96%;"></div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Instant recognition of words like <em>sunflower, pancake, backpack</em>.</div>
+</div>
+<!-- Skill Item 2 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Consonant Blends (sh, ch, th)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#7DE8AE] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">Mastered</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">94%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest neo-border rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 94%;"></div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Solid phonemic segmentation with 98% auditory accuracy.</div>
+</div>
+<!-- Skill Item 3 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">trending_up</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Vowel Teams (oa, ea, ai)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-secondary-fixed neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">Proficient</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">85%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest neo-border rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 85%;"></div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Excelling in reading; minor hesitations on complex 'ea' vowel switches.</div>
+</div>
+<!-- Skill Item 4 (Needs Practice Focus with Action Button) -->
+<div class="bg-[#FFF6E9] neo-border rounded-xl p-4 space-y-3 neo-shadow-sm border-primary">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">flag_circle</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Silent Blends (kn, wr, gn)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#FFAAA9] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">Needs Practice</span>
+<span class="text-label-md font-label-md text-primary font-extrabold">64%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container neo-border rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 64%;"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Confuses silent letter starts (e.g. spelling <em>knight</em> as <em>nite</em>, <em>write</em> as <em>rite</em>).</p>
+<!-- Direct Booster Action -->
+<div class="pt-1 flex items-center justify-between flex-wrap gap-2">
+<span class="text-label-sm font-label-sm text-primary font-bold">Suggested Quick Fix:</span>
+<button class="bg-primary-container hover:bg-inverse-primary text-on-surface neo-border rounded-xl px-3 py-1.5 text-label-md font-label-md shadow-[3px_3px_0_0_#151c28] neo-press flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+                  Play 3-Min Alien Spelling Booster
+                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 border-t-2 border-on-surface flex justify-between items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="">Lexile Equivalent: <strong>BR320L</strong></span>
+<span class="text-primary font-bold cursor-pointer hover:underline">View 12 Phonics Quizzes →</span>
+</div>
+</section>
+<!-- COLUMN 2: Mathematics & Logic -->
+<section class="bg-surface-container-lowest neo-border rounded-2xl neo-shadow overflow-hidden flex flex-col justify-between">
+<div>
+<!-- Header Banner -->
+<div class="bg-secondary-container p-4 border-b-2 border-on-surface flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest neo-border flex items-center justify-center neo-shadow-sm">
+<span class="material-symbols-outlined text-secondary">calculate</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">NUMERACY DOMAIN</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-bold">Mathematics &amp; Logic</h2>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-on-surface font-extrabold">92%</span>
+<span class="block text-label-sm font-label-sm text-on-surface-variant font-bold">Overall Mastery</span>
+</div>
+</div>
+<!-- Skills Drilldown -->
+<div class="p-5 md:p-6 space-y-4">
+<!-- Skill Item 1 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Addition within 50</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#7DE8AE] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">Mastered</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">95%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest neo-border rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 95%;"></div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Solves regrouping effortlessly using mental visual number bonds.</div>
+</div>
+<!-- Skill Item 2 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">bolt</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">Mental Math Speed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#7DE8AE] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">Mastered</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">90%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest neo-border rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 90%;"></div>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="">Reaction time on rapid fire facts:</span>
+<span class="text-label-sm font-label-sm font-bold text-on-surface bg-surface-container px-2 py-0.5 rounded border border-on-surface">Average 6.2s per problem</span>
+</div>
+</div>
+<!-- Skill Item 3 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">category</span>
+<span class="text-title-md font-title-md text-on-surface font-bold">2D &amp; 3D Shapes</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#FFF0A8] neo-border px-2 py-0.5 rounded-full text-label-sm font-label-sm text-on-surface font-bold">In Progress</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">78%</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest neo-border rounded-full overflow-hidden">
+<div class="h-full bg-[#ff983d] rounded-full" style="width: 78%;"></div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Understands faces &amp; edges; frequently confuses cylinder edges with vertices.</div>
+</div>
+<!-- Geometry Quick Diagnostic card -->
+<div class="bg-surface-container neo-border rounded-xl p-3.5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest neo-border flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">view_in_ar</span>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface font-bold">Curriculum Target: 2.G.A.1</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Recognize and draw shapes with specified attributes.</div>
+</div>
+</div>
+<span class="text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed neo-border px-2.5 py-1 rounded-lg">On Track</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 border-t-2 border-on-surface flex justify-between items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="">Standards Benchmark: <strong>94th Percentile</strong></span>
+<span class="text-secondary font-bold cursor-pointer hover:underline">View Math Journey →</span>
+</div>
+</section>
+</div>
+<!-- 3. GAME ENGAGEMENT & LEARNING STYLE ANALYTICS -->
+<section class="bg-surface-container-lowest neo-border rounded-2xl p-6 md:p-8 neo-shadow space-y-6">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b-2 border-on-surface/15 pb-4">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider font-extrabold">COGNITIVE ERGONOMICS &amp; GAMEPLAY</span>
+<h2 class="text-headline-md font-headline-md text-on-surface font-bold">Game Engagement &amp; Learning Style Analytics</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Visualizing how Maya absorbs knowledge through tactile learning mechanics.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Dominant Modality:</span>
+<span class="bg-[#7DE8AE] neo-border px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface font-extrabold shadow-[2px_2px_0_0_#151c28] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+            Kinesthetic &amp; Visual-Gamified
+          </span>
+</div>
+</div>
+<!-- 4 Game Engagement Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Game 1: Ship Battle -->
+<div class="bg-surface-container-low neo-border rounded-xl p-4 flex flex-col justify-between neo-shadow-sm hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-secondary-fixed text-on-surface neo-border px-2 py-0.5 rounded-md text-label-sm font-label-sm font-bold">Favorite</span>
+<span class="material-symbols-outlined text-secondary">sailing</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Ship Battle</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant block mb-3">Naval Phonics &amp; Blends</span>
+<div class="space-y-1.5 py-2 border-y border-on-surface/10 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Rounds Played:</span>
+<span class="font-bold text-on-surface">14 rounds</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Accuracy:</span>
+<span class="font-extrabold text-tertiary">94%</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-2">
+<span class="inline-block w-full text-center bg-tertiary-fixed text-on-tertiary-fixed neo-border rounded-lg py-1 text-label-sm font-label-sm font-bold">
+              Highest Engagement 🔥
+            </span>
+</div>
+</div>
+<!-- Game 2: Balloon Pop Math -->
+<div class="bg-surface-container-low neo-border rounded-xl p-4 flex flex-col justify-between neo-shadow-sm hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-primary-fixed text-on-surface neo-border px-2 py-0.5 rounded-md text-label-sm font-label-sm font-bold">Rapid Recall</span>
+<span class="material-symbols-outlined text-primary">bubble_chart</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Balloon Pop Math</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant block mb-3">Addition &amp; Subtraction</span>
+<div class="space-y-1.5 py-2 border-y border-on-surface/10 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Rounds Played:</span>
+<span class="font-bold text-on-surface">10 rounds</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Accuracy:</span>
+<span class="font-extrabold text-on-surface">89%</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-2">
+<span class="inline-block w-full text-center bg-secondary-container text-on-surface neo-border rounded-lg py-1 text-label-sm font-label-sm font-bold">
+              High Reflex Speed ⚡
+            </span>
+</div>
+</div>
+<!-- Game 3: Alien Spelling -->
+<div class="bg-[#FFF6E9] neo-border rounded-xl p-4 flex flex-col justify-between neo-shadow-sm hover:translate-y-[-2px] transition-transform border-primary">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-[#FFAAA9] text-on-surface neo-border px-2 py-0.5 rounded-md text-label-sm font-label-sm font-bold">Focus Area</span>
+<span class="material-symbols-outlined text-primary">pest_control</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Alien Spelling</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant block mb-3">Silent Letters &amp; Sight Words</span>
+<div class="space-y-1.5 py-2 border-y border-on-surface/10 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Rounds Played:</span>
+<span class="font-bold text-on-surface">6 rounds</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Accuracy:</span>
+<span class="font-extrabold text-primary">82%</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-2">
+<span class="inline-block w-full text-center bg-[#FFAAA9] text-on-surface neo-border rounded-lg py-1 text-label-sm font-label-sm font-bold">
+              Target Practice Needed 🎯
+            </span>
+</div>
+</div>
+<!-- Game 4: Claw Machine Vocabulary -->
+<div class="bg-surface-container-low neo-border rounded-xl p-4 flex flex-col justify-between neo-shadow-sm hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="bg-[#FFF0A8] text-on-surface neo-border px-2 py-0.5 rounded-md text-label-sm font-label-sm font-bold">Steady</span>
+<span class="material-symbols-outlined text-on-surface">sports_esports</span>
+</div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">Claw Machine</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant block mb-3">Definitions &amp; Synonyms</span>
+<div class="space-y-1.5 py-2 border-y border-on-surface/10 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Rounds Played:</span>
+<span class="font-bold text-on-surface">5 rounds</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Accuracy:</span>
+<span class="font-extrabold text-tertiary">96%</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-2">
+<span class="inline-block w-full text-center bg-surface-container-high text-on-surface neo-border rounded-lg py-1 text-label-sm font-label-sm font-bold">
+              High Mastery Rate 🏆
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. PERSONALIZED HOME RECOMMENDATIONS & TEACHER INSIGHTS -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Teacher Commentary & Feedback (5 Cols) -->
+<section class="lg:col-span-5 bg-surface-container-lowest neo-border rounded-2xl p-6 neo-shadow space-y-4">
+<div class="flex items-center justify-between border-b-2 border-on-surface/15 pb-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-xl object-cover neo-border shadow-[2px_2px_0_0_#151c28]" data-alt="Warm friendly smiling portrait of an elementary school teacher Ms. Jenkins wearing modern circular glasses, cozy teal cardigan sweater, professional classroom environment with bookshelves in blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Avxo-MnYnfFiGc7Ez5mQFuoqvXOTIEkHgSBdhgM_ax3rdQkbsKc9fOD-AEqmF7YNt05JGu0YypE-1Igc53s0oOSqO7hO3MnAPOj6e6FQX77dRpusC4xfuxz7V2ZMJLxiMw4nQqXXGasH9kPU6i-3JNM5D_h7J7ejdYmfsWJf0dBuYTmDIMmCVc5i7pYxwdapMICqtK_lLnxpqkhVmERG4YXuT47QkWjkwy6MW2vOwsQxmIsMk5Y6OA">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">EDUCATOR OBSERVATIONS</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-bold">Ms. Jenkins' Weekly Note</h3>
+</div>
+</div>
+<span class="bg-[#FFF0A8] neo-border px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold text-on-surface shadow-[1px_1px_0_0_#151c28]">Oct 28</span>
+</div>
+<!-- Mascot / Teacher Speech Bubble Card -->
+<div class="bg-surface-container-low neo-border rounded-xl p-4 shadow-[3px_3px_0_0_#151c28] relative">
+<p class="text-body-md font-body-md text-on-surface leading-relaxed italic">
+            "Maya has been an enthusiastic reading buddy this week! During our Thursday phonics reader circle, she proudly self-corrected her pronunciation of compound words. Her persistence in mental math speed drills is contagious among her peers. For this weekend, 10 minutes focusing on silent letter spellings (like <em>knot</em> vs <em>not</em>) will give her a huge boost for our unit assessment."
+          </p>
+</div>
+<!-- Classroom Rubric Pillows -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container-low neo-border rounded-lg p-2.5">
+<span class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">handshake</span>
+              Peer Collaboration
+            </span>
+<span class="bg-[#7DE8AE] neo-border px-2 py-0.5 rounded text-label-sm font-label-sm font-extrabold text-on-surface">Exceeding Expectations</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container-low neo-border rounded-lg p-2.5">
+<span class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+              Task Focus &amp; Grit
+            </span>
+<span class="bg-secondary-fixed neo-border px-2 py-0.5 rounded text-label-sm font-label-sm font-extrabold text-on-surface">Strong (22 min span)</span>
+</div>
+</div>
+<button class="w-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface neo-border rounded-xl py-2 text-label-md font-label-md shadow-[3px_3px_0_0_#151c28] neo-press flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+          Reply to Ms. Jenkins
+        </button>
+</section>
+<!-- Recommended Mini-Games & Fold-out Parent Guide (7 Cols) -->
+<section class="lg:col-span-7 space-y-6">
+<!-- Weekend Mini-Games Playlist -->
+<div class="bg-surface-container-lowest neo-border rounded-2xl p-6 neo-shadow space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">TAILORED AT-HOME REINFORCEMENT</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-bold">3 Recommended Weekend Mini-Games</h3>
+</div>
+<span class="bg-[#FFF0A8] neo-border px-3 py-1 rounded-full text-label-sm font-label-sm font-extrabold text-on-surface shadow-[2px_2px_0_0_#151c28]">
+              ~15 Mins Total
+            </span>
+</div>
+<div class="space-y-3">
+<!-- Game 1 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 flex items-center justify-between gap-4 neo-shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-primary-container neo-border flex items-center justify-center text-on-surface shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[24px]">satellite_alt</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-surface font-bold">Alien Spelling: Mystery 'K' &amp; 'W'</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Phonics mission focusing on <em>knight, wrap, knee</em> (4 mins).</p>
+</div>
+</div>
+<button class="bg-[#7DE8AE] hover:bg-[#68dca0] text-on-surface neo-border rounded-xl px-4 py-2 text-label-md font-label-md shadow-[3px_3px_0_0_#151c28] neo-press flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                Play at Home
+              </button>
+</div>
+<!-- Game 2 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 flex items-center justify-between gap-4 neo-shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-secondary-container neo-border flex items-center justify-center text-on-surface shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[24px]">interests</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-surface font-bold">Shape Builder 3D: Castle Architect</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Identify vertices and edges on pyramids &amp; prisms (5 mins).</p>
+</div>
+</div>
+<button class="bg-[#7DE8AE] hover:bg-[#68dca0] text-on-surface neo-border rounded-xl px-4 py-2 text-label-md font-label-md shadow-[3px_3px_0_0_#151c28] neo-press flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                Play at Home
+              </button>
+</div>
+<!-- Game 3 -->
+<div class="bg-surface-container-low neo-border rounded-xl p-3.5 flex items-center justify-between gap-4 neo-shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-[#E7D8FF] neo-border flex items-center justify-center text-on-surface shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-surface font-bold">Speed Dash: Math Sprint 50</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Quick-fire 2-digit addition challenge against QB Learning Kits Owl (3 mins).</p>
+</div>
+</div>
+<button class="bg-[#7DE8AE] hover:bg-[#68dca0] text-on-surface neo-border rounded-xl px-4 py-2 text-label-md font-label-md shadow-[3px_3px_0_0_#151c28] neo-press flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                Play at Home
+              </button>
+</div>
+</div>
+</div>
+<!-- Interactive Fold-Out Parent Guide -->
+<details class="bg-[#FFF0A8] neo-border rounded-2xl neo-shadow group overflow-hidden" open="">
+<summary class="p-4 cursor-pointer flex items-center justify-between select-none border-b-2 border-on-surface bg-[#FFE680]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest neo-border flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+</div>
+<span class="text-title-md font-title-md text-on-surface font-bold">Parent Table Tip: "How to practice silent letters at dinner"</span>
+</div>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-5 bg-[#FFFCE8] text-body-md font-body-md text-on-surface space-y-2">
+<p class="">
+              Transform tricky silent letter pairings into a secret spy game while preparing dinner or passing plates:
+            </p>
+<ul class="list-disc list-inside space-y-1 text-body-sm font-body-sm pl-1">
+<li class=""><strong>The Secret Agent 'K':</strong> Ask Maya to spot words where 'K' is in stealth mode (e.g., <em>knead the dough, butter knife, tie a knot</em>).</li>
+<li class=""><strong>Physical Clue:</strong> Whenever she hears a silent 'W' (like <em>wrist</em> or <em>wrap the sandwich</em>), have her touch her wrist to lock the memory physically.</li>
+</ul>
+<div class="pt-2 flex items-center gap-2 text-label-sm font-label-sm text-secondary font-bold">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+<span class="">Saved to Maya's Family Goal Deck</span>
+</div>
+</div>
+</details>
+</section>
+</div>
+</main>
+<!-- BOTTOM NAV BAR (Shared Component Anchor for Mobile/Responsive View) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface bg-surface-container-lowest shadow-[0_-4px_0_0_#151c28]">
+<!-- Play -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 neo-press-nav" href="#">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+<span class="text-label-md font-label-md">Play</span>
+</a>
+<!-- Subjects (Active Item representing Learning Skill Analytics & Curriculum) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] neo-press-nav" href="#">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+<span class="text-label-md font-label-md font-bold">Subjects</span>
+</a>
+<!-- Quests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 neo-press-nav" href="#">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="text-label-md font-label-md">Quests</span>
+</a>
+<!-- Badges -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 neo-press-nav" href="#">
+<span class="material-symbols-outlined text-[24px]">military_tech</span>
+<span class="text-label-md font-label-md">Badges</span>
+</a>
+</nav>
+
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script><script src="/assets/supabase-config.js"></script><script src="/assets/qb-supabase.js?v=google-2"></script><script src="/assets/qb-progress-report.js?v=20261104-direct-games"></script>
+
+  <script defer src="/assets/qb-accessibility.js"></script>
+</body></html>

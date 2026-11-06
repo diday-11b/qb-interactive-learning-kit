@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dff3ff">
+  <title>Alien Spelling Shuttle | QB Interactive Learning Kits</title>
+  <link rel="stylesheet" href="../assets/qb-font.css?v=20261030-one-font">
+  <link rel="stylesheet" href="../assets/qb-activity-consistency.css?v=20261030-alien-layout-final">
+  <style>
+    :root { --ink:#253247; --sky:#75c9f5; --sky-soft:#dff3ff; --yellow:#ffd76a; --mint:#a8e6cf; --coral:#ff9a8b; --paper:#f7fafc; --white:#fff; }
+    * { box-sizing:border-box; }
+    body { min-width:320px; min-height:100vh; margin:0; color:var(--ink); background-color:var(--sky-soft); background-image:radial-gradient(rgba(255,255,255,.95) 3px,transparent 3.5px); background-size:38px 38px; }
+    a, button { font:inherit; }
+    a:focus-visible { outline:3px solid #176ba0; outline-offset:3px; }
+    .site-header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(16px,4vw,48px); background:var(--white); border-bottom:3px solid var(--ink); box-shadow:0 4px 0 rgba(37,50,71,.08); }
+    .brand { display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; }
+    .brand-mark { display:grid; place-items:center; width:48px; height:48px; border:3px solid var(--ink); border-radius:16px; background:var(--yellow); box-shadow:3px 3px 0 var(--ink); }
+    .brand-name { font-size:16px; line-height:1.1; }
+    .header-link,.action-link { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:9px 16px; border:2px solid var(--ink); border-radius:14px; color:var(--ink); text-decoration:none; background:var(--white); box-shadow:3px 3px 0 var(--ink); }
+    main { width:min(1100px,calc(100% - 32px)); margin:30px auto 46px; }
+    .mission { position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:20px; padding:clamp(24px,5vw,48px); border:4px solid var(--ink); border-radius:28px; background:var(--white); box-shadow:7px 7px 0 var(--ink); }
+    .mission::after { content:"✦"; position:absolute; right:17%; top:-30px; color:var(--yellow); font-size:150px; opacity:.55; pointer-events:none; }
+    .mission-copy { position:relative; z-index:1; max-width:700px; }
+    .eyebrow { margin:0 0 8px; color:#52637a; font-size:13px; text-transform:uppercase; letter-spacing:.06em; }
+    h1 { margin:0; font-size:clamp(34px,6vw,60px); line-height:1.04; text-shadow:2px 2px 0 var(--yellow); }
+    .mission-copy > p:not(.eyebrow) { max-width:620px; margin:14px 0 22px; font-size:17px; line-height:1.55; }
+    .action-link.primary { min-height:54px; background:var(--mint); }
+    .ship { position:relative; z-index:1; display:grid; place-items:center; width:150px; height:150px; border:3px solid var(--ink); border-radius:50%; background:var(--sky); box-shadow:5px 5px 0 var(--ink); font-size:64px; transform:rotate(-7deg); }
+    .notice { margin:20px 0 0; padding:14px 18px; border:2px solid var(--ink); border-radius:16px; background:#fff7c2; line-height:1.5; }
+    .links-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:24px; }
+    .link-card { padding:20px; border:2px solid var(--ink); border-radius:20px; background:var(--white); box-shadow:4px 4px 0 var(--ink); }
+    .link-card h2 { margin:0 0 8px; font-size:22px; }
+    .link-card p { margin:0 0 16px; color:#52637a; line-height:1.5; }
+    .student-nav { position:sticky; bottom:0; display:flex; justify-content:center; gap:10px; padding:10px 12px; border-top:3px solid var(--ink); background:var(--white); }
+    .student-nav a { display:flex; min-width:94px; min-height:48px; align-items:center; justify-content:center; padding:8px 12px; border:2px solid transparent; border-radius:13px; color:var(--ink); text-align:center; text-decoration:none; }
+    .student-nav a[aria-current="page"] { border-color:var(--ink); background:var(--sky); box-shadow:2px 2px 0 var(--ink); }
+    @media (max-width:640px) { .mission { grid-template-columns:1fr; } .ship { width:92px; height:92px; grid-row:1; justify-self:end; font-size:42px; } .mission::after { right:4%; top:-4px; font-size:100px; } .links-grid { grid-template-columns:1fr; } .student-nav { gap:2px; } .student-nav a { flex:1; min-width:0; padding-inline:5px; font-size:13px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; } }
+  </style>
+<link rel="stylesheet" href="/assets/qb-design-system.css?v=20261104-shell-links"><link rel="stylesheet" href="/assets/qb-activity-consistency.css"><link rel="stylesheet" href="/assets/qb-game-flow.css?v=20261030-rounds-verified"><script src="/assets/qb-design-system.js?v=20261104-shell-links" defer></script><link rel="stylesheet" href="/assets/qb-flow-layout.css?v=20261104-direct-games"><link rel="stylesheet" href="/assets/qb-responsive.css?v=1"><script src="/assets/vendor/lottie-light-5.12.2.min.js" defer></script><script src="/assets/qb-answer-confetti.js?v=1" defer></script></head>
+<body class="qb-activity-page">
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="QB Interactive Learning Kits home"><span class="brand-mark" aria-hidden="true">QB</span><span class="brand-name">QB Interactive<br>Learning Kits</span></a>
+    <a class="qb-activity-library-link" href="/02._qb_explore_games_catalog/code.html">Game library</a>
+    <a class="header-link" href="../qb_student_game_hub_rewards_arena/code.html">My learning space</a>
+  </header>
+  <main id="play">
+    <section class="mission" aria-labelledby="mission-title">
+      <div class="mission-copy">
+        <p class="eyebrow">Alien Spelling Shuttle · English practice</p>
+        <h1 id="mission-title">Ready for a word mission?</h1>
+        <p>Choose a published spelling activity to practice real words and save your learning progress in the shared literacy player.</p>
+        <a class="action-link primary" href="../literacy.html?language=en&amp;area=spelling">Browse spelling activities →</a>
+      </div>
+      <div class="ship" aria-hidden="true">🛸</div>
+    </section>
+    <p class="notice" role="note">Your saved stars and badges come from completed activities. This page no longer shows sample timers or pretend coin totals.</p>
+    <div class="links-grid">
+      <section class="link-card" id="quests" aria-labelledby="quests-title">
+        <h2 id="quests-title">Your quests</h2>
+        <p>See activities assigned by your teacher and continue a saved activity.</p>
+        <a class="action-link" href="../qb_student_game_hub_rewards_arena/code.html#quests">Open my quests →</a>
+      </section>
+      <section class="link-card" id="badges" aria-labelledby="badges-title">
+        <h2 id="badges-title">Badges you’ve earned</h2>
+        <p>Open your learner dashboard to see recorded rewards and milestone progress.</p>
+        <a class="action-link" href="../qb_student_game_hub_rewards_arena/code.html#rewards">View my rewards →</a>
+      </section>
+    </div>
+  </main>
+  <nav class="student-nav" aria-label="Student navigation">
+    <a href="#play" aria-current="page">Play</a>
+    <a href="../literacy.html?language=en&amp;area=all">Subjects</a>
+    <a href="../qb_student_game_hub_rewards_arena/code.html#quests">Quests</a>
+    <a href="../qb_student_game_hub_rewards_arena/code.html#rewards">Badges</a>
+  </nav>
+  <script src="../assets/qb-game-detail-screen.js?v=confetti-1"></script>
+  <script>
+    window.QBGameDetailScreen.renderStandalone(
+      "alien-spelling",
+      "Alien Spelling Shuttle",
+      "Choose a published spelling activity to practice real words and save your learning progress."
+    );
+  </script>
+</body>
+</html>

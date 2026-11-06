@@ -1,0 +1,1414 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QB Interactive Learning Kits — Master Interactive Prototype &amp; Prototype Showcase Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Fonts: Quicksand & Nunito Sans -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration with Design Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#ffffff",
+            "inverse-surface": "#2a303e",
+            "background": "#f9f9ff",
+            "secondary-fixed": "#bce9ff",
+            "tertiary-fixed-dim": "#70dba2",
+            "on-tertiary-fixed-variant": "#005232",
+            "surface-variant": "#dde2f4",
+            "primary-container": "#ff983d",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#5ac58e",
+            "on-surface": "#151c28",
+            "secondary": "#006783",
+            "surface-container": "#e8edff",
+            "surface-container-high": "#e2e8fa",
+            "outline": "#887365",
+            "tertiary": "#006c44",
+            "on-surface-variant": "#554337",
+            "surface-tint": "#924c00",
+            "on-primary-container": "#6b3600",
+            "surface": "#f9f9ff",
+            "on-secondary-container": "#00607a",
+            "error": "#ba1a1a",
+            "primary-fixed": "#ffdcc4",
+            "outline-variant": "#dbc2b1",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#ffb780",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-background": "#151c28",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#2f1400",
+            "on-tertiary-container": "#004f30",
+            "inverse-on-surface": "#edf0ff",
+            "inverse-primary": "#ffb780",
+            "on-primary-fixed-variant": "#6f3800",
+            "surface-container-low": "#f1f3ff",
+            "on-tertiary-fixed": "#002111",
+            "surface-container-highest": "#dde2f4",
+            "secondary-fixed-dim": "#7bd2f6",
+            "primary": "#924c00",
+            "tertiary-fixed": "#8df8bd",
+            "on-secondary-fixed": "#001f29",
+            "surface-dim": "#d4daeb",
+            "on-secondary-fixed-variant": "#004d63",
+            "secondary-container": "#83dafe",
+            "surface-bright": "#f9f9ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.25rem"
+          },
+          "fontFamily": {
+            "body-md": ["Nunito Sans"],
+            "title-md": ["Quicksand"],
+            "label-lg": ["Nunito Sans"],
+            "headline-md": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "display-hero": ["Quicksand"],
+            "body-lg": ["Nunito Sans"],
+            "headline-lg-mobile": ["Quicksand"],
+            "body-sm": ["Nunito Sans"],
+            "display-hero-mobile": ["Quicksand"],
+            "label-md": ["Nunito Sans"],
+            "headline-sm": ["Quicksand"],
+            "label-sm": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .neo-shadow {
+      box-shadow: 4px 4px 0px #151c28;
+    }
+    .neo-shadow-sm {
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    .neo-shadow-lg {
+      box-shadow: 6px 6px 0px #151c28;
+    }
+    .neo-pressed {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #151c28;
+    }
+    /* Subtle dot grid backdrop */
+    .bg-dot-grid {
+      background-image: radial-gradient(#151c28 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: #f9f9ff;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col bg-dot-grid selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar (Shared Anchor Implementation) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28]">
+<div class="flex justify-between items-center w-full px-4 md:px-8 py-3 max-w-7xl mx-auto">
+<!-- Brand & Mascot Identity -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-primary-container border-2 border-on-surface neo-shadow-sm flex items-center justify-center text-on-surface font-black text-xl select-none transform hover:rotate-3 transition-transform">
+          🦉
+        </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">QB Learning Kits</span>
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-2 py-0.5 rounded-full border border-on-surface">Demo Hub</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant hidden md:block">Master Interactive Prototype • 18 Screen Matrix</p>
+</div>
+</div>
+<!-- Quick Context Controls -->
+<div class="hidden lg:flex items-center gap-2 bg-surface-container-low p-1.5 rounded-xl border-2 border-on-surface neo-shadow-sm">
+<button class="px-3 py-1.5 rounded-lg border-2 border-on-surface bg-surface-container-lowest text-label-md font-label-md flex items-center gap-1.5 neo-shadow-sm transition-all active:translate-x-[2px] active:translate-y-[2px]" id="device-desktop" onclick="setDeviceView('desktop')">
+<span class="material-symbols-outlined text-[18px]">desktop_windows</span>
+<span class="">Whiteboard / Web</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg border-2 border-transparent text-on-surface-variant hover:text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-all" id="device-tablet" onclick="setDeviceView('tablet')">
+<span class="material-symbols-outlined text-[18px]">tablet_mac</span>
+<span class="">Tablet / Mobile</span>
+</button>
+</div>
+<!-- Actions & Walkthrough Mode -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest border-2 border-on-surface rounded-xl text-label-md font-label-md hover:bg-surface-container-high transition-all active:translate-x-[2px] active:translate-y-[2px]" id="presenter-mode-btn" onclick="togglePresenterNotes()">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<span id="presenter-btn-text" class="">Presenter Notes: OFF</span>
+</button>
+<button class="px-4 py-2 bg-primary-container text-on-surface font-title-md text-title-md rounded-xl border-2 border-on-surface neo-shadow-sm hover:brightness-105 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center gap-1.5" onclick="scrollToSandbox()">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="">Live Sandbox</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Presenter Sticky Callout Bar (Toggleable) -->
+<div class="hidden bg-secondary-fixed border-b-2 border-on-surface px-4 py-2.5 shadow-sm" id="presenter-banner">
+<div class="max-w-7xl mx-auto flex items-center justify-between text-on-secondary-fixed">
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+<span class=""><strong>Client Demo Tip:</strong> Start with Flow 2 (Teacher Question Studio), trigger the live PIN launch simulator below, then pivot to Flow 4 to show student tactile combat rewards.</span>
+</div>
+<button class="text-on-surface hover:opacity-75" onclick="togglePresenterNotes()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Main Showcase Container -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-8 space-y-10">
+<!-- Hero Header & Quick Journey Launchers -->
+<section class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-6 md:p-8 neo-shadow relative overflow-hidden">
+<!-- Decorative Neo-Brutalist elements -->
+<div class="absolute -right-12 -top-12 w-40 h-40 bg-secondary-container rounded-full border-2 border-on-surface opacity-30 pointer-events-none"></div>
+<div class="absolute right-24 -bottom-10 w-24 h-24 bg-tertiary-fixed rounded-2xl border-2 border-on-surface rotate-12 opacity-40 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="max-w-2xl space-y-3">
+<div class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed border-2 border-on-surface px-3 py-1 rounded-full text-label-sm font-label-sm neo-shadow-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">Version 2.4 Executive Walkthrough Ready</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">QB Interactive Learning Kits: Interactive Demo Showcase</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+            Explore the complete 18-screen learning arcade ecosystem. Designed with tactile neo-brutalist joy, high-contrast legibility, and pedagogical game mechanics for grades K–6.
+          </p>
+</div>
+<!-- Quick 1-Click Journey Launchers -->
+<div class="flex flex-col sm:flex-row lg:flex-col gap-2.5 min-w-[280px]">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold tracking-wide">ONE-CLICK DEMO PATHS</span>
+<button class="flex items-center justify-between px-4 py-2.5 bg-surface-container-low hover:bg-surface-container border-2 border-on-surface rounded-xl text-label-md font-label-md neo-shadow-sm active:translate-x-[2px] active:translate-y-[2px] transition-all text-left" onclick="filterAudience('teacher')">
+<span class="flex items-center gap-2">👨‍🏫 Launch Teacher Flow</span>
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="flex items-center justify-between px-4 py-2.5 bg-secondary-container hover:brightness-105 border-2 border-on-surface rounded-xl text-label-md font-label-md text-on-secondary-container neo-shadow-sm active:translate-x-[2px] active:translate-y-[2px] transition-all text-left" onclick="filterAudience('student')">
+<span class="flex items-center gap-2">🎮 Launch Student Game Loop</span>
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="flex items-center justify-between px-4 py-2.5 bg-tertiary-fixed hover:brightness-105 border-2 border-on-surface rounded-xl text-label-md font-label-md text-on-tertiary-fixed neo-shadow-sm active:translate-x-[2px] active:translate-y-[2px] transition-all text-left" onclick="filterAudience('parent')">
+<span class="flex items-center gap-2">👨‍👩‍👧 Launch Parent Digest</span>
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+</div>
+</div>
+<!-- Stats Bar Ticker -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 pt-6 border-t-2 border-on-surface">
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed border border-on-surface flex items-center justify-center font-bold text-on-primary-fixed">18</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface">Full Screens</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Active Prototypes</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed border border-on-surface flex items-center justify-center font-bold text-on-secondary-fixed">6</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface">Battle Engines</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Multiplayer Arenas</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed border border-on-surface flex items-center justify-center font-bold text-on-tertiary-fixed">100%</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface">COPPA Safe</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Zero Ad Tracking</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container border border-on-surface flex items-center justify-center font-bold text-on-surface">3</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface">Unified Portals</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Teacher, Kid, Family</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Audience Filter Switcher Tabs -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-lowest p-3 rounded-2xl border-2 border-on-surface neo-shadow-sm">
+<div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold px-2">FILTER:</span>
+<button class="audience-btn px-4 py-2 rounded-xl text-label-md font-label-md border-2 border-on-surface bg-secondary-container text-on-secondary-container neo-shadow-sm transition-all" id="filter-all" onclick="filterAudience('all')">
+          All 18 Screens
+        </button>
+<button class="audience-btn px-4 py-2 rounded-xl text-label-md font-label-md border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container transition-all" id="filter-teacher" onclick="filterAudience('teacher')">
+          👨‍🏫 Teacher Studio (6)
+        </button>
+<button class="audience-btn px-4 py-2 rounded-xl text-label-md font-label-md border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container transition-all" id="filter-student" onclick="filterAudience('student')">
+          🎮 Student Arcade (4)
+        </button>
+<button class="audience-btn px-4 py-2 rounded-xl text-label-md font-label-md border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container transition-all" id="filter-parent" onclick="filterAudience('parent')">
+          👨‍👩‍👧 Parent &amp; Admin (5)
+        </button>
+<button class="audience-btn px-4 py-2 rounded-xl text-label-md font-label-md border-2 border-transparent text-on-surface-variant hover:border-on-surface hover:bg-surface-container transition-all" id="filter-public" onclick="filterAudience('public')">
+          🌐 Public &amp; Catalog (3)
+        </button>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant self-end sm:self-center">
+<span class="w-3 h-3 rounded-full bg-tertiary-container border border-on-surface inline-block"></span>
+<span class="">Interactive Hotspots Active</span>
+</div>
+</div>
+<!-- 18 SCREEN MATRIX ACROSS 5 USER FLOWS -->
+<div class="space-y-12" id="flows-container">
+<!-- FLOW 1: Public Discovery & Catalog -->
+<section class="flow-section space-y-4" data-category="public">
+<div class="flex items-center justify-between border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-primary-fixed border-2 border-on-surface neo-shadow-sm flex items-center justify-center font-bold text-on-surface">1</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Public Discovery &amp; Student Onboarding</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Screens 01 – 03: Marketing conversion, gamified subject browse &amp; arena specs</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-3 py-1 rounded-full border border-on-surface">3 Screens</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Screen 01 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container border-b-2 border-on-surface relative p-4 flex flex-col justify-between overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-dot-grid"></div>
+<div class="flex justify-between items-center relative z-10">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 01</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="relative z-10 flex items-center justify-center py-2">
+<div class="bg-surface-container-lowest border-2 border-on-surface px-4 py-2 rounded-xl neo-shadow-sm flex items-center gap-3">
+<span class="text-2xl">🦉</span>
+<div>
+<div class="font-bold text-sm">QB Interactive Hero Portal</div>
+<div class="text-xs text-on-surface-variant">CTA: Join 45k+ Classrooms</div>
+</div>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between relative z-10">
+<span class="">Viewport: 1440px</span>
+<span class="">Type: Landing</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">01. Homepage &amp; Play Gateway</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Lively landing experience introducing Leo the Owl, direct PIN launch bar, and curriculum standards alignment.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">PIN Direct Entry</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Curriculum Badges</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('01. Homepage', 'Public Landing &amp; Direct PIN Launcher', 'Features high-impact animated SVG hero banner, instant 6-digit game access, and teacher sign-up trigger.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 02 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-secondary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 02</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="flex justify-center items-center gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest border border-on-surface rounded-lg font-bold text-xs neo-shadow-sm">🧮 Math</span>
+<span class="px-3 py-1 bg-surface-container-lowest border border-on-surface rounded-lg font-bold text-xs neo-shadow-sm">📖 Phonics</span>
+<span class="px-3 py-1 bg-surface-container-lowest border border-on-surface rounded-lg font-bold text-xs neo-shadow-sm">🔬 Science</span>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Filter: Grade K-6</span>
+<span class="">Type: Bento Catalog</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">02. Explore Games Catalog</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Bento-grid showcase of 24+ arcade battle modes categorized by Common Core standards, grade level, and play duration.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Subject Pills</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Grade Sliders</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('02. Games Catalog', 'Interactive Educational Bento Catalog', 'Facets for Grade 1-6, speed vs strategy modes, multiplayer limits, and curriculum alignment tags.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 03 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-primary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 03</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="flex justify-center items-center">
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-3 neo-shadow-sm flex items-center gap-3">
+<span class="text-3xl">⛵</span>
+<div>
+<div class="font-black text-sm">Ship Battle Armada</div>
+<div class="text-xs text-on-surface-variant">Live Co-Op Math Arena</div>
+</div>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Audience: 1-32 Players</span>
+<span class="">Type: Detail Modal</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">03. Game Details (Ship Battle)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Tactile modal outlining mechanics, question pacing, power-ups, and 1-click 'Host Live Match' or 'Assign Homework'.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Host Trigger</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Audio Preview</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('03. Game Details (Ship Battle)', 'Pre-Match Arena Blueprint', 'Outlines team cannons, shields, accuracy multipliers, and questions preview for educators.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- FLOW 2: Teacher Studio -->
+<section class="flow-section space-y-4" data-category="teacher">
+<div class="flex items-center justify-between border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-secondary-container border-2 border-on-surface neo-shadow-sm flex items-center justify-center font-bold text-on-surface">2</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Teacher Command &amp; Question Studio</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Screens 04 – 06: Class metrics, question bank curation &amp; WYSIWYG authoring</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-3 py-1 rounded-full border border-on-surface">3 Screens</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Screen 04 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container-high border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 04</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="flex items-center justify-center gap-3">
+<div class="bg-surface-container-lowest border border-on-surface p-2 rounded-lg text-center font-bold text-xs">
+<span class="text-primary text-base font-black">28</span>
+<div class="">Active Students</div>
+</div>
+<div class="bg-surface-container-lowest border border-on-surface p-2 rounded-lg text-center font-bold text-xs">
+<span class="text-tertiary text-base font-black">89%</span>
+<div class="">Avg Accuracy</div>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Role: Educator</span>
+<span class="">Type: Command Center</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">04. Teacher Dashboard Hub</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Real-time command center showing today's scheduled arena matches, recent class accuracy, and quick PIN generator.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">PIN Quick-Host</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Live Alerts</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('04. Teacher Dashboard', 'Teacher Command &amp; Live Metrics', 'Full class roster oversight, one-click arena generation, and flagged struggle concepts.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 05 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-variant border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 05</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="bg-surface-container-lowest border border-on-surface p-2 rounded-xl text-xs space-y-1">
+<div class="flex justify-between font-bold">
+<span class="">Fraction Masters: Level 2</span>
+<span class="text-tertiary">15 Qs</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden border border-on-surface">
+<div class="bg-primary-container h-full w-3/4"></div>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Collections: 14 Sets</span>
+<span class="">Type: Bank Manager</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">05. Question Sets Manager</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Filter, duplicate, and assign pre-made curriculum decks or import questions from CSV, Google Classroom, and Quizlet.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Deck Cloning</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">CSV Import</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('05. Question Sets Manager', 'Content Library &amp; Curriculum Aligned Decks', 'Includes state-standard tagging, question difficulty weightings, and collaborative deck sharing.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 06 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-tertiary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 06</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="bg-surface-container-lowest border-2 border-on-surface p-2 rounded-xl text-xs font-bold text-center neo-shadow-sm">
+                "What is 3/4 + 1/2?"
+                <div class="flex justify-center gap-1 mt-1 text-[10px]">
+<span class="bg-tertiary-fixed px-1.5 py-0.5 rounded border border-on-surface">A: 5/4 ✓</span>
+<span class="bg-error-container px-1.5 py-0.5 rounded border border-on-surface">B: 4/6 ✗</span>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Mode: Drag &amp; Drop</span>
+<span class="">Type: WYSIWYG Studio</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">06. WYSIWYG Question Studio</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Delightful authoring canvas with visual math fraction builders, image upload, audio pronunciation clips, and instant student view.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Math Editor</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Audio Prompts</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('06. WYSIWYG Question Studio', 'Interactive Question Authoring Canvas', 'Tactile options builder with automated distractor suggestions, audio recording, and live mobile preview.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- FLOW 3: Live Multiplayer & SmartBoard Arena -->
+<section class="flow-section space-y-4" data-category="teacher">
+<div class="flex items-center justify-between border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-tertiary-fixed border-2 border-on-surface neo-shadow-sm flex items-center justify-center font-bold text-on-surface">3</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Live Multiplayer &amp; SmartBoard Arena</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Screens 07 – 09: Arena selection, classroom PIN lobby &amp; post-game analytics</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-3 py-1 rounded-full border border-on-surface">3 Screens</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Screen 07 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 07</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="flex justify-center gap-2 text-2xl">
+<span class="">🏰</span>
+<span class="">🚀</span>
+<span class="">⛵</span>
+<span class="">🌋</span>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Presets: 6 Arenas</span>
+<span class="">Target: Whiteboard</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">07. Arena Selector &amp; Modifiers</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Educator arena setup with toggleable game rules (Team vs Team, Free-For-All, Time Attack, Power-Up bans).</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Game Modes</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Pacing Toggles</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('07. Arena Selector', 'Multiplayer Engine &amp; Game Rules', 'Fine-grained match control: streak bonuses, handicap assists for struggling kids, and audio atmosphere.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 08 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-secondary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 08</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="bg-surface-container-lowest border-2 border-on-surface p-2.5 rounded-xl neo-shadow-sm text-center">
+<div class="text-[11px] font-bold text-on-surface-variant">JOIN AT QBKITS.FUN</div>
+<div class="text-2xl font-black tracking-widest text-primary">482-901</div>
+<div class="text-[10px] text-tertiary font-bold">24 Students Connected</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Format: Projected Display</span>
+<span class="">Type: Live Lobby</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">08. Play Setup &amp; Live Host Lobby</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Classroom SmartBoard projected lobby displaying giant PIN 482-901, scanning QR code, and bouncing avatar arrivals.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">PIN 482-901</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Live Avatars</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('08. Live Host Lobby', 'SmartBoard Big Screen Lobby Experience', 'Dynamic student joining animations, kick unwanted names, sound effect controls, and big START MATCH trigger.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 09 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-primary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 09</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Ready
+                </span>
+</div>
+<div class="bg-surface-container-lowest border-2 border-on-surface p-2 rounded-xl text-xs space-y-1">
+<div class="flex items-center gap-1 font-bold text-error">
+<span class="material-symbols-outlined text-[14px]">priority_high</span> Misconception Detected
+                </div>
+<div class="text-[11px] text-on-surface-variant">62% struggled with Question #7 (Improper Fractions)</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">View: Teacher Only</span>
+<span class="">Type: Post-Game Report</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">09. Misconception &amp; Results Analytics</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Immediate post-match diagnostic spotlighting the questions most frequently missed and 1-click reteaching mini-lessons.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Heatmap Analysis</span>
+<span class="bg-surface-container-low text-on-surface text-[12px] font-bold px-2 py-0.5 rounded border border-on-surface">Reteach Generator</span>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('09. Results &amp; Misconceptions', 'Actionable Formative Assessment', 'Identifies exact misconceptions before the class bell rings, exportable PDF reports for IEP documentation.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- FLOW 4: Student Play & Gameplay Action -->
+<section class="flow-section space-y-4" data-category="student">
+<div class="flex items-center justify-between border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-primary-container border-2 border-on-surface neo-shadow-sm flex items-center justify-center font-bold text-on-surface">4</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Student Play &amp; Gameplay Action Loop</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Screens 10 – 13: PIN entry, arena selection, live combat interaction &amp; victory chest</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-3 py-1 rounded-full border border-on-surface">4 Screens</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Screen 10 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2 rounded-full text-xs font-bold">Screen 10</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2 rounded-full text-xs font-bold">Ready</span>
+</div>
+<div class="flex justify-center items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container border-2 border-on-surface flex items-center justify-center text-xl">🦊</div>
+<div class="w-12 h-12 rounded-full bg-primary-container border-2 border-on-surface flex items-center justify-center text-2xl neo-shadow-sm">🐻</div>
+<div class="w-10 h-10 rounded-full bg-tertiary-container border-2 border-on-surface flex items-center justify-center text-xl">🐼</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Input: Chunky PIN</span>
+<span class="">Type: Auth</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">10. PIN Entry &amp; Avatar Picker</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">No password required. Chunky numeric keypad and 32 animated creature avatars.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-1" onclick="openScreenModal('10. PIN Entry &amp; Avatar Picker', 'Zero-Friction Student Access', 'Compliant with child privacy laws. Kids select a nickname and customized animal companion.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect
+              </button>
+</div>
+</div>
+<!-- Screen 11 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container-high border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2 rounded-full text-xs font-bold">Screen 11</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2 rounded-full text-xs font-bold">Ready</span>
+</div>
+<div class="bg-surface-container-lowest border-2 border-on-surface p-2 rounded-xl flex items-center justify-between text-xs font-bold">
+<span class="">⚡ Power Up: Shield</span>
+<span class="text-primary font-black">250 🪙</span>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Format: Mobile / Web</span>
+<span class="">Type: Match Ready</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">11. Student Arena Staging</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Student pre-match locker room to spend earned coins on power-ups and sound horns.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-1" onclick="openScreenModal('11. Student Game Selection Arena', 'Pre-Game Staging &amp; Loadout', 'Empowers kid agency with cosmetic power-ups (Extra Shield, Time Boost) without pay-to-win.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect
+              </button>
+</div>
+</div>
+<!-- Screen 12 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-secondary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2 rounded-full text-xs font-bold">Screen 12</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2 rounded-full text-xs font-bold">Ready</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<div class="bg-surface-container-lowest p-1.5 border border-on-surface rounded-lg text-center font-bold text-xs neo-shadow-sm">4/8</div>
+<div class="bg-tertiary-fixed p-1.5 border-2 border-on-surface rounded-lg text-center font-bold text-xs neo-shadow-sm">1/2 ✓</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Feedback: Instant</span>
+<span class="">Type: Live Combat</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">12. Ship Battle Combat Arena</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">High-stakes, tactile 4-choice response arena where correct answers fire ship cannons.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-1" onclick="openScreenModal('12. Ship Battle Combat Arena', 'Interactive Live Gameplay Interface', 'Tactile button depress physics, screen shake toggles for accessibility, and streak multipliers.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect
+              </button>
+</div>
+</div>
+<!-- Screen 13 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-primary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2 rounded-full text-xs font-bold">Screen 13</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2 rounded-full text-xs font-bold">Ready</span>
+</div>
+<div class="text-center">
+<div class="text-3xl animate-bounce">🎁</div>
+<div class="font-black text-xs text-on-surface">+120 XP &amp; Gold Badge</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Momentum: High</span>
+<span class="">Type: Reward Modal</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">13. Victory &amp; Treasure Chest</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Celebratory win screen with opening chest animation, XP level-ups, and streak awards.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-1" onclick="openScreenModal('13. Victory &amp; Treasure Chest Reward', 'Celebratory Post-Match Reward', 'Delivers positive psychological reinforcement, growth-mindset feedback, and unlocked collectibles.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- FLOW 5: Parent Insight & Admin Governance -->
+<section class="flow-section space-y-4" data-category="parent">
+<div class="flex items-center justify-between border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-surface-container-highest border-2 border-on-surface neo-shadow-sm flex items-center justify-center font-bold text-on-surface">5</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Parent Insight &amp; Admin Governance</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Screens 14 – 18: Weekly progress digest, skill tracking, SSO login &amp; roster controls</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-3 py-1 rounded-full border border-on-surface">5 Screens</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Screen 14 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container-low border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 14</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold">Ready</span>
+</div>
+<div class="bg-surface-container-lowest border border-on-surface p-2.5 rounded-xl space-y-1 text-xs">
+<div class="flex justify-between font-bold">
+<span class="">Weekly Playtime</span>
+<span class="text-primary">48 mins</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Skills Leveled Up</span>
+<span class="font-bold text-tertiary">+3 Concepts</span>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Audience: Parents</span>
+<span class="">Type: Digest</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">14. Parent Weekly Digest</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Jargon-free home summary email &amp; web view celebrating student growth, play habits, and conversation starters.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('14. Parent Weekly Digest', 'Home Learning Connection &amp; Digest', 'Translates gameplay telemetry into clear parent talking points and weekend offline activities.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 15 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-container border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 15</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold">Ready</span>
+</div>
+<div class="flex items-center justify-center gap-2">
+<span class="bg-tertiary-fixed border border-on-surface px-2 py-1 rounded-lg text-xs font-black">Phonics: 94%</span>
+<span class="bg-primary-fixed border border-on-surface px-2 py-1 rounded-lg text-xs font-black">Math: 82%</span>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Visual: Skill Map</span>
+<span class="">Type: Mastery Tracker</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">15. Child Phonics &amp; Math Mastery</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Interactive skill constellation showing progress along foundational reading phonics and multiplication standards.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('15. Child Phonics &amp; Math Mastery', 'Skill Constellation &amp; Diagnostic Map', 'Visual node graph showing completed, in-progress, and upcoming milestones.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 16 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-surface-variant border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 16</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold">Ready</span>
+</div>
+<div class="bg-surface-container-lowest border-2 border-on-surface p-2 rounded-xl text-center text-xs font-bold neo-shadow-sm">
+<span class="">Google Classroom / Clever SSO</span>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Security: COPPA / FERPA</span>
+<span class="">Type: Auth</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">16. Unified Sign In &amp; SSO Hub</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Multi-role authentication supporting Google Classroom, Clever, ClassLink, and zero-password student magic badges.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('16. Unified Sign In / SSO', 'District-Grade Authentication', 'Supports SSO integration, privacy-preserving session tokens, and district roster syncing.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 17 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-secondary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 17</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold">Ready</span>
+</div>
+<div class="flex justify-center gap-2 text-xs">
+<div class="bg-surface-container-lowest border border-on-surface px-2 py-1 rounded font-bold">Red Pirates (4)</div>
+<div class="bg-surface-container-lowest border border-on-surface px-2 py-1 rounded font-bold">Blue Sharks (4)</div>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Feature: 1-Click Balance</span>
+<span class="">Type: Roster Tool</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">17. Classroom Roster &amp; Team Maker</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Drag-and-drop classroom management with balanced team generators, accommodation flags, and printable access cards.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('17. Classroom Roster &amp; Team Maker', 'Dynamic Grouping &amp; Accommodations', 'Auto-balances high and lower-readiness learners for fair co-op team battles.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+<!-- Screen 18 Card -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl overflow-hidden neo-shadow hover:-translate-y-1 hover:neo-shadow-lg transition-all group">
+<div class="h-44 bg-primary-fixed border-b-2 border-on-surface relative p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">Screen 18</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold">Ready</span>
+</div>
+<div class="bg-surface-container-lowest border border-on-surface p-2 rounded-xl text-xs flex items-center justify-between font-bold">
+<span class="">Sound SFX Volume</span>
+<span class="text-primary">80% 🔊</span>
+</div>
+<div class="text-xs text-on-surface-variant flex justify-between">
+<span class="">Accessibility: Dyslexic Font</span>
+<span class="">Type: Settings</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="text-title-md font-title-md text-on-surface group-hover:text-primary transition-colors">18. Profile &amp; System Preferences</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Granular audio balance, OpenDyslexic typography switch, reduced animation toggles, and notification routing.</p>
+</div>
+<button class="w-full mt-2 py-2 bg-surface-container-low hover:bg-primary-container border-2 border-on-surface rounded-xl text-label-md font-label-md transition-all active:translate-x-[2px] active:translate-y-[2px] flex items-center justify-center gap-2" onclick="openScreenModal('18. Profile &amp; System Preferences', 'Accessibility &amp; Platform Settings', 'Inclusive sensory controls for neurodiverse classrooms, dark/light contrast modes, and avatar lockers.')">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Inspect Screen
+              </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- LIVE EMBEDDED INTERACTIVE DEMO SANDBOX -->
+<section class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-6 md:p-8 neo-shadow space-y-6" id="demo-sandbox">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-2 border-on-surface pb-4">
+<div>
+<div class="inline-flex items-center gap-1.5 bg-secondary-container text-on-secondary-container px-3 py-0.5 rounded-full border border-on-surface text-label-sm font-label-sm mb-1.5 font-bold">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+<span class="">Live Interactive Simulator</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Experience Key Micro-Interactions</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Test the tactile feedback, audio-visual triggers, and instantaneous response logic directly in this sandbox.</p>
+</div>
+<!-- Sandbox Tabs -->
+<div class="flex items-center gap-2 bg-surface-container-low p-1.5 rounded-xl border-2 border-on-surface neo-shadow-sm self-start md:self-auto">
+<button class="sandbox-tab-btn px-4 py-2 rounded-lg border-2 border-on-surface bg-surface-container-lowest text-label-md font-label-md neo-shadow-sm transition-all font-bold" id="tab-btn-pin" onclick="switchSandboxTab('pin')">
+            A: Teacher PIN Host
+          </button>
+<button class="sandbox-tab-btn px-4 py-2 rounded-lg border-2 border-transparent text-on-surface-variant text-label-md font-label-md hover:text-on-surface transition-all font-bold" id="tab-btn-play" onclick="switchSandboxTab('play')">
+            B: Student Quick Play
+          </button>
+<button class="sandbox-tab-btn px-4 py-2 rounded-lg border-2 border-transparent text-on-surface-variant text-label-md font-label-md hover:text-on-surface transition-all font-bold" id="tab-btn-analytics" onclick="switchSandboxTab('analytics')">
+            C: Real-Time Heatmap
+          </button>
+</div>
+</div>
+<!-- Tab A: Teacher PIN Launch Sandbox -->
+<div class="space-y-6" id="sandbox-content-pin">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+<div class="md:col-span-2 space-y-4">
+<div class="bg-surface-container-low p-5 rounded-2xl border-2 border-on-surface space-y-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase font-black">Live Classroom Broadcast Preview</span>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-lowest p-6 rounded-xl border-2 border-on-surface neo-shadow-sm">
+<div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Join via browser or iPad app:</div>
+<div class="text-lg font-bold text-on-surface">qbkits.fun</div>
+<div class="text-xs text-tertiary font-bold mt-1">● SmartBoard Server Connected (4ms ping)</div>
+</div>
+<div class="text-center sm:text-right">
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Class Game PIN:</div>
+<div class="text-4xl md:text-5xl font-black text-primary tracking-widest bg-primary-fixed px-4 py-1 rounded-xl border-2 border-on-surface neo-shadow-sm inline-block" id="live-pin-display">
+                    482 901
+                  </div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="px-5 py-3 bg-primary-container text-on-surface font-title-md text-title-md rounded-xl border-2 border-on-surface neo-shadow-sm hover:brightness-105 active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center gap-2" onclick="generateRandomPIN()">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+<span class="">Generate New Live PIN</span>
+</button>
+<button class="px-5 py-3 bg-secondary-container text-on-secondary-container font-title-md text-title-md rounded-xl border-2 border-on-surface neo-shadow-sm hover:brightness-105 active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center gap-2" onclick="simulateStudentArrival()">
+<span class="material-symbols-outlined text-[20px]">group_add</span>
+<span class="">Simulate Student Joining (+1)</span>
+</button>
+</div>
+</div>
+<!-- Connected Roster Box -->
+<div class="bg-surface-container-high p-4 rounded-2xl border-2 border-on-surface space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-label-md font-label-md font-bold">Lobby Roster (<span id="roster-count" class="">4</span>)</span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container border border-on-surface animate-ping"></span>
+</div>
+<div class="space-y-2 max-h-48 overflow-y-auto pr-1" id="roster-list">
+<div class="flex items-center justify-between p-2 bg-surface-container-lowest rounded-xl border border-on-surface text-xs font-bold neo-shadow-sm">
+<span class="">🦊 Maya (Fox)</span>
+<span class="text-tertiary">Ready</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-lowest rounded-xl border border-on-surface text-xs font-bold neo-shadow-sm">
+<span class="">🐻 Liam (Bear)</span>
+<span class="text-tertiary">Ready</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-lowest rounded-xl border border-on-surface text-xs font-bold neo-shadow-sm">
+<span class="">🐼 Sophia (Panda)</span>
+<span class="text-tertiary">Ready</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-lowest rounded-xl border border-on-surface text-xs font-bold neo-shadow-sm">
+<span class="">🦁 Noah (Lion)</span>
+<span class="text-tertiary">Ready</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab B: Student Quick Play Sandbox -->
+<div class="hidden space-y-6" id="sandbox-content-play">
+<div class="max-w-xl mx-auto bg-surface-container-low p-6 rounded-2xl border-2 border-on-surface neo-shadow space-y-5">
+<div class="flex justify-between items-center border-b-2 border-on-surface pb-3">
+<div class="flex items-center gap-2">
+<span class="text-2xl">⛵</span>
+<span class="font-bold text-sm">Round 3 of 10: Fraction Cannon</span>
+</div>
+<div class="bg-primary-container px-3 py-1 rounded-full border border-on-surface text-xs font-bold">
+              Streak: <span id="streak-counter" class="">2</span> 🔥
+            </div>
+</div>
+<div class="text-center py-4 bg-surface-container-lowest rounded-xl border-2 border-on-surface neo-shadow-sm space-y-1">
+<span class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Solve &amp; Fire Cannon:</span>
+<div class="text-2xl md:text-3xl font-black text-on-surface">Which fraction equals 50%?</div>
+</div>
+<!-- Tactile Options -->
+<div class="grid grid-cols-2 gap-3">
+<button class="option-btn p-4 bg-surface-container-lowest border-2 border-on-surface rounded-xl text-title-md font-title-md neo-shadow hover:bg-surface-container transition-all active:translate-x-[2px] active:translate-y-[2px]" onclick="handleAnswerChoice(false, this)">
+              A) 1 / 4
+            </button>
+<button class="option-btn p-4 bg-surface-container-lowest border-2 border-on-surface rounded-xl text-title-md font-title-md neo-shadow hover:bg-surface-container transition-all active:translate-x-[2px] active:translate-y-[2px]" onclick="handleAnswerChoice(true, this)">
+              B) 1 / 2
+            </button>
+<button class="option-btn p-4 bg-surface-container-lowest border-2 border-on-surface rounded-xl text-title-md font-title-md neo-shadow hover:bg-surface-container transition-all active:translate-x-[2px] active:translate-y-[2px]" onclick="handleAnswerChoice(false, this)">
+              C) 3 / 4
+            </button>
+<button class="option-btn p-4 bg-surface-container-lowest border-2 border-on-surface rounded-xl text-title-md font-title-md neo-shadow hover:bg-surface-container transition-all active:translate-x-[2px] active:translate-y-[2px]" onclick="handleAnswerChoice(false, this)">
+              D) 2 / 3
+            </button>
+</div>
+<div class="min-h-[44px] flex items-center justify-center text-center font-bold text-sm" id="play-feedback">
+            Tap an answer above to preview instant tactile &amp; audio feedback!
+          </div>
+</div>
+</div>
+<!-- Tab C: Analytics Heatmap Sandbox -->
+<div class="hidden space-y-4" id="sandbox-content-analytics">
+<div class="bg-surface-container-low p-6 rounded-2xl border-2 border-on-surface space-y-4">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+<div>
+<h4 class="text-title-md font-title-md text-on-surface">Grade 4 Math: Live Formative Heatmap</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Class accuracy updated every 1.5 seconds during live matches</p>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-3 py-1 rounded-full text-xs font-bold">
+              Class Average: 86%
+            </span>
+</div>
+<!-- Heatmap Matrix -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-3 pt-2">
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm space-y-1">
+<div class="text-xs font-bold text-on-surface-variant">Q1: Halves &amp; Quarters</div>
+<div class="text-2xl font-black text-tertiary">96%</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-[96%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm space-y-1">
+<div class="text-xs font-bold text-on-surface-variant">Q2: Mixed Numbers</div>
+<div class="text-2xl font-black text-tertiary">89%</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-[89%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm space-y-1 border-error">
+<div class="text-xs font-bold text-error">Q3: Common Denominator</div>
+<div class="text-2xl font-black text-error">48%</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[48%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm space-y-1">
+<div class="text-xs font-bold text-on-surface-variant">Q4: Visual Bars</div>
+<div class="text-2xl font-black text-tertiary">92%</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-[92%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border-2 border-on-surface neo-shadow-sm space-y-1">
+<div class="text-xs font-bold text-on-surface-variant">Q5: Word Problems</div>
+<div class="text-2xl font-black text-primary">74%</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[74%]"></div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-error-container text-on-error-container rounded-xl border-2 border-on-surface flex items-center justify-between text-xs font-bold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+              Recommended Action: Trigger 3-minute mini review for Question 3 before ending match.
+            </span>
+<button class="px-3 py-1 bg-surface-container-lowest text-on-surface border border-on-surface rounded-lg neo-shadow-sm hover:brightness-95" onclick="alert('Demo: Auto-generated 3-minute visual fraction review pushed to teacher whiteboard!')">
+              Push Mini-Lesson
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- CLIENT DELIVERABLE & SPEC TOOLKIT -->
+<section class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl p-6 md:p-8 neo-shadow space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-2 border-on-surface pb-4">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase font-black">Stakeholder Package</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">Client Deliverables &amp; Technical Specs</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Complete handoff assets, architectural maps, and compliance checklists.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface px-3 py-1 rounded-full text-xs font-black">All Assets Verified</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-4 bg-surface-container-low rounded-xl border-2 border-on-surface space-y-3 flex flex-col justify-between neo-shadow-sm hover:bg-surface-container transition-all">
+<div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed border border-on-surface flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[20px]">slideshow</span>
+</div>
+<div class="font-bold text-sm text-on-surface">Client Pitch &amp; Demo Deck</div>
+<p class="text-xs text-on-surface-variant mt-1">34-slide deck covering executive vision, pedagogical validation, and monetization roadmap.</p>
+</div>
+<button class="w-full py-2 bg-surface-container-lowest hover:bg-primary-container border-2 border-on-surface rounded-lg text-xs font-bold neo-shadow-sm active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center justify-center gap-1.5" onclick="triggerDownloadAlert('QB Interactive Learning Kits_Executive_Deck_v2.4.pdf')">
+<span class="material-symbols-outlined text-[16px]">download</span> Download PDF
+          </button>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl border-2 border-on-surface space-y-3 flex flex-col justify-between neo-shadow-sm hover:bg-surface-container transition-all">
+<div>
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed border border-on-surface flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+</div>
+<div class="font-bold text-sm text-on-surface">Full Architecture Map</div>
+<p class="text-xs text-on-surface-variant mt-1">Figma / FigJam diagram linking all 18 screens, conditional routing, and error branches.</p>
+</div>
+<button class="w-full py-2 bg-surface-container-lowest hover:bg-primary-container border-2 border-on-surface rounded-lg text-xs font-bold neo-shadow-sm active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center justify-center gap-1.5" onclick="triggerDownloadAlert('QB Interactive Learning Kits_Flow_Architecture_Map.pdf')">
+<span class="material-symbols-outlined text-[16px]">download</span> View Map
+          </button>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl border-2 border-on-surface space-y-3 flex flex-col justify-between neo-shadow-sm hover:bg-surface-container transition-all">
+<div>
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed border border-on-surface flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+</div>
+<div class="font-bold text-sm text-on-surface">Design Tokens &amp; Stylebook</div>
+<p class="text-xs text-on-surface-variant mt-1">Exported Tailwind CSS configuration, SVG assets, and Neo-Brutalist component library.</p>
+</div>
+<button class="w-full py-2 bg-surface-container-lowest hover:bg-primary-container border-2 border-on-surface rounded-lg text-xs font-bold neo-shadow-sm active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center justify-center gap-1.5" onclick="triggerDownloadAlert('QB Interactive Learning Kits_DesignTokens_Tailwind.json')">
+<span class="material-symbols-outlined text-[16px]">code</span> Tokens (.json)
+          </button>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl border-2 border-on-surface space-y-3 flex flex-col justify-between neo-shadow-sm hover:bg-surface-container transition-all">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container border border-on-surface flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="font-bold text-sm text-on-surface">COPPA / FERPA Compliance</div>
+<p class="text-xs text-on-surface-variant mt-1">Legal audit checklist proving zero PII leakage, student safety barriers, and cookie compliance.</p>
+</div>
+<button class="w-full py-2 bg-surface-container-lowest hover:bg-primary-container border-2 border-on-surface rounded-lg text-xs font-bold neo-shadow-sm active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center justify-center gap-1.5" onclick="triggerDownloadAlert('QB Interactive Learning Kits_Privacy_Compliance_Brief.pdf')">
+<span class="material-symbols-outlined text-[16px]">download</span> Audit Brief
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- SCREEN INSPECTION MODAL (Interactive Sandbox Overlay) -->
+<div class="fixed inset-0 z-50 bg-[#202633]/60 backdrop-blur-[2px] hidden items-center justify-center p-4" id="screen-modal">
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-2xl max-w-2xl w-full neo-shadow-lg p-6 space-y-5 animate-in fade-in zoom-in duration-150">
+<div class="flex justify-between items-start border-b-2 border-on-surface pb-3">
+<div>
+<span class="bg-primary-fixed border border-on-surface px-2.5 py-0.5 rounded-full text-xs font-bold text-on-primary-fixed">Screen Spec Sheet</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-1" id="modal-title">01. Homepage</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant" id="modal-subtitle">Public Landing &amp; Direct PIN Launcher</p>
+</div>
+<button class="w-9 h-9 rounded-xl bg-surface-container border-2 border-on-surface flex items-center justify-center neo-shadow-sm hover:bg-error-container transition-all" onclick="closeScreenModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-2 border-on-surface space-y-2">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Screen Details &amp; Purpose:</span>
+<p class="text-body-md font-body-md text-on-surface" id="modal-desc">Features high-impact animated hero banner, instant 6-digit game access, and teacher sign-up trigger.</p>
+</div>
+<div class="grid grid-cols-2 gap-3 text-xs font-bold">
+<div class="p-3 bg-surface-container rounded-lg border border-on-surface">
+<span class="text-on-surface-variant block">Layout Rule:</span>
+<span class="">12-Col Neo-Brutalist Grid</span>
+</div>
+<div class="p-3 bg-surface-container rounded-lg border border-on-surface">
+<span class="text-on-surface-variant block">Primary Target:</span>
+<span class="">Desktop &amp; Whiteboard Ready</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 pt-2">
+<button class="px-4 py-2 bg-surface-container border-2 border-on-surface rounded-xl text-label-md font-label-md hover:brightness-95" onclick="closeScreenModal()">
+          Close Spec
+        </button>
+<button class="px-5 py-2 bg-primary-container text-on-surface border-2 border-on-surface rounded-xl text-label-md font-label-md neo-shadow-sm hover:brightness-105 active:translate-x-[2px] active:translate-y-[2px] flex items-center gap-1.5" onclick="simulateLaunchScreen()">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span> Launch Standalone Canvas
+        </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell (Shared Component Anchor Implementation) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-4 py-2 border-t-2 border-on-surface bg-surface-container-lowest shadow-[0_-4px_0_0_#151c28]">
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1.5 border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]" onclick="filterAudience('all')">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span class="text-label-sm font-label-sm mt-0.5">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5" onclick="filterAudience('teacher')">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_stories">auto_stories</span>
+<span class="text-label-sm font-label-sm mt-0.5">Subjects</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5" onclick="filterAudience('student')">
+<span class="material-symbols-outlined text-[20px]" data-icon="explore">explore</span>
+<span class="text-label-sm font-label-sm mt-0.5">Quests</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5" onclick="scrollToSandbox()">
+<span class="material-symbols-outlined text-[20px]" data-icon="military_tech">military_tech</span>
+<span class="text-label-sm font-label-sm mt-0.5">Badges</span>
+</button>
+</nav>
+<!-- Interactive Logic Script -->
+<script>
+    // Audience Filtering Logic
+    function filterAudience(category) {
+      // Update Tab Styles
+      const buttons = document.querySelectorAll('.audience-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'neo-shadow-sm', 'border-on-surface');
+        btn.classList.add('border-transparent', 'text-on-surface-variant');
+      });
+
+      const activeBtn = document.getElementById(`filter-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'neo-shadow-sm', 'border-on-surface');
+        activeBtn.classList.remove('border-transparent', 'text-on-surface-variant');
+      }
+
+      // Filter Sections
+      const sections = document.querySelectorAll('.flow-section');
+      sections.forEach(section => {
+        if (category === 'all') {
+          section.style.display = 'block';
+        } else {
+          if (section.getAttribute('data-category') === category) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Presenter Notes Bar Toggle
+    let presenterNotesActive = false;
+    function togglePresenterNotes() {
+      presenterNotesActive = !presenterNotesActive;
+      const banner = document.getElementById('presenter-banner');
+      const btnText = document.getElementById('presenter-btn-text');
+      
+      if (presenterNotesActive) {
+        banner.classList.remove('hidden');
+        btnText.textContent = 'Presenter Notes: ON';
+      } else {
+        banner.classList.add('hidden');
+        btnText.textContent = 'Presenter Notes: OFF';
+      }
+    }
+
+    // Device View Mode Toggle
+    function setDeviceView(mode) {
+      const desktopBtn = document.getElementById('device-desktop');
+      const tabletBtn = document.getElementById('device-tablet');
+      const mainContainer = document.querySelector('main');
+
+      if (mode === 'tablet') {
+        tabletBtn.classList.add('border-on-surface', 'bg-surface-container-lowest', 'neo-shadow-sm');
+        tabletBtn.classList.remove('border-transparent', 'text-on-surface-variant');
+        desktopBtn.classList.remove('border-on-surface', 'bg-surface-container-lowest', 'neo-shadow-sm');
+        desktopBtn.classList.add('border-transparent', 'text-on-surface-variant');
+        mainContainer.style.maxWidth = '860px';
+      } else {
+        desktopBtn.classList.add('border-on-surface', 'bg-surface-container-lowest', 'neo-shadow-sm');
+        desktopBtn.classList.remove('border-transparent', 'text-on-surface-variant');
+        tabletBtn.classList.remove('border-on-surface', 'bg-surface-container-lowest', 'neo-shadow-sm');
+        tabletBtn.classList.add('border-transparent', 'text-on-surface-variant');
+        mainContainer.style.maxWidth = '1280px';
+      }
+    }
+
+    // Sandbox Tab Switching
+    function switchSandboxTab(tabName) {
+      const tabs = ['pin', 'play', 'analytics'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`sandbox-content-${t}`);
+        if (t === tabName) {
+          btn.classList.add('bg-surface-container-lowest', 'border-on-surface', 'neo-shadow-sm');
+          btn.classList.remove('border-transparent', 'text-on-surface-variant');
+          content.classList.remove('hidden');
+        } else {
+          btn.classList.remove('bg-surface-container-lowest', 'border-on-surface', 'neo-shadow-sm');
+          btn.classList.add('border-transparent', 'text-on-surface-variant');
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    // Random PIN Generator for Simulator
+    function generateRandomPIN() {
+      const part1 = Math.floor(100 + Math.random() * 900);
+      const part2 = Math.floor(100 + Math.random() * 900);
+      const pinDisplay = document.getElementById('live-pin-display');
+      pinDisplay.textContent = `${part1} ${part2}`;
+      pinDisplay.classList.add('scale-105');
+      setTimeout(() => pinDisplay.classList.remove('scale-105'), 200);
+    }
+
+    // Student Arrival Simulator
+    const sampleStudents = [
+      { name: 'Lucas (Dragon)', icon: '🐲' },
+      { name: 'Emma (Bunny)', icon: '🐰' },
+      { name: 'Leo (Tiger)', icon: '🐯' },
+      { name: 'Chloe (Penguin)', icon: '🐧' },
+      { name: 'Zane (Falcon)', icon: '🦅' }
+    ];
+    let studentIndex = 0;
+    function simulateStudentArrival() {
+      if (studentIndex >= sampleStudents.length) {
+        alert('All demo students have joined the lobby!');
+        return;
+      }
+      const st = sampleStudents[studentIndex++];
+      const rosterList = document.getElementById('roster-list');
+      const rosterCount = document.getElementById('roster-count');
+      
+      const newRow = document.createElement('div');
+      newRow.className = 'flex items-center justify-between p-2 bg-tertiary-fixed rounded-xl border border-on-surface text-xs font-bold neo-shadow-sm animate-pulse';
+      newRow.innerHTML = `<span>${st.icon} ${st.name}</span><span class="text-tertiary">Just Joined</span>`;
+      rosterList.appendChild(newRow);
+      
+      const currentTotal = parseInt(rosterCount.textContent) + 1;
+      rosterCount.textContent = currentTotal;
+    }
+
+    // Student Play Answer Interaction
+    let currentStreak = 2;
+    function handleAnswerChoice(isCorrect, btn) {
+      const feedback = document.getElementById('play-feedback');
+      const streakElem = document.getElementById('streak-counter');
+      const allBtns = document.querySelectorAll('.option-btn');
+
+      allBtns.forEach(b => {
+        b.classList.remove('bg-tertiary-fixed', 'bg-error-container', 'border-tertiary', 'border-error');
+      });
+
+      if (isCorrect) {
+        btn.classList.add('bg-tertiary-fixed', 'border-tertiary');
+        currentStreak++;
+        streakElem.textContent = currentStreak;
+        feedback.innerHTML = `<span class="text-tertiary flex items-center gap-1"><span class="material-symbols-outlined text-[20px]">check_circle</span> Correct! Cannon Fired! (+50 Gold XP)</span>`;
+      } else {
+        btn.classList.add('bg-error-container', 'border-error');
+        currentStreak = 0;
+        streakElem.textContent = currentStreak;
+        feedback.innerHTML = `<span class="text-error flex items-center gap-1"><span class="material-symbols-outlined text-[20px]">cancel</span> Not quite! Remember 1/2 is half of a whole unit.</span>`;
+      }
+    }
+
+    // Modal Details Handler
+    function openScreenModal(title, subtitle, desc) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-subtitle').textContent = subtitle;
+      document.getElementById('modal-desc').textContent = desc;
+      const modal = document.getElementById('screen-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeScreenModal() {
+      const modal = document.getElementById('screen-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function simulateLaunchScreen() {
+      const title = document.getElementById('modal-title').textContent;
+      alert(`Launching isolated sandbox prototype for: ${title}`);
+      closeScreenModal();
+    }
+
+    function triggerDownloadAlert(fileName) {
+      alert(`Client Spec Download Initialized: ${fileName}`);
+    }
+
+    function scrollToSandbox() {
+      const elem = document.getElementById('demo-sandbox');
+      elem.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+
+</body></html>

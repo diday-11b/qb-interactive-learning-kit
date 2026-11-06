@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7fafc">
+  <title>Teacher dashboard | QB Interactive Learning Kits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/qb-font.css?v=20261030-one-font">
+  <link rel="stylesheet" href="../assets/teacher-dashboard.css">
+  <link rel="stylesheet" href="../assets/teacher-dashboard-overrides.css?v=brand-size-fix-2">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html" aria-label="QB Interactive Learning Kits home"><span class="brand-mark" aria-hidden="true"><img src="../qb_learning_kits_lion_mascot_logo/screen.png" width="48" height="48" alt=""></span><span>QB Interactive<br>Learning Kits</span></a>
+    <nav aria-label="Teacher tools">
+      <a class="active" href="code.html" aria-current="page">Dashboard</a>
+      <a href="../17._qb_classroom_student_roster_manager/code.html">Classes</a>
+      <a href="../09._qb_results_progress_analytics/code.html">Progress reports</a>
+      <a href="../05._qb_question_sets_manager/code.html">Question sets</a>
+      <a href="../07._qb_game_library_arena_selection/code.html">Activities</a>
+      <a href="../18._qb_user_profile_system_preferences/code.html">Settings</a>
+    </nav>
+    <button id="sign-out" class="button button-outline" type="button" hidden>Sign out</button>
+  </header>
+
+  <nav class="teacher-journey" aria-label="Teaching workflow">
+    <a href="../17._qb_classroom_student_roster_manager/code.html"><span class="journey-number">1</span><span>Choose learners</span></a>
+    <span class="journey-arrow" aria-hidden="true">›</span>
+    <a href="../05._qb_question_sets_manager/code.html"><span class="journey-number">2</span><span>Pick questions</span></a>
+    <span class="journey-arrow" aria-hidden="true">›</span>
+    <a href="../08._qb_play_game_setup_live_host_lobby/code.html"><span class="journey-number">3</span><span>Play &amp; track</span></a>
+  </nav>
+
+  <main class="page-wrap">
+    <section class="welcome-row">
+      <div><p class="eyebrow">YOUR CLASSROOM, AT A GLANCE</p><h1>Teacher dashboard <span aria-hidden="true">✦</span></h1><p class="subhead">A clear view of classes, activities, and the learning happening this month.</p></div>
+      <a class="button button-primary" href="../05._qb_question_sets_manager/code.html">＋ Create activity</a>
+    </section>
+
+    <section id="dashboard-state" class="notice" role="status" aria-live="polite">Loading your classroom data…</section>
+    <div id="dashboard-content" hidden>
+      <section class="metrics" aria-label="Classroom summary">
+        <article class="metric-card sky"><span class="metric-icon" aria-hidden="true">♧</span><p>Students</p><strong id="student-count">—</strong><small>In your classes</small></article>
+        <article class="metric-card yellow"><span class="metric-icon" aria-hidden="true">▦</span><p>Classes</p><strong id="class-count">—</strong><small>Your classrooms</small></article>
+        <article class="metric-card mint"><span class="metric-icon" aria-hidden="true">✎</span><p>Active assignments</p><strong id="assignment-count">—</strong><small>Not past their due date</small></article>
+        <article class="metric-card coral"><span class="metric-icon" aria-hidden="true">↗</span><p>Completion</p><strong id="completion-rate">—</strong><small id="completion-caption">Across active assignments · 30 days</small></article>
+      </section>
+
+      <section class="quick-actions" aria-label="Quick actions">
+        <a href="../17._qb_classroom_student_roster_manager/code.html"><span aria-hidden="true">▦</span><span><b>Manage classes</b><small>View learners and class lists</small></span><span class="arrow" aria-hidden="true">→</span></a>
+        <a href="../05._qb_question_sets_manager/code.html"><span aria-hidden="true">✎</span><span><b>Create content</b><small>Build and publish a question set</small></span><span class="arrow" aria-hidden="true">→</span></a>
+        <a href="../17._qb_classroom_student_roster_manager/code.html"><span aria-hidden="true">▶</span><span><b>Assign an activity</b><small>Choose a class, then assign a published activity</small></span><span class="arrow" aria-hidden="true">→</span></a>
+        <a href="../09._qb_results_progress_analytics/code.html"><span aria-hidden="true">↗</span><span><b>Progress reports</b><small>Review saved answers and results</small></span><span class="arrow" aria-hidden="true">→</span></a>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">YOUR GROUPS</p><h2>Classes</h2></div><a class="text-link" href="../17._qb_classroom_student_roster_manager/code.html">Manage classes →</a></div>
+          <div id="classes-list" class="list-stack"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">WHAT'S IN PROGRESS</p><h2>Active assignments</h2></div><span id="assignment-period" class="period-pill">Past 30 days</span></div>
+          <div id="assignments-list" class="list-stack"></div>
+        </section>
+        <section class="panel panel-wide">
+          <div class="panel-heading"><div><p class="eyebrow">LAST 30 DAYS</p><h2>Recent student activity</h2><p class="section-note" id="performance-summary"></p></div></div>
+          <div id="activity-list" class="activity-list"></div>
+        </section>
+        <section class="panel practice-panel">
+          <div class="panel-heading"><div><p class="eyebrow">A LITTLE EXTRA PRACTICE</p><h2>Students to check in with</h2></div><span class="period-pill">Recent score under 60%</span></div>
+          <div id="practice-list" class="list-stack"></div>
+        </section>
+      </div>
+      <p class="footnote"><span id="published-count">0</span> published activities available · Summary uses the last 30 days. Student performance is based on recorded completed sessions.</p>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/supabase-config.js"></script>
+  <script src="../assets/qb-supabase.js?v=google-2"></script>
+  <script src="../assets/teacher-dashboard.js?v=20261104-direct-games" defer></script>
+
+  <script defer src="../assets/qb-accessibility.js"></script>
+</body>
+</html>

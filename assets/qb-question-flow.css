@@ -1,0 +1,121 @@
+/* Shared type scale and step bar for the question → game → play flow. */
+body.qb-question-flow {
+  min-height: 100vh;
+  background: #d9efff !important;
+  color: #111722 !important;
+}
+
+body.qb-question-flow > header {
+  background: #fff !important;
+  border-bottom: 3px solid #080808 !important;
+  box-shadow: 0 4px 0 rgb(0 0 0 / 10%) !important;
+}
+
+body.qb-question-flow > main {
+  width: min(1080px, calc(100% - 40px));
+  max-width: 1080px;
+  padding: 26px 0 48px;
+  gap: 24px;
+}
+
+.qb-flow-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.8vw, 22px);
+  min-height: 74px;
+  padding: 10px 16px;
+  border: 3px solid #080808;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 4px 5px 0 #111722;
+}
+
+.qb-flow-steps a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: #99a2b0;
+  font-size: clamp(11px, 1vw, 15px);
+  line-height: 1.15;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.qb-flow-steps a[aria-current="step"] { color: #111722; }
+.qb-flow-step-number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border: 2px solid #080808;
+  border-radius: 11px;
+  background: #e9edf1;
+  color: #111722;
+  font-size: 15px;
+}
+.qb-flow-steps a[aria-current="step"] .qb-flow-step-number { background: #72d5ff; }
+.qb-flow-arrow { color: #aab2bf; font-size: 23px; }
+
+.qb-flow-title { margin: 0; text-align: center; }
+.qb-flow-title h1 {
+  margin: 0;
+  color: #ff8b32;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.05;
+  letter-spacing: .012em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px #080808;
+  text-shadow: 4px 5px 0 #080808, 7px 8px 0 rgb(0 0 0 / 10%);
+}
+.qb-flow-title p {
+  display: inline-flex;
+  margin: 10px 0 0;
+  padding: 7px 16px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 92%);
+  color: #526072;
+  font-size: clamp(13px, 1.2vw, 17px);
+  line-height: 1.3;
+}
+
+body.qb-question-flow main > section,
+body.qb-question-flow main > footer {
+  border-color: #080808 !important;
+  box-shadow: 4px 5px 0 #111722 !important;
+}
+
+body.qb-question-flow main h2,
+body.qb-question-flow main h3,
+body.qb-question-flow main h4 { line-height: 1.2; }
+
+body.qb-question-flow main p { line-height: 1.4; }
+
+body.qb-question-flow main button,
+body.qb-question-flow main a[role="button"] {
+  border-color: #080808;
+  font-size: 13px;
+}
+
+body.qb-question-flow :focus-visible { outline: 3px solid #176ba0; outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  body.qb-question-flow > main { width: min(100% - 28px, 600px); padding-top: 20px; }
+  .qb-flow-steps { gap: 6px; min-height: 64px; padding: 8px 6px; border-width: 2px; }
+  .qb-flow-steps a { flex: 1; flex-direction: column; gap: 4px; text-align: center; font-size: 9px; }
+  .qb-flow-step-number { width: 32px; height: 32px; font-size: 13px; }
+  .qb-flow-arrow { font-size: 16px; }
+  .qb-flow-title h1 { font-size: clamp(38px, 10vw, 58px); -webkit-text-stroke-width: 1px; text-shadow: 3px 3px 0 #080808; }
+}
+
+@media (max-width: 480px) {
+  body.qb-question-flow > main { width: calc(100% - 22px); padding-top: 16px; }
+  .qb-flow-steps { gap: 3px; padding-inline: 4px; }
+  .qb-flow-steps a { font-size: 8px; }
+  .qb-flow-step-number { width: 28px; height: 28px; }
+  .qb-flow-title h1 { font-size: clamp(34px, 10vw, 48px); }
+  .qb-flow-title p { max-width: 96%; font-size: 12px; }
+}

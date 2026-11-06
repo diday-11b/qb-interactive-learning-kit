@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dff3ff">
+  <meta name="description" content="A personal learning dashboard for children using QB Interactive Learning Kits.">
+  <title>My Learning Dashboard — QB Interactive Learning Kits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Sans+Khmer:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/qb-font.css?v=20261030-one-font">
+  <style>
+    :root { color-scheme: light; --page-bg: #f7fafc; --ink: #253247; --panel: #fff; }
+    * { box-sizing: border-box; }
+    body { min-width: 320px; margin: 0; background: var(--page-bg); color: var(--ink); font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif); }
+    main { min-height: 100vh; }
+    .dashboard-initial-state { width: min(100% - 2rem, 42rem); margin: 12vh auto; padding: 1.25rem; border: 2px solid var(--ink); border-radius: 1rem; background: var(--panel); text-align: center; }
+    :where(a, button, input, select):focus-visible { outline: 3px solid #176ba0; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main aria-busy="true" aria-label="Child learning dashboard">
+    <p class="dashboard-initial-state" role="status" aria-live="polite">Loading your learning space…</p>
+  </main>
+  <script defer src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script defer src="../assets/supabase-config.js"></script>
+  <script defer src="../assets/qb-supabase.js?v=google-2"></script>
+  <script defer src="../assets/qb-child-dashboard.js?v=20261026-2"></script>
+  <script defer src="../assets/qb-accessibility.js"></script>
+</body>
+</html>

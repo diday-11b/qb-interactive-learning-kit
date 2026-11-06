@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QB Interactive Learning Kits - Ship Battle Blast!</title>
+<!-- Fonts -->
+
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#dbc2b1",
+            "primary-container": "#ff983d",
+            "surface-bright": "#f9f9ff",
+            "on-surface-variant": "#554337",
+            "surface-container-low": "#f1f3ff",
+            "primary-fixed": "#ffdcc4",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#001f29",
+            "inverse-on-surface": "#edf0ff",
+            "surface-dim": "#d4daeb",
+            "secondary-container": "#83dafe",
+            "on-primary": "#ffffff",
+            "surface-variant": "#dde2f4",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#002111",
+            "error-container": "#ffdad6",
+            "surface": "#f9f9ff",
+            "on-secondary-fixed-variant": "#004d63",
+            "on-secondary-container": "#00607a",
+            "outline": "#887365",
+            "secondary-fixed": "#bce9ff",
+            "on-tertiary-fixed-variant": "#005232",
+            "primary": "#924c00",
+            "surface-tint": "#924c00",
+            "tertiary-container": "#5ac58e",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#6b3600",
+            "tertiary": "#006c44",
+            "secondary": "#006783",
+            "on-primary-fixed": "#2f1400",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#70dba2",
+            "error": "#ba1a1a",
+            "surface-container-high": "#e2e8fa",
+            "surface-container-highest": "#dde2f4",
+            "on-background": "#151c28",
+            "on-tertiary-container": "#004f30",
+            "inverse-primary": "#ffb780",
+            "primary-fixed-dim": "#ffb780",
+            "inverse-surface": "#2a303e",
+            "background": "#f9f9ff",
+            "on-primary-fixed-variant": "#6f3800",
+            "surface-container": "#e8edff",
+            "secondary-fixed-dim": "#7bd2f6",
+            "on-surface": "#151c28",
+            "tertiary-fixed": "#8df8bd"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-xl": "2.25rem",
+            "gutter": "1.25rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "label-sm": ["Nunito Sans", "sans-serif"],
+            "title-md": ["Quicksand", "sans-serif"],
+            "headline-sm": ["Quicksand", "sans-serif"],
+            "display-hero-mobile": ["Quicksand", "sans-serif"],
+            "headline-md": ["Quicksand", "sans-serif"],
+            "headline-lg": ["Quicksand", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "headline-lg-mobile": ["Quicksand", "sans-serif"],
+            "body-sm": ["Nunito Sans", "sans-serif"],
+            "display-hero": ["Quicksand", "sans-serif"],
+            "label-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "label-md": ["Nunito Sans", "sans-serif"]
+          },
+          fontSize: {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "display-hero-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Neo-Brutalist Playful Keyframe Animations */
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    @keyframes popBounce {
+      0% { transform: scale(0.6) translateY(20px); opacity: 0; }
+      70% { transform: scale(1.15) translateY(-6px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    @keyframes blastPulse {
+      0% { transform: scale(0.95); filter: brightness(1); }
+      50% { transform: scale(1.05); filter: brightness(1.2); }
+      100% { transform: scale(0.95); filter: brightness(1); }
+    }
+    @keyframes floatWave {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    @keyframes streamFlow {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .animate-wiggle { animation: wiggle 1.2s ease-in-out infinite; }
+    .animate-pop-bounce { animation: popBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .animate-blast-pulse { animation: blastPulse 1.5s ease-in-out infinite; }
+    .animate-float-wave { animation: floatWave 2.8s ease-in-out infinite; }
+    
+    .khmer-font {
+      font-family:var(--qb-font,"Luckiest Guy","Noto Sans Khmer",sans-serif);
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="/assets/qb-font.css?v=20261030-one-font" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md select-none overflow-x-hidden antialiased pb-32">
+<!-- ================= TOP HUD HEADER ================= -->
+<header class="w-full bg-surface-container-lowest border-b-2 border-on-surface shadow-[0_4px_0_0_#151c28] sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2 md:gap-4">
+<!-- Left Controls: Exit Hub & Round Progress -->
+<div class="flex items-center gap-2 sm:gap-3">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-high hover:bg-surface-variant border-2 border-on-surface rounded-xl shadow-[2px_2px_0_0_#151c28] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" title="Exit to Hub">
+<span class="material-symbols-outlined text-[20px] font-bold text-on-surface">arrow_back</span>
+<span class="font-label-md text-label-md hidden sm:inline text-on-surface">Exit Hub</span>
+</button>
+<div class="hidden md:flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">Ship Battle</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Grade 2 Compound Words</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-tertiary-container text-on-tertiary-container border border-on-surface rounded-md font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Round 3 of 5 [Completed!]
+            </span>
+</div>
+</div>
+</div>
+<!-- Center Streak Booster Badge -->
+<div class="flex items-center">
+<div class="animate-wiggle flex items-center gap-1.5 bg-primary-container px-3.5 py-1 rounded-full border-2 border-on-surface shadow-[3px_3px_0_0_#151c28]">
+<span class="text-xl">🔥</span>
+<div class="flex flex-col items-start leading-none">
+<span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase">3x Streak</span>
+<span class="font-title-md text-title-md text-on-surface font-extrabold text-[13px] sm:text-[15px]">SUPER COMBO!</span>
+</div>
+</div>
+</div>
+<!-- Right HUD Group: Sound, Hearts, Stars & Leo Badge -->
+<div class="flex items-center gap-2 sm:gap-3">
+<!-- Audio Toggler -->
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container-lowest hover:bg-surface-container border-2 border-on-surface rounded-xl shadow-[2px_2px_0_0_#151c28] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-secondary text-[22px]">volume_up</span>
+</button>
+<!-- Hearts Life Meter -->
+<div class="hidden sm:flex items-center gap-1 bg-surface-container-lowest border-2 border-on-surface px-2.5 py-1.5 rounded-xl shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-error text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-error text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-error text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Star Counter with Floating Bonus Animated Pill -->
+<div class="relative flex items-center gap-1.5 bg-surface-container-lowest border-2 border-on-surface px-3 py-1.5 rounded-xl shadow-[2px_2px_0_0_#151c28]">
+<span class="text-lg">⭐</span>
+<span class="font-title-md text-title-md text-on-surface font-extrabold tracking-tight">65</span>
+<!-- +25 Bonus Floater -->
+<span class="animate-pop-bounce absolute -top-3.5 -right-2 bg-tertiary-fixed text-on-tertiary-fixed-variant border-2 border-on-surface text-[11px] font-label-sm font-black px-1.5 py-0.5 rounded-full shadow-[2px_2px_0_0_#151c28]">
+            +25 BONUS!
+          </span>
+</div>
+<!-- Leo The Brave Owl Mascot Avatar -->
+<div class="flex items-center gap-1.5 pl-1">
+<div class="relative w-10 h-10 rounded-xl bg-secondary-container border-2 border-on-surface shadow-[2px_2px_0_0_#151c28] flex items-center justify-center overflow-hidden">
+<!-- Playful Owl / Leo with Cool Sunglasses representation -->
+<span aria-label="QB Interactive Learning Kits playful owl mascot" class="text-2xl" role="img">🦉</span>
+<div class="absolute bottom-0 inset-x-0 bg-on-surface/80 text-[8px] text-center text-surface-bright font-black py-0.2">LEO</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="max-w-6xl w-full mx-auto px-3 sm:px-6 pt-4 sm:pt-6 space-y-4 sm:space-y-6">
+<!-- BATTLE ARENA DISPLAY (Dynamic Action Canvas) -->
+<section class="relative w-full rounded-2xl bg-gradient-to-b from-[#bce9ff] via-[#83dafe] to-[#3ba6df] border-2 border-on-surface shadow-[6px_6px_0_0_#151c28] overflow-hidden min-h-[380px] md:min-h-[460px] flex flex-col justify-between p-4 sm:p-6">
+<!-- Top Arena Atmosphere: Clouds & Game Flags -->
+<div class="w-full flex items-center justify-between z-10 pointer-events-none">
+<!-- Left: Captain Leo's Ship HUD Status -->
+<div class="flex items-center gap-2 bg-surface-container-lowest/95 backdrop-blur-sm border-2 border-on-surface px-3 py-1.5 rounded-xl shadow-[3px_3px_0_0_#151c28]">
+<span class="text-2xl">⛵</span>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface font-extrabold">Captain Leo's Frigate</div>
+<div class="flex items-center gap-1.5">
+<div class="w-24 sm:w-32 h-3 bg-surface-container border border-on-surface rounded-full overflow-hidden p-0.5">
+<div class="w-full h-full bg-tertiary-container rounded-full"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-black">100%</span>
+</div>
+</div>
+</div>
+<!-- Center: Floating Comic Flash Action Headline -->
+<div class="animate-pop-bounce hidden md:flex items-center gap-2 bg-surface-container-lowest border-2 border-on-surface px-4 py-1.5 rounded-2xl shadow-[4px_4px_0_0_#151c28] rotate-[-2deg]">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div class="text-center">
+<span class="block font-headline-sm text-headline-sm text-primary font-black tracking-tight leading-none">SPLASH BLAST IMPACT!</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Compound Cannon Loaded &amp; Fired!</span>
+</div>
+</div>
+<!-- Right: Squidy Bob's Boss Health Bar (Drained to 0%!) -->
+<div class="flex items-center gap-2 bg-surface-container-lowest/95 backdrop-blur-sm border-2 border-on-surface px-3 py-1.5 rounded-xl shadow-[3px_3px_0_0_#151c28]">
+<div class="text-right">
+<div class="flex items-center justify-end gap-1 font-label-sm text-label-sm text-on-surface font-extrabold">
+<span>Squidy Bob</span>
+<span class="text-xs">🐙</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-error font-black">0 HP</span>
+<div class="w-24 sm:w-32 h-3 bg-surface-container border border-on-surface rounded-full overflow-hidden p-0.5 relative">
+<!-- Depleted Health bar flashing red -->
+<div class="w-0 h-full bg-error transition-all duration-700"></div>
+<div class="absolute inset-0 bg-error/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-error text-[26px]">heart_broken</span>
+</div>
+</div>
+<!-- CENTER ACTION VISUALS: Cannon Blast Stream, Water Vortex & Octopus Splash Hit -->
+<div class="relative w-full h-[260px] sm:h-[300px] flex items-center justify-between my-auto z-10">
+<!-- LEO'S BATTLE SHIP & CANNON (LEFT SIDE) -->
+<div class="relative flex flex-col items-center animate-float-wave z-20 left-1 sm:left-6">
+<!-- Speech Balloon from Leo -->
+<div class="relative mb-2 bg-surface-container-lowest border-2 border-on-surface px-3 py-1.5 rounded-xl shadow-[3px_3px_0_0_#151c28] -rotate-6">
+<span class="font-label-sm text-label-sm font-extrabold text-primary flex items-center gap-1">
+<span>Bullseye!</span>
+<span>🎯</span>
+</span>
+<!-- Directional Pointer -->
+<div class="absolute -bottom-2 left-6 w-3 h-3 bg-surface-container-lowest border-r-2 border-b-2 border-on-surface rotate-45"></div>
+</div>
+<!-- Vessel & Cannon Graphic -->
+<div class="relative flex items-center">
+<!-- Ship Hull Neo-brutalist construction -->
+<div class="w-28 sm:w-36 h-20 bg-primary-fixed border-2 border-on-surface rounded-b-3xl rounded-tl-lg shadow-[4px_4px_0_0_#151c28] relative flex flex-col justify-end p-2 overflow-hidden">
+<!-- Wooden plank horizontal lines -->
+<div class="w-full h-1 bg-on-surface/20 rounded mb-1.5"></div>
+<div class="w-full h-1 bg-on-surface/20 rounded mb-1"></div>
+<!-- Leo the Mascot on Deck -->
+<div class="absolute -top-6 left-3 w-12 h-12 bg-secondary-container rounded-full border-2 border-on-surface flex items-center justify-center shadow-[2px_2px_0_0_#151c28]">
+<span class="text-2xl">🦉</span>
+<span class="absolute -top-1 right-0 text-xs">🕶️</span>
+</div>
+<!-- Pirate / Flag Emblem -->
+<div class="absolute right-3 top-2 bg-tertiary-container border border-on-surface px-1.5 py-0.5 rounded text-[10px] font-black text-on-tertiary-container">
+                SUN ☀️
+              </div>
+</div>
+<!-- Heavy Water Cannon Muzzle firing -->
+<div class="w-12 h-8 bg-surface-variant border-2 border-on-surface rounded-r-lg shadow-[3px_3px_0_0_#151c28] -ml-2 -mt-2 flex items-center justify-end pr-1">
+<div class="w-3 h-6 bg-secondary-fixed-dim rounded-r border-l border-on-surface"></div>
+</div>
+<!-- Cannon Blast Sparkles / Flash -->
+<div class="absolute -right-8 -top-3 animate-blast-pulse">
+<div class="bg-secondary-container border-2 border-on-surface text-on-secondary-container rounded-full p-2 text-xs font-black shadow-[2px_2px_0_0_#151c28]">
+                POW!
+              </div>
+</div>
+</div>
+<!-- Animated Water ripples beneath Leo's Ship -->
+<div class="flex gap-1 mt-1">
+<span class="w-6 h-1.5 bg-surface-container-lowest rounded-full border border-on-surface opacity-80"></span>
+<span class="w-12 h-1.5 bg-surface-container-lowest rounded-full border border-on-surface"></span>
+<span class="w-4 h-1.5 bg-surface-container-lowest rounded-full border border-on-surface opacity-60"></span>
+</div>
+</div>
+<!-- MID-AIR GIANT TURQUOISE WATER VORTEX & SPEED LINES (CENTER) -->
+<div class="absolute inset-x-24 sm:inset-x-36 h-full flex items-center justify-center pointer-events-none z-10">
+<!-- High Energy Water Blast Stream SVG with Cartoony Ink Outline -->
+<svg class="w-full h-36 overflow-visible" fill="none" viewbox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+<!-- White Speed Foam lines -->
+<path d="M 20 60 Q 180 20 360 55" stroke="#FFFFFF" stroke-dasharray="14 10" stroke-linecap="round" stroke-width="12"></path>
+<!-- Main Water Torrent -->
+<path d="M 20 60 Q 190 90 350 60" stroke="#151c28" stroke-linecap="round" stroke-width="18"></path>
+<path d="M 20 60 Q 190 90 350 60" stroke="#83dafe" stroke-linecap="round" stroke-width="12"></path>
+<path d="M 40 55 Q 200 40 330 62" stroke="#ffffff" stroke-linecap="round" stroke-width="4"></path>
+<!-- Swirling Wave Spirals -->
+<circle cx="160" cy="62" fill="#bce9ff" r="14" stroke="#151c28" stroke-width="2"></circle>
+<circle cx="240" cy="52" fill="#7bd2f6" r="18" stroke="#151c28" stroke-width="2"></circle>
+<circle cx="240" cy="52" fill="#ffffff" r="8"></circle>
+<!-- Splash droplets along trajectory -->
+<circle cx="90" cy="25" fill="#83dafe" r="5" stroke="#151c28" stroke-width="2"></circle>
+<circle cx="130" cy="95" fill="#bce9ff" r="7" stroke="#151c28" stroke-width="2"></circle>
+<circle cx="280" cy="20" fill="#ffffff" r="8" stroke="#151c28" stroke-width="2"></circle>
+<circle cx="310" cy="90" fill="#7bd2f6" r="6" stroke="#151c28" stroke-width="2"></circle>
+</svg>
+<!-- Floating Word Power Energy Capsule inside the Vortex -->
+<div class="absolute px-3 py-1 bg-surface-container-lowest border-2 border-on-surface rounded-full shadow-[3px_3px_0_0_#151c28] animate-blast-pulse flex items-center gap-1.5">
+<span class="text-sm">⚡</span>
+<span class="font-label-sm text-label-sm font-black text-secondary">SUN + SHINE</span>
+<span class="text-sm">💦</span>
+</div>
+</div>
+<!-- SQUIDY BOB'S CRITICAL IMPACT ZONE (RIGHT SIDE) -->
+<div class="relative flex flex-col items-center z-20 right-1 sm:right-6">
+<!-- Comic Blast Speech Bubble: SPLASH! -45 HP -->
+<div class="animate-pop-bounce relative -mb-3 z-30 bg-error-container text-on-error-container border-2 border-on-surface px-3 py-1 rounded-xl shadow-[4px_4px_0_0_#151c28] rotate-6 flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-black tracking-tight leading-none text-error">SPLASH! 💦 -45 HP!</span>
+</div>
+<!-- The Dramatic Water Explosion / Squidy Bob Getting Hit -->
+<div class="relative flex items-center justify-center">
+<!-- Giant Water Splash Explosion Starburst Background -->
+<div class="absolute w-36 h-36 sm:w-44 sm:h-44 bg-secondary-fixed-dim/90 border-2 border-on-surface rounded-full shadow-[5px_5px_0_0_#151c28] -z-10 animate-blast-pulse flex items-center justify-center">
+<!-- Water splash spikes -->
+<div class="absolute inset-0 border-4 border-dashed border-surface-container-lowest rounded-full animate-spin" style="animation-duration: 18s;"></div>
+</div>
+<!-- Squidy Bob Container with Dizzy Animation -->
+<div class="w-28 sm:w-36 h-28 sm:h-36 bg-[#ffaaa9] border-2 border-on-surface rounded-3xl shadow-[4px_4px_0_0_#151c28] flex flex-col items-center justify-center relative p-2 overflow-visible rotate-6">
+<!-- Comical Dizzy Spiral Eyes -->
+<div class="flex items-center gap-3 mb-1">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center font-black text-sm">
+                  🌀
+                </div>
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest border-2 border-on-surface flex items-center justify-center font-black text-sm">
+                  🌀
+                </div>
+</div>
+<!-- Dazed Open Wobbly Mouth -->
+<div class="w-6 h-4 bg-on-surface rounded-full border border-surface-container-lowest mb-1"></div>
+<!-- Squidy Tentacles Dangling & Waving -->
+<div class="flex gap-1.5 -mb-6">
+<span class="w-3.5 h-7 bg-[#ff8c8a] border-2 border-on-surface rounded-full -rotate-12"></span>
+<span class="w-3.5 h-8 bg-[#ff8c8a] border-2 border-on-surface rounded-full"></span>
+<span class="w-3.5 h-7 bg-[#ff8c8a] border-2 border-on-surface rounded-full rotate-12"></span>
+</div>
+<!-- Top tentacle holding White Surrender Flag! -->
+<div class="absolute -top-10 -right-4 flex items-end animate-wiggle">
+<div class="w-1.5 h-12 bg-on-surface rounded-full"></div>
+<div class="bg-surface-container-lowest border-2 border-on-surface px-2 py-1 rounded-sm shadow-[2px_2px_0_0_#151c28] -ml-1 mb-5">
+<span class="font-label-sm text-label-sm font-black text-on-surface tracking-wider">🏳️ SURRENDER!</span>
+</div>
+</div>
+<!-- Pirate Hat Blown Off -->
+<div class="absolute -top-7 -left-5 rotate-[-25deg] bg-inverse-surface text-surface-bright border-2 border-on-surface px-2 py-0.5 rounded-lg shadow-[2px_2px_0_0_#151c28] text-xs font-bold">
+                ☠️ Hat Fly!
+              </div>
+</div>
+<!-- Water droplets radiating outward -->
+<span class="absolute -top-3 -right-6 text-2xl">💧</span>
+<span class="absolute -bottom-2 -left-6 text-2xl">💦</span>
+<span class="absolute top-1/2 -right-10 text-xl">✨</span>
+</div>
+<!-- Bottom Critical Hit Badge Pill -->
+<div class="mt-4 bg-primary-container border-2 border-on-surface px-3 py-1 rounded-xl shadow-[3px_3px_0_0_#151c28] flex items-center gap-1.5 z-30">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">gps_fixed</span>
+<span class="font-label-sm text-label-sm font-black text-on-primary-container uppercase">CRITICAL HIT! 🎯</span>
+</div>
+</div>
+</div>
+<!-- ARENA BOTTOM STRIP: Floating Comic Banners & Water Wave Foam -->
+<div class="w-full flex flex-wrap items-center justify-between gap-2 pt-2 border-t-2 border-on-surface/40 z-20">
+<!-- Awesomeness & Star Reward Badge -->
+<div class="bg-surface-container-lowest border-2 border-on-surface px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0_0_#151c28] flex items-center gap-2">
+<span class="text-xl">🌟</span>
+<span class="font-title-md text-title-md text-primary font-black tracking-tight">AWESOME! +25 STARS ⭐</span>
+</div>
+<!-- Bilingual Vocabulary Victory Announcement -->
+<div class="bg-surface-container-lowest border-2 border-on-surface px-4 py-1.5 rounded-xl shadow-[3px_3px_0_0_#151c28] flex items-center gap-2">
+<span class="font-title-md text-title-md text-secondary font-black">SUNSHINE!</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="khmer-font font-title-md text-title-md text-tertiary font-bold">ពន្លឺព្រះអាទិត្យ</span>
+<span class="text-lg">☀️</span>
+</div>
+</div>
+</section>
+<!-- ================= RESOLUTION CARD: VERIFIED EQUATION & AUDIO ================= -->
+<section class="w-full bg-surface-container-lowest border-2 border-on-surface rounded-2xl shadow-[5px_5px_0_0_#151c28] p-4 sm:p-6 overflow-hidden relative">
+<!-- Top Card Header: Status Tag and Verified Mark -->
+<div class="flex items-center justify-between border-b-2 border-surface-container pb-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant border-2 border-on-surface shadow-[2px_2px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[20px] font-black">check</span>
+</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">Word Formula Solved!</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Both words joined perfectly to defeat Squidy Bob's ship shield.</p>
+</div>
+</div>
+<!-- Audio Pronunciation Badge pill -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-secondary-fixed text-on-secondary-fixed-variant border-2 border-on-surface rounded-xl shadow-[2px_2px_0_0_#151c28] hover:bg-secondary-container active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+<span class="font-label-sm text-label-sm font-bold">Playing: <span class="font-mono text-xs">/'sʌn.ʃaɪn/</span></span>
+</button>
+</div>
+<!-- MAIN EQUATION DISPLAY BENTO -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
+<!-- Equation Blocks Container (8 cols) -->
+<div class="md:col-span-8 bg-surface-container-low border-2 border-on-surface rounded-xl p-3 sm:p-4 shadow-[3px_3px_0_0_#151c28]">
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+<!-- Word 1: Sun -->
+<div class="flex flex-col items-center bg-surface-container-lowest border-2 border-on-surface rounded-xl px-4 py-2 shadow-[2px_2px_0_0_#151c28] min-w-[80px]">
+<span class="text-xl mb-0.5">☀️</span>
+<span class="font-title-md text-title-md text-on-surface font-extrabold tracking-tight">Sun</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant font-bold khmer-font">ព្រះអាទិត្យ</span>
+</div>
+<!-- Plus Sign -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-on-surface flex items-center justify-center font-black text-lg shadow-[2px_2px_0_0_#151c28]">
+              +
+            </div>
+<!-- Word 2: Shine -->
+<div class="flex flex-col items-center bg-surface-container-lowest border-2 border-on-surface rounded-xl px-4 py-2 shadow-[2px_2px_0_0_#151c28] min-w-[80px]">
+<span class="text-xl mb-0.5">✨</span>
+<span class="font-title-md text-title-md text-on-surface font-extrabold tracking-tight">Shine</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant font-bold khmer-font">ចាំងពន្លឺ</span>
+</div>
+<!-- Equals Sign -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-on-surface flex items-center justify-center font-black text-lg shadow-[2px_2px_0_0_#151c28]">
+              =
+            </div>
+<!-- Result: Sunshine (Highlight container) -->
+<div class="flex flex-col items-center bg-tertiary-fixed text-on-tertiary-fixed-variant border-2 border-on-surface rounded-xl px-5 py-2 shadow-[3px_3px_0_0_#151c28] min-w-[110px]">
+<div class="flex items-center gap-1">
+<span class="text-xl">🌅</span>
+<span class="font-headline-sm text-headline-sm font-black tracking-tight text-tertiary">Sunshine</span>
+</div>
+<span class="text-[12px] font-label-sm font-extrabold khmer-font text-on-tertiary-container">ពន្លឺព្រះអាទិត្យ</span>
+</div>
+</div>
+</div>
+<!-- Educational Grammar / Khmer Explanatory Callout (4 cols) -->
+<div class="md:col-span-4 bg-tertiary-container/30 border-2 border-on-surface rounded-xl p-3 sm:p-4 shadow-[3px_3px_0_0_#151c28] flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary text-on-tertiary flex-shrink-0 flex items-center justify-center border-2 border-on-surface shadow-[1px_1px_0_0_#151c28]">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-tertiary font-black block uppercase tracking-wider">Compound Rule</span>
+<p class="font-body-sm text-body-sm text-on-surface font-bold leading-snug">
+              When two standalone words fuse to create a brand-new noun!
+            </p>
+<p class="khmer-font text-xs font-bold text-tertiary mt-1">
+              ពាក្យផ្សំត្រឹមត្រូវ! (Correct Compound Word!)
+            </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= BOTTOM ACTION DOCK (STICKY CONTROLS) ================= -->
+<aside class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t-2 border-on-surface shadow-[0_-4px_0_0_#151c28] z-50 py-3 px-4 sm:px-8">
+<div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+<!-- Left: Mini Live Combo & Mega Chest Progress Meter -->
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3">
+<div class="flex items-center gap-2">
+<!-- Multiplier Chest Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#fff0a8] border-2 border-on-surface rounded-xl shadow-[2px_2px_0_0_#151c28]">
+<span class="text-xl">🎁</span>
+<div>
+<div class="font-label-sm text-label-sm font-extrabold text-on-surface leading-none">+25 Star Multiplier</div>
+<div class="text-[11px] font-label-sm text-on-surface-variant font-bold">Active for 2 more turns!</div>
+</div>
+</div>
+</div>
+<!-- Mini 4-dot combo gauge -->
+<div class="flex items-center gap-1 bg-surface-container px-2.5 py-1.5 rounded-xl border border-on-surface">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container border border-on-surface"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container border border-on-surface"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container border border-on-surface"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-surface-container-lowest border border-on-surface animate-pulse"></span>
+<span class="ml-1 text-[11px] font-label-sm font-black text-on-surface-variant hidden md:inline">1 more for Mega Chest!</span>
+</div>
+</div>
+<!-- Right Action Cluster: Replay Audio & Next Question Giant Button -->
+<div class="w-full sm:w-auto flex items-center justify-end gap-2 sm:gap-3">
+<!-- Secondary Button: Replay Audio -->
+<button class="flex items-center justify-center gap-1.5 px-4 py-3 bg-surface-container-lowest hover:bg-surface-container border-2 border-on-surface rounded-xl shadow-[3px_3px_0_0_#151c28] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_0_#151c28] transition-all flex-shrink-0" title="Replay Word Audio">
+<span class="material-symbols-outlined text-secondary text-[22px]">replay</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface hidden sm:inline">Replay Audio</span>
+</button>
+<!-- Primary Action: Next Question Giant Orange Button with Tactile Press -->
+<button class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 bg-primary-container hover:bg-[#ff8a24] text-on-surface border-2 border-on-surface rounded-2xl shadow-[4px_4px_0_0_#151c28] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_0_#151c28] transition-all group font-extrabold cursor-pointer">
+<span class="font-headline-sm text-headline-sm font-extrabold tracking-tight">Next Question</span>
+<span class="material-symbols-outlined text-[24px] font-black group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Lightweight Inline Vanilla JS for Audio Ripple & Interactivity Feedback -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Replay Audio feedback effect
+      const replayBtn = document.querySelector('button[title="Replay Word Audio"]');
+      if (replayBtn) {
+        replayBtn.addEventListener('click', () => {
+          const originalText = replayBtn.innerHTML;
+          replayBtn.innerHTML = `
+            <span class="material-symbols-outlined text-tertiary text-[22px] animate-spin">graphic_eq</span>
+            <span class="font-label-lg text-label-lg font-bold text-tertiary hidden sm:inline">Playing Sound...</span>
+          `;
+          setTimeout(() => {
+            replayBtn.innerHTML = originalText;
+          }, 1200);
+        });
+      }
+
+      // Next Question button action preview
+      const nextBtn = document.querySelector('button.group');
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextBtn.classList.add('scale-95');
+          setTimeout(() => {
+            nextBtn.classList.remove('scale-95');
+          }, 150);
+        });
+      }
+    });
+  </script>
+</body></html>

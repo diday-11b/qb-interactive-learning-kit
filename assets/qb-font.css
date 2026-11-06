@@ -1,0 +1,54 @@
+/* Load both the shared display face and the Khmer Unicode fallback. */
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Sans+Khmer:wght@400;600;700;800&display=swap");
+
+/* One shared display typeface across the QB Interactive Learning Kits pages. */
+:root {
+  --qb-font: "Luckiest Guy", "Noto Sans Khmer", system-ui, sans-serif;
+}
+
+html,
+body,
+body *:not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-icons):not(.material-icons-outlined):not(:lang(km)) {
+  font-family: var(--qb-font) !important;
+}
+
+/* Keep icon ligatures mapped to their icon font. */
+.material-symbols-outlined,
+.material-symbols-rounded,
+.material-icons,
+.material-icons-outlined {
+  font-family: "Material Symbols Outlined" !important;
+}
+
+/* Luckiest Guy covers the Latin text; this script fallback supplies Khmer glyphs. */
+:lang(km) {
+  font-family: "Noto Sans Khmer", "Luckiest Guy", system-ui, sans-serif !important;
+}
+
+/* Khmer glyphs fall back to the platform's supported script font when needed. */
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--qb-focus, #176ba0) !important;
+  outline-offset: 3px !important;
+}
+
+html[data-qb-reduced-motion="true"] *,
+html[data-qb-reduced-motion="true"] *::before,
+html[data-qb-reduced-motion="true"] *::after {
+  animation-duration: .01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: .01ms !important;
+}
+
+html[data-qb-high-contrast="true"] body {
+  color: #111 !important;
+  filter: contrast(1.18);
+}
+
+html[data-qb-high-contrast="true"] :where(a, button, input, select, textarea) {
+  outline-offset: 3px;
+}
+
+/* One project-wide text typeface; Khmer falls back only for unsupported glyphs. */
+html,body{--qb-font:"Luckiest Guy","Noto Sans Khmer",system-ui,sans-serif}

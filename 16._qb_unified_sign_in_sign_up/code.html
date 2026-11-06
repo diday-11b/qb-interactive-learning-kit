@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/assets/qb-page-loader.js?v=2-larger"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#d7ecfa">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Sign In or Sign Up | QB Interactive Learning Kits</title>
+  <link rel="stylesheet" href="../assets/qb-font.css?v=20261030-one-font">
+  <style>
+    :root { color-scheme:light; --ink:#253247; --text:#253247; --blue:#dff3ff; --pale-blue:#f7fafc; --green:#a8e6cf; --orange:#ff9a8b; --yellow:#ffd76a; --line:#8aa0b5; }
+    * { box-sizing:border-box }
+    body { min-width:320px; min-height:100vh; margin:0; display:grid; place-items:center; padding:22px 14px; color:var(--text); background-color:var(--blue); background-image:radial-gradient(rgba(255,255,255,.96) 4px,transparent 4.5px); background-size:38px 38px; }
+    a,button,input { font:inherit }
+    .auth-page { width:min(100%,500px); margin:auto; padding:18px 0 10px; }
+    .auth-heading { margin:0 0 20px; text-align:center; }
+    .auth-heading h1 { display:inline-block; margin:0; padding:7px 16px 9px; border:2px solid var(--ink); border-radius:14px; background:var(--yellow); color:var(--text); font-size:clamp(2.7rem,10vw,4.5rem); line-height:1; letter-spacing:.01em; box-shadow:3px 4px 0 var(--ink); }
+    .auth-heading p { margin:10px 0 0; color:var(--text); font-size:clamp(1rem,4vw,1.25rem); line-height:1.3; }
+    .auth-heading[data-mode="signup"] h1 { background:var(--yellow); }
+    .auth-card { position:relative; padding:clamp(24px,6vw,36px); border:2px solid var(--ink); border-radius:20px; background:#fff; box-shadow:5px 6px 0 var(--ink); }
+    .auth-close { position:absolute; top:-17px; right:-17px; display:grid; place-items:center; width:44px; height:44px; border:3px solid var(--ink); border-radius:50%; background:#ff3948; color:#fff; text-decoration:none; font-size:1.5rem; line-height:1; box-shadow:2px 3px 0 var(--ink); }
+    .auth-form { display:grid; gap:18px; }
+    .auth-field { display:grid; gap:8px; min-width:0; }
+    .auth-label { display:flex; align-items:center; gap:9px; color:var(--text); font-size:1.08rem; }
+    .auth-label svg { width:20px; height:20px; flex:none; }
+    .auth-input-wrap { position:relative; }
+    .auth-input { display:block; width:100%; min-height:64px; padding:14px 18px; border:2px solid var(--line); border-radius:15px; background:var(--pale-blue); color:var(--text); font-size:1rem; outline:none; }
+    .auth-field[data-tone="yellow"] .auth-input { background:#fffbea; }
+    .auth-field[data-tone="green"] .auth-input { background:#f0fbf5; }
+    .auth-input:focus-visible { border-color:#4588b4; box-shadow:0 0 0 4px rgba(69,136,180,.2); }
+    .auth-input::placeholder { color:#8998ad; opacity:1; }
+    .auth-input.has-toggle { padding-right:62px; }
+    .auth-toggle { position:absolute; top:50%; right:7px; width:46px; height:46px; transform:translateY(-50%); border:0; border-radius:12px; background:transparent; color:#66758b; cursor:pointer; }
+    .auth-forgot-row { display:flex; justify-content:flex-end; margin-top:-9px; }
+    .auth-link { color:#428ce2; text-decoration:underline; text-underline-offset:3px; }
+    .auth-submit { display:flex; align-items:center; justify-content:center; width:100%; min-height:68px; margin-top:3px; padding:14px 18px; border:2px solid var(--ink); border-radius:14px; background:var(--green); color:var(--ink); text-align:center; text-transform:uppercase; font-size:1.25rem; box-shadow:3px 4px 0 var(--ink); cursor:pointer; }
+    .auth-submit[data-mode="signup"] { background:var(--yellow); color:var(--ink); }
+    .auth-submit:disabled { opacity:.7; cursor:wait; }
+    .auth-separator { display:flex; align-items:center; gap:14px; margin:22px 0; color:#748197; }
+    .auth-separator::before,.auth-separator::after { content:""; height:3px; flex:1; border-radius:3px; background:#e4e8ed; }
+    .auth-google { display:flex; align-items:center; justify-content:center; gap:12px; width:100%; min-height:62px; padding:12px; border:2px solid var(--ink); border-radius:14px; background:#fff; color:var(--text); box-shadow:2px 3px 0 rgba(37,50,71,.14); cursor:pointer; }
+    .auth-google:hover { background:#f7fafc; }
+    .auth-google:focus-visible,.auth-close:focus-visible,.auth-switch a:focus-visible,.auth-back:focus-visible,.auth-forgot:focus-visible { outline:3px solid #176ba0; outline-offset:3px; }
+    .google-mark { width:24px; height:24px; flex:none; }
+    .auth-note { margin:14px 0 0; color:#66758b; text-align:center; font-size:.9rem; line-height:1.4; }
+    .auth-switch { margin:22px 0 0; padding-top:18px; border-top:2px dashed #e0e5eb; color:#596a80; text-align:center; line-height:1.5; }
+    .auth-status { margin:16px 0 0; padding:12px 14px; border:2px solid var(--ink); border-radius:14px; background:#e7f8f1; color:#253247; box-shadow:2px 3px 0 rgba(37,50,71,.14); line-height:1.45; }
+    .auth-status[data-error="true"] { border-color:#b64d52; background:#fff0ee; }
+    .auth-role-note { margin:14px 0 0; color:#65748a; text-align:center; font-size:.82rem; line-height:1.4; }
+    .auth-back { position:fixed; top:20px; left:24px; z-index:20; display:inline-flex; align-items:center; gap:8px; min-height:44px; width:fit-content; margin:0; padding:10px 14px; border:2px solid var(--ink); border-radius:12px; background:#fff; color:var(--ink); text-decoration:none; box-shadow:2px 3px 0 var(--ink); font-size:14px; }
+    .auth-back:hover { text-decoration:underline; }
+    [hidden] { display:none !important; }
+    @media(max-width:420px) { body { padding:14px 12px } .auth-page { padding-top:8px } .auth-heading h1 { font-size:2.7rem } .auth-card { padding:24px 20px } .auth-input { min-height:58px } .auth-submit { min-height:64px } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition:none!important } }
+      .auth-google:disabled { opacity:.65; cursor:wait; }
+    @media(max-width:420px){.auth-close{right:-8px;top:-14px}.auth-heading h1{font-size:clamp(2rem,10vw,2.7rem)}}
+    /* A crisp vector mark and readable wordmark shared by every auth mode. */
+    .auth-brand { display:flex; align-items:center; justify-content:center; gap:14px; width:fit-content; max-width:100%; margin:0 auto 26px; padding:10px 20px 10px 12px; border:2px solid var(--ink); border-radius:22px; background:#fff; box-shadow:3px 4px 0 var(--ink); color:var(--ink); text-decoration:none; text-align:left; }
+    .auth-brand img { display:block; width:80px; height:80px; flex:none; object-fit:contain; }
+    .auth-brand-copy { display:grid; gap:4px; min-width:0; }
+    .auth-brand-name { font-size:18px; line-height:1.2; letter-spacing:.02em; }
+    .auth-brand-product { font-size:25px; line-height:1.2; letter-spacing:.01em; }
+    .auth-brand:hover { background:#fffdf5; }
+    .auth-brand:focus-visible { outline:3px solid #176ba0; outline-offset:5px; }
+    @media(max-width:420px) { .auth-brand { gap:10px; padding:9px 15px 9px 10px; margin-bottom:22px; border-radius:18px; } .auth-brand img { width:66px; height:66px; } .auth-brand-name { font-size:16px; } .auth-brand-product { font-size:21px; } }
+  </style>
+</head>
+<body>
+  <main class="auth-page" id="auth-page">
+    <header class="auth-heading" id="auth-heading" data-mode="signin">
+      <a class="auth-brand" href="/index.html" aria-label="QB Interactive Learning Kits home">
+        <img src="/assets/brand/qb-lion-mark.svg?v=20261105" width="80" height="80" alt="" decoding="async">
+        <span class="auth-brand-copy"><span class="auth-brand-name">QB Interactive</span><span class="auth-brand-product">Learning Kits</span></span>
+      </a>
+      <h1 id="auth-title">Welcome Back!</h1>
+      <p id="auth-subtitle">Let's continue the adventure!</p>
+    </header>
+    <section class="auth-card" aria-labelledby="auth-title">
+      <a class="auth-close" href="../index.html" aria-label="Close and return home">×</a>
+      <form class="auth-form" id="auth-form" novalidate>
+        <div class="auth-field" id="display-name-field" data-tone="yellow" hidden>
+          <label class="auth-label" for="display-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Your Name</label>
+          <input class="auth-input" id="display-name" name="display_name" type="text" maxlength="80" autocomplete="name" placeholder="What should we call you?">
+        </div>
+        <div class="auth-field" id="email-field">
+          <label class="auth-label" for="email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Email</label>
+          <input class="auth-input" id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
+        </div>
+        <div class="auth-field" id="password-field" data-tone="blue">
+          <label class="auth-label" id="password-label" for="password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Password</label>
+          <div class="auth-input-wrap">
+            <input class="auth-input has-toggle" id="password" name="password" type="password" autocomplete="current-password" placeholder="Your secret password" minlength="8" maxlength="128" required>
+            <button class="auth-toggle" id="password-toggle" type="button" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          </div>
+        </div>
+        <div class="auth-forgot-row" id="forgot-row"><a class="auth-link auth-forgot" href="#forgot" id="forgot-link">Forgot password?</a></div>
+        <div class="auth-field" id="confirm-field" data-tone="green" hidden>
+          <label class="auth-label" for="confirm-password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14a5 5 0 1 1 4.7 3.3L9 20H6v-3l2-2Z"/><path d="m12 11 1.5 1.5"/></svg>Confirm Password</label>
+          <input class="auth-input" id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Type it again" minlength="8" maxlength="128">
+        </div>
+        <button class="auth-submit" id="auth-submit" type="submit" data-mode="signin"><span id="btn-text">Let's Go!</span></button>
+      </form>
+      <div id="auth-extra">
+        <div class="auth-separator"><span>or</span></div>
+        <button class="auth-google" id="google-auth" type="button">
+          <svg class="google-mark" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.5 13.3l7.8 6.1C12.2 13.8 17.6 9.5 24 9.5Z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.6 3-2.3 5.6-4.9 7.3l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.6Z"/><path fill="#FBBC05" d="M10.3 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.8-6.1C.9 16.7 0 20.2 0 24s.9 7.3 2.5 10.7l7.8-6.1Z"/><path fill="#34A853" d="M24 48c6.3 0 11.6-2.1 15-5.9l-7.5-5.8c-2.1 1.4-4.7 2.2-7.5 2.2-6.4 0-11.8-4.3-13.7-10.1l-7.8 6.1C6.5 42.6 14.6 48 24 48Z"/></svg>
+          <span id="google-label">Continue with Google</span>
+        </button>
+        <p class="auth-role-note" id="role-note" hidden>Student accounts only. Teacher and parent accounts need an invitation from your school or family.</p>
+        <p class="auth-switch" id="auth-switch"><span id="switch-copy">New here?</span> <a class="auth-link" id="auth-switch-link" href="?mode=signup">Create an account!</a></p>
+      </div>
+      <p class="auth-status" id="auth-status" role="status" aria-live="polite" hidden></p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+  <script src="../assets/supabase-config.js"></script>
+  <script src="../assets/qb-supabase.js?v=google-2"></script>
+  <script src="/assets/qb-auth-flow.js?v=2-provider-check"></script>
+  <script src="../assets/qb-auth-ui.js?v=google-1"></script>
+  <script defer src="../assets/qb-accessibility.js"></script>
+</body>
+</html>

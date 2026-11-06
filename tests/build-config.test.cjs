@@ -1,0 +1,7 @@
+const test=require('node:test'),assert=require('node:assert/strict');
+const load=()=>import('../scripts/browser-config.mjs');
+test('Hosted builds require explicit public configuration',async()=>{const {browserConfig}=await load();assert.throws(()=>browserConfig({VERCEL:'1'}),/Set SUPABASE_URL/);});
+test('Browser build rejects private and legacy elevated credentials without logging them',async()=>{const {browserConfig}=await load();for(const key of ['sb_secret_private-value','service_role','eyJhbGciOiJIUzI1NiJ9.fake.jwt'])assert.throws(()=>browserConfig({SUPABASE_URL:'https://project-ref.supabase.co',SUPABASE_PUBLISHABLE_KEY:key}),/browser publishable key/);});
+test('Public configuration is allowlisted and excludes unrelated environment values',async()=>{const {browserConfig}=await load();assert.deepEqual(browserConfig({SUPABASE_URL:'https://project-ref.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_testKey123',PRIVATE_TOKEN:'not-for-browser'}),{url:'https://project-ref.supabase.co',publishableKey:'sb_publishable_testKey123'});});
+test('Partial and example configuration fail clearly',async()=>{const {browserConfig}=await load();assert.throws(()=>browserConfig({SUPABASE_URL:'https://project-ref.supabase.co'}),/publishable key/);assert.throws(()=>browserConfig({SUPABASE_URL:'https://YOUR_PROJECT_REF.supabase.co',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_REPLACE_WITH_PROJECT_KEY'}),/HTTPS Supabase/);});
+test('Local practice can build without account configuration',async()=>{const {browserConfig}=await load();assert.equal(browserConfig({}),null);});
