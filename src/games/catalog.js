@@ -5,6 +5,17 @@ import {gameHref} from './shared/question-selection.js?v=11';
 import {journey,selectedSet} from './shared/navigation.js?v=11';
 const literacy = new Set(['alphabet_learning','phonics','spelling','vocabulary','reading']);
 const categoryNames={phonics:'Phonics',spelling:'Spelling',math:'Math',vocabulary:'Vocabulary',matching:'Matching'};
+// Rabbit Racing has a standalone player in this deployment.
+const rabbitRacing = Object.freeze({
+ slug:'rabbit-racing',
+ title:'Rabbit Racing',
+ description:'Answer 30 maths questions to race your rabbit against Dash.',
+ category:'math',
+ language:'en',
+ thumbnail:'/games/rabbit-racing/thumbnail.svg'
+});
+const catalogGames = [...games, rabbitRacing];
+
 export function filterGames(items,{search='',view='all',language=''}={}) {
  const term=search.trim().toLocaleLowerCase();
  return items.filter(game => (!term || [game.title,game.description,game.category,game.language==='dual'?'English Khmer bilingual':'English'].join(' ').toLocaleLowerCase().includes(term)) && (view==='all' || (view==='literacy'?literacy.has(game.category):!literacy.has(game.category))) && (!language || game.language===language || game.language==='dual'));
@@ -34,11 +45,14 @@ export function renderCatalog(root,selection) {
  const empty=element('p','empty','No games match these filters. Try another search or clear the filters.');empty.hidden=true;empty.setAttribute('role','status');
  panel.append(searchRow,filters,listHeading,grid,empty);root.append(tabs,panel);
  function update(){
-  const matches=filterGames(games,{search:search.value,view,language:language.value});count.textContent=matches.length+' '+(matches.length===1?'game':'games');empty.hidden=matches.length>0;
+  const matches=filterGames(catalogGames,{search:search.value,view,language:language.value});count.textContent=matches.length+' '+(matches.length===1?'game':'games');empty.hidden=matches.length>0;
   grid.replaceChildren(...matches.map(game=>{
    const card=element('article','game-card');card.dataset.game=game.slug;
-   const ready=isAvailable(game);
-   const href=gameHref(game.slug,selection);
+   const ready=game===rabbitRacing || isAvailable(game);
+   const practiceHref=gameHref(game.slug,selection);
+   const href=game===rabbitRacing
+    ? '/games/rabbit-racing/'+gameHref(null,selection).slice('/games/'.length)
+    : practiceHref;
    const art=element('div','game-thumbnail');
    if(game.thumbnail){
     const image=element('img');image.src=game.thumbnail;image.alt='';image.width=640;image.height=400;image.loading='lazy';image.decoding='async';art.append(image);
