@@ -6,13 +6,17 @@
   const operators = { '+': 'plus', '−': 'minus', '-': 'minus', '×': 'times' };
 
   function speakQuestion(prompt) {
-    if (!available) return;
     const equation = /^(-?\d+)\s*([+−×-])\s*(-?\d+)\s*=\s*\?$/.exec(prompt);
     const words = equation
       ? `What is ${equation[1]} ${operators[equation[2]]} ${equation[3]}?`
       : prompt;
+    speak(words);
+  }
+
+  function speak(text) {
+    if (!available) return;
     synth.cancel();
-    const utterance = new SpeechSynthesisUtterance(words);
+    const utterance = new SpeechSynthesisUtterance(text);
     const voices = synth.getVoices().filter(voice => /^en(?:-|$)/i.test(voice.lang));
     const localVoices = voices.filter(voice => voice.localService);
     const voice = localVoices.find(voice => voice.default)
@@ -26,5 +30,5 @@
     synth.speak(utterance);
   }
 
-  window.RabbitRaceVoice = { available, speakQuestion, stop: () => synth?.cancel() };
+  window.RabbitRaceVoice = { available, speakQuestion, celebrate: () => speak('Good job!'), stop: () => synth?.cancel() };
 })();
