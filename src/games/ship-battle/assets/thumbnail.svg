@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Ship Battle</title>
+  <desc id="desc">A friendly blue boat sails across bright waves toward a small island.</desc>
+  <rect width="640" height="400" fill="#bfe9ff"/>
+  <g id="thumbnail-scene" transform="translate(0 20)">
+  <circle cx="500" cy="82" r="42" fill="#ffd76a"/>
+  <path d="M0 221c58-30 105-30 161 0s105 30 161 0 105-30 161 0 105 30 157 0v159H0z" fill="#75c9f5"/>
+  <path d="M0 273c58-30 105-30 161 0s105 30 161 0 105-30 161 0 105 30 157 0v107H0z" fill="#45a8d8"/>
+  <path d="m177 234 284 0-44 63H221z" fill="#ff9a8b" stroke="#253247" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M305 119v113h93z" fill="#fff" stroke="#253247" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M290 119v113h-86z" fill="#a8e6cf" stroke="#253247" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M298 91v154" stroke="#253247" stroke-width="10" stroke-linecap="round"/>
+  <path d="M89 156h34m-17-17v34M534 176h27m-13-13v27" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M205 319c35-16 61-16 96 0m79-1c35-16 61-16 96 0" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+  </g>
+</svg>

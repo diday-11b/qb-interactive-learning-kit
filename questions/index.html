@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Explore question set summaries for playful learning."><title>Explore Questions — QB Interactive Learning Kits</title>
+<link rel="stylesheet" href="/src/styles/fonts.css"><link rel="stylesheet" href="/src/styles/shared.css?v=3"><link rel="stylesheet" href="/src/styles/site-shell.css"><link rel="stylesheet" href="/src/styles/learning-flow.css?v=3"><link rel="stylesheet" href="/src/styles/questions.css?v=3">
+<script src="/src/components/page-loader.js"></script><script src="/src/components/site-shell.js" defer></script><script src="/src/components/site-interface.js" defer></script><script src="/src/pages/questions.js?v=3" defer></script></head><body id="top" class="questions-page"><div data-site-header></div><main class="page-wrap">
+    <nav class="journey" aria-label="How it works">
+      <a href="#question-sets" aria-current="step"><span class="journey-icon" aria-hidden="true"><span class="step-number">1</span>▱</span><span>Pick or create<br>questions</span></a>
+      <span class="journey-arrow" aria-hidden="true">›</span>
+      <a href="/games/"><span class="journey-icon" aria-hidden="true"><span class="step-number">2</span>♧</span><span>Choose a game</span></a>
+      <span class="journey-arrow" aria-hidden="true">›</span>
+      <button type="button" disabled aria-disabled="true" title="Not available yet" data-future-route="/play/"><span class="journey-icon" aria-hidden="true"><span class="step-number">3</span>▷</span><span>Play!</span></button>
+    </nav>
+
+    <header class="page-title">
+      <h1>Explore Questions</h1>
+      <p class="subtitle"><span aria-hidden="true">💡</span> Made by teachers, for teachers!</p>
+    </header>
+
+
+
+    <nav class="collection-tabs" aria-label="Question set collections">
+      <button class="collection-tab" type="button" data-collection="all" aria-pressed="true"><span class="tab-selected" id="tab-selected">⭐ Selected</span><span class="collection-icon" aria-hidden="true">🌍</span><span class="collection-name">All Questions</span></button>
+      <button class="collection-tab" type="button" data-collection="mine" aria-pressed="false"><span class="collection-icon" aria-hidden="true">📝</span><span class="collection-name">My Questions</span></button>
+      <button class="collection-tab" type="button" data-collection="favorites" aria-pressed="false"><span class="collection-icon" aria-hidden="true">❤️</span><span class="collection-name">Favorites</span></button>
+    </nav>
+
+
+
+<section class="question-library-panel" aria-label="Question library">    <div class="search-row">
+      <label for="search" hidden>Search questions</label>
+      <input id="search" class="search" type="search" placeholder="Search questions…" autocomplete="off">
+      <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="category-filters"><span class="filter-icon" aria-hidden="true">☰</span> Filters</button>
+    </div>
+    <nav id="category-filters" class="filters" aria-label="Question subjects" hidden>
+      <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All subjects</button>
+      <button class="filter-chip" type="button" data-filter="reading" aria-pressed="false">Reading</button>
+      <button class="filter-chip" type="button" data-filter="math" aria-pressed="false">Math</button>
+      <button class="filter-chip" type="button" data-filter="science" aria-pressed="false">Science</button>
+      <button class="filter-chip" type="button" data-filter="phonics" aria-pressed="false">Phonics</button>
+    </nav><div id="personal-library" hidden><p>Your own question sets will appear here when authoring is available.</p><button class="create-question-tile" type="button" disabled aria-disabled="true" title="Not available yet" data-future-route="/questions/create/"><span aria-hidden="true">⊕</span><strong>Create New</strong><small>Create a question set</small></button></div>    <div class="list-heading" id="question-sets">
+      <h2 id="list-title">Question sets to explore</h2>
+      <span class="selected-count">Browse a question set</span>
+    </div>
+    <p class="library-notice">Explore learning topics and preview each question set.</p>
+<section class="question-grid" aria-label="Question sets">
+      <article class="question-card" data-category="science" data-name="Space Explorers" data-owner="featured" data-kind="Multiple choice" data-questions="12" data-level="Grade 3–5" data-description="Blast off through planets, stars, and the solar system.">
+        <div class="card-top"><h3 class="card-title">Space Explorers</h3><span class="card-kind">Multiple choice</span><button class="favorite" type="button" aria-label="Add Space Explorers to favorites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"/></svg></button></div>
+        <p class="card-description">Blast off through planets, stars, and the solar system.</p><div class="card-tags"><span class="card-tag">Science</span><span class="card-tag">English</span><span class="card-tag">Ages 8–11</span></div>
+        <div class="card-meta"><span>By QB Learning Kits</span><span class="card-stats"><span>12 questions</span><span>5 min</span></span></div>
+        <div class="card-actions"><button class="card-action preview" type="button">◉ Preview</button><a class="card-action card-action--play start-practice" href="/games/?questionSet=Space%20Explorers">Start Practice <span aria-hidden="true">🎮</span></a></div>
+      </article>
+      <article class="question-card" data-category="phonics" data-name="Word Wizards" data-owner="featured" data-kind="Multiple choice" data-questions="18" data-level="Grade 1–3" data-description="Practice blends, syllables, and spelling patterns.">
+        <div class="card-top"><h3 class="card-title">Word Wizards</h3><span class="card-kind">Multiple choice</span><button class="favorite" type="button" aria-label="Add Word Wizards to favorites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"/></svg></button></div>
+        <p class="card-description">Practice blends, syllables, and spelling patterns.</p><div class="card-tags"><span class="card-tag">Phonics</span><span class="card-tag">English</span><span class="card-tag">Ages 6–9</span></div>
+        <div class="card-meta"><span>By QB Learning Kits</span><span class="card-stats"><span>18 questions</span><span>7 min</span></span></div>
+        <div class="card-actions"><button class="card-action preview" type="button">◉ Preview</button><a class="card-action card-action--play start-practice" href="/games/?questionSet=Word%20Wizards">Start Practice <span aria-hidden="true">🎮</span></a></div>
+      </article>
+      <article class="question-card" data-category="math" data-name="Math Mission" data-owner="featured" data-kind="Multiple choice" data-questions="15" data-level="Grade 2–4" data-description="Try number sense, addition, and quick challenges.">
+        <div class="card-top"><h3 class="card-title">Math Mission</h3><span class="card-kind">Multiple choice</span><button class="favorite" type="button" aria-label="Add Math Mission to favorites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"/></svg></button></div>
+        <p class="card-description">Try number sense, addition, and quick challenges.</p><div class="card-tags"><span class="card-tag">Math</span><span class="card-tag">English</span><span class="card-tag">Ages 7–10</span></div>
+        <div class="card-meta"><span>By QB Learning Kits</span><span class="card-stats"><span>15 questions</span><span>6 min</span></span></div>
+        <div class="card-actions"><button class="card-action preview" type="button">◉ Preview</button><a class="card-action card-action--play start-practice" href="/games/?questionSet=Math%20Mission">Start Practice <span aria-hidden="true">🎮</span></a></div>
+      </article>
+      <article class="question-card" data-category="reading" data-name="Story Detectives" data-owner="featured" data-kind="Word list" data-questions="10" data-level="Grade 3–5" data-description="Read for clues, vocabulary, and story details.">
+        <div class="card-top"><h3 class="card-title">Story Detectives</h3><span class="card-kind">Word list</span><button class="favorite" type="button" aria-label="Add Story Detectives to favorites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"/></svg></button></div>
+        <p class="card-description">Read for clues, vocabulary, and story details.</p><div class="card-tags"><span class="card-tag">Reading</span><span class="card-tag">English</span><span class="card-tag">Ages 8–11</span></div>
+        <div class="card-meta"><span>By QB Learning Kits</span><span class="card-stats"><span>10 questions</span><span>5 min</span></span></div>
+        <div class="card-actions"><button class="card-action preview" type="button">◉ Preview</button><a class="card-action card-action--play start-practice" href="/games/?questionSet=Story%20Detectives">Start Practice <span aria-hidden="true">🎮</span></a></div>
+      </article>
+      <article class="question-card" data-category="science" data-name="Amazing Animals" data-owner="featured" data-kind="Word list" data-questions="14" data-level="Grade 1–4" data-description="Discover habitats, adaptations, and animal facts.">
+        <div class="card-top"><h3 class="card-title">Amazing Animals</h3><span class="card-kind">Word list</span><button class="favorite" type="button" aria-label="Add Amazing Animals to favorites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"/></svg></button></div>
+        <p class="card-description">Discover habitats, adaptations, and animal facts.</p><div class="card-tags"><span class="card-tag">Science</span><span class="card-tag">English</span><span class="card-tag">Ages 6–10</span></div>
+        <div class="card-meta"><span>By QB Learning Kits</span><span class="card-stats"><span>14 questions</span><span>6 min</span></span></div>
+        <div class="card-actions"><button class="card-action preview" type="button">◉ Preview</button><a class="card-action card-action--play start-practice" href="/games/?questionSet=Amazing%20Animals">Start Practice <span aria-hidden="true">🎮</span></a></div>
+      </article>
+      <article class="question-card" data-category="reading" data-name="Picture Book Pals" data-owner="featured" data-kind="Word list" data-questions="8" data-level="Grade K–2" data-description="Build comprehension with friendly short stories.">
+        <div class="card-top"><h3 class="card-title">Picture Book Pals</h3><span class="card-kind">Word list</span><button class="favorite" type="button" aria-label="Add Picture Book Pals to favorites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"/></svg></button></div>
+        <p class="card-description">Build comprehension with friendly short stories.</p><div class="card-tags"><span class="card-tag">Reading</span><span class="card-tag">English</span><span class="card-tag">Ages 5–7</span></div>
+        <div class="card-meta"><span>By QB Learning Kits</span><span class="card-stats"><span>8 questions</span><span>4 min</span></span></div>
+        <div class="card-actions"><button class="card-action preview" type="button">◉ Preview</button><a class="card-action card-action--play start-practice" href="/games/?questionSet=Picture%20Book%20Pals">Start Practice <span aria-hidden="true">🎮</span></a></div>
+      </article>
+    </section>
+    <section class="empty" id="empty" aria-live="polite">
+      <strong id="empty-title">No question sets match your search.</strong>
+      <div id="empty-detail">Try another search or subject.</div>
+      <button id="create-link" hidden type="button" disabled aria-disabled="true" title="Not available yet" data-future-route="/questions/create/">Create a question set</button>
+    </section>
+</section>    <button class="community" type="button" disabled aria-disabled="true" title="Not available yet" data-future-route="/teachers/">
+      <span class="community-icon" aria-hidden="true">👩‍🏫</span>
+      <span class="community-copy"><strong>Join our teacher community</strong><small>Explore classroom tools and create learning activities.</small></span>
+    </button>  </main><div data-site-footer></div><dialog class="preview-dialog" id="preview-dialog" aria-labelledby="preview-title">
+    <div class="preview-content"><span class="card-kind" id="preview-kind">Question set</span><h2 id="preview-title"></h2><p id="preview-description"></p><div class="card-tags" id="preview-tags"></div><p id="preview-meta"></p><div class="preview-actions"><button class="card-action" id="close-preview" type="button">Close</button><a class="card-action card-action--play" id="preview-choose-game" href="/games/">Choose a game</a></div></div>
+  </dialog></body></html>

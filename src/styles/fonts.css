@@ -1,0 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Sans+Khmer:wght@400;600;700;800&display=swap");
+:root { --qb-font:"Luckiest Guy","Noto Sans Khmer",system-ui,sans-serif; }
+html,body,body * { font-family:var(--qb-font)!important; }
+:lang(km) { font-family:"Noto Sans Khmer","Luckiest Guy",system-ui,sans-serif!important; }

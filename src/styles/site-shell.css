@@ -1,0 +1,64 @@
+:root{  --lp-ink: #253247; --lp-sky: #75c9f5; --lp-blue: #dff3ff; --lp-yellow: #ffd76a; --lp-mint: #a8e6cf; --lp-coral: #ff9a8b; --lp-paper: #f7fafc; --lp-line: 2px solid var(--lp-ink); --lp-shadow: 4px 5px 0 rgb(37 50 71 / 16%);  }
+html{  scroll-behavior: smooth; scroll-padding-top: 6rem;  }
+body{  margin: 0; background: var(--lp-paper); color: var(--lp-ink); font: 400 16px/1.5 "Luckiest Guy", "Trebuchet MS", cursive;  }
+a{  color: inherit;  }
+img{  display: block; max-width: 100%;  }
+.lp-shell{  width: min(100% - 2rem, 76rem); margin-inline: auto;  }
+.lp-header{  position: sticky; top: 0; z-index: 30; background: rgb(255 255 255 / 96%); border-bottom: var(--lp-line); backdrop-filter: blur(12px);  }
+.lp-header-inner{  display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 5.25rem;  }
+.lp-brand{  display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font-size: 1.05rem; line-height: 1.05;  }
+.lp-brand img{  width: 3.2rem; height: 3.2rem; object-fit: cover; border: var(--lp-line); border-radius: 1rem; background: white;  }
+.lp-brand small{  display: block; color: #526174; font-size: .72rem;  }
+.lp-language-control, .lp-start-wrap{  box-sizing: border-box; position: relative; width: 9.4rem; flex: 0 0 9.4rem;  }
+.lp-language-control{  min-height: 2.9rem; padding: 0; border: 0; border-radius: .7rem; background: transparent; color: var(--lp-ink);  }
+.lp-language-trigger{  box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; min-height: 2.9rem; min-width: 0; padding: .65rem 1rem; border: 2px solid var(--lp-ink); border-radius: var(--qb-radius-sm, .7rem); background: var(--lp-blue); color: var(--lp-ink); box-shadow: var(--qb-shadow-sm, 2px 3px 0 rgb(37 50 71 / 16%)); font: inherit; cursor: pointer;  }
+.lp-language-current{  display: inline-flex; align-items: center; justify-content: center; min-width: 0; white-space: nowrap;  }
+.lp-language-name{  overflow: hidden; text-overflow: ellipsis;  }
+.lp-language-trigger:focus-visible{  outline: 3px solid #2376a1; outline-offset: 2px;  }
+.lp-language-menu{  position: absolute; top: calc(100% + .45rem); left: 0; z-index: 50; display: grid; gap: .25rem; width: max-content; min-width: 100%; max-width: calc(100vw - 1.5rem); padding: .35rem; border: 2px solid var(--lp-ink); border-radius: .75rem; background: #fff; color: var(--lp-ink); box-shadow: 0 7px 18px rgb(37 50 71 / 20%); animation: lp-language-open .16s ease-out;  }
+.lp-language-menu[hidden]{  display: none;  }
+.lp-language-option{  display: flex; align-items: center; justify-content: space-between; gap: .9rem; min-height: 2.65rem; padding: .45rem .65rem; border: 0; border-radius: .45rem; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer;  }
+.lp-language-option:hover{  background: var(--lp-blue);  }
+.lp-language-option[aria-checked="true"]{  background: var(--lp-mint);  }
+.lp-language-option:focus-visible{  outline: 3px solid #2376a1; outline-offset: 1px;  }
+.lp-language-check{  font-size: 1.05em;  }
+@keyframes lp-language-open{   from { opacity: 0; transform: translateY(-.25rem); } to { opacity: 1; transform: translateY(0); }   }
+@media (prefers-color-scheme: dark){.lp-language-control{ --lp-ink: #e8f2ff; color: #f6f9ff; }
+.lp-language-trigger{ border-color: #e8f2ff; background: #35516c; color: #fff; }
+.lp-language-menu{ border-color: #e8f2ff; background: #182538; color: #f6f9ff; box-shadow: 0 7px 18px rgb(0 0 0 / 45%); }
+.lp-language-option:hover{ background: #35516c; }
+.lp-language-option[aria-checked="true"]{ background: #2f705d; }}
+.lp-start-wrap{  position: relative;  }
+.lp-start-trigger{  box-sizing: border-box; width: 100%; min-height: 2.9rem; text-transform: uppercase;  }
+.lp-start-menu{  position: absolute; top: calc(100% + .65rem); right: 0; z-index: 40; display: grid; gap: .5rem; width: min(13rem, calc(100vw - 1.5rem)); padding: .55rem; border: 2px solid var(--lp-ink); border-radius: 1rem; background: white; box-shadow: 4px 5px 0 var(--lp-ink);  }
+.lp-start-menu[hidden]{  display: none;  }
+.lp-start-menu :is(a,button){  display: flex; align-items: center; justify-content: center; min-height: 3rem; padding: .6rem .8rem; border: 2px solid var(--lp-ink); border-radius: .8rem; background: var(--lp-paper); color: var(--lp-ink); text-align: center; text-decoration: none; text-transform: uppercase;  }
+.lp-start-menu :is(a,button):last-child{  background: var(--lp-mint);  }
+.lp-start-menu :is(a,button):focus-visible{  outline: 3px solid #2376a1; outline-offset: 2px;  }
+.lp-actions{  display: flex; flex: 0 0 auto; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .65rem; margin-left: auto;  }
+.lp-actions .qb-button{  min-width: 7.5rem; justify-content: center;  }
+.lp-footer{  padding: 2.5rem 0; border-top: var(--lp-line); background: white;  }
+.lp-footer-inner{  display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;  }
+.lp-footer p{  max-width: 28rem; margin: .5rem 0 0; color: #526174;  }
+.lp-footer-nav{  display: flex; flex-wrap: wrap; gap: .55rem 1rem;  }
+.lp-footer-nav :is(a,button){  padding: .25rem;  }
+@media (max-width: 900px){.lp-header-inner{ flex-wrap: wrap; padding-block: .6rem; }
+.lp-actions{ margin-left: auto; }}
+@media (max-width: 680px){.lp-shell{ width: min(100% - 1.25rem, 76rem); }
+.lp-footer-inner{ align-items: flex-start; flex-direction: column; }
+.lp-brand{ font-size: .88rem; }
+.lp-brand img{ width: 2.7rem; height: 2.7rem; }
+.lp-actions{ width: 100%; margin-left: 0; justify-content: center; gap: .55rem; }
+.lp-actions .qb-button, .lp-language-control, .lp-start-wrap{ flex: 1 1 7rem; max-width: 9rem; min-width: 0; }
+.lp-actions .qb-button{ justify-content: center; }
+.lp-header-inner{ gap: .5rem; }}
+@media (max-width: 390px){.lp-brand small{ display: none; }}
+@media (prefers-reduced-motion: reduce){html{ scroll-behavior: auto; }}
+img{  max-width:100%  }
+a{  overflow-wrap:break-word  }
+body{  font-family:"Luckiest Guy","Noto Sans Khmer",sans-serif!important;font-weight:400  }
+.lp-hero>.lp-shell{  position:relative;z-index:1  }
+.lp-start-menu button{  display:block; width:100%; text-align:left; font:inherit; border:0; cursor:not-allowed;  }
+.lp-footer-nav button{  color:inherit; font:inherit; border:0; background:transparent; padding:0; text-align:left;  }
+.lp-start-menu:focus-visible{  outline:3px solid #176ba0;  }
+html{scrollbar-gutter:stable}body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}body>main{flex:1}body>.lp-footer{margin-top:auto}

@@ -1,0 +1,5 @@
+/* Visual identity for Wheel Spin Carnival. Shared layout lives in ../shared/styles.css. */
+.game-introduction[data-game="wheel-spin-carnival"] { --game-accent:#ffd76a; --game-soft:#fff8df; }
+
+/* Playable game interaction */
+.carnival-world{position:relative;display:grid;justify-items:center;padding:20px;border:3px solid #253247;border-radius:20px;background:#fff4d6;overflow:hidden}.prize-wheel{position:relative;width:min(70vw,300px);aspect-ratio:1;border:7px solid #253247;border-radius:50%;background:conic-gradient(#ffd96b 0deg 60deg,#a5e5cf 60deg 120deg,#74d2f4 120deg 180deg,#f8acd3 180deg 240deg,#bca6ed 240deg 300deg,#ff9e8b 300deg 360deg)}.wheel-pointer{z-index:1;font-size:32px;color:#253247;margin-bottom:-14px}.wheel-prize{position:absolute;inset:0;display:flex;justify-content:center;padding-top:18px;transform:rotate(calc(var(--sector)*60deg + 30deg));font-size:23px}.wheel-outcome{min-height:28px;margin-bottom:0}.wheel-spinning{animation:prize-spin 1.4s cubic-bezier(.12,.6,.16,1) forwards}@keyframes prize-spin{to{transform:rotate(var(--spin))}}

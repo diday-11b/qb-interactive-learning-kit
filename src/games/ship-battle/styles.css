@@ -1,0 +1,5 @@
+/* Visual identity for Ship Battle. Shared layout lives in ../shared/styles.css. */
+.game-introduction[data-game="ship-battle"] { --game-accent:#75c9f5; --game-soft:#e4f6ff; }
+
+.game-configuration[data-game="ship-battle"] .settings-ship-choice[data-value="mint"] img{filter:hue-rotate(100deg)}
+.game-configuration[data-game="ship-battle"] .settings-ship-choice[data-value="violet"] img{filter:hue-rotate(245deg)}

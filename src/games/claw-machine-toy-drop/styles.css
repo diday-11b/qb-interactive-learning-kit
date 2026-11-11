@@ -1,0 +1,7 @@
+/* Visual identity for Claw Machine Toy Drop. Shared layout lives in ../shared/styles.css. */
+.game-introduction[data-game="claw-machine-toy-drop"] { --game-accent:#f5a4d1; --game-soft:#fff0f9; }
+
+/* Playable game interaction */
+.claw-cabinet{padding:20px;border:8px solid #f08bbb;border-radius:24px;background:linear-gradient(#b8eaff,#e9dcff);box-shadow:inset 0 0 0 3px #253247;overflow:hidden}.claw-rail{position:relative;height:100px;border-top:6px solid #253247}.moving-claw{position:absolute;top:0;font-size:75px;line-height:1;transform:translateX(-50%);color:#253247}.moving-claw:before{content:'';display:block;margin:auto;width:4px;height:35px;background:#253247}.toy-shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.toy-target{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0;min-height:105px;border:2px solid #253247;border-radius:14px;background:#fff;font:inherit;cursor:pointer;overflow-wrap:anywhere}.toy-target img{width:70px;height:65px;object-fit:contain}.toy-target[aria-pressed=true]{background:#ffe27f;outline:3px solid #175b78}.collection-count{text-align:center;font-size:18px}.claw-dropping{animation:claw-drop 1s ease-in-out both}@keyframes claw-drop{50%{top:85px}to{top:0}}@media(max-width:500px){.claw-cabinet{padding:10px}.toy-shelf{gap:6px}.toy-target{font-size:12px}.toy-target img{width:45px}}
+
+.toy-grabbed{animation:collected-toy 1s ease both}@keyframes collected-toy{45%{transform:translateY(0)}to{transform:translateY(-65px) scale(.6);opacity:0}}

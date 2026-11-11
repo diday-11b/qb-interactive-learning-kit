@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Alien Spelling Shuttle</title>
+  <desc id="desc">A friendly green alien rides in a little purple rocket among stars and letters.</desc>
+  <rect width="640" height="400" fill="#282f78"/>
+  <g id="thumbnail-artwork" transform="translate(38.4 41.6) scale(0.88)">
+  <circle cx="82" cy="72" r="5" fill="#fff"/><circle cx="187" cy="108" r="7" fill="#ffd76a"/><circle cx="547" cy="88" r="6" fill="#fff"/><circle cx="488" cy="265" r="5" fill="#ffd76a"/><circle cx="111" cy="264" r="6" fill="#fff"/>
+  <path d="m503 144 8 16 18 3-13 12 3 18-16-9-16 9 3-18-13-12 18-3z" fill="#ffd76a"/>
+  <path d="m149 105 6 12 13 2-9 9 2 13-12-6-11 6 2-13-10-9 13-2z" fill="#a8e6cf"/>
+  <g transform="rotate(-12 337 200)">
+    <path d="M203 227c24-74 84-114 156-111 69 3 118 50 139 112-53 43-111 65-174 63-50-2-91-22-121-64z" fill="#ff9a8b" stroke="#151c28" stroke-width="10" stroke-linejoin="round"/>
+    <path d="m220 219-72-42 19 76z" fill="#ffd76a" stroke="#151c28" stroke-width="9" stroke-linejoin="round"/>
+    <path d="m473 224 71-42-20 76z" fill="#ffd76a" stroke="#151c28" stroke-width="9" stroke-linejoin="round"/>
+    <ellipse cx="337" cy="190" rx="70" ry="56" fill="#a8e6cf" stroke="#151c28" stroke-width="9"/>
+    <ellipse cx="317" cy="184" rx="8" ry="12" fill="#253247"/><ellipse cx="356" cy="184" rx="8" ry="12" fill="#253247"/>
+    <path d="M320 208q17 17 35 0" fill="none" stroke="#253247" stroke-width="7" stroke-linecap="round"/>
+    <path d="m332 117 4-29m0 0-15-13m15 13 16-14" fill="none" stroke="#151c28" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="320" cy="74" r="8" fill="#75c9f5"/><circle cx="352" cy="72" r="8" fill="#ffd76a"/>
+  </g>
+  <g font-family="sans-serif" font-weight="900" font-size="30" text-anchor="middle">
+    <rect x="92" y="155" width="48" height="48" rx="12" fill="#fff"/><text x="116" y="189" fill="#253247">A</text>
+    <rect x="503" y="292" width="48" height="48" rx="12" fill="#fff"/><text x="527" y="326" fill="#253247">B</text>
+  </g>
+  </g>
+</svg>
