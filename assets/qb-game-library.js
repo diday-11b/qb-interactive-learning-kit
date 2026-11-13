@@ -215,18 +215,15 @@
     if (game.duration_minutes != null) meta.append(el("span", "", `${game.duration_minutes} min`));
     if (game.game_type) meta.append(el("span", "", { solo: "Solo", classroom: "Classroom", multiplayer: "Multiplayer" }[game.game_type]));
     content.append(meta);
-    if (game.homepageScreen && playHref) {
-      const play = el("a", "qb-catalog-play", "Adventure Settings →");
-      play.href = playHref; content.append(play);
-    } else if (engineNames[game.engine_type] && game.id && playHref) {
-      const play = el("a", "qb-catalog-play", "Adventure Settings →");
-      play.href = playHref; content.append(play);
-    } else if (playHref) {
-      const play = el("a", "qb-catalog-play", "Adventure Settings →");
-      play.href = playHref; content.append(play);
+    if (playHref) {
+      const play = el("a", "card-action catalog-play-now", "Play Now");
+      play.href = playHref;
+      content.append(play);
     } else {
-      const unavailable = el("span", "qb-game-empty", "This activity is listed, but its interactive player is not available yet.");
-      unavailable.setAttribute("role", "status"); content.append(unavailable);
+      const unavailable = el("button", "card-action catalog-coming-soon", "Coming Soon");
+      unavailable.type = "button";
+      unavailable.disabled = true;
+      content.append(unavailable);
     }
     card.append(art, content); return card;
   }
