@@ -1,6 +1,6 @@
 // Explicit local-practice approvals documented in VERIFICATION.md.
 const approved = new Set([
- 'ship-battle', 'alien-spelling', 'wheel-spin-carnival',
+ 'ship-battle', 'alien-spelling',
  'claw-machine-toy-drop', 'potion-lab-alchemy', 'balloon-pop-math-sprint'
 ]);
 

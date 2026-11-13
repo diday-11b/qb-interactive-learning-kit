@@ -1,5 +1,5 @@
 import {isAvailable} from './shared/availability.js?v=11';
-import {games} from './registry.js?v=11';
+import {games} from './registry.js?v=13';
 import {element,link} from './shared/dom.js?v=11';
 import {gameHref} from './shared/question-selection.js?v=11';
 import {journey,selectedSet} from './shared/navigation.js?v=11';
@@ -14,7 +14,13 @@ const rabbitRacing = Object.freeze({
  language:'en',
  thumbnail:'/games/rabbit-racing/thumbnail.svg'
 });
-const catalogGames = [...games, rabbitRacing];
+const wheel = Object.freeze({
+ slug:'wheel-spin-carnival', title:'Wheel Spin Carnival',
+ description:'Add group members and spin the wheel to select a name at random.',
+ category:'math', language:'en', thumbnail:'/assets/game-art/wheel-spin-carnival.svg'
+});
+const standaloneGames = [rabbitRacing, wheel];
+const catalogGames = [...games, wheel, rabbitRacing];
 
 export function filterGames(items,{search='',view='all',language=''}={}) {
  const term=search.trim().toLocaleLowerCase();
@@ -48,11 +54,11 @@ export function renderCatalog(root,selection) {
   const matches=filterGames(catalogGames,{search:search.value,view,language:language.value});count.textContent=matches.length+' '+(matches.length===1?'game':'games');empty.hidden=matches.length>0;
   grid.replaceChildren(...matches.map(game=>{
    const card=element('article','game-card');card.dataset.game=game.slug;
-   const ready=game===rabbitRacing || isAvailable(game);
-   const practiceHref=gameHref(game.slug,selection);
-   const href=game===rabbitRacing
-    ? '/games/rabbit-racing/'+gameHref(null,selection).slice('/games/'.length)
-    : practiceHref;
+   const standalone=standaloneGames.includes(game);
+   const ready=standalone || isAvailable(game);
+   const href=standalone
+    ? '/games/'+game.slug+'/'+gameHref(null,selection).slice('/games/'.length)
+    : gameHref(game.slug,selection);
    const art=element('div','game-thumbnail');
    if(game.thumbnail){
     const image=element('img');image.src=game.thumbnail;image.alt='';image.width=640;image.height=400;image.loading='lazy';image.decoding='async';art.append(image);

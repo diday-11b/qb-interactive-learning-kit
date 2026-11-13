@@ -10,12 +10,6 @@
       focuses: ["Vowel sounds", "Word building", "Listen & spell"],
       launchLabel: "Play Alien Spelling"
     },
-    "wheel-spin-carnival": {
-      category: "Math fluency", time: "5–8 min", level: "Quick-fire practice",
-      icon: "🎡", question: "Solve the carnival challenge:  8 × 4 = ?", answer: "32",
-      focuses: ["Quick number facts", "Multiplication", "Prize rounds"],
-      steps: ["Solve a short number challenge", "Spin the prize wheel", "Collect a multiplier or treasure reward"]
-    },
     "claw-machine-toy-drop": {
       category: "Sight words", time: "Self-paced", level: "Vocabulary practice",
       icon: "🕹️", question: "Choose the word that matches the picture:  🐘", answer: "ELEPHANT",
@@ -91,8 +85,8 @@
       const action = make("button", "qb-detail-action qb-detail-action--primary", "Game screen coming soon");
       action.type = "button"; action.disabled = false; action.textContent = "Play practice round →";
       action.addEventListener("click", () => {
-        let index = 0, score = 0; let rewardTotal = 0;
-        const rounds = gameKey.includes("math") || gameKey.includes("wheel")
+        let index = 0, score = 0;
+        const rounds = gameKey.includes("math")
           ? Array.from({length:5}, (_, i) => ({q:`${i+3} + ${i+5} = ?`, choices:[String(2*i+7),String(2*i+8),String(2*i+9)], answer:String(2*i+8)}))
           : gameKey === "alien-spelling" ? [{q:"Complete the word: C _ T",choices:["A","O","I"],answer:"A"},{q:"Complete the word: D _ G",choices:["A","O","U"],answer:"O"},{q:"Complete the word: S _ N",choices:["E","I","U"],answer:"U"},{q:"Complete the word: P _ N",choices:["E","A","O"],answer:"E"},{q:"Complete the word: F _ SH",choices:["U","I","A"],answer:"I"}] : gameKey === "ship-battle" ? [{q:"Which word starts with SH?",choices:["SHIP","CAT","DOG"],answer:"SHIP"},{q:"Which word rhymes with BOAT?",choices:["GOAT","FISH","SUN"],answer:"GOAT"},{q:"Which word starts with F?",choices:["BOAT","FISH","SHIP"],answer:"FISH"},{q:"Complete the word: S _ A",choices:["E","O","U"],answer:"E"},{q:"Which word rhymes with WAVE?",choices:["SAVE","SHIP","CAT"],answer:"SAVE"}] : [{q:"Which word names an animal?",choices:["CAT","CUP","CAR"],answer:"CAT"},{q:"Choose the opposite of HOT",choices:["COLD","BIG","RED"],answer:"COLD"},{q:"Which word matches 🍎?",choices:["BALL","APPLE","SHIP"],answer:"APPLE"},{q:"Complete the word: C _ T",choices:["A","B","D"],answer:"A"},{q:"Choose the opposite of UP",choices:["IN","ON","DOWN"],answer:"DOWN"}];
         if(QBAdventureSetup.preferences(main).randomize)QBAdventureSetup.shuffle(rounds);
@@ -100,7 +94,7 @@
           board.replaceChildren();
           if(index === rounds.length) {
             board.append(make("h2", "", "Round complete!"), make("p", "", `${score} of ${rounds.length} correct`), make("p", "", "Practice round only — this score is not saved to your account."));
-            const again=make("button","qb-detail-action","Play again"); again.onclick=()=>{index=0;score=0;rewardTotal=0;show();}; board.append(again); again.focus(); return;
+            const again=make("button","qb-detail-action","Play again"); again.onclick=()=>{index=0;score=0;show();}; board.append(again); again.focus(); return;
           }
           const round=rounds[index];QBAdventureSetup.speak(main,round.q);
           let answered=false;
@@ -108,7 +102,7 @@
           const visual=make("span","qb-round-visual",profile.icon); scene.append(visual);
           if(gameKey === "potion-lab-alchemy") { const meter=make("progress","qb-potion-meter");meter.max=5;meter.value=score;meter.setAttribute("aria-label","Potion ingredients collected");scene.append(meter); }
           board.append(scene);
-          const rewards=make("p","qb-round-rewards",gameKey === "wheel-spin-carnival" ? `Carnival stars: ${rewardTotal}` : `Collected: ${score}`);rewards.setAttribute("role","status"); rewards.setAttribute("aria-live","polite"); board.append(rewards);
+          const rewards=make("p","qb-round-rewards",`Collected: ${score}`);rewards.setAttribute("role","status"); rewards.setAttribute("aria-live","polite"); board.append(rewards);
           board.append(make("p","",`Question ${index+1} of ${rounds.length}`),make("h2","",round.q));
           round.choices.forEach(choice=>{
             const answer=make("button","qb-detail-action"+(gameKey === "balloon-pop-math-sprint" ? " qb-answer-balloon" : ""),choice); answer.type="button";
@@ -118,7 +112,6 @@
                 score++; window.QBCorrectConfetti?.play();
                 if(gameKey === "ship-battle") {visual.textContent="💦";rewards.textContent=`Direct hit! ${score} correct answers`;}
                 if(gameKey === "alien-spelling") {visual.textContent="🚀";rewards.textContent=`Launch successful! ${score} words completed`;}
-                if(gameKey === "wheel-spin-carnival") { const prize=[10,20,30,40,50][index];rewardTotal+=prize;visual.classList.add("qb-wheel-spin");rewards.textContent=`You won ${prize} stars! Total: ${rewardTotal}`; }
                 if(gameKey === "claw-machine-toy-drop") {visual.textContent="🧸";visual.classList.add("qb-toy-drop");rewards.textContent=`Toy collected! ${score} in your collection`;}
                 if(gameKey === "potion-lab-alchemy") {scene.querySelector("progress").value=score;visual.textContent=score===5?"✨":"🧪";rewards.textContent=`${score} of 5 ingredients mixed`;}
                 if(gameKey === "balloon-pop-math-sprint") {answer.classList.add("qb-balloon-popped");rewards.textContent=`Pop! ${score} balloons collected`;}

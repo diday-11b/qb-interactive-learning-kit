@@ -524,26 +524,23 @@
 <div class="h-32 bg-gradient-to-br from-[#FFF0A8] to-primary-fixed relative flex items-center justify-center p-4 border-b-2 border-on-surface overflow-hidden">
 <span class="text-6xl select-none transform hover:rotate-45 transition-transform cursor-pointer">🎡</span>
 <div class="absolute top-2 left-2 bg-primary-container text-on-surface font-label-sm text-xs px-2.5 py-0.5 rounded-full toy-border font-extrabold flex items-center gap-1">
-<span class="">⚡ 2X Stars</span>
+<span class="">Group activity</span>
 </div>
 <div class="absolute bottom-2 right-2 bg-surface-container-lowest px-2 py-0.5 rounded-md toy-border text-[11px] font-label-sm font-bold text-on-surface">
-                Fast Math
+                Name picker
               </div>
 </div>
 <div class="p-4 space-y-2 flex-1">
 <div class="flex items-center justify-between">
 <h4 class="font-headline-sm text-title-md font-bold text-on-surface">Wheel Spin Carnival</h4>
-<span class="text-xs font-label-sm font-bold bg-secondary-fixed px-2 py-0.5 rounded toy-border text-on-surface">Numbers</span>
+<span class="text-xs font-label-sm font-bold bg-secondary-fixed px-2 py-0.5 rounded toy-border text-on-surface">Classroom</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant font-semibold">
-                Big prize wheel carnival! Solve rapid-fire arithmetic puzzles to spin and win treasure chests.
+                Add group members and spin the wheel to pick a name at random.
               </p>
 </div>
 <div class="p-4 pt-0">
-<button class="w-full bg-primary-container hover:bg-[#ff8920] text-on-surface font-label-md text-label-md font-extrabold py-2.5 rounded-xl toy-border toy-shadow-sm toy-btn-press flex items-center justify-center gap-1">
-<span class="">Spin &amp; Solve</span>
-<span class="material-symbols-outlined text-base select-none">casino</span>
-</button>
+<a class="qb-button qb-button--mint" href="/games/wheel-spin-carnival/">Play Now</a>
 </div>
 </div>
 <!-- Card 4: Claw Machine Toy Drop -->
@@ -789,7 +786,7 @@
 <span class="font-label-md text-label-md font-bold mt-0.5">Badges</span>
 </a>
 </nav>
-<script src="../assets/qb-game-detail-screen.js?v=20261105-main-flow"></script>
+<script src="../assets/qb-game-detail-screen.js?v=wheel-names"></script>
 <!-- ================= INLINE INTERACTION JAVASCRIPT ================= -->
 <script>
     // Audio Toggle Micro-interaction
@@ -812,7 +809,11 @@
     const gameCards = document.querySelectorAll('.game-card');
 
     const requestedGame = new URLSearchParams(window.location.search).get('game');
-    if (requestedGame) {
+    if (requestedGame === 'wheel-spin-carnival') {
+      const params = new URLSearchParams(location.search);
+      params.delete('game');
+      location.replace('/games/wheel-spin-carnival/' + (params.size ? '?' + params : ''));
+    } else if (requestedGame) {
       const selectedCard = Array.from(gameCards).find(card => card.getAttribute('data-game') === requestedGame);
       if (selectedCard) {
         if (!window.QBGameDetailScreen?.render(requestedGame, selectedCard)) {

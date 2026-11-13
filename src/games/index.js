@@ -1,16 +1,18 @@
 import {isAvailable} from './shared/availability.js?v=11';
 import {startGame} from './shared/play.js?v=11';
 import {renderSettings} from './shared/settings.js?v=11';
-import {findGame} from './registry.js?v=11';
+import {findGame} from './registry.js?v=13';
 import {loadSelection,gameHref} from './shared/question-selection.js?v=11';
-import {renderCatalog} from './catalog.js?v=12';
+import {renderCatalog} from './catalog.js?v=13';
 import {renderIntroduction} from './shared/introduction.js?v=11';
 import {element,link} from './shared/dom.js?v=11';
 const root=document.querySelector('#game-app');
 try {
  const selection=await loadSelection(location.search);
  const slug=new URLSearchParams(location.search).get('game');
- if(slug){
+ if(slug==='wheel-spin-carnival'){
+  location.replace('/games/wheel-spin-carnival/'+gameHref(null,selection).slice('/games/'.length));
+ } else if(slug){
   const game=findGame(slug);
   if(!game){document.title='Game not found — QB Interactive Learning Kits';root.replaceChildren(element('h1','','Game not found'),element('p','','Choose a game from the library.'),link('Back to Game Library','/games/'));}
   else if(!isAvailable(game)){

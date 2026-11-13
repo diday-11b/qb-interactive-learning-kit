@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wheel Spin Carnival · QB Learning Kits</title>
+<link rel="stylesheet" href="/assets/qb-design-system.css?v=20261104-shell-links">
+<link rel="stylesheet" href="styles.css?v=1">
+<script defer src="/assets/qb-design-system.js?v=20261104-shell-links"></script>
+<script defer src="/assets/vendor/lottie-light-5.12.2.min.js"></script>
+<script defer src="/assets/qb-answer-confetti.js?v=3"></script>
+<script type="module" src="app.js?v=1"></script></head>
+<body><qb-site-header current="games"></qb-site-header>
+<main class="wheel-app">
+ <header><a id="back" href="/02._qb_explore_games_catalog/code.html">← Explore Games</a><h1>Wheel Spin Carnival</h1><p>Pick a group member at random for your next classroom activity.</p></header>
+ <div class="layout">
+  <section class="panel roster" aria-labelledby="members-title">
+   <h2 id="members-title">Group Members <span id="member-count"></span></h2>
+   <fieldset id="roster-controls">
+    <form id="add"><label for="name">Member name</label><div class="row"><input id="name" maxlength="120" required><button>Add Member</button></div></form>
+    <details><summary>Add Multiple Members</summary><form id="bulk"><label for="names">One name per line</label><textarea id="names" rows="4" required></textarea><button>Add Members</button></form></details>
+    <label for="search">Search members</label><input id="search" type="search">
+    <ol id="members"></ol><p id="empty"></p>
+    <div class="row"><button id="shuffle" type="button">Shuffle order</button><button id="clear" type="button">Clear All</button></div>
+   </fieldset>
+  </section>
+  <section class="panel play" aria-labelledby="wheel-title">
+   <div class="row top"><h2 id="wheel-title">The Wheel</h2><button id="sound" type="button" aria-pressed="true">Sound on</button></div>
+   <div class="disc"><canvas id="wheel" width="800" height="800" aria-hidden="true"></canvas><span class="pointer" aria-hidden="true"></span><button id="hub" class="primary hub" type="button">Spin</button></div>
+   <p id="status" role="status"></p><button id="spin" class="primary" type="button">Spin the Wheel</button>
+   <div class="options"><label for="mode">Winner selection</label><select id="mode"><option value="repeat">Allow Repeated Winners</option><option value="unique">No Repeated Winners</option></select>
+   <div class="row"><button id="reset-winners" type="button">Reset Winners</button><button id="reset-wheel" type="button">Reset Wheel</button></div>
+   <details><summary>Winner History <span id="total"></span></summary><ol id="history"></ol></details></div>
+  </section>
+ </div>
+ <div id="toast" role="status"></div>
+ <dialog id="winner" aria-labelledby="congrats"><div class="trophy" aria-hidden="true">🏆</div><h2 id="congrats">Congratulations!</h2><p id="winner-name"></p>
+  <div class="row"><button class="primary" id="again" type="button">Spin Again</button><button id="remove-winner" type="button">Remove Winner &amp; Continue</button><form method="dialog"><button>Close</button></form></div>
+ </dialog>
+ <dialog id="confirm" aria-labelledby="confirm-title"><form method="dialog"><h2 id="confirm-title">Clear all members?</h2><p>This clears the roster and winner history.</p><div class="row"><button value="cancel" autofocus>Cancel</button><button value="clear">Clear All</button></div></form></dialog>
+</main></body></html>
