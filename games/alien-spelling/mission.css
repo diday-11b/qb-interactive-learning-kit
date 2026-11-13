@@ -1,0 +1,29 @@
+#alien-game{width:min(1100px,100% - 28px);margin:16px auto 48px;color:#212b51}
+#alien-game button,#alien-game a{touch-action:manipulation}
+#alien-game button{min-height:44px}
+#alien-game .mission-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px}
+#mission-back{margin-inline-end:auto}
+#alien-game .mission-toolbar button,#alien-game dialog button{font:inherit;font-weight:700;border:2px solid #626c9a;border-radius:12px;background:#fff;color:#212b51;padding:8px 14px}
+#alien-game [hidden]{display:none!important}
+#mission-screen>h1{text-align:center;font-size:clamp(1.8rem,5vw,3rem)}
+#mission-screen .alien-stage{min-height:clamp(235px,54dvh,570px);margin-block:12px}
+#mission-screen .alien-shuttle{width:clamp(70px,19%,220px)}
+#mission-screen .alien-shuttle svg{width:100%;display:block}
+#mission-screen .alien-stage.mission-moving .alien-exhaust{opacity:1;filter:drop-shadow(0 0 12px #ffd972)}
+.mission-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
+.mission-card{text-align:center;background:#f6f5ff}
+.mission-icon{font-size:2.5rem;margin:0}
+.mission-picture{display:grid;place-items:center;min-height:150px;font-size:clamp(5rem,20vw,9rem);background:#edf4ff;border-radius:22px;margin:12px auto}
+.mission-question{text-align:center;max-width:730px;margin-inline:auto}
+#alien-game .mission-answer{background:#f0edff;color:#212b51;font-size:clamp(1rem,4vw,1.5rem);overflow-wrap:anywhere}
+#alien-game .mission-answer.wrong{background:#ffe5e7;border-color:#ac3b4b}
+#alien-game .mission-answer.correct{background:#b9efcb;border-color:#267648;opacity:1}
+.mission-feedback{min-height:2rem;font-weight:800;margin:12px 0 0}
+.mission-hud{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700}
+.mission-meter{width:100%;height:18px;accent-color:#6651c7}
+#alien-game dialog{width:min(460px,100% - 30px);background:#f7f6ff;color:#212b51;border:2px solid #626c9a;border-radius:20px;padding:22px}
+#alien-game dialog::backdrop{background:#17163899}
+#alien-game:fullscreen,#alien-game.mission-expanded{position:fixed;inset:0;width:100%;height:100dvh;max-width:none;margin:0;padding:16px max(14px,calc((100vw - 1100px)/2));overflow:auto;background:#edf0ff;z-index:9000}
+#alien-game button:focus-visible,#alien-game a:focus-visible{outline:3px solid #5b3dc1;outline-offset:3px}
+@media(max-width:560px){#alien-game .alien-answers{grid-template-columns:repeat(2,minmax(0,1fr))}.mission-toolbar button{flex:1 1 auto}}
+@media(prefers-reduced-motion:reduce){#alien-game *,#alien-game *::before,#alien-game *::after{animation:none!important;transition:none!important}}

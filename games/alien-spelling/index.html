@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alien Spelling Shuttle · QB Learning Kits</title>
+<link rel="stylesheet" href="/assets/qb-design-system.css?v=20261104-shell-links">
+<link rel="stylesheet" href="/assets/alien-spelling.css?v=galaxy">
+<link rel="stylesheet" href="mission.css?v=1">
+<script defer src="/assets/qb-design-system.js?v=20261104-shell-links"></script>
+<script defer src="/assets/vendor/lottie-light-5.12.2.min.js"></script>
+<script defer src="/assets/qb-answer-confetti.js?v=3"></script>
+<script defer src="/assets/alien-spelling-timing.js?v=2-bound-timers"></script>
+<script defer src="/assets/alien-spelling-mission.js?v=1"></script>
+<script defer src="app.js?v=1"></script></head>
+<body class="alien-spelling-active"><qb-site-header current="games"></qb-site-header>
+<main id="alien-game">
+ <div class="mission-toolbar"><a id="mission-back" href="/02._qb_explore_games_catalog/code.html">← Explore Games</a>
+ <button id="mission-sound" type="button" aria-pressed="true">Sound on</button><button id="mission-full" type="button" aria-pressed="false">Full screen</button><button id="mission-pause" type="button" hidden>Pause</button></div>
+ <div id="mission-screen"></div>
+ <dialog id="mission-dialog" aria-labelledby="pause-title"><h2 id="pause-title">Mission paused</h2><div id="pause-actions" class="alien-buttons"></div></dialog>
+</main></body></html>

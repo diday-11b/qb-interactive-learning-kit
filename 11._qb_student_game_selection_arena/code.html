@@ -809,10 +809,10 @@
     const gameCards = document.querySelectorAll('.game-card');
 
     const requestedGame = new URLSearchParams(window.location.search).get('game');
-    if (requestedGame === 'wheel-spin-carnival') {
+    if (requestedGame === 'wheel-spin-carnival' || requestedGame === 'alien-spelling') {
       const params = new URLSearchParams(location.search);
       params.delete('game');
-      location.replace('/games/wheel-spin-carnival/' + (params.size ? '?' + params : ''));
+      location.replace('/games/' + requestedGame + '/' + (params.size ? '?' + params : ''));
     } else if (requestedGame) {
       const selectedCard = Array.from(gameCards).find(card => card.getAttribute('data-game') === requestedGame);
       if (selectedCard) {
@@ -854,4 +854,4 @@
 
 
 
-<script src="/assets/ocean-state.js?v=3-shared"></script><script src="/assets/alien-spelling-questions.js?v=1"></script><script src="/assets/alien-spelling-timing.js?v=2-bound-timers"></script><script src="/assets/alien-spelling.js?v=20261105-main-flow"></script></body></html>
+<script src="/assets/ocean-state.js?v=3-shared"></script><script src="/assets/alien-spelling-questions.js?v=1"></script><script src="/assets/alien-spelling-timing.js?v=2-bound-timers"></script></body></html>

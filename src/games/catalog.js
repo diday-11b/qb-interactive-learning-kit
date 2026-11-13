@@ -54,7 +54,7 @@ export function renderCatalog(root,selection) {
   const matches=filterGames(catalogGames,{search:search.value,view,language:language.value});count.textContent=matches.length+' '+(matches.length===1?'game':'games');empty.hidden=matches.length>0;
   grid.replaceChildren(...matches.map(game=>{
    const card=element('article','game-card');card.dataset.game=game.slug;
-   const standalone=standaloneGames.includes(game);
+   const standalone=standaloneGames.includes(game)||game.slug==='alien-spelling';
    const ready=standalone || isAvailable(game);
    const href=standalone
     ? '/games/'+game.slug+'/'+gameHref(null,selection).slice('/games/'.length)
